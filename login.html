@@ -1,0 +1,172 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Africa AgroVision</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body>
+
+<section class="register-section">
+
+    <div class="register-container">
+
+        <h1>Welcome Back</h1>
+
+        <p>
+            Sign in to your Africa AgroVision account.
+        </p>
+
+        <form id="loginForm">
+
+            <label>Email Address</label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+            >
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                required
+            >
+
+            <button type="submit" id="loginButton">
+                Login
+            </button>
+
+        </form>
+
+        <p class="login-link">
+            Don't have an account?
+            <a href="register.html">
+                Create one here
+            </a>
+        </p>
+
+    </div>
+
+</section>
+
+
+<script>
+
+// ==========================================
+// SUPABASE CONNECTION
+// ==========================================
+
+const SUPABASE_URL =
+    "https://fhvyncltdliduhhfqzqq.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_b2M9akZhcgz5KjOZQ1mPtA_aNXZhv6J";
+
+const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+);
+
+
+// ==========================================
+// LOGIN
+// ==========================================
+
+document.getElementById("loginForm").addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+        const email =
+            document.getElementById("email").value.trim().toLowerCase();
+
+        const password =
+            document.getElementById("password").value;
+
+        const loginButton =
+            document.getElementById("loginButton");
+
+
+        // Disable button while logging in
+
+        loginButton.disabled = true;
+        loginButton.textContent = "Logging in...";
+
+
+        try {
+
+            // Sign in using Supabase Authentication
+
+            const { data, error } =
+                await supabaseClient.auth.signInWithPassword({
+
+                    email: email,
+
+                    password: password
+
+                });
+
+
+            // Login failed
+
+            if (error) {
+
+                console.error("Login error:", error);
+
+                alert(error.message);
+
+                return;
+            }
+
+
+            // Login successful
+
+            console.log("Login successful:", data);
+
+            alert("Login successful!");
+
+
+            // Open dashboard
+
+            window.location.href = "dashboard.html";
+
+
+        } catch (error) {
+
+            console.error("Unexpected error:", error);
+
+            alert(
+                "Something went wrong. Please try again."
+            );
+
+        } finally {
+
+            loginButton.disabled = false;
+            loginButton.textContent = "Login";
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+
+</html>
+```

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Projects | Africa AgroVision</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav class="dashboard-nav">
+
+    <h2>Africa AgroVision 🌱</h2>
+
+    <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="agriculture.html">Agriculture</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#" id="logout">Logout</a></li>
+    </ul>
+
+</nav>
+
+
+<section class="dashboard-hero">
+
+    <h1>Our Projects 🚜</h1>
+
+    <p>
+        Explore the projects driving agricultural innovation
+        and sustainable development across Africa.
+    </p>
+
+</section>
+
+
+<section class="dashboard-cards">
+
+    <div class="card">
+
+        <h3>🌱 Smart Farming</h3>
+
+        <p>
+            Modern agricultural technologies designed to improve
+            productivity and sustainable farming.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>💧 Irrigation Systems</h3>
+
+        <p>
+            Sustainable water management solutions that help
+            farmers improve crop production.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>📚 Farmer Training</h3>
+
+        <p>
+            Educational programs that introduce farmers to
+            modern agricultural practices and technologies.
+        </p>
+
+    </div>
+
+</section>
+
+
+<script>
+
+// Protect this page
+if (localStorage.getItem("loggedIn") !== "true") {
+
+    window.location.replace("login.html");
+
+}
+
+
+// Logout
+document.getElementById("logout").addEventListener("click", function(e) {
+
+    e.preventDefault();
+
+    if (confirm("Are you sure you want to logout?")) {
+
+        localStorage.removeItem("loggedIn");
+
+        window.location.replace("login.html");
+
+    }
+
+});
+
+</script>
+
+
+</body>
+</html>

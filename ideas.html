@@ -1,0 +1,460 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ideas & Feedback | Africa AgroVision</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body>
+
+<nav class="dashboard-nav">
+
+    <h2>Africa AgroVision 🌱</h2>
+
+    <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="agriculture.html">Agriculture</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#" id="logout">Logout</a></li>
+    </ul>
+
+</nav>
+
+
+<section class="dashboard-hero">
+
+    <h1>Ideas & Feedback 💡</h1>
+
+    <p>
+        Share your ideas, suggestions, questions, or feedback
+        with Africa AgroVision.
+    </p>
+
+</section>
+
+
+<section class="ideas-section">
+
+    <div class="ideas-form-card">
+
+        <h2>Share Your Idea</h2>
+
+        <form id="ideaForm">
+
+            <label>Your Name</label>
+
+            <input
+                type="text"
+                id="ideaName"
+                placeholder="Enter your name"
+                required
+            >
+
+            <label>Your Idea or Comment</label>
+
+            <textarea
+                id="ideaText"
+                placeholder="Tell us your idea, suggestion, or feedback..."
+                rows="6"
+                required
+            ></textarea>
+
+            <button type="submit" id="submitButton">
+                Submit Idea
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <div class="ideas-list-card">
+
+        <h2>Community Ideas</h2>
+
+        <div id="ideasList">
+
+            <p class="no-ideas">
+                Loading ideas...
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+// ==========================================
+// SUPABASE CONNECTION
+// ==========================================
+
+const SUPABASE_URL =
+    "https://fhvyncltdliduhhfqzqq.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_b2M9akZhcgz5KjOZQ1mPtA_aNXZhv6J";
+
+const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+);
+
+
+// ==========================================
+// PAGE ELEMENTS
+// ==========================================
+
+const ideaForm =
+    document.getElementById("ideaForm");
+
+const ideasList =
+    document.getElementById("ideasList");
+
+const submitButton =
+    document.getElementById("submitButton");
+
+
+// ==========================================
+// CHECK LOGGED-IN USER
+// ==========================================
+
+async function getCurrentUser() {
+
+    const {
+        data: { user },
+        error
+    } = await supabaseClient.auth.getUser();
+
+
+    if (error) {
+
+        console.error("User error:", error);
+
+        window.location.replace("login.html");
+
+        return null;
+    }
+
+
+    if (!user) {
+
+        window.location.replace("login.html");
+
+        return null;
+    }
+
+
+    return user;
+}
+
+
+// ==========================================
+// LOAD COMMUNITY IDEAS
+// ==========================================
+
+async function loadIdeas() {
+
+    ideasList.innerHTML = `
+        <p class="no-ideas">
+            Loading ideas...
+        </p>
+    `;
+
+
+    const {
+        data,
+        error
+    } = await supabaseClient
+        .from("ideas")
+        .select("id, name, content, created_at, status")
+        .order("created_at", {
+            ascending: false
+        });
+
+
+    if (error) {
+
+        console.error("Load ideas error:", error);
+
+        ideasList.innerHTML = `
+            <p class="no-ideas">
+                Unable to load ideas right now.
+            </p>
+        `;
+
+        return;
+    }
+
+
+    ideasList.innerHTML = "";
+
+
+    if (!data || data.length === 0) {
+
+        ideasList.innerHTML = `
+            <p class="no-ideas">
+                No ideas submitted yet. Be the first!
+            </p>
+        `;
+
+        return;
+    }
+
+
+    data.forEach(function(idea) {
+
+        const ideaCard =
+            document.createElement("div");
+
+        ideaCard.className = "idea-card";
+
+
+        const name =
+            document.createElement("h3");
+
+        name.textContent =
+            idea.name || "Anonymous";
+
+
+        const content =
+            document.createElement("p");
+
+        content.textContent =
+            idea.content || "";
+
+
+        ideaCard.appendChild(name);
+        ideaCard.appendChild(content);
+
+
+        ideasList.appendChild(ideaCard);
+
+    });
+
+}
+
+
+// ==========================================
+// SUBMIT IDEA
+// ==========================================
+
+ideaForm.addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+
+        const user =
+            await getCurrentUser();
+
+
+        if (!user) {
+            return;
+        }
+
+
+        const name =
+            document.getElementById("ideaName")
+                .value
+                .trim();
+
+
+        const text =
+            document.getElementById("ideaText")
+                .value
+                .trim();
+
+
+        if (!name || !text) {
+
+            alert("Please complete all fields.");
+
+            return;
+        }
+
+
+        submitButton.disabled = true;
+
+        submitButton.textContent =
+            "Submitting...";
+
+
+        try {
+
+            // Save the idea in Supabase
+
+            const {
+                error
+            } = await supabaseClient
+                .from("ideas")
+                .insert({
+
+                    user_id: user.id,
+
+                    name: name,
+
+                    email: user.email,
+
+                    content: text,
+
+                    status: "pending"
+
+                });
+
+
+            if (error) {
+
+                console.error(
+                    "Submit idea error:",
+                    error
+                );
+
+                alert(
+                    "Unable to submit your idea: " +
+                    error.message
+                );
+
+                return;
+            }
+
+
+            alert(
+                "Thank you! Your idea has been submitted."
+            );
+
+
+            ideaForm.reset();
+
+
+            await loadIdeas();
+
+
+        } catch (error) {
+
+            console.error(
+                "Unexpected error:",
+                error
+            );
+
+            alert(
+                "Something went wrong. Please try again."
+            );
+
+        } finally {
+
+            submitButton.disabled = false;
+
+            submitButton.textContent =
+                "Submit Idea";
+
+        }
+
+    }
+);
+
+
+// ==========================================
+// LOGOUT
+// ==========================================
+
+document.getElementById("logout").addEventListener(
+    "click",
+    async function(event) {
+
+        event.preventDefault();
+
+
+        const confirmed =
+            confirm("Are you sure you want to logout?");
+
+
+        if (!confirmed) {
+            return;
+        }
+
+
+        const {
+            error
+        } = await supabaseClient.auth.signOut({
+            scope: "local"
+        });
+
+
+        if (error) {
+
+            console.error(
+                "Logout error:",
+                error
+            );
+
+            alert(
+                "Unable to logout. Please try again."
+            );
+
+            return;
+        }
+
+
+        window.location.replace("login.html");
+
+    }
+);
+
+
+// ==========================================
+// START PAGE
+// ==========================================
+
+async function startIdeasPage() {
+
+    const user =
+        await getCurrentUser();
+
+
+    if (!user) {
+        return;
+    }
+
+
+    // Automatically use the logged-in user's name
+
+    const savedName =
+        user.user_metadata?.name;
+
+
+    if (savedName) {
+
+        document.getElementById("ideaName").value =
+            savedName;
+
+    }
+
+
+    await loadIdeas();
+
+}
+
+
+startIdeasPage();
+
+</script>
+
+</body>
+</html>
+```

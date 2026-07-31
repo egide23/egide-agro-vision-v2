@@ -1,0 +1,378 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Africa AgroVision</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body>
+
+<nav class="dashboard-nav">
+
+    <h2>Africa AgroVision 🌱</h2>
+
+    <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#gallery">Gallery</a></li>
+        <li><a href="ideas.html">Ideas & Feedback</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="#" id="logout">Logout</a></li>
+    </ul>
+
+</nav>
+
+
+<section class="dashboard-hero">
+
+    <h1 id="welcomeMessage">
+        Welcome to Africa AgroVision 🌱
+    </h1>
+
+    <p>
+        Building Africa's agricultural future through innovation,
+        sustainability, technology, and collaboration.
+    </p>
+
+    <div class="dashboard-search">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search Africa AgroVision..."
+        >
+
+        <button type="button" id="searchButton">
+            Search
+        </button>
+
+    </div>
+
+</section>
+
+
+<section class="dashboard-cards">
+
+    <a href="agriculture.html" class="card">
+
+        <h3>🌾 Agriculture</h3>
+
+        <p>
+            Discover modern farming methods and sustainable agriculture.
+        </p>
+
+    </a>
+
+
+    <a href="projects.html" class="card">
+
+        <h3>🚜 Projects</h3>
+
+        <p>
+            Explore our ongoing and completed agricultural projects.
+        </p>
+
+    </a>
+
+
+    <a href="gallery.html" class="card">
+
+        <h3>📷 Gallery</h3>
+
+        <p>
+            View photos highlighting innovation and farming across Africa.
+        </p>
+
+    </a>
+
+
+    <a href="contact.html" class="card">
+
+        <h3>📞 Contact</h3>
+
+        <p>
+            Connect with Africa AgroVision for partnerships and opportunities.
+        </p>
+
+    </a>
+
+</section>
+
+
+<script>
+
+// ==========================================
+// SUPABASE CONNECTION
+// ==========================================
+
+const SUPABASE_URL =
+    "https://fhvyncltdliduhhfqzqq.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_b2M9akZhcgz5KjOZQ1mPtA_aNXZhv6J";
+
+const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+);
+
+
+// ==========================================
+// CHECK CURRENT LOGGED-IN USER
+// ==========================================
+
+async function checkUser() {
+
+    const {
+        data: { user },
+        error
+    } = await supabaseClient.auth.getUser();
+
+
+    // Error checking the user
+
+    if (error) {
+
+        console.error("User check error:", error);
+
+        window.location.replace("login.html");
+
+        return;
+    }
+
+
+    // No user is logged in
+
+    if (!user) {
+
+        window.location.replace("login.html");
+
+        return;
+    }
+
+
+    // ==========================================
+    // SHOW CURRENT USER
+    // ==========================================
+
+    const welcomeMessage =
+        document.getElementById("welcomeMessage");
+
+
+    const userName =
+        user.user_metadata?.name;
+
+
+    if (userName) {
+
+        welcomeMessage.textContent =
+            "Welcome, " + userName + " 🌱";
+
+    } else {
+
+        welcomeMessage.textContent =
+            "Welcome to Africa AgroVision 🌱";
+
+    }
+
+
+    console.log("Currently logged-in user:", user);
+
+}
+
+
+// Run user check
+
+checkUser();
+
+
+// ==========================================
+// LOGOUT
+// ==========================================
+
+document.getElementById("logout").addEventListener(
+    "click",
+    async function(event) {
+
+        event.preventDefault();
+
+
+        const confirmed =
+            confirm("Are you sure you want to logout?");
+
+
+        if (!confirmed) {
+            return;
+        }
+
+
+        try {
+
+            const { error } =
+                await supabaseClient.auth.signOut({
+                    scope: "local"
+                });
+
+
+            if (error) {
+
+                console.error("Logout error:", error);
+
+                alert(
+                    "Unable to logout. Please try again."
+                );
+
+                return;
+            }
+
+
+            // Return to login page
+
+            window.location.replace("login.html");
+
+
+        } catch (error) {
+
+            console.error("Unexpected logout error:", error);
+
+            alert(
+                "Something went wrong while logging out."
+            );
+
+        }
+
+    }
+);
+
+
+// ==========================================
+// SEARCH
+// ==========================================
+
+const searchInput =
+    document.getElementById("searchInput");
+
+const searchButton =
+    document.getElementById("searchButton");
+
+
+function performSearch() {
+
+    const searchTerm =
+        searchInput.value.trim().toLowerCase();
+
+
+    if (searchTerm === "") {
+
+        alert("Please enter something to search.");
+
+        return;
+    }
+
+
+    if (
+        searchTerm.includes("agriculture") ||
+        searchTerm.includes("farming") ||
+        searchTerm.includes("farm")
+    ) {
+
+        window.location.href = "agriculture.html";
+
+    }
+
+    else if (
+        searchTerm.includes("project") ||
+        searchTerm.includes("projects")
+    ) {
+
+        window.location.href = "projects.html";
+
+    }
+
+    else if (
+        searchTerm.includes("gallery") ||
+        searchTerm.includes("photos") ||
+        searchTerm.includes("images")
+    ) {
+
+        window.location.href = "gallery.html";
+
+    }
+
+    else if (
+        searchTerm.includes("contact") ||
+        searchTerm.includes("whatsapp") ||
+        searchTerm.includes("telegram") ||
+        searchTerm.includes("email")
+    ) {
+
+        window.location.href = "contact.html";
+
+    }
+
+    else if (
+        searchTerm.includes("profile") ||
+        searchTerm.includes("account")
+    ) {
+
+        window.location.href = "profile.html";
+
+    }
+
+    else if (
+        searchTerm.includes("dashboard") ||
+        searchTerm.includes("home")
+    ) {
+
+        window.location.href = "dashboard.html";
+
+    }
+
+    else {
+
+        alert(
+            "No results found for: " +
+            searchInput.value
+        );
+
+    }
+
+}
+
+
+searchButton.addEventListener(
+    "click",
+    performSearch
+);
+
+
+searchInput.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+
+            performSearch();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
+```
