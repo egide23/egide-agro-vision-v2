@@ -177,14 +177,17 @@ async function loadIdeas() {
 
 
     const {
-        data,
-        error
-    } = await supabaseClient
-        .from("ideas")
-        .select("id, name, content, created_at, status")
-        .order("created_at", {
-            ascending: false
-        });
+    data,
+    error
+} = await supabaseClient
+    .from("ideas")
+    .select("*")
+    .order("created_at", {
+        ascending: false
+    });
+
+console.log("Ideas data:", data);
+console.log("Ideas error:", error);
 
 
     if (error) {
