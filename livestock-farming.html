@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Livestock Farming | Africa AgroVision</title>
+
+    <meta name="description"
+        content="Explore livestock farming, poultry, pig farming, ruminant farming, animal housing and animal health with Africa AgroVision.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        /* ===============================
+           RESET
+        =============================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #edf7ef;
+            color: #18351f;
+            min-height: 100vh;
+        }
+
+
+        /* ===============================
+           HEADER
+        =============================== */
+
+        .livestock-header {
+            width: 100%;
+            background: #114d1f;
+            min-height: 76px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+
+            position: relative;
+            z-index: 10;
+        }
+
+        .livestock-logo {
+            color: #ffffff;
+            font-size: 25px;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+        }
+
+        .livestock-nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .livestock-nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+
+            padding: 8px 0;
+
+            transition: 0.3s ease;
+        }
+
+        .livestock-nav a:hover {
+            color: #b7e4bd;
+        }
+
+
+        /* ===============================
+           PAGE INTRO
+        =============================== */
+
+        .livestock-title {
+            text-align: center;
+
+            max-width: 900px;
+
+            margin: 0 auto;
+
+            padding: 65px 20px 45px;
+        }
+
+        .livestock-label {
+            display: inline-block;
+
+            color: #2e7d32;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 12px;
+        }
+
+        .livestock-title h1 {
+            color: #145c24;
+
+            font-size: 48px;
+            font-weight: 800;
+
+            line-height: 1.2;
+
+            margin-bottom: 15px;
+        }
+
+        .livestock-title p {
+            max-width: 700px;
+
+            margin: 0 auto;
+
+            color: #58705d;
+
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+
+        /* ===============================
+           SIX LIVESTOCK CARDS
+        =============================== */
+
+        .livestock-grid {
+            width: 90%;
+            max-width: 1200px;
+
+            margin: 0 auto 80px;
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 28px;
+        }
+
+
+        /* CARD */
+
+        .livestock-card {
+            background: #1b5e20;
+
+            min-height: 350px;
+
+            padding: 35px 28px;
+
+            border-radius: 22px;
+
+            text-align: center;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            box-shadow: 0 12px 30px rgba(27, 94, 32, 0.18);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                background 0.3s ease;
+        }
+
+        .livestock-card:hover {
+            transform: translateY(-10px);
+
+            background: #267a31;
+
+            box-shadow: 0 20px 40px rgba(27, 94, 32, 0.28);
+        }
+
+
+        /* ICON CIRCLE */
+
+        .livestock-icon {
+            width: 78px;
+            height: 78px;
+
+            border-radius: 50%;
+
+            background: #e8f5e9;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 38px;
+
+            margin-bottom: 22px;
+
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+        }
+
+
+        /* CARD TITLE */
+
+        .livestock-card h2 {
+            color: #ffffff;
+
+            font-size: 22px;
+            font-weight: 700;
+
+            margin-bottom: 13px;
+        }
+
+
+        /* CARD DESCRIPTION */
+
+        .livestock-card p {
+            color: #e5f2e7;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            max-width: 300px;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* EXPLORE BUTTON */
+
+        .livestock-btn {
+            margin-top: auto;
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 9px;
+
+            background: #ffffff;
+
+            color: #176124;
+
+            text-decoration: none;
+
+            padding: 11px 22px;
+
+            border-radius: 30px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            transition: 0.3s ease;
+        }
+
+        .livestock-btn:hover {
+            background: #c8e6c9;
+
+            transform: translateY(-2px);
+        }
+
+        .livestock-btn span {
+            font-size: 17px;
+        }
+
+
+        /* ===============================
+           FOOTER
+        =============================== */
+
+        .livestock-footer {
+            background: #103f1a;
+
+            color: #ffffff;
+
+            text-align: center;
+
+            padding: 50px 20px 30px;
+        }
+
+        .livestock-footer h2 {
+            font-size: 27px;
+
+            margin-bottom: 15px;
+        }
+
+        .livestock-footer-description {
+            max-width: 750px;
+
+            margin: 0 auto;
+
+            color: #d6e9d9;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            margin: 25px 0;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            margin: 0 15px;
+
+            transition: 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #a5d6a7;
+        }
+
+        .footer-line {
+            width: 80px;
+            height: 2px;
+
+            background: #4caf50;
+
+            margin: 25px auto;
+        }
+
+        .copyright {
+            color: #b9d5bd;
+
+            font-size: 13px;
+        }
+
+
+        /* ===============================
+           TABLET
+        =============================== */
+
+        @media (max-width: 950px) {
+
+            .livestock-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .livestock-title h1 {
+                font-size: 42px;
+            }
+
+        }
+
+
+        /* ===============================
+           MOBILE
+        =============================== */
+
+        @media (max-width: 650px) {
+
+            .livestock-header {
+                min-height: auto;
+
+                padding: 18px 15px;
+
+                flex-direction: column;
+
+                gap: 12px;
+            }
+
+            .livestock-logo {
+                font-size: 21px;
+            }
+
+            .livestock-nav {
+                gap: 20px;
+            }
+
+            .livestock-nav a {
+                font-size: 13px;
+            }
+
+            .livestock-title {
+                padding: 45px 18px 35px;
+            }
+
+            .livestock-title h1 {
+                font-size: 34px;
+            }
+
+            .livestock-title p {
+                font-size: 15px;
+            }
+
+            .livestock-grid {
+                width: 92%;
+
+                grid-template-columns: 1fr;
+
+                gap: 20px;
+
+                margin-bottom: 55px;
+            }
+
+            .livestock-card {
+                min-height: 330px;
+
+                padding: 32px 22px;
+            }
+
+            .livestock-footer {
+                padding: 40px 15px 25px;
+            }
+
+            .footer-links a {
+                display: inline-block;
+
+                margin: 5px 8px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ===============================
+         HEADER
+    =============================== -->
+
+    <header class="livestock-header">
+
+        <div class="livestock-logo">
+            🌱 Africa AgroVision
+        </div>
+
+        <nav class="livestock-nav">
+
+            <a href="index.html">Home</a>
+
+            <a href="agriculture.html">Agriculture</a>
+
+            <a href="about.html">About</a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- ===============================
+         TITLE
+    =============================== -->
+
+    <section class="livestock-title">
+
+        <div class="livestock-label">
+            AFRICA AGROVISION • LIVESTOCK
+        </div>
+
+        <h1>Livestock Farming</h1>
+
+        <p>
+            Explore practical livestock knowledge for healthier animals,
+            better productivity, and sustainable farming across Africa.
+        </p>
+
+    </section>
+
+
+
+    <!-- ===============================
+         LIVESTOCK TOPICS
+    =============================== -->
+
+    <main class="livestock-grid">
+
+
+        <!-- POULTRY FARMING -->
+
+        <article class="livestock-card">
+
+            <div class="livestock-icon">
+                🐔
+            </div>
+
+            <h2>Poultry Farming</h2>
+
+            <p>
+                Learn practical methods for raising healthy and productive
+                chickens through proper management and care.
+            </p>
+
+            <a href="#" class="livestock-btn">
+                Explore More <span>→</span>
+            </a>
+
+        </article>
+
+
+
+        <!-- POULTRY FEEDING -->
+
+        <article class="livestock-card">
+
+            <div class="livestock-icon">
+                🌾
+            </div>
+
+            <h2>Poultry Feeding</h2>
+
+            <p>
+                Understand poultry nutrition, feeding practices, and balanced
+                diets for healthy growth and productivity.
+            </p>
+
+            <a href="#" class="livestock-btn">
+                Explore More <span>→</span>
+            </a>
+
+        </article>
+
+
+
+        <!-- PIG FARMING -->
+
+        <article class="livestock-card">
+
+            <div class="livestock-icon">
+                🐖
+            </div>
+
+            <h2>Pig Farming</h2>
+
+            <p>
+                Discover pig production, feeding, breeding, housing,
+                management, and responsible animal care.
+            </p>
+
+            <a href="#" class="livestock-btn">
+                Explore More <span>→</span>
+            </a>
+
+        </article>
+
+
+
+        <!-- RUMINANT FARMING -->
+
+        <article class="livestock-card">
+
+            <div class="livestock-icon">
+                🐄
+            </div>
+
+            <h2>Ruminant Farming</h2>
+
+            <p>
+                Explore cattle, goats, and sheep farming including feeding,
+                breeding, housing, and animal management.
+            </p>
+
+            <a href="#" class="livestock-btn">
+                Explore More <span>→</span>
+            </a>
+
+        </article>
+
+
+
+        <!-- ANIMAL HOUSING -->
+
+        <article class="livestock-card">
+
+            <div class="livestock-icon">
+                🏠
+            </div>
+
+            <h2>Animal Housing</h2>
+
+            <p>
+                Learn how to create clean, safe, comfortable, and suitable
+                environments for livestock.
+            </p>
+
+            <a href="#" class="livestock-btn">
+                Explore More <span>→</span>
+            </a>
+
+        </article>
+
+
+
+        <!-- ANIMAL HEALTH -->
+
+        <article class="livestock-card">
+
+            <div class="livestock-icon">
+                ❤️
+            </div>
+
+            <h2>Animal Health</h2>
+
+            <p>
+                Learn about animal wellbeing, hygiene, disease prevention,
+                responsible care, and healthy livestock management.
+            </p>
+
+            <a href="#" class="livestock-btn">
+                Explore More <span>→</span>
+            </a>
+
+        </article>
+
+
+    </main>
+
+
+
+    <!-- ===============================
+         FOOTER
+    =============================== -->
+
+    <footer class="livestock-footer">
+
+        <h2>🌱 Africa AgroVision</h2>
+
+        <p class="livestock-footer-description">
+            Building Africa's agricultural future through innovation,
+            sustainability, modern technology, and accessible farming knowledge.
+        </p>
+
+        <div class="footer-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="agriculture.html">Agriculture</a>
+
+            <a href="about.html">About</a>
+
+        </div>
+
+        <div class="footer-line"></div>
+
+        <p class="copyright">
+            © 2026 Africa AgroVision | Building a sustainable agricultural future.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

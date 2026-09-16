@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Poultry Farming | Africa AgroVision</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f8f4;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        /* HERO SECTION */
+
+        .poultry-hero {
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+            padding: 80px 10%;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0, 70, 35, 0.92),
+                    rgba(0, 70, 35, 0.65)
+                ),
+                url("poultry-farming.jpg");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .poultry-hero-content {
+            max-width: 700px;
+            color: white;
+        }
+
+        .breadcrumb {
+            font-size: 15px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .poultry-hero h1 {
+            font-size: 55px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .poultry-hero-content > p:not(.breadcrumb) {
+            font-size: 21px;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .hero-button {
+            display: inline-block;
+            background: #ffffff;
+            color: #166534;
+            text-decoration: none;
+            padding: 15px 28px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .hero-button:hover {
+            background: #22c55e;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+
+        /* INTRODUCTION */
+
+        .poultry-introduction {
+            padding: 80px 10%;
+            background: white;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .poultry-introduction h2 {
+            color: #166534;
+            font-size: 38px;
+            margin-bottom: 25px;
+        }
+
+        .poultry-introduction p {
+            font-size: 18px;
+            max-width: 850px;
+            color: #555;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 768px) {
+
+            .poultry-hero {
+                min-height: 500px;
+                padding: 60px 7%;
+            }
+
+            .poultry-hero h1 {
+                font-size: 38px;
+            }
+
+            .poultry-hero-content > p:not(.breadcrumb) {
+                font-size: 18px;
+            }
+
+            .poultry-introduction {
+                padding: 60px 7%;
+            }
+
+            .poultry-introduction h2 {
+                font-size: 30px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- HERO SECTION -->
+
+    <section class="poultry-hero">
+
+        <div class="poultry-hero-content">
+
+            <p class="breadcrumb">
+                Agriculture › Livestock Farming › Poultry Farming
+            </p>
+
+            <h1>🐔 Poultry Farming</h1>
+
+            <p>
+                Raising healthy birds for meat, eggs, income,
+                and a sustainable agricultural future.
+            </p>
+
+            <a href="#introduction" class="hero-button">
+                Explore Poultry Farming ↓
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRODUCTION -->
+
+    <section class="poultry-introduction" id="introduction">
+
+        <div class="container">
+
+            <h2>What is Poultry Farming? 🐓</h2>
+
+            <p>
+                Poultry farming is the practice of raising domesticated birds
+                such as chickens, ducks, turkeys, geese, and guinea fowl for
+                the production of meat, eggs, and other products.
+            </p>
+
+        </div>
+
+    </section>
+
+
+</body>
+</html>

@@ -1305,4 +1305,636 @@ video {
     .dashboard-cards .card {
         min-height: 260px;
     }
+}/* =========================================
+   LIVESTOCK FARMING PAGE
+========================================= */
+
+.livestock-hero {
+    min-height: 78vh;
+    background:
+        linear-gradient(rgba(12, 55, 20, 0.68), rgba(12, 55, 20, 0.68)),
+        url("images/livestock-hero.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    color: white;
+
+    padding: 130px 20px 80px;
+}
+
+.livestock-hero-content {
+    width: 100%;
+    max-width: 900px;
+}
+
+.hero-small-title {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    color: #c8e6c9;
+}
+
+.livestock-hero h1 {
+    font-size: 68px;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    font-weight: 800;
+}
+
+.livestock-hero p {
+    max-width: 760px;
+    margin: 0 auto 35px;
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+.livestock-hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 15px 30px;
+
+    background: #4caf50;
+    color: white;
+
+    text-decoration: none;
+    border-radius: 40px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.livestock-hero-btn:hover {
+    background: #8bc34a;
+    color: #173b1d;
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   LIVESTOCK INTRO
+========================================= */
+
+.livestock-intro {
+    max-width: 900px;
+    margin: auto;
+    padding: 85px 25px 55px;
+    text-align: center;
+}
+
+.section-label {
+    display: inline-block;
+
+    color: #2e7d32;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+.livestock-intro h2 {
+    color: #1b5e20;
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.livestock-intro p {
+    color: #555;
+    font-size: 17px;
+    line-height: 1.9;
+}
+
+
+/* =========================================
+   LIVESTOCK SECTION
+========================================= */
+
+.livestock-section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 0 90px;
+}
+
+.livestock-heading {
+    max-width: 800px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.livestock-heading h2 {
+    color: #1b5e20;
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.livestock-heading p {
+    color: #555;
+    line-height: 1.8;
+    font-size: 17px;
+}
+
+
+/* =========================================
+   LIVESTOCK CARDS
+========================================= */
+
+.livestock-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+}
+
+.livestock-card {
+    background: white;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    box-shadow: 0 12px 35px rgba(27, 94, 32, 0.12);
+
+    border: 1px solid rgba(46, 125, 50, 0.10);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.livestock-card:hover {
+    transform: translateY(-10px);
+
+    box-shadow: 0 20px 45px rgba(27, 94, 32, 0.18);
+}
+
+.livestock-image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.livestock-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.5s ease;
+}
+
+.livestock-card:hover .livestock-image img {
+    transform: scale(1.06);
+}
+
+.livestock-card-content {
+    padding: 30px;
+}
+
+.livestock-tag {
+    display: inline-block;
+
+    color: #2e7d32;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 10px;
+}
+
+.livestock-card h3 {
+    color: #1b5e20;
+    font-size: 26px;
+    margin-bottom: 12px;
+}
+
+.livestock-card p {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.livestock-card-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #2e7d32;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+.livestock-card-btn:hover {
+    color: #1b5e20;
+    gap: 12px;
+}
+
+
+/* =========================================
+   WHAT WE EXPLORE
+========================================= */
+
+.livestock-info {
+    background: #f1f8f2;
+
+    padding: 90px 5%;
+}
+
+.info-container {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+.info-card {
+    background: white;
+
+    padding: 35px 25px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow: 0 8px 25px rgba(27, 94, 32, 0.09);
+
+    border: 1px solid rgba(46, 125, 50, 0.08);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow: 0 15px 35px rgba(27, 94, 32, 0.15);
+}
+
+.info-icon {
+    width: 75px;
+    height: 75px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    background: #e8f5e9;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-icon i {
+    color: #2e7d32;
+    font-size: 30px;
+}
+
+.info-card h3 {
+    color: #1b5e20;
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.info-card p {
+    color: #666;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+
+/* =========================================
+   SUSTAINABILITY SECTION
+========================================= */
+
+.livestock-sustainability {
+    padding: 100px 20px;
+
+    background:
+        linear-gradient(rgba(27, 94, 32, 0.94), rgba(27, 94, 32, 0.94)),
+        url("images/livestock-sustainability.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    color: white;
+
+    text-align: center;
+}
+
+.sustainability-content {
+    max-width: 850px;
+    margin: auto;
+}
+
+.sustainability-content .section-label {
+    color: #c8e6c9;
+}
+
+.sustainability-content h2 {
+    font-size: 40px;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+.sustainability-content p {
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.sustainability-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 14px 28px;
+
+    background: white;
+    color: #1b5e20;
+
+    border-radius: 35px;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+.sustainability-btn:hover {
+    background: #c8e6c9;
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   LIVESTOCK MOBILE
+========================================= */
+
+@media (max-width: 950px) {
+
+    .livestock-hero h1 {
+        font-size: 52px;
+    }
+
+    .info-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .livestock-hero {
+        min-height: 75vh;
+        padding: 110px 20px 60px;
+    }
+
+    .livestock-hero h1 {
+        font-size: 40px;
+    }
+
+    .livestock-hero p {
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+    .livestock-intro {
+        padding: 60px 20px 35px;
+    }
+
+    .livestock-intro h2,
+    .livestock-heading h2 {
+        font-size: 30px;
+    }
+
+    .livestock-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .livestock-section {
+        width: 92%;
+        padding-bottom: 60px;
+    }
+
+    .livestock-image {
+        height: 250px;
+    }
+
+    .info-container {
+        grid-template-columns: 1fr;
+    }
+
+    .livestock-info {
+        padding: 65px 20px;
+    }
+
+    .sustainability-content h2 {
+        font-size: 30px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .livestock-hero h1 {
+        font-size: 34px;
+    }
+
+    .hero-small-title {
+        font-size: 11px;
+        letter-spacing: 1.5px;
+    }
+
+    .livestock-hero-btn {
+        padding: 13px 22px;
+        font-size: 14px;
+    }
+
+    .livestock-card-content {
+        padding: 25px 20px;
+    }
+
+    .livestock-card h3 {
+        font-size: 23px;
+    }
+
+}/* =========================================
+   POULTRY FARMING PAGE
+========================================= */
+
+.poultry-hero {
+    min-height: 78vh;
+
+    background:
+        linear-gradient(
+            rgba(12, 55, 20, 0.78),
+            rgba(12, 55, 20, 0.65)
+        ),
+        url("images/poultry-farming.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    color: white;
+
+    padding: 130px 20px 80px;
+}
+
+.poultry-hero-content {
+    width: 100%;
+    max-width: 850px;
+}
+
+.poultry-hero .breadcrumb {
+    color: #c8e6c9;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.poultry-hero h1 {
+    font-size: 68px;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    font-weight: 800;
+}
+
+.poultry-hero-content > p:not(.breadcrumb) {
+    max-width: 700px;
+    margin: 0 auto 35px;
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+.hero-button {
+    display: inline-block;
+
+    padding: 15px 30px;
+
+    background: #4caf50;
+    color: white;
+
+    text-decoration: none;
+    border-radius: 40px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.hero-button:hover {
+    background: #8bc34a;
+    color: #173b1d;
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   POULTRY INTRODUCTION
+========================================= */
+
+.poultry-introduction {
+    background: white;
+    padding: 90px 20px;
+}
+
+.poultry-introduction .container {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.poultry-introduction h2 {
+    color: #1b5e20;
+    font-size: 38px;
+    margin-bottom: 25px;
+}
+
+.poultry-introduction p {
+    color: #555;
+    font-size: 18px;
+    line-height: 1.9;
+    max-width: 850px;
+}
+
+
+/* =========================================
+   POULTRY MOBILE DESIGN
+========================================= */
+
+@media (max-width: 700px) {
+
+    .poultry-hero {
+        min-height: 75vh;
+        padding: 110px 20px 60px;
+    }
+
+    .poultry-hero h1 {
+        font-size: 42px;
+    }
+
+    .poultry-hero-content > p:not(.breadcrumb) {
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+    .poultry-introduction {
+        padding: 65px 20px;
+    }
+
+    .poultry-introduction h2 {
+        font-size: 30px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .poultry-hero h1 {
+        font-size: 34px;
+    }
+
+    .poultry-hero .breadcrumb {
+        font-size: 11px;
+    }
+
+    .hero-button {
+        padding: 13px 22px;
+        font-size: 14px;
+    }
+
 }
