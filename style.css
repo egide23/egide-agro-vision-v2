@@ -1937,4 +1937,1512 @@ video {
         font-size: 14px;
     }
 
+}<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turkey Farming | Africa AgroVision</title>
+    <meta name="description" content="Learn about turkey farming, production systems, housing, feeding, breeding, incubation, disease prevention, biosecurity, welfare, and farm management.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="container nav-container">
+        <a href="dashboard.html" class="logo">
+            <i class="fa-solid fa-seedling"></i>
+            Africa AgroVision
+        </a>
+
+```
+    <nav class="main-nav">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="agriculture.html">Agriculture</a>
+        <a href="livestock-farming.html">Livestock</a>
+        <a href="poultry-farming.html">Poultry</a>
+    </nav>
+</div>
+```
+
+</header>
+
+<main>
+
+<section class="turkey-hero">
+    <div class="turkey-hero-content">
+        <span class="turkey-badge">POULTRY FARMING</span>
+        <h1>🦃 Turkey Farming</h1>
+        <p>
+            A practical knowledge guide to commercial turkey production,
+            from breeding and incubation to feeding, housing, health,
+            biosecurity, welfare, and farm management.
+        </p>
+    </div>
+</section>
+
+<div class="container turkey-page">
+
+```
+<div class="breadcrumb">
+    <a href="agriculture.html">Agriculture</a>
+    <span>›</span>
+    <a href="poultry-farming.html">Poultry Farming</a>
+    <span>›</span>
+    <strong>Turkey Farming</strong>
+</div>
+
+<section class="turkey-intro">
+    <div>
+        <span class="section-label">01 · INTRODUCTION</span>
+        <h2>Understanding Turkey Production</h2>
+
+        <p>
+            The <strong>turkey</strong> is a domesticated poultry species
+            raised mainly for <strong>meat production</strong>. Commercial
+            turkey production is an important branch of intensive poultry
+            farming because turkeys grow rapidly, produce a large quantity
+            of high-quality meat, and can be managed efficiently under
+            controlled housing systems.
+        </p>
+
+        <p>
+            Domestic turkeys originated in North America and are now
+            produced commercially in many countries.
+        </p>
+    </div>
+
+    <div class="turkey-fact-card">
+        <h3><i class="fa-solid fa-feather-pointed"></i> Classification</h3>
+        <ul>
+            <li><strong>Kingdom:</strong> Animalia</li>
+            <li><strong>Phylum:</strong> Chordata</li>
+            <li><strong>Class:</strong> Aves</li>
+            <li><strong>Order:</strong> Galliformes</li>
+            <li><strong>Family:</strong> Phasianidae</li>
+            <li><strong>Genus:</strong> <em>Meleagris</em></li>
+            <li><strong>Species:</strong> <em>Meleagris gallopavo</em></li>
+        </ul>
+    </div>
+</section>
+
+<section class="turkey-section">
+    <span class="section-label">02 · TYPES</span>
+    <h2>Types of Turkey</h2>
+
+    <div class="turkey-grid two-columns">
+
+        <article class="turkey-card">
+            <div class="card-icon"><i class="fa-solid fa-dumbbell"></i></div>
+            <h3>Broad-Breasted Types</h3>
+            <p>These are the major commercial meat turkeys.</p>
+            <ul>
+                <li>Very rapid growth</li>
+                <li>Large breast muscles</li>
+                <li>High meat yield</li>
+                <li>Efficient feed conversion</li>
+                <li>White feathers are common in commercial strains</li>
+                <li>Natural mating may become difficult in very large birds</li>
+            </ul>
+        </article>
+
+        <article class="turkey-card">
+            <div class="card-icon"><i class="fa-solid fa-leaf"></i></div>
+            <h3>Heritage or Traditional Types</h3>
+            <p>These are generally slower-growing birds.</p>
+            <ul>
+                <li>Better natural mating ability</li>
+                <li>Greater activity</li>
+                <li>Lower growth rate</li>
+                <li>Lower meat yield than modern commercial strains</li>
+                <li>Suitable for some small-scale or specialty systems</li>
+            </ul>
+        </article>
+
+    </div>
+</section>
+
+<section class="turkey-section">
+    <span class="section-label">03 · PRODUCTION</span>
+    <h2>Production Systems</h2>
+
+    <div class="turkey-grid three-columns">
+
+        <article class="turkey-card">
+            <div class="card-icon"><i class="fa-solid fa-warehouse"></i></div>
+            <h3>Intensive System</h3>
+            <p>Birds are kept in controlled housing with close management of:</p>
+            <ul>
+                <li>Feeding and water</li>
+                <li>Temperature</li>
+                <li>Ventilation</li>
+                <li>Lighting</li>
+                <li>Stocking density</li>
+                <li>Disease prevention and biosecurity</li>
+            </ul>
+        </article>
+
+        <article class="turkey-card">
+            <div class="card-icon"><i class="fa-solid fa-house"></i></div>
+            <h3>Semi-Intensive System</h3>
+            <p>
+                Birds have access to housing and sometimes an outdoor area.
+                It requires less environmental control than a fully intensive system.
+            </p>
+        </article>
+
+        <article class="turkey-card">
+            <div class="card-icon"><i class="fa-solid fa-tree"></i></div>
+            <h3>Extensive / Free-Range</h3>
+            <p>
+                Birds have greater access to outdoor areas and depend more
+                on natural environmental resources. Growth is generally slower.
+            </p>
+        </article>
+
+    </div>
+</section>
+
+<section class="turkey-section">
+    <span class="section-label">04 · PRODUCTION CYCLE</span>
+    <h2>Turkey Production Cycle</h2>
+
+    <div class="cycle-grid">
+
+        <div class="cycle-step">
+            <span>01</span>
+            <h3>Breeding</h3>
+            <p>
+                Healthy adult breeding turkeys are maintained to produce
+                fertile eggs through proper nutrition, lighting, body-weight
+                management, and health control.
+            </p>
+        </div>
+
+        <div class="cycle-step">
+            <span>02</span>
+            <h3>Egg Production</h3>
+            <p>
+                Hatching eggs should be collected frequently, handled carefully,
+                stored appropriately, and prepared for incubation.
+            </p>
+        </div>
+
+        <div class="cycle-step">
+            <span>03</span>
+            <h3>Incubation</h3>
+            <p>
+                Turkey eggs are artificially incubated. The incubation period
+                is approximately <strong>28 days</strong>.
+            </p>
+        </div>
+
+        <div class="cycle-step">
+            <span>04</span>
+            <h3>Hatching</h3>
+            <p>
+                Newly hatched poults should be dry, active, healthy-looking,
+                able to walk normally, and able to access feed and water.
+            </p>
+        </div>
+
+        <div class="cycle-step">
+            <span>05</span>
+            <h3>Brooding</h3>
+            <p>
+                Young poults require additional heat because they cannot
+                regulate body temperature effectively when very young.
+            </p>
+        </div>
+
+        <div class="cycle-step">
+            <span>06</span>
+            <h3>Growing & Finishing</h3>
+            <p>
+                Birds are gradually moved through grower and finisher stages
+                with the objective of achieving healthy growth and suitable market weight.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section class="turkey-section">
+    <span class="section-label">05 · HOUSING</span>
+    <h2>Housing of Turkeys</h2>
+
+    <p>
+        A good turkey house should protect birds from environmental hazards
+        while providing adequate space, ventilation, lighting, feed, water,
+        drainage, and dry litter.
+    </p>
+
+    <div class="check-grid">
+        <div>✓ Protection from rain and excessive heat</div>
+        <div>✓ Protection from predators</div>
+        <div>✓ Adequate ventilation</div>
+        <div>✓ Appropriate temperature</div>
+        <div>✓ Adequate floor space</div>
+        <div>✓ Good lighting</div>
+        <div>✓ Clean drinking water</div>
+        <div>✓ Easy access to feed</div>
+        <div>✓ Good drainage</div>
+        <div>✓ Dry litter</div>
+    </div>
+
+    <div class="info-box">
+        <h3><i class="fa-solid fa-layer-group"></i> Litter Management</h3>
+        <p>
+            Commercial turkeys are commonly raised on litter-covered floors.
+            Suitable materials include wood shavings, chopped straw, and other
+            absorbent materials.
+        </p>
+        <p>
+            <strong>Wet litter</strong> can contribute to footpad problems,
+            breast lesions, ammonia accumulation, poor welfare, and increased
+            disease risk.
+        </p>
+    </div>
+</section>
+
+<section class="turkey-section">
+    <span class="section-label">06 · ENVIRONMENT</span>
+    <h2>Temperature & Ventilation</h2>
+
+    <div class="turkey-grid two-columns">
+
+        <article class="turkey-card">
+            <h3><i class="fa-solid fa-temperature-arrow-down"></i> Too Cold</h3>
+            <ul>
+                <li>Huddling together</li>
+                <li>Excessive chirping</li>
+                <li>Reduced activity</li>
+                <li>Reduced feed and water intake</li>
+            </ul>
+        </article>
+
+        <article class="turkey-card">
+            <h3><i class="fa-solid fa-temperature-arrow-up"></i> Too Hot</h3>
+            <ul>
+                <li>Moving away from heat sources</li>
+                <li>Panting</li>
+                <li>Increased water consumption</li>
+                <li>Wings held away from the body</li>
+                <li>Reduced activity</li>
+            </ul>
+        </article>
+
+    </div>
+
+    <div class="info-box">
+        <h3><i class="fa-solid fa-wind"></i> Ventilation</h3>
+        <p>
+            Good ventilation removes excess moisture, carbon dioxide, ammonia,
+            dust, and excess heat while supplying fresh oxygen.
+        </p>
+        <p>
+            Poor ventilation can contribute to respiratory disease, wet litter,
+            high ammonia levels, poor growth, and increased mortality.
+        </p>
+    </div>
+</section>
+
+<section class="turkey-section">
+    <span class="section-label">07 · NUTRITION</span>
+    <h2>Feeding & Nutrition</h2>
+
+    <p>
+        Turkeys have high nutritional requirements because of their rapid growth.
+        Their diets must provide adequate energy, protein, amino acids, minerals,
+        vitamins, essential fatty acids, and water.
+    </p>
+
+    <div class="nutrition-table">
+        <div class="table-row table-header">
+            <div>Feeding Phase</div>
+            <div>Main Purpose</div>
+        </div>
+        <div class="table-row">
+            <div><strong>Starter</strong></div>
+            <div>Supports early growth and tissue development.</div>
+        </div>
+        <div class="table-row">
+            <div><strong>Grower</strong></div>
+            <div>Supports continued body growth and efficient feed utilization.</div>
+        </div>
+        <div class="table-row">
+            <div><strong>Finisher</strong></div>
+            <div>Supports final growth, body condition, and market weight.</div>
+        </div>
+    </div>
+
+    <h3 class="subheading">Important Amino Acids</h3>
+
+    <div class="pill-list">
+        <span>Lysine</span>
+        <span>Methionine</span>
+        <span>Threonine</span>
+        <span>Tryptophan</span>
+        <span>Arginine</span>
+    </div>
+
+    <div class="info-box">
+        <h3><i class="fa-solid fa-droplet"></i> Water</h3>
+        <p>
+            Turkeys should have continuous access to clean, safe drinking water.
+            Water requirements increase with high environmental temperature,
+            increased feed intake, and increasing body weight.
+        </p>
+    </div>
+</section>
+
+<section class="turkey-section">
+    <span class="section-label">08 · FEED EFFICIENCY</span>
+    <h2>Feed Conversion</h2>
+
+    <div class="formula-card">
+        <strong>FCR = Feed consumed ÷ Body weight gained</strong>
+        <p>
+            A lower FCR generally indicates more efficient feed utilization.
+        </p>
+    </div>
+
+    <p>Feed efficiency can be affected by:</p>
+
+    <div class="check-grid">
+        <div>✓ Genetics</div>
+        <div>✓ Feed quality</div>
+        <div>✓ Temperature</div>
+        <div>✓ Disease</div>
+        <div>✓ Water availability</div>
+        <div>✓ Stocking density</div>
+        <div>✓ Management</div>
+        <div>✓ Age</div>
+        <div>✓ Feed wastage</div>
+    </div>
+</section>
+
+<section class="turkey-section">
+    <span class="section-label">09 · BREEDING</span>
+    <h2>Breeding & Incubation</h2>
+
+    <div class="turkey-grid two-columns">
+
+        <article class="turkey-card">
+            <h3>Breeding Management</h3>
+            <ul>
+                <li>Selection of healthy breeders</li>
+                <li>Correct body-weight management</li>
+                <li>Appropriate nutrition</li>
+                <li>Proper lighting</li>
+                <li>Egg collection</li>
+                <li>Fertility monitoring</li>
+                <li>Hatchability monitoring</li>
+            </ul>
+        </article>
+
+        <article class="turkey-card">
+            <h3>Egg Handling</h3>
+            <ul>
+                <li>Frequent collection</li>
+                <li>Minimize cracks</li>
+                <li>Keep eggs clean</li>
+                <li>Proper storage</li>
+                <li>Correct incubation temperature</li>
+                <li>Correct humidity</li>
+                <li>Appropriate turning</li>
+                <li>Good hatchery sanitation</li>
+            </ul>
+        </article>
+
+    </div>
+</section>
+
+<section class="turkey-section disease-section">
+    <span class="section-label">10 · HEALTH</span>
+    <h2>Common Diseases of Turkeys</h2>
+
+    <div class="disease-grid">
+
+        <article class="disease-card">
+            <h3>Histomoniasis</h3>
+            <span>Blackhead disease</span>
+            <p>
+                Can cause depression, reduced appetite, weight loss, diarrhea,
+                and high mortality in susceptible flocks.
+            </p>
+        </article>
+
+        <article class="disease-card">
+            <h3>Newcastle Disease</h3>
+            <p>
+                A viral disease that can affect the respiratory, digestive,
+                and nervous systems.
+            </p>
+        </article>
+
+        <article class="disease-card">
+            <h3>Avian Influenza</h3>
+            <p>
+                Caused by influenza A viruses. Disease severity varies by virus strain.
+            </p>
+        </article>
+
+        <article class="disease-card">
+            <h3>Fowl Cholera</h3>
+            <p>
+                A bacterial disease caused by <em>Pasteurella multocida</em>.
+                Possible signs include sudden death, depression, appetite loss,
+                and respiratory signs.
+            </p>
+        </article>
+
+        <article class="disease-card">
+            <h3>Coccidiosis</h3>
+            <p>
+                Caused by protozoan parasites of the genus <em>Eimeria</em>.
+                It can cause intestinal damage, diarrhea, poor growth,
+                and reduced feed efficiency.
+            </p>
+        </article>
+
+        <article class="disease-card">
+            <h3>Aspergillosis</h3>
+            <p>
+                A fungal disease associated with inhalation of
+                <em>Aspergillus</em> spores, particularly affecting young birds
+                exposed to contaminated environments.
+            </p>
+        </article>
+
+    </div>
+</section>
+
+<section class="turkey-section">
+    <span class="section-label">11 · BIOSECURITY</span>
+    <h2>Disease Prevention & Biosecurity</h2>
+
+    <p>
+        Disease prevention is usually more economical than treatment.
+        Strong biosecurity reduces the opportunity for pathogens to enter
+        and spread through a flock.
+    </p>
+
+    <div class="check-grid">
+        <div>✓ Restrict unnecessary visitors</div>
+        <div>✓ Control vehicle movement</div>
+        <div>✓ Use clean protective clothing</div>
+        <div>✓ Clean and disinfect equipment</div>
+        <div>✓ Control rodents and insects</div>
+        <div>✓ Keep wild birds away</div>
+        <div>✓ Maintain clean water systems</div>
+        <div>✓ Dispose of dead birds properly</div>
+        <div>✓ Clean and disinfect houses between groups where practical</div>
+    </div>
+
+    <div class="warning-box">
+        <h3><i class="fa-solid fa-triangle-exclamation"></i> Veterinary Guidance</h3>
+        <p>
+            Vaccination and disease-control programs should follow veterinary
+            guidance because recommendations vary according to location,
+            disease risk, and production system.
+        </p>
+    </div>
+</section>
+
+<section class="turkey-section">
+    <span class="section-label">12 · STOCKING</span>
+    <h2>Stocking Density</h2>
+
+    <p>
+        Stocking density refers to the number or total weight of birds kept
+        within a given floor area.
+    </p>
+
+    <div class="check-grid">
+        <div>✓ Competition for feed and water</div>
+        <div>✓ Poor air quality</div>
+        <div>✓ Wet litter</div>
+        <div>✓ Reduced movement</div>
+        <div>✓ Increased injuries</div>
+        <div>✓ Poor growth</div>
+        <div>✓ Increased disease risk</div>
+    </div>
+
+    <p class="note">
+        Appropriate density depends on bird age, final body weight, housing design,
+        ventilation capacity, climate, litter condition, and management system.
+    </p>
+</section>
+
+<section class="turkey-section">
+    <span class="section-label">13 · CLIMATE</span>
+    <h2>Heat & Cold Stress</h2>
+
+    <div class="turkey-grid two-columns">
+
+        <article class="stress-card heat">
+            <h3>☀️ Heat Stress</h3>
+            <p>Important particularly in hot climates.</p>
+            <ul>
+                <li>Panting</li>
+                <li>Increased water consumption</li>
+                <li>Reduced feed intake</li>
+                <li>Wings held away from body</li>
+                <li>Reduced activity</li>
+                <li>Poor growth</li>
+            </ul>
+        </article>
+
+        <article class="stress-card cold">
+            <h3>❄️ Cold Stress</h3>
+            <p>Young poults are particularly vulnerable.</p>
+            <ul>
+                <li>Huddling</li>
+                <li>Reduced activity</li>
+                <li>Poor access to feed and water</li>
+                <li>Reduced growth</li>
+                <li>Increased mortality in severe conditions</li>
+            </ul>
+        </article>
+
+    </div>
+
+    <div class="info-box">
+        <h3>Management Response</h3>
+        <p>
+            Heat stress can be managed through improved ventilation, sufficient
+            cool drinking water, reduced heat accumulation, appropriate stocking
+            density, suitable feeding schedules, and cooling systems where appropriate.
+        </p>
+        <p>
+            Cold stress requires adequate brooding and prevention of excessive drafts,
+            especially for young poults.
+        </p>
+    </div>
+</section>
+
+<section class="turkey-section">
+    <span class="section-label">14 · WELFARE</span>
+    <h2>Turkey Welfare</h2>
+
+    <div class="check-grid">
+        <div>✓ Adequate space</div>
+        <div>✓ Appropriate temperature</div>
+        <div>✓ Good ventilation</div>
+        <div>✓ Dry litter</div>
+        <div>✓ Feed and clean water</div>
+        <div>✓ Prevention of unnecessary injury</div>
+        <div>✓ Appropriate handling</div>
+        <div>✓ Disease prevention</div>
+        <div>✓ Humane transport</div>
+        <div>✓ Humane slaughter</div>
+    </div>
+
+    <p class="note">
+        Very heavy commercial birds can be vulnerable to mobility and skeletal
+        problems, making appropriate breeding, nutrition, housing, and management important.
+    </p>
+</section>
+
+<section class="turkey-section">
+    <span class="section-label">15 · RECORD KEEPING</span>
+    <h2>Growth & Production Performance</h2>
+
+    <div class="performance-grid">
+        <div>Initial poult weight</div>
+        <div>Weekly body weight</div>
+        <div>Feed consumption</div>
+        <div>Water consumption</div>
+        <div>Mortality</div>
+        <div>FCR</div>
+        <div>Average daily gain</div>
+        <div>Uniformity</div>
+        <div>Final body weight</div>
+        <div>Carcass yield</div>
+    </div>
+
+    <div class="info-box">
+        <h3><i class="fa-solid fa-chart-line"></i> Why Records Matter</h3>
+        <p>
+            Farm records allow farmers to identify management problems early,
+            compare performance, monitor costs, and improve production decisions.
+        </p>
+    </div>
+</section>
+
+<section class="turkey-section">
+    <span class="section-label">16 · FARM MANAGEMENT</span>
+    <h2>Factors Affecting Turkey Production</h2>
+
+    <div class="turkey-grid four-columns">
+
+        <article class="mini-card">
+            <h3>Genetics</h3>
+            <p>Strain, growth potential, disease resistance, and feed efficiency.</p>
+        </article>
+
+        <article class="mini-card">
+            <h3>Nutrition</h3>
+            <p>Feed quality, protein, amino acids, energy, vitamins, minerals, and water.</p>
+        </article>
+
+        <article class="mini-card">
+            <h3>Environment</h3>
+            <p>Temperature, humidity, ventilation, lighting, and stocking density.</p>
+        </article>
+
+        <article class="mini-card">
+            <h3>Health</h3>
+            <p>Disease, parasites, biosecurity, and vaccination.</p>
+        </article>
+
+    </div>
+</section>
+
+<section class="turkey-section">
+    <span class="section-label">17 · ECONOMICS</span>
+    <h2>Advantages & Challenges</h2>
+
+    <div class="turkey-grid two-columns">
+
+        <article class="advantage-card">
+            <h3><i class="fa-solid fa-circle-check"></i> Advantages</h3>
+            <ul>
+                <li>Rapid growth</li>
+                <li>High meat production</li>
+                <li>Controlled feeding</li>
+                <li>Better environmental control</li>
+                <li>Easier monitoring</li>
+                <li>High potential productivity</li>
+                <li>Uniform birds</li>
+                <li>Efficient use of labor when well organized</li>
+            </ul>
+        </article>
+
+        <article class="challenge-card">
+            <h3><i class="fa-solid fa-circle-exclamation"></i> Challenges</h3>
+            <ul>
+                <li>High initial investment</li>
+                <li>High feed costs</li>
+                <li>Sensitivity to management errors</li>
+                <li>Rapid disease spread in dense populations</li>
+                <li>Requires skilled management</li>
+                <li>Reliable water and feed supplies are essential</li>
+                <li>Heat stress can be serious</li>
+                <li>Waste management is necessary</li>
+                <li>Heavy strains can have mobility and reproduction challenges</li>
+            </ul>
+        </article>
+
+    </div>
+</section>
+
+<section class="turkey-section">
+    <span class="section-label">18 · MEAT</span>
+    <h2>Turkey Meat</h2>
+
+    <p>
+        Turkey meat is an important source of animal protein and provides
+        high-quality protein, essential amino acids, vitamins, and minerals.
+    </p>
+
+    <div class="meat-grid">
+        <div>Whole carcasses</div>
+        <div>Breast meat</div>
+        <div>Thigh meat</div>
+        <div>Drumsticks</div>
+        <div>Processed meat products</div>
+    </div>
+
+    <p class="note">
+        Carcass yield and meat quality depend on genetics, nutrition, age,
+        health, and processing.
+    </p>
+</section>
+
+<section class="turkey-section management-section">
+    <span class="section-label">19 · PRACTICAL GUIDE</span>
+    <h2>Important Management Points</h2>
+
+    <div class="management-list">
+
+        <div><span>01</span> Start with healthy poults.</div>
+        <div><span>02</span> Provide adequate brooding temperature.</div>
+        <div><span>03</span> Give continuous access to clean water.</div>
+        <div><span>04</span> Use nutritionally balanced diets.</div>
+        <div><span>05</span> Maintain good ventilation.</div>
+        <div><span>06</span> Keep litter dry.</div>
+        <div><span>07</span> Avoid excessive stocking density.</div>
+        <div><span>08</span> Follow an appropriate vaccination and veterinary health program.</div>
+        <div><span>09</span> Maintain strict biosecurity.</div>
+        <div><span>10</span> Monitor body weight and feed consumption.</div>
+        <div><span>11</span> Record mortality and disease problems.</div>
+        <div><span>12</span> Control heat and cold stress.</div>
+        <div><span>13</span> Handle birds carefully.</div>
+        <div><span>14</span> Manage manure and other waste properly.</div>
+        <div><span>15</span> Maintain good hygiene from hatchery through processing.</div>
+
+    </div>
+</section>
+
+<section class="turkey-summary">
+    <div class="summary-icon">🦃</div>
+    <span class="section-label">QUICK SUMMARY</span>
+    <h2>Turkey Farming at a Glance</h2>
+
+    <p>
+        Turkey production is the rearing of domesticated turkeys primarily
+        for meat. Commercial production involves <strong>breeding, incubation,
+        brooding, growing, finishing, and processing</strong>.
+    </p>
+
+    <p>
+        Successful production depends on <strong>good genetics, balanced
+        nutrition, clean water, proper housing, temperature and ventilation
+        control, biosecurity, disease prevention, appropriate stocking density,
+        and good record keeping</strong>.
+    </p>
+
+    <div class="summary-tags">
+        <span>Breeding</span>
+        <span>Incubation</span>
+        <span>Brooding</span>
+        <span>Nutrition</span>
+        <span>Biosecurity</span>
+        <span>Health</span>
+        <span>Welfare</span>
+        <span>Record Keeping</span>
+    </div>
+</section>
+
+<div class="page-navigation">
+    <a href="poultry-farming.html" class="back-button">
+        <i class="fa-solid fa-arrow-left"></i>
+        Back to Poultry Farming
+    </a>
+</div>
+```
+
+</div>
+
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <p>© 2026 Africa AgroVision. Agriculture • Innovation • Knowledge.</p>
+    </div>
+</footer>
+
+</body>
+</html>
+/* =========================================
+   AFRICA AGROVISION MARKETPLACE
+   ========================================= */
+
+.market-hero {
+    min-height: 420px;
+    background:
+        linear-gradient(rgba(0, 70, 25, 0.72), rgba(0, 35, 15, 0.78)),
+        url("images/green-farm.jpg.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.market-content {
+    max-width: 900px;
+    color: white;
+}
+
+.market-content h1 {
+    font-size: 52px;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.market-content p {
+    font-size: 21px;
+    line-height: 1.7;
+    margin: 0 auto;
+}
+
+.market-categories {
+    padding: 70px 6%;
+    background: #f5faf6;
+}
+
+.market-heading {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 45px;
+}
+
+.market-heading h2 {
+    font-size: 36px;
+    color: #14532d;
+    margin-bottom: 12px;
+}
+
+.market-heading p {
+    font-size: 17px;
+    color: #555;
+    line-height: 1.7;
+}
+
+.market-grid {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.market-card {
+    text-decoration: none;
+    background: white;
+    border-radius: 18px;
+    padding: 32px 25px;
+    text-align: center;
+    border: 1px solid #dce9df;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+    transition: 0.3s ease;
+    color: #333;
+}
+
+.market-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.market-card span {
+    display: block;
+    font-size: 48px;
+    margin-bottom: 18px;
+}
+
+.market-card h3 {
+    color: #14532d;
+    font-size: 21px;
+    margin-bottom: 12px;
+}
+
+.market-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #666;
+    margin: 0;
+}
+
+@media (max-width: 850px) {
+
+    .market-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .market-content h1 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 550px) {
+
+    .market-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .market-content h1 {
+        font-size: 32px;
+    }
+
+    .market-content p {
+        font-size: 17px;
+    }
+
+    .market-categories {
+        padding: 50px 20px;
+    }
+
+    .market-heading h2 {
+        font-size: 29px;
+    }
+}/* Marketplace Search */
+
+.market-search {
+    max-width: 850px;
+    margin: 35px auto 0;
+    display: flex;
+    background: white;
+    padding: 8px;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.market-search input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 17px 22px;
+    font-size: 16px;
+    border-radius: 40px;
+    color: #333;
+}
+
+.market-search button {
+    border: none;
+    background: #1b5e20;
+    color: white;
+    padding: 0 30px;
+    border-radius: 40px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.market-search button:hover {
+    background: #0d3b14;
+    transform: scale(1.03);
+}
+
+@media (max-width: 600px) {
+
+    .market-search {
+        flex-direction: column;
+        border-radius: 20px;
+        gap: 8px;
+    }
+
+    .market-search input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .market-search button {
+        height: 50px;
+    }
+}/* Marketplace Action Section */
+
+.market-action {
+    padding: 75px 20px;
+    background: #14532d;
+    text-align: center;
+}
+
+.market-action-content {
+    max-width: 850px;
+    margin: auto;
+    color: white;
+}
+
+.market-action-content h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.market-action-content p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.market-action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.market-action-btn {
+    display: inline-block;
+    padding: 15px 28px;
+    background: white;
+    color: #14532d;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+.market-action-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.market-action-btn.secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.market-action-btn.secondary:hover {
+    background: white;
+    color: #14532d;
+}/* =========================================
+   HOMEPAGE AGRO MARKETPLACE
+   ========================================= */
+
+.homepage-marketplace {
+    width: min(1050px, 90%);
+    margin: 45px auto 0;
+    padding: 45px 30px;
+    box-sizing: border-box;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.22);
+    text-align: center;
+}
+
+.homepage-market-content {
+    max-width: 850px;
+    margin: auto;
+}
+
+.market-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 30px;
+    background: #e8f5e9;
+    color: #14532d;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 18px;
+}
+
+.homepage-market-content h2 {
+    color: #14532d;
+    font-size: 34px;
+    margin: 0 0 15px;
+}
+
+.homepage-market-content p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.8;
+    margin: 0 auto 28px;
+}
+
+.marketplace-home-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #14532d;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+.marketplace-home-btn:hover {
+    background: #0d3b20;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 600px) {
+
+    .homepage-marketplace {
+        width: 92%;
+        padding: 32px 20px;
+    }
+
+    .homepage-market-content h2 {
+        font-size: 27px;
+    }
+
+    .homepage-market-content p {
+        font-size: 15px;
+    }
+
+    .marketplace-home-btn {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}/* Premium Marketplace Navigation Link */
+
+nav .menu a[href="agro-market.html"] {
+    background: #2e7d32;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+nav .menu a[href="agro-market.html"]:hover {
+    background: #1b5e20;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 18px rgba(0, 0, 0, 0.2);
+}/* =========================================
+   MARKETPLACE NAVIGATION
+   ========================================= */
+
+.market-nav {
+    width: 100%;
+    min-height: 70px;
+    background: #114d1f;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+}
+
+.market-nav h2 {
+    color: white;
+    margin: 0;
+    font-size: 22px;
+}
+
+.market-nav div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.market-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.market-nav a:hover {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.market-nav a.active {
+    background: #2e7d32;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+@media (max-width: 700px) {
+
+    .market-nav {
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px 20px;
+    }
+
+    .market-nav div {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .market-nav a {
+        font-size: 13px;
+        padding: 8px 11px;
+    }
+}/* =========================================
+   LATEST AGRICULTURAL OPPORTUNITIES
+   ========================================= */
+
+.market-opportunities {
+    padding: 75px 6%;
+    background: white;
+}
+
+.opportunity-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.opportunity-card {
+    background: #f8fbf9;
+    border: 1px solid #dce9df;
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 0 7px 22px rgba(0, 0, 0, 0.06);
+    transition: 0.3s ease;
+}
+
+.opportunity-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.11);
+}
+
+.opportunity-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.opportunity-type {
+    color: #14532d;
+    background: #e8f5e9;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.opportunity-status {
+    color: #2e7d32;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.opportunity-card h3 {
+    color: #14532d;
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.opportunity-card p {
+    color: #666;
+    line-height: 1.7;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.opportunity-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px 0;
+    border-top: 1px solid #dce9df;
+    border-bottom: 1px solid #dce9df;
+    color: #555;
+    font-size: 14px;
+}
+
+.opportunity-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 11px 20px;
+    background: #14532d;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+.opportunity-btn:hover {
+    background: #0d3b20;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 750px) {
+
+    .opportunity-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .market-opportunities {
+        padding: 55px 20px;
+    }
+}/* =========================================
+   MARKETPLACE TRUST SECTION
+   ========================================= */
+
+.market-trust {
+    padding: 75px 6%;
+    background: #f1f8f3;
+    text-align: center;
+}
+
+.market-trust-content {
+    max-width: 950px;
+    margin: auto;
+}
+
+.trust-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.market-trust h2 {
+    color: #14532d;
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.market-trust p {
+    max-width: 800px;
+    margin: 0 auto 35px;
+    color: #666;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.trust-points {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.trust-points div {
+    background: white;
+    padding: 25px 20px;
+    border-radius: 16px;
+    border: 1px solid #dce9df;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+}
+
+.trust-points strong {
+    display: block;
+    color: #14532d;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.trust-points span {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+
+    .trust-points {
+        grid-template-columns: 1fr;
+    }
+
+    .market-trust {
+        padding: 55px 20px;
+    }
+
+    .market-trust h2 {
+        font-size: 27px;
+    }
+}/* =========================================
+   POST OFFER PAGE
+   ========================================= */
+
+.post-offer-page {
+    min-height: calc(100vh - 70px);
+    padding: 60px 20px;
+    background: #f1f8f3;
+}
+
+.post-offer-container {
+    max-width: 850px;
+    margin: auto;
+    background: white;
+    padding: 45px;
+    border-radius: 24px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.09);
+}
+
+.post-offer-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.post-offer-header h1 {
+    color: #14532d;
+    font-size: 36px;
+    margin: 18px 0 10px;
+}
+
+.post-offer-header p {
+    color: #666;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.offer-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: #14532d;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #d5e3d8;
+    border-radius: 10px;
+    padding: 14px 15px;
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+    background: #fbfdfb;
+    transition: 0.3s ease;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #2e7d32;
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.10);
+    background: white;
+}
+
+.submit-offer-btn {
+    border: none;
+    padding: 16px 25px;
+    border-radius: 30px;
+    background: #14532d;
+    color: white;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-top: 5px;
+}
+
+.submit-offer-btn:hover {
+    background: #0d3b20;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+}
+
+@media (max-width: 650px) {
+
+    .post-offer-container {
+        padding: 30px 20px;
+    }
+
+    .post-offer-header h1 {
+        font-size: 29px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 }

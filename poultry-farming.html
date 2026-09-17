@@ -111,7 +111,194 @@
         }
 
 
+        /* POULTRY AREAS */
+
+        .poultry-areas {
+            padding: 80px 10%;
+            background: #f4f8f4;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 50px;
+        }
+
+        .section-heading h2 {
+            color: #166534;
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .section-heading p {
+            color: #666;
+            font-size: 17px;
+        }
+
+
+        /* CARDS */
+
+        .poultry-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .poultry-card {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+            border: 1px solid #e0e8e0;
+        }
+
+        .poultry-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.13);
+        }
+
+        .poultry-card-icon {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(
+                135deg,
+                #166534,
+                #22c55e
+            );
+            font-size: 65px;
+        }
+
+        .poultry-card-content {
+            padding: 25px;
+        }
+
+        .poultry-card h3 {
+            color: #166534;
+            font-size: 25px;
+            margin-bottom: 12px;
+        }
+
+        .poultry-card p {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .explore-button {
+            display: inline-block;
+            background: #166534;
+            color: white;
+            text-decoration: none;
+            padding: 11px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .explore-button:hover {
+            background: #22c55e;
+            transform: translateY(-2px);
+        }
+
+
+        /* TURKEY FEATURE */
+
+        .turkey-feature {
+            padding: 80px 10%;
+            background: white;
+        }
+
+        .turkey-feature-box {
+            max-width: 1100px;
+            margin: auto;
+            background: linear-gradient(
+                135deg,
+                #064e3b,
+                #166534
+            );
+            color: white;
+            border-radius: 22px;
+            padding: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .turkey-feature-content {
+            max-width: 700px;
+        }
+
+        .turkey-feature h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .turkey-feature p {
+            font-size: 18px;
+            opacity: 0.92;
+            margin-bottom: 25px;
+        }
+
+        .turkey-button {
+            display: inline-block;
+            background: white;
+            color: #166534;
+            text-decoration: none;
+            padding: 14px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .turkey-button:hover {
+            background: #22c55e;
+            color: white;
+        }
+
+        .turkey-icon {
+            font-size: 100px;
+            min-width: 130px;
+            text-align: center;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            background: #0f3d20;
+            color: white;
+            text-align: center;
+            padding: 30px 10%;
+        }
+
+        footer p {
+            margin: 5px 0;
+            opacity: 0.9;
+        }
+
+
         /* MOBILE */
+
+        @media (max-width: 900px) {
+
+            .poultry-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .turkey-feature-box {
+                flex-direction: column;
+                text-align: center;
+            }
+
+        }
+
 
         @media (max-width: 768px) {
 
@@ -128,13 +315,33 @@
                 font-size: 18px;
             }
 
-            .poultry-introduction {
+            .poultry-introduction,
+            .poultry-areas,
+            .turkey-feature {
                 padding: 60px 7%;
             }
 
-            .poultry-introduction h2 {
+            .poultry-introduction h2,
+            .section-heading h2 {
                 font-size: 30px;
             }
+
+            .poultry-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .turkey-feature-box {
+                padding: 35px 25px;
+            }
+
+            .turkey-feature h2 {
+                font-size: 29px;
+            }
+
+            .turkey-icon {
+                font-size: 80px;
+            }
+
         }
 
     </style>
@@ -190,5 +397,236 @@
     </section>
 
 
+    <!-- POULTRY PRODUCTION AREAS -->
+
+    <section class="poultry-areas">
+
+        <div class="section-heading">
+
+            <h2>Explore Poultry Farming 🐔</h2>
+
+            <p>
+                Discover important poultry production areas and learn
+                practical farming principles for different bird species.
+            </p>
+
+        </div>
+
+
+        <div class="poultry-grid">
+
+
+            <!-- CHICKEN -->
+
+            <div class="poultry-card">
+
+                <div class="poultry-card-icon">
+                    🐔
+                </div>
+
+                <div class="poultry-card-content">
+
+                    <h3>Chicken Farming</h3>
+
+                    <p>
+                        Learn about chicken production, housing,
+                        feeding, health management, eggs, and meat production.
+                    </p>
+
+                    <a href="#" class="explore-button">
+                        Explore More →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- DUCK -->
+
+            <div class="poultry-card">
+
+                <div class="poultry-card-icon">
+                    🦆
+                </div>
+
+                <div class="poultry-card-content">
+
+                    <h3>Duck Farming</h3>
+
+                    <p>
+                        Explore duck production systems, nutrition,
+                        housing, breeding, health, and management.
+                    </p>
+
+                    <a href="#" class="explore-button">
+                        Explore More →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- TURKEY -->
+
+            <div class="poultry-card">
+
+                <div class="poultry-card-icon">
+                    🦃
+                </div>
+
+                <div class="poultry-card-content">
+
+                    <h3>Turkey Farming</h3>
+
+                    <p>
+                        Learn about turkey production, nutrition,
+                        housing, breeding, disease prevention,
+                        welfare, and meat production.
+                    </p>
+
+                    <a href="turkey-farming.html" class="explore-button">
+                        Explore Turkey Farming →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- GOOSE -->
+
+            <div class="poultry-card">
+
+                <div class="poultry-card-icon">
+                    🪿
+                </div>
+
+                <div class="poultry-card-content">
+
+                    <h3>Goose Farming</h3>
+
+                    <p>
+                        Learn about goose production, feeding,
+                        housing, breeding, and farm management.
+                    </p>
+
+                    <a href="#" class="explore-button">
+                        Explore More →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- GUINEA FOWL -->
+
+            <div class="poultry-card">
+
+                <div class="poultry-card-icon">
+                    🐦
+                </div>
+
+                <div class="poultry-card-content">
+
+                    <h3>Guinea Fowl Farming</h3>
+
+                    <p>
+                        Discover guinea fowl production, nutrition,
+                        housing, health management, and benefits.
+                    </p>
+
+                    <a href="#" class="explore-button">
+                        Explore More →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- POULTRY MANAGEMENT -->
+
+            <div class="poultry-card">
+
+                <div class="poultry-card-icon">
+                    🌱
+                </div>
+
+                <div class="poultry-card-content">
+
+                    <h3>Poultry Management</h3>
+
+                    <p>
+                        Understand biosecurity, sanitation,
+                        waste management, records, and sustainable
+                        poultry production.
+                    </p>
+
+                    <a href="#introduction" class="explore-button">
+                        Learn More →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TURKEY FEATURE -->
+
+    <section class="turkey-feature">
+
+        <div class="turkey-feature-box">
+
+            <div class="turkey-feature-content">
+
+                <h2>🦃 Discover Turkey Farming</h2>
+
+                <p>
+                    Explore a complete guide to turkey production,
+                    including breeds, production systems, housing,
+                    nutrition, breeding, incubation, biosecurity,
+                    disease prevention, welfare, and farm management.
+                </p>
+
+                <a href="turkey-farming.html" class="turkey-button">
+                    Explore Turkey Farming →
+                </a>
+
+            </div>
+
+            <div class="turkey-icon">
+                🦃
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p><strong>Africa AgroVision</strong></p>
+
+        <p>
+            Agriculture • Innovation • Knowledge • Sustainable Farming
+        </p>
+
+        <p>
+            © 2026 Africa AgroVision. All rights reserved.
+        </p>
+
+    </footer>
+
+
 </body>
+
 </html>

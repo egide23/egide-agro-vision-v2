@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Post an Offer | Africa AgroVision</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <nav class="market-nav">
+
+        <h2>🌱 Africa AgroVision</h2>
+
+        <div>
+            <a href="index.html">Home</a>
+            <a href="agro-market.html">🌍 Marketplace</a>
+            <a href="login.html">Login</a>
+        </div>
+
+    </nav>
+
+
+    <main class="post-offer-page">
+
+        <div class="post-offer-container">
+
+            <div class="post-offer-header">
+
+                <span class="market-badge">
+                    🌍 AFRICA AGROVISION MARKETPLACE
+                </span>
+
+                <h1>📢 Post an Offer</h1>
+
+                <p>
+                    Tell the agricultural community what you have
+                    available for sale or service.
+                </p>
+
+            </div>
+
+
+            <form class="offer-form">
+
+                <div class="form-group">
+
+                    <label for="offerType">
+                        What are you offering?
+                    </label>
+
+                    <select id="offerType" required>
+
+                        <option value="">
+                            Select a category
+                        </option>
+
+                        <option value="crop">
+                            🌾 Crops
+                        </option>
+
+                        <option value="animal">
+                            🐄 Animals / Livestock
+                        </option>
+
+                        <option value="poultry">
+                            🐔 Poultry
+                        </option>
+
+                        <option value="seeds">
+                            🌱 Seeds / Breeds
+                        </option>
+
+                        <option value="equipment">
+                            🚜 Equipment / Tools
+                        </option>
+
+                        <option value="service">
+                            🤝 Agricultural Service
+                        </option>
+
+                        <option value="worker">
+                            👨‍🌾 Farm Worker
+                        </option>
+
+                        <option value="other">
+                            📦 Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="title">
+                        Offer title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="title"
+                        placeholder="Example: 500 kg Fresh Beans"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="location">
+                            Location
+                        </label>
+
+                        <input
+                            type="text"
+                            id="location"
+                            placeholder="Example: Kigali, Rwanda"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="price">
+                            Price
+                        </label>
+
+                        <input
+                            type="text"
+                            id="price"
+                            placeholder="Example: RWF 1,000 / kg"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="quantity">
+                            Quantity
+                        </label>
+
+                        <input
+                            type="text"
+                            id="quantity"
+                            placeholder="Example: 500 kg"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="contact">
+                            Contact
+                        </label>
+
+                        <input
+                            type="text"
+                            id="contact"
+                            placeholder="Phone, WhatsApp or email"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="description">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="description"
+                        rows="6"
+                        placeholder="Describe your product, animal, service, equipment, or opportunity..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <button type="submit" class="submit-offer-btn">
+                    📢 Publish Offer
+                </button>
+
+            </form>
+
+        </div>
+
+    </main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+const SUPABASE_URL =
+    "https://fhvyncltdliduhhfqzqq.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_b2M9akZhcgz5KjOZQ1mPtA_aNXZhv6J";
+
+const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+);
+
+
+document.querySelector(".offer-form").addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+        const submitButton =
+            document.querySelector(".submit-offer-btn");
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Publishing...";
+
+
+        try {
+
+            const {
+                data: { user },
+                error: userError
+            } = await supabaseClient.auth.getUser();
+
+
+            if (userError || !user) {
+
+                alert("Please login before posting an offer.");
+
+                window.location.href = "login.html";
+
+                return;
+            }
+
+
+            const listing = {
+
+                user_id: user.id,
+
+                category:
+                    document.getElementById("offerType").value,
+
+                title:
+                    document.getElementById("title").value.trim(),
+
+                location:
+                    document.getElementById("location").value.trim(),
+
+                price:
+                    document.getElementById("price").value.trim(),
+
+                quantity:
+                    document.getElementById("quantity").value.trim(),
+
+                contact:
+                    document.getElementById("contact").value.trim(),
+
+                description:
+                    document.getElementById("description").value.trim()
+
+            };
+
+
+            const { error } =
+                await supabaseClient
+                    .from("marketplace_listings")
+                    .insert([listing]);
+
+
+            if (error) {
+
+                console.error("Publishing error:", error);
+
+                alert("Could not publish your offer. Please try again.");
+
+                return;
+            }
+
+
+            alert("🎉 Your offer has been published successfully!");
+
+            window.location.href = "agro-market.html";
+
+
+        } catch (error) {
+
+            console.error(error);
+
+            alert("Something went wrong. Please try again.");
+
+        } finally {
+
+            submitButton.disabled = false;
+            submitButton.textContent = "📢 Publish Offer";
+
+        }
+
+    }
+);
+
+</script>
+</body>
+</html>
