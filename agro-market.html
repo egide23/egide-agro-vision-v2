@@ -1,321 +1,789 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Agro Marketplace | Africa AgroVision</title>
-    <meta name="description" content="Buy, sell, find jobs, workers, animals, crops, equipment, and agricultural services across Africa.">
+
+    <meta
+        name="description"
+        content="Buy, sell, find jobs, workers, animals, crops, equipment, and agricultural services across Africa."
+    >
 
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
+
+    <!-- =========================
+         MARKETPLACE NAVIGATION
+    ========================== -->
+
     <nav class="market-nav">
+
         <h2>🌱 Africa AgroVision</h2>
 
         <div>
-            <a href="index.html">Home</a>
-            <a href="agriculture.html">Agriculture</a>
-            <a href="agro-market.html" class="active">🌍 Marketplace</a>
-            <a href="login.html">Login</a>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="agriculture.html">
+                Agriculture
+            </a>
+
+            <a href="agro-market.html" class="active">
+                🌍 Marketplace
+            </a>
+
+            <a href="login.html">
+                Login
+            </a>
+
         </div>
+
     </nav>
+
+
+
+    <!-- =========================
+         MARKETPLACE HERO
+    ========================== -->
 
     <section class="market-hero">
 
         <div class="market-content">
 
-            <h1>🌍 Africa Agro Marketplace</h1>
+            <h1>
+                🌍 Africa Agro Marketplace
+            </h1>
 
             <p>
                 The home of agriculture — buy, sell, work, connect,
                 and grow across Africa.
             </p>
-<div class="market-search">
 
-    <input
-        type="text"
-        placeholder="Search crops, animals, jobs, equipment, services..."
-    >
 
-    <button type="button">
-        🔍 Search
-    </button>
+            <div class="market-search">
 
-</div>
+                <input
+                    type="text"
+                    id="marketSearch"
+                    placeholder="Search crops, animals, jobs, equipment, services..."
+                >
+
+                <button type="button" id="searchButton">
+                    🔍 Search
+                </button>
+
+            </div>
+
         </div>
 
     </section>
-<section class="market-categories">
 
-    <div class="market-heading">
-        <h2>What are you looking for?</h2>
-        <p>
-            Find agricultural products, animals, people, equipment,
-            jobs, and services in one place.
-        </p>
-    </div>
 
-    <div class="market-grid">
 
-        <a href="#" class="market-card">
-            <span>🌾</span>
-            <h3>Buy Crops</h3>
-            <p>Find crops and agricultural products available for sale.</p>
-        </a>
+    <!-- =========================
+         MARKETPLACE CATEGORIES
+    ========================== -->
 
-        <a href="#" class="market-card">
-            <span>🌱</span>
-            <h3>Sell Crops</h3>
-            <p>List your harvest and connect with potential buyers.</p>
-        </a>
+    <section class="market-categories">
 
-        <a href="#" class="market-card">
-            <span>🐄</span>
-            <h3>Buy Animals</h3>
-            <p>Find livestock, poultry, and other farm animals.</p>
-        </a>
+        <div class="market-heading">
 
-        <a href="#" class="market-card">
-            <span>🐐</span>
-            <h3>Sell Animals</h3>
-            <p>Advertise animals you want to sell.</p>
-        </a>
-
-        <a href="#" class="market-card">
-            <span>🚜</span>
-            <h3>Equipment & Tools</h3>
-            <p>Find tractors, machines, tools, and farm equipment.</p>
-        </a>
-
-        <a href="#" class="market-card">
-            <span>💊</span>
-            <h3>Veterinary & Health</h3>
-            <p>Find animal health products and agricultural assistance.</p>
-        </a>
-
-        <a href="#" class="market-card">
-            <span>👨‍🌾</span>
-            <h3>Farm Workers</h3>
-            <p>Find skilled workers and people looking for farm work.</p>
-        </a>
-
-        <a href="#" class="market-card">
-            <span>💼</span>
-            <h3>Agricultural Jobs</h3>
-            <p>Discover employment opportunities in agriculture.</p>
-        </a>
-
-        <a href="#" class="market-card">
-            <span>🤝</span>
-            <h3>Farm Services</h3>
-            <p>Connect with people and businesses providing farm services.</p>
-        </a>
-
-        <a href="#" class="market-card">
-            <span>🌱</span>
-            <h3>Seeds & Breeds</h3>
-            <p>Discover seeds, livestock breeds, and breeding opportunities.</p>
-        </a>
-
-        <a href="#" class="market-card">
-            <span>📦</span>
-            <h3>Markets & Buyers</h3>
-            <p>Connect agricultural producers with potential markets.</p>
-        </a>
-
-        <a href="#" class="market-card">
-            <span>🚚</span>
-            <h3>Transport</h3>
-            <p>Find agricultural transportation and delivery services.</p>
-        </a>
-
-    </div>
-
-</section>
-<section class="market-opportunities">
-
-    <div class="market-heading">
-        <span class="market-badge">🔥 LIVE AGRICULTURAL OPPORTUNITIES</span>
-
-        <h2>Latest Opportunities</h2>
-
-        <p>
-            Discover what farmers, buyers, sellers, workers, and
-            agricultural businesses are looking for.
-        </p>
-    </div>
-
-    <div class="opportunity-grid">
-
-        <div class="opportunity-card">
-
-            <div class="opportunity-top">
-                <span class="opportunity-type">🌾 CROP</span>
-                <span class="opportunity-status">Available</span>
-            </div>
-
-            <h3>Fresh Agricultural Crops</h3>
+            <h2>
+                What are you looking for?
+            </h2>
 
             <p>
-                Farmers can list harvested crops and connect
-                with interested buyers.
+                Find agricultural products, animals, people, equipment,
+                jobs, and services in one place.
             </p>
-
-            <div class="opportunity-info">
-                <span>📍 Rwanda</span>
-                <span>🤝 Buy / Sell</span>
-            </div>
-
-            <a href="#" class="opportunity-btn">
-                View Opportunity →
-            </a>
 
         </div>
 
 
-        <div class="opportunity-card">
+        <div class="market-grid">
 
-            <div class="opportunity-top">
-                <span class="opportunity-type">🐄 LIVESTOCK</span>
-                <span class="opportunity-status">Available</span>
-            </div>
 
-            <h3>Animals & Good Breeds</h3>
+            <a href="#" class="market-card">
+
+                <span>🌾</span>
+
+                <h3>
+                    Buy Crops
+                </h3>
+
+                <p>
+                    Find crops and agricultural products available for sale.
+                </p>
+
+            </a>
+
+
+
+            <a href="#" class="market-card">
+
+                <span>🌱</span>
+
+                <h3>
+                    Sell Crops
+                </h3>
+
+                <p>
+                    List your harvest and connect with potential buyers.
+                </p>
+
+            </a>
+
+
+
+            <a href="#" class="market-card">
+
+                <span>🐄</span>
+
+                <h3>
+                    Buy Animals
+                </h3>
+
+                <p>
+                    Find livestock, poultry, and other farm animals.
+                </p>
+
+            </a>
+
+
+
+            <a href="#" class="market-card">
+
+                <span>🐐</span>
+
+                <h3>
+                    Sell Animals
+                </h3>
+
+                <p>
+                    Advertise animals you want to sell.
+                </p>
+
+            </a>
+
+
+
+            <a href="#" class="market-card">
+
+                <span>🚜</span>
+
+                <h3>
+                    Equipment & Tools
+                </h3>
+
+                <p>
+                    Find tractors, machines, tools, and farm equipment.
+                </p>
+
+            </a>
+
+
+
+            <a href="#" class="market-card">
+
+                <span>💊</span>
+
+                <h3>
+                    Veterinary & Health
+                </h3>
+
+                <p>
+                    Find animal health products and agricultural assistance.
+                </p>
+
+            </a>
+
+
+
+            <a href="#" class="market-card">
+
+                <span>👨‍🌾</span>
+
+                <h3>
+                    Farm Workers
+                </h3>
+
+                <p>
+                    Find skilled workers and people looking for farm work.
+                </p>
+
+            </a>
+
+
+
+            <a href="#" class="market-card">
+
+                <span>💼</span>
+
+                <h3>
+                    Agricultural Jobs
+                </h3>
+
+                <p>
+                    Discover employment opportunities in agriculture.
+                </p>
+
+            </a>
+
+
+
+            <a href="#" class="market-card">
+
+                <span>🤝</span>
+
+                <h3>
+                    Farm Services
+                </h3>
+
+                <p>
+                    Connect with people and businesses providing farm services.
+                </p>
+
+            </a>
+
+
+
+            <a href="#" class="market-card">
+
+                <span>🌱</span>
+
+                <h3>
+                    Seeds & Breeds
+                </h3>
+
+                <p>
+                    Discover seeds, livestock breeds, and breeding opportunities.
+                </p>
+
+            </a>
+
+
+
+            <a href="#" class="market-card">
+
+                <span>📦</span>
+
+                <h3>
+                    Markets & Buyers
+                </h3>
+
+                <p>
+                    Connect agricultural producers with potential markets.
+                </p>
+
+            </a>
+
+
+
+            <a href="#" class="market-card">
+
+                <span>🚚</span>
+
+                <h3>
+                    Transport
+                </h3>
+
+                <p>
+                    Find agricultural transportation and delivery services.
+                </p>
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         LIVE OPPORTUNITIES
+    ========================== -->
+
+    <section class="market-opportunities">
+
+
+        <div class="market-heading">
+
+            <span class="market-badge">
+                🔥 LIVE AGRICULTURAL OPPORTUNITIES
+            </span>
+
+            <h2>
+                Latest Opportunities
+            </h2>
 
             <p>
-                Find livestock, poultry, breeding animals,
-                and other farm animals.
+                Discover the latest products, animals, services,
+                jobs, and opportunities posted on Africa AgroVision.
             </p>
-
-            <div class="opportunity-info">
-                <span>📍 Rwanda</span>
-                <span>🤝 Buy / Sell</span>
-            </div>
-
-            <a href="#" class="opportunity-btn">
-                View Opportunity →
-            </a>
 
         </div>
 
 
-        <div class="opportunity-card">
+        <div
+            class="opportunity-grid"
+            id="opportunityGrid"
+        >
 
-            <div class="opportunity-top">
-                <span class="opportunity-type">🚜 EQUIPMENT</span>
-                <span class="opportunity-status">Available</span>
+            <div class="opportunity-card">
+
+                <h3>
+                    Loading opportunities...
+                </h3>
+
+                <p>
+                    Please wait while we load the latest agricultural offers.
+                </p>
+
             </div>
 
-            <h3>Farm Tools & Equipment</h3>
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         TRUST SECTION
+    ========================== -->
+
+    <section class="market-trust">
+
+        <div class="market-trust-content">
+
+            <div class="trust-icon">
+                🤝
+            </div>
+
+            <h2>
+                Connect With the Agricultural Community
+            </h2>
 
             <p>
-                Connect with suppliers of agricultural machines,
-                tools, and farming equipment.
+                Africa AgroVision is building a trusted agricultural network
+                where farmers, buyers, sellers, workers, experts, and businesses
+                can discover opportunities and connect with each other.
             </p>
 
-            <div class="opportunity-info">
-                <span>📍 Rwanda</span>
-                <span>🛠️ Equipment</span>
-            </div>
 
-            <a href="#" class="opportunity-btn">
-                View Opportunity →
-            </a>
+            <div class="trust-points">
+
+
+                <div>
+
+                    <strong>
+                        🌱 Farmers
+                    </strong>
+
+                    <span>
+                        Share products and find opportunities.
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        🏢 Businesses
+                    </strong>
+
+                    <span>
+                        Reach agricultural customers and partners.
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        🤝 Community
+                    </strong>
+
+                    <span>
+                        Build useful agricultural connections.
+                    </span>
+
+                </div>
+
+
+            </div>
 
         </div>
 
+    </section>
 
-        <div class="opportunity-card">
 
-            <div class="opportunity-top">
-                <span class="opportunity-type">💼 JOBS</span>
-                <span class="opportunity-status">Open</span>
-            </div>
 
-            <h3>Agricultural Jobs & Workers</h3>
+    <!-- =========================
+         POST OFFER SECTION
+    ========================== -->
+
+    <section class="market-action">
+
+        <div class="market-action-content">
+
+            <h2>
+                📢 Have something to offer or need something?
+            </h2>
 
             <p>
-                Find farm workers, agricultural jobs,
-                technicians, and experienced professionals.
+                Post what you are selling, what you are looking for,
+                a job opportunity, a service, or agricultural assistance.
             </p>
 
-            <div class="opportunity-info">
-                <span>📍 Rwanda</span>
-                <span>👨‍🌾 Work</span>
-            </div>
 
-            <a href="#" class="opportunity-btn">
-                View Opportunity →
-            </a>
+            <div class="market-action-buttons">
 
-        </div>
 
-    </div>
+                <a
+                    href="post-offer.html"
+                    class="market-action-btn"
+                >
+                    ➕ Post an Offer
+                </a>
 
-</section>
-<section class="market-trust">
 
-    <div class="market-trust-content">
+                <a
+                    href="#"
+                    class="market-action-btn secondary"
+                >
+                    🔎 Post a Request
+                </a>
 
-        <div class="trust-icon">🤝</div>
 
-        <h2>Connect With the Agricultural Community</h2>
-
-        <p>
-            Africa AgroVision is building a trusted agricultural network
-            where farmers, buyers, sellers, workers, experts, and businesses
-            can discover opportunities and connect with each other.
-        </p>
-
-        <div class="trust-points">
-
-            <div>
-                <strong>🌱 Farmers</strong>
-                <span>Share products and find opportunities.</span>
-            </div>
-
-            <div>
-                <strong>🏢 Businesses</strong>
-                <span>Reach agricultural customers and partners.</span>
-            </div>
-
-            <div>
-                <strong>🤝 Community</strong>
-                <span>Build useful agricultural connections.</span>
             </div>
 
         </div>
 
-    </div>
+    </section>
 
-</section>
-<section class="market-action">
 
-    <div class="market-action-content">
 
-        <h2>📢 Have something to offer or need something?</h2>
+    <!-- =========================
+         SUPABASE
+    ========================== -->
 
-        <p>
-            Post what you are selling, what you are looking for,
-            a job opportunity, a service, or agricultural assistance.
-        </p>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-        <div class="market-action-buttons">
 
-            <a href="post-offer.html" class="market-action-btn">
-    ➕ Post an Offer
-</a>
+    <script>
 
-            <a href="#" class="market-action-btn secondary">
-                🔎 Post a Request
-            </a>
+        const SUPABASE_URL =
+            "https://fhvyncltdliduhhfqzqq.supabase.co";
 
-        </div>
 
-    </div>
+        const SUPABASE_PUBLISHABLE_KEY =
+            "sb_publishable_b2M9akZhcgz5KjOZQ1mPtA_aNXZhv6J";
 
-</section>
+
+        const supabaseClient =
+            window.supabase.createClient(
+                SUPABASE_URL,
+                SUPABASE_PUBLISHABLE_KEY
+            );
+
+
+
+        // ==========================================
+        // LOAD MARKETPLACE OFFERS
+        // ==========================================
+
+        async function loadMarketplaceOffers() {
+
+            const opportunityGrid =
+                document.getElementById(
+                    "opportunityGrid"
+                );
+
+
+            const {
+                data,
+                error
+            } = await supabaseClient
+
+                .from("marketplace_listings")
+
+                .select("*")
+
+                .eq("status", "active")
+
+                .order(
+                    "created_at",
+                    {
+                        ascending: false
+                    }
+                )
+
+                .limit(12);
+
+
+
+            if (error) {
+
+                console.error(
+                    "Error loading offers:",
+                    error
+                );
+
+
+                opportunityGrid.innerHTML = `
+
+                    <div class="opportunity-card">
+
+                        <h3>
+                            Unable to load opportunities
+                        </h3>
+
+                        <p>
+                            Please try again later.
+                        </p>
+
+                    </div>
+
+                `;
+
+
+                return;
+
+            }
+
+
+
+            if (
+                !data ||
+                data.length === 0
+            ) {
+
+                opportunityGrid.innerHTML = `
+
+                    <div class="opportunity-card">
+
+                        <h3>
+                            No opportunities yet
+                        </h3>
+
+                        <p>
+                            Be the first person to post an agricultural
+                            offer on Africa AgroVision.
+                        </p>
+
+                        <a
+                            href="post-offer.html"
+                            class="opportunity-btn"
+                        >
+                            📢 Post an Offer →
+                        </a>
+
+                    </div>
+
+                `;
+
+
+                return;
+
+            }
+
+
+
+            opportunityGrid.innerHTML = "";
+
+
+
+            data.forEach(
+                function(offer) {
+
+
+                    const card =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    card.className =
+                        "opportunity-card";
+
+
+
+                    card.innerHTML = `
+
+                        <div class="opportunity-top">
+
+                            <span class="opportunity-type">
+                                🌱 ${offer.category}
+                            </span>
+
+                            <span class="opportunity-status">
+                                Available
+                            </span>
+
+                        </div>
+
+
+                        <h3>
+                            ${offer.title}
+                        </h3>
+
+
+                        <p>
+                            ${offer.description}
+                        </p>
+
+
+                        <div class="opportunity-info">
+
+                            <span>
+                                📍 ${offer.location}
+                            </span>
+
+                            <span>
+                                📦 ${offer.quantity || "Available"}
+                            </span>
+
+                        </div>
+
+
+                        <div class="opportunity-info">
+
+                            <span>
+                                💰 ${offer.price || "Contact seller"}
+                            </span>
+
+                        </div>
+
+
+                        <a
+                            href="#"
+                            class="opportunity-btn"
+                            onclick="alert('Contact: ${offer.contact}')"
+                        >
+                            Contact Seller →
+                        </a>
+
+                    `;
+
+
+                    opportunityGrid.appendChild(
+                        card
+                    );
+
+                }
+            );
+
+        }
+
+
+
+        // ==========================================
+        // SEARCH
+        // ==========================================
+
+        const searchInput =
+            document.getElementById(
+                "marketSearch"
+            );
+
+
+        const searchButton =
+            document.getElementById(
+                "searchButton"
+            );
+
+
+        function searchMarketplace() {
+
+            const searchTerm =
+                searchInput.value
+                    .trim()
+                    .toLowerCase();
+
+
+            const cards =
+                document.querySelectorAll(
+                    "#opportunityGrid .opportunity-card"
+                );
+
+
+            cards.forEach(
+                function(card) {
+
+                    const cardText =
+                        card.textContent
+                            .toLowerCase();
+
+
+                    if (
+                        searchTerm === "" ||
+                        cardText.includes(searchTerm)
+                    ) {
+
+                        card.style.display =
+                            "";
+
+                    } else {
+
+                        card.style.display =
+                            "none";
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        searchButton.addEventListener(
+            "click",
+            searchMarketplace
+        );
+
+
+        searchInput.addEventListener(
+            "keyup",
+            function(event) {
+
+                if (
+                    event.key === "Enter"
+                ) {
+
+                    searchMarketplace();
+
+                }
+
+            }
+        );
+
+
+
+        // ==========================================
+        // START MARKETPLACE
+        // ==========================================
+
+        loadMarketplaceOffers();
+
+    </script>
+
+
 </body>
+
 </html>
