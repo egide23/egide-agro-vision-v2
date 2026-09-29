@@ -3445,4 +3445,4554 @@ nav .menu a[href="agro-market.html"]:hover {
         grid-template-columns: 1fr;
         gap: 20px;
     }
+}/* =========================================================
+   AFRICA AGROVISION MARKETPLACE
+   PREMIUM CATEGORY CARDS
+========================================================= */
+
+.market-categories {
+    padding: 75px 30px 90px;
+    background: #f4f8f5;
+}
+
+.market-heading {
+    max-width: 900px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.market-heading h2 {
+    margin: 0 0 12px;
+    color: #0d5424;
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.market-heading p {
+    margin: 0 auto;
+    max-width: 700px;
+    color: #5d6961;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* CATEGORY GRID */
+
+.market-grid {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+
+/* CATEGORY CARD */
+
+.market-card {
+    position: relative;
+
+    min-height: 225px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    padding: 32px 28px;
+
+    text-align: center;
+    text-decoration: none;
+
+    background: #ffffff;
+
+    border: 1px solid #dfe9e2;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 8px 24px rgba(20, 70, 35, 0.07);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* Green top accent */
+
+.market-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background: #176b2c;
+
+    transform: scaleX(0);
+
+    transform-origin: center;
+
+    transition: transform 0.3s ease;
+}
+
+
+/* Icon */
+
+.market-card span {
+    width: 72px;
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 18px;
+
+    border-radius: 18px;
+
+    background: #eef7f0;
+
+    font-size: 38px;
+
+    line-height: 1;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+
+/* Title */
+
+.market-card h3 {
+    margin: 0 0 10px;
+
+    color: #07531f;
+
+    font-size: 20px;
+
+    font-weight: 750;
+
+    line-height: 1.3;
+}
+
+
+/* Description */
+
+.market-card p {
+    margin: 0;
+
+    max-width: 290px;
+
+    color: #626d66;
+
+    font-size: 14px;
+
+    line-height: 1.65;
+}
+
+
+/* Hover */
+
+.market-card:hover {
+    transform: translateY(-7px);
+
+    border-color: #b8d8c0;
+
+    box-shadow:
+        0 18px 38px rgba(20, 70, 35, 0.13);
+}
+
+.market-card:hover::before {
+    transform: scaleX(1);
+}
+
+.market-card:hover span {
+    transform: translateY(-3px) scale(1.04);
+
+    background: #e2f2e5;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .market-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .market-categories {
+        padding: 55px 18px 70px;
+    }
+
+    .market-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .market-card {
+        min-height: 210px;
+    }
+
+}/* =========================================================
+   AFRICA AGROVISION
+   LIVE MARKETPLACE OPPORTUNITIES
+========================================================= */
+
+.market-opportunities {
+    padding: 85px 30px 95px;
+    background: #ffffff;
+}
+
+.market-opportunities .market-heading {
+    margin-bottom: 45px;
+}
+
+
+/* LIVE BADGE */
+
+.market-badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 8px 15px;
+
+    margin-bottom: 16px;
+
+    border-radius: 50px;
+
+    background: #eaf6ed;
+
+    color: #176b2c;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.7px;
+}
+
+
+/* OPPORTUNITY GRID */
+
+.opportunity-grid {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 24px;
+}
+
+
+/* OPPORTUNITY CARD */
+
+.opportunity-card {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-height: 280px;
+
+    padding: 26px;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border: 1px solid #e1e9e3;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 7px 24px rgba(18, 65, 32, 0.07);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* CARD HOVER */
+
+.opportunity-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #b9d7c0;
+
+    box-shadow:
+        0 16px 34px rgba(18, 65, 32, 0.12);
+}
+
+
+/* TOP INFORMATION */
+
+.opportunity-top {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+
+/* CATEGORY */
+
+.opportunity-type {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 7px 11px;
+
+    border-radius: 30px;
+
+    background: #edf7ef;
+
+    color: #176b2c;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    text-transform: capitalize;
+}
+
+
+/* STATUS */
+
+.opportunity-status {
+    padding: 6px 10px;
+
+    border-radius: 30px;
+
+    background: #f0f8f2;
+
+    color: #27843d;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+
+/* TITLE */
+
+.opportunity-card h3 {
+    margin: 0 0 12px;
+
+    color: #123f20;
+
+    font-size: 20px;
+
+    font-weight: 750;
+
+    line-height: 1.35;
+}
+
+
+/* DESCRIPTION */
+
+.opportunity-card > p {
+    margin: 0 0 20px;
+
+    color: #657068;
+
+    font-size: 14px;
+
+    line-height: 1.65;
+}
+
+
+/* INFORMATION ROWS */
+
+.opportunity-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-bottom: 8px;
+}
+
+.opportunity-info span {
+    color: #59655d;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* CONTACT BUTTON */
+
+.opportunity-btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-top: auto;
+
+    min-height: 45px;
+
+    padding: 0 18px;
+
+    box-sizing: border-box;
+
+    border-radius: 10px;
+
+    background: #176b2c;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.opportunity-btn:hover {
+    background: #0e4d1e;
+
+    transform: translateY(-2px);
+}
+
+
+/* EMPTY / LOADING CARD */
+
+.opportunity-grid > .opportunity-card:only-child {
+    grid-column: 1 / -1;
+
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    text-align: center;
+
+    justify-content: center;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .opportunity-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .market-opportunities {
+        padding: 65px 18px 75px;
+    }
+
+    .opportunity-grid {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .opportunity-card {
+        min-height: 260px;
+
+        padding: 22px;
+    }
+
+}/* =========================================================
+   AFRICA AGROVISION — TURKEY FARMING
+   MODERN AGRICULTURE DESIGN
+   ========================================================= */
+
+.turkey-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+}
+
+.turkey-hero {
+    min-height: 430px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(135deg, rgba(8, 55, 24, 0.94), rgba(20, 104, 48, 0.82)),
+        url("images/poultry-farming.jpg.jpg") center/cover no-repeat;
+}
+
+.turkey-hero-content {
+    width: min(1100px, 90%);
+    margin: auto;
+    color: #fff;
+    padding: 70px 0;
+}
+
+.turkey-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid rgba(255,255,255,.35);
+    border-radius: 30px;
+    background: rgba(255,255,255,.10);
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.turkey-hero h1 {
+    margin: 18px 0 15px;
+    font-size: clamp(2.5rem, 6vw, 4.8rem);
+    line-height: 1;
+    color: #fff;
+}
+
+.turkey-hero p {
+    max-width: 720px;
+    margin: 0;
+    font-size: 1.08rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,.88);
+}
+
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    padding: 24px 0;
+    font-size: .9rem;
+    color: #68756d;
+}
+
+.breadcrumb a {
+    color: #19713a;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.turkey-intro,
+.turkey-section,
+.turkey-summary {
+    margin-bottom: 35px;
+}
+
+.turkey-intro {
+    display: grid;
+    grid-template-columns: 1.5fr .8fr;
+    gap: 30px;
+    padding: 40px;
+    border-radius: 22px;
+    background: #fff;
+    border: 1px solid #e3ebe5;
+    box-shadow: 0 12px 35px rgba(20, 65, 35, .07);
+}
+
+.section-label {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #218344;
+    font-size: .75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.turkey-page h2 {
+    margin: 0 0 18px;
+    color: #123d22;
+    font-size: clamp(1.7rem, 3vw, 2.35rem);
+}
+
+.turkey-page h3 {
+    color: #174b29;
+}
+
+.turkey-page p {
+    color: #536159;
+    line-height: 1.75;
+}
+
+.turkey-fact-card {
+    padding: 28px;
+    border-radius: 18px;
+    background: #f3f8f4;
+    border-left: 5px solid #258344;
+}
+
+.turkey-fact-card h3 {
+    margin-top: 0;
+}
+
+.turkey-fact-card ul,
+.turkey-card ul,
+.disease-card ul,
+.stress-card ul,
+.advantage-card ul,
+.challenge-card ul {
+    padding-left: 20px;
+    line-height: 1.9;
+    color: #536159;
+}
+
+.turkey-section {
+    padding: 40px;
+    border-radius: 22px;
+    background: #fff;
+    border: 1px solid #e4ebe6;
+    box-shadow: 0 10px 30px rgba(20, 65, 35, .055);
+}
+
+.turkey-grid {
+    display: grid;
+    gap: 22px;
+}
+
+.two-columns {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.three-columns {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.four-columns {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.turkey-card,
+.mini-card,
+.disease-card,
+.stress-card,
+.advantage-card,
+.challenge-card {
+    padding: 27px;
+    border-radius: 18px;
+    background: #f8fbf9;
+    border: 1px solid #e1ebe4;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.turkey-card:hover,
+.mini-card:hover,
+.disease-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(25, 91, 48, .10);
+}
+
+.card-icon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 18px;
+    border-radius: 14px;
+    background: #dff1e4;
+    color: #19733a;
+    font-size: 1.25rem;
+}
+
+.cycle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.cycle-step {
+    position: relative;
+    padding: 30px 25px 25px;
+    border-radius: 18px;
+    background: #f7faf8;
+    border: 1px solid #e1ebe4;
+}
+
+.cycle-step > span {
+    display: inline-grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+    background: #19733a;
+    color: #fff;
+    font-size: .78rem;
+    font-weight: 800;
+}
+
+.check-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 25px 0;
+}
+
+.check-grid div {
+    padding: 14px 17px;
+    border-radius: 12px;
+    background: #f1f8f3;
+    color: #31533d;
+    font-weight: 600;
+}
+
+.info-box {
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 17px;
+    background: #f3f8f4;
+    border-left: 4px solid #218344;
+}
+
+.info-box h3,
+.warning-box h3 {
+    margin-top: 0;
+}
+
+.nutrition-table {
+    overflow: hidden;
+    margin: 25px 0;
+    border: 1px solid #dfe9e2;
+    border-radius: 15px;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: .8fr 2fr;
+    border-bottom: 1px solid #e3ebe5;
+}
+
+.table-row:last-child {
+    border-bottom: 0;
+}
+
+.table-row > div {
+    padding: 17px 20px;
+}
+
+.table-header {
+    background: #174f2b;
+    color: #fff;
+    font-weight: 700;
+}
+
+.table-header > div {
+    color: #fff;
+}
+
+.pill-list,
+.summary-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.pill-list span,
+.summary-tags span {
+    padding: 9px 14px;
+    border-radius: 30px;
+    background: #e2f2e6;
+    color: #176c36;
+    font-size: .85rem;
+    font-weight: 700;
+}
+
+.formula-card {
+    margin: 25px 0;
+    padding: 28px;
+    text-align: center;
+    border-radius: 18px;
+    background: #123d22;
+    color: #fff;
+}
+
+.formula-card strong {
+    font-size: 1.25rem;
+}
+
+.formula-card p {
+    color: rgba(255,255,255,.75);
+    margin-bottom: 0;
+}
+
+.disease-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.disease-card {
+    border-top: 4px solid #218344;
+}
+
+.disease-card span {
+    display: inline-block;
+    margin-bottom: 8px;
+    color: #758279;
+    font-size: .8rem;
+    font-weight: 700;
+}
+
+.warning-box {
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 17px;
+    background: #fff8e8;
+    border-left: 4px solid #d99b25;
+}
+
+.stress-card.heat {
+    border-top: 4px solid #df9b2c;
+}
+
+.stress-card.cold {
+    border-top: 4px solid #4c9bc4;
+}
+
+.performance-grid,
+.meat-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin: 25px 0;
+}
+
+.performance-grid div,
+.meat-grid div {
+    padding: 17px 12px;
+    text-align: center;
+    border-radius: 12px;
+    background: #f1f7f3;
+    color: #31533d;
+    font-weight: 600;
+}
+
+.advantage-card {
+    background: #f1f9f3;
+    border-top: 4px solid #29904b;
+}
+
+.challenge-card {
+    background: #fff7f1;
+    border-top: 4px solid #d17b35;
+}
+
+.management-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.management-list div {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 15px 17px;
+    border-radius: 12px;
+    background: #f5f9f6;
+    color: #3d5144;
+}
+
+.management-list span {
+    flex: 0 0 35px;
+    display: grid;
+    place-items: center;
+    height: 35px;
+    border-radius: 50%;
+    background: #19733a;
+    color: #fff;
+    font-size: .7rem;
+    font-weight: 800;
+}
+
+.note {
+    padding: 18px 20px;
+    border-radius: 12px;
+    background: #f6f8f6;
+    font-size: .92rem;
+}
+
+.turkey-summary {
+    position: relative;
+    overflow: hidden;
+    padding: 50px 40px;
+    text-align: center;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #123d22, #217a3e);
+    color: #fff;
+}
+
+.summary-icon {
+    font-size: 3.5rem;
+    margin-bottom: 12px;
+}
+
+.turkey-summary .section-label {
+    color: #b9e7c5;
+}
+
+.turkey-summary h2 {
+    color: #fff;
+}
+
+.turkey-summary p {
+    max-width: 800px;
+    margin: 12px auto;
+    color: rgba(255,255,255,.86);
+}
+
+.turkey-summary strong {
+    color: #fff;
+}
+
+.turkey-summary .summary-tags {
+    justify-content: center;
+    margin-top: 28px;
+}
+
+.turkey-summary .summary-tags span {
+    background: rgba(255,255,255,.13);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.18);
+}
+
+.page-navigation {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 20px;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 22px;
+    border-radius: 30px;
+    background: #19733a;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform .2s ease, background .2s ease;
+}
+
+.back-button:hover {
+    background: #125b2c;
+    transform: translateY(-2px);
+}
+
+
+/* MOBILE */
+@media (max-width: 900px) {
+
+    .turkey-intro,
+    .three-columns,
+    .four-columns {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .cycle-grid,
+    .disease-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .performance-grid,
+    .meat-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+
+    .turkey-page {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .turkey-hero {
+        min-height: 360px;
+    }
+
+    .turkey-hero-content {
+        padding: 50px 0;
+    }
+
+    .turkey-hero h1 {
+        font-size: 2.6rem;
+    }
+
+    .turkey-intro,
+    .turkey-section {
+        padding: 25px 20px;
+    }
+
+    .turkey-intro,
+    .two-columns,
+    .three-columns,
+    .four-columns,
+    .cycle-grid,
+    .disease-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .check-grid,
+    .management-list {
+        grid-template-columns: 1fr;
+    }
+
+    .performance-grid,
+    .meat-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .table-row {
+        grid-template-columns: 1fr;
+    }
+
+    .table-header {
+        display: none;
+    }
+
+    .table-row > div:first-child {
+        background: #edf6ef;
+        font-weight: 700;
+    }
+
+    .turkey-summary {
+        padding: 40px 22px;
+    }
+}/* =========================================================
+   AFRICA AGROVISION — DUCK FARMING
+   MODERN AGRICULTURE DESIGN
+   ========================================================= */
+
+.duck-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+}
+
+.duck-hero {
+    min-height: 430px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(135deg, rgba(8, 55, 24, 0.94), rgba(20, 104, 48, 0.82)),
+        url("images/poultry-farming.jpg.jpg") center/cover no-repeat;
+}
+
+.duck-hero-content {
+    width: min(1100px, 90%);
+    margin: auto;
+    color: #fff;
+    padding: 70px 0;
+}
+
+.duck-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid rgba(255,255,255,.35);
+    border-radius: 30px;
+    background: rgba(255,255,255,.10);
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.duck-hero h1 {
+    margin: 18px 0 15px;
+    font-size: clamp(2.5rem, 6vw, 4.8rem);
+    line-height: 1;
+    color: #fff;
+}
+
+.duck-hero p {
+    max-width: 720px;
+    margin: 0;
+    font-size: 1.08rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,.88);
+}
+
+
+/* =========================================================
+   BREADCRUMB
+   ========================================================= */
+
+.duck-page .breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    padding: 24px 0;
+    font-size: .9rem;
+    color: #68756d;
+}
+
+.duck-page .breadcrumb a {
+    color: #19713a;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.duck-page .breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   GENERAL SECTIONS
+   ========================================================= */
+
+.duck-intro,
+.duck-section,
+.duck-summary {
+    margin-bottom: 35px;
+}
+
+.duck-intro {
+    display: grid;
+    grid-template-columns: 1.5fr .8fr;
+    gap: 30px;
+    padding: 40px;
+    border-radius: 22px;
+    background: #fff;
+    border: 1px solid #e3ebe5;
+    box-shadow: 0 12px 35px rgba(20, 65, 35, .07);
+}
+
+.duck-page .section-label {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #218344;
+    font-size: .75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.duck-page h2 {
+    margin: 0 0 18px;
+    color: #123d22;
+    font-size: clamp(1.7rem, 3vw, 2.35rem);
+}
+
+.duck-page h3 {
+    color: #174b29;
+}
+
+.duck-page p {
+    color: #536159;
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   FACT CARD
+   ========================================================= */
+
+.duck-fact-card {
+    padding: 28px;
+    border-radius: 18px;
+    background: #f3f8f4;
+    border-left: 5px solid #258344;
+}
+
+.duck-fact-card h3 {
+    margin-top: 0;
+}
+
+.duck-fact-card ul,
+.duck-card ul,
+.duck-disease-card ul,
+.duck-stress-card ul,
+.duck-advantage-card ul,
+.duck-challenge-card ul {
+    padding-left: 20px;
+    line-height: 1.9;
+    color: #536159;
+}
+
+
+/* =========================================================
+   MAIN SECTION CARDS
+   ========================================================= */
+
+.duck-section {
+    padding: 40px;
+    border-radius: 22px;
+    background: #fff;
+    border: 1px solid #e4ebe6;
+    box-shadow: 0 10px 30px rgba(20, 65, 35, .055);
+}
+
+.duck-grid {
+    display: grid;
+    gap: 22px;
+}
+
+.two-columns {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.three-columns {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.four-columns {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+
+/* =========================================================
+   STANDARD CARDS
+   ========================================================= */
+
+.duck-card,
+.duck-mini-card,
+.duck-disease-card,
+.duck-stress-card,
+.duck-advantage-card,
+.duck-challenge-card {
+    padding: 27px;
+    border-radius: 18px;
+    background: #f8fbf9;
+    border: 1px solid #e1ebe4;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.duck-card:hover,
+.duck-mini-card:hover,
+.duck-disease-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(25, 91, 48, .10);
+}
+
+
+/* =========================================================
+   ICONS
+   ========================================================= */
+
+.duck-page .card-icon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 18px;
+    border-radius: 14px;
+    background: #dff1e4;
+    color: #19733a;
+    font-size: 1.25rem;
+}
+
+
+/* =========================================================
+   PRODUCTION CYCLE
+   ========================================================= */
+
+.duck-cycle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.duck-cycle-step {
+    position: relative;
+    padding: 30px 25px 25px;
+    border-radius: 18px;
+    background: #f7faf8;
+    border: 1px solid #e1ebe4;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.duck-cycle-step:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(25, 91, 48, .10);
+}
+
+.duck-cycle-step > span {
+    display: inline-grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+    background: #19733a;
+    color: #fff;
+    font-size: .78rem;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   CHECK GRID
+   ========================================================= */
+
+.duck-check-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 25px 0;
+}
+
+.duck-check-grid div {
+    padding: 14px 17px;
+    border-radius: 12px;
+    background: #f1f8f3;
+    color: #31533d;
+    font-weight: 600;
+}
+
+.duck-check-grid i {
+    margin-right: 9px;
+    color: #19733a;
+}
+
+
+/* =========================================================
+   INFO BOX
+   ========================================================= */
+
+.duck-info-box {
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 17px;
+    background: #f3f8f4;
+    border-left: 4px solid #218344;
+}
+
+.duck-info-box h3,
+.duck-warning-box h3 {
+    margin-top: 0;
+}
+
+
+/* =========================================================
+   WARNING BOX
+   ========================================================= */
+
+.duck-warning-box {
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 17px;
+    background: #fff8e8;
+    border-left: 4px solid #d99b25;
+}
+
+
+/* =========================================================
+   NUTRITION TABLE
+   ========================================================= */
+
+.duck-nutrition-table {
+    overflow: hidden;
+    margin: 25px 0;
+    border: 1px solid #dfe9e2;
+    border-radius: 15px;
+}
+
+.duck-table-row {
+    display: grid;
+    grid-template-columns: .8fr 2fr;
+    border-bottom: 1px solid #e3ebe5;
+}
+
+.duck-table-row:last-child {
+    border-bottom: 0;
+}
+
+.duck-table-row > div {
+    padding: 17px 20px;
+}
+
+.duck-table-header {
+    background: #174f2b;
+    color: #fff;
+    font-weight: 700;
+}
+
+.duck-table-header > div {
+    color: #fff;
+}
+
+
+/* =========================================================
+   PILLS
+   ========================================================= */
+
+.duck-pill-list,
+.duck-summary-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.duck-pill-list span,
+.duck-summary-tags span {
+    padding: 9px 14px;
+    border-radius: 30px;
+    background: #e2f2e6;
+    color: #176c36;
+    font-size: .85rem;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   FCR FORMULA
+   ========================================================= */
+
+.duck-formula-card {
+    margin: 25px 0;
+    padding: 28px;
+    text-align: center;
+    border-radius: 18px;
+    background: #123d22;
+    color: #fff;
+}
+
+.duck-formula-card strong {
+    font-size: 1.25rem;
+}
+
+.duck-formula-card p {
+    color: rgba(255,255,255,.75);
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   DISEASES
+   ========================================================= */
+
+.duck-disease-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.duck-disease-card {
+    border-top: 4px solid #218344;
+}
+
+.duck-disease-card span {
+    display: inline-block;
+    margin-bottom: 8px;
+    color: #758279;
+    font-size: .8rem;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   STRESS
+   ========================================================= */
+
+.duck-stress-card.heat {
+    border-top: 4px solid #df9b2c;
+}
+
+.duck-stress-card.cold {
+    border-top: 4px solid #4c9bc4;
+}
+
+
+/* =========================================================
+   PERFORMANCE
+   ========================================================= */
+
+.duck-performance-grid,
+.duck-meat-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin: 25px 0;
+}
+
+.duck-performance-grid div,
+.duck-meat-grid div {
+    padding: 17px 12px;
+    text-align: center;
+    border-radius: 12px;
+    background: #f1f7f3;
+    color: #31533d;
+    font-weight: 600;
+}
+
+.duck-performance-grid strong {
+    display: block;
+    margin-bottom: 7px;
+    color: #19733a;
+    font-size: 1.2rem;
+}
+
+.duck-performance-grid span {
+    display: block;
+}
+
+
+/* =========================================================
+   PRODUCTS
+   ========================================================= */
+
+.duck-meat-grid i {
+    display: block;
+    margin-bottom: 9px;
+    color: #19733a;
+    font-size: 1.4rem;
+}
+
+
+/* =========================================================
+   ADVANTAGES & CHALLENGES
+   ========================================================= */
+
+.duck-advantage-card {
+    background: #f1f9f3;
+    border-top: 4px solid #29904b;
+}
+
+.duck-challenge-card {
+    background: #fff7f1;
+    border-top: 4px solid #d17b35;
+}
+
+
+/* =========================================================
+   MANAGEMENT LIST
+   ========================================================= */
+
+.duck-management-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.duck-management-list div {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 15px 17px;
+    border-radius: 12px;
+    background: #f5f9f6;
+    color: #3d5144;
+}
+
+.duck-management-list span {
+    flex: 0 0 35px;
+    display: grid;
+    place-items: center;
+    height: 35px;
+    border-radius: 50%;
+    background: #19733a;
+    color: #fff;
+    font-size: .7rem;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   NOTE
+   ========================================================= */
+
+.duck-note {
+    margin-top: 25px;
+    padding: 18px 20px;
+    border-radius: 12px;
+    background: #f6f8f6;
+    color: #536159;
+    font-size: .92rem;
+}
+
+
+/* =========================================================
+   SUMMARY
+   ========================================================= */
+
+.duck-summary {
+    position: relative;
+    overflow: hidden;
+    padding: 50px 40px;
+    text-align: center;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #123d22, #217a3e);
+    color: #fff;
+}
+
+.duck-summary .summary-icon {
+    font-size: 3.5rem;
+    margin-bottom: 12px;
+}
+
+.duck-summary .section-label {
+    color: #b9e7c5;
+}
+
+.duck-summary h2 {
+    color: #fff;
+}
+
+.duck-summary p {
+    max-width: 800px;
+    margin: 12px auto;
+    color: rgba(255,255,255,.86);
+}
+
+.duck-summary .duck-summary-tags {
+    justify-content: center;
+    margin-top: 28px;
+}
+
+.duck-summary .duck-summary-tags span {
+    background: rgba(255,255,255,.13);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.18);
+}
+
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+.duck-page .page-navigation {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 20px;
+}
+
+.duck-back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 22px;
+    border-radius: 30px;
+    background: #19733a;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform .2s ease, background .2s ease;
+}
+
+.duck-back-button:hover {
+    background: #125b2c;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .duck-intro,
+    .three-columns,
+    .four-columns {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .duck-cycle-grid,
+    .duck-disease-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .duck-performance-grid,
+    .duck-meat-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .duck-page {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .duck-hero {
+        min-height: 360px;
+    }
+
+    .duck-hero-content {
+        padding: 50px 0;
+    }
+
+    .duck-hero h1 {
+        font-size: 2.6rem;
+    }
+
+    .duck-intro,
+    .duck-section {
+        padding: 25px 20px;
+    }
+
+    .duck-intro,
+    .two-columns,
+    .three-columns,
+    .four-columns,
+    .duck-cycle-grid,
+    .duck-disease-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .duck-check-grid,
+    .duck-management-list {
+        grid-template-columns: 1fr;
+    }
+
+    .duck-performance-grid,
+    .duck-meat-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .duck-table-row {
+        grid-template-columns: 1fr;
+    }
+
+    .duck-table-header {
+        display: none;
+    }
+
+    .duck-table-row > div:first-child {
+        background: #edf6ef;
+        font-weight: 700;
+    }
+
+    .duck-summary {
+        padding: 40px 22px;
+    }
+}/* =========================================================
+   CHICKEN FARMING PAGE
+   Premium Africa AgroVision Design
+   ========================================================= */
+
+.chicken-page {
+    background: #f4f8f4;
+    color: #17351f;
+}
+
+/* HERO */
+.chicken-hero {
+    min-height: 470px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(135deg, rgba(7, 54, 25, 0.95), rgba(20, 104, 48, 0.78)),
+        url("images/poultry-farming.jpg.jpg") center/cover no-repeat;
+}
+
+.chicken-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 80% 30%, rgba(255,255,255,0.12), transparent 30%),
+        linear-gradient(to bottom, transparent 60%, rgba(3,35,15,0.35));
+}
+
+.chicken-hero-content {
+    position: relative;
+    z-index: 2;
+    width: min(1100px, 92%);
+    margin: 0 auto;
+    padding: 80px 0;
+    color: white;
+}
+
+.chicken-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 17px;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 30px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(8px);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.chicken-hero h1 {
+    margin: 20px 0 15px;
+    max-width: 850px;
+    font-size: clamp(2.5rem, 6vw, 4.8rem);
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.chicken-hero p {
+    max-width: 760px;
+    margin: 0;
+    font-size: 1.12rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.91);
+}
+
+.chicken-hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.chicken-hero-tags span {
+    padding: 9px 15px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.14);
+    border: 1px solid rgba(255,255,255,0.25);
+    font-size: 0.86rem;
+    font-weight: 600;
+}
+
+/* BREADCRUMB */
+.chicken-breadcrumb {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.86rem;
+    color: #617266;
+}
+
+.chicken-breadcrumb a {
+    color: #1d6b36;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.chicken-breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.chicken-breadcrumb strong {
+    color: #17351f;
+}
+
+/* MAIN CONTENT */
+.chicken-main {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+    padding-bottom: 70px;
+}
+
+/* SECTION */
+.chicken-section {
+    margin-bottom: 35px;
+    padding: 34px;
+    background: #ffffff;
+    border: 1px solid #e0ebe2;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(19, 67, 34, 0.07);
+}
+
+.chicken-section:hover {
+    box-shadow: 0 12px 35px rgba(19, 67, 34, 0.10);
+}
+
+.chicken-section-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 42px;
+    height: 28px;
+    padding: 0 10px;
+    margin-bottom: 12px;
+    border-radius: 20px;
+    background: #e8f4eb;
+    color: #17632f;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.chicken-section h2 {
+    margin: 0 0 15px;
+    color: #114d27;
+    font-size: clamp(1.55rem, 3vw, 2.2rem);
+    line-height: 1.25;
+}
+
+.chicken-section > p {
+    color: #526258;
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+.chicken-section h3 {
+    color: #17632f;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.chicken-section ul {
+    padding-left: 22px;
+    color: #526258;
+    line-height: 1.85;
+}
+
+.chicken-section li {
+    margin-bottom: 7px;
+}
+
+/* FEATURE GRID */
+.chicken-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 22px;
+}
+
+.chicken-feature-card {
+    padding: 24px;
+    border-radius: 16px;
+    background: linear-gradient(145deg, #f7fbf7, #edf6ef);
+    border: 1px solid #dce9de;
+}
+
+.chicken-feature-card i {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    border-radius: 13px;
+    background: #17632f;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.chicken-feature-card h3 {
+    margin: 0 0 8px;
+    font-size: 1.08rem;
+}
+
+.chicken-feature-card p {
+    margin: 0;
+    color: #5d6b62;
+    line-height: 1.7;
+    font-size: 0.94rem;
+}
+
+/* PRODUCTION CARDS */
+.chicken-production-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 22px;
+}
+
+.chicken-production-card {
+    position: relative;
+    padding: 26px;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #f8fbf8;
+    border: 1px solid #dce9de;
+}
+
+.chicken-production-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background: #1b6b36;
+}
+
+.chicken-production-card h3 {
+    margin-top: 0;
+}
+
+.chicken-production-card p {
+    color: #5b695f;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+/* PROCESS / CYCLE */
+.chicken-cycle {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.chicken-cycle-item {
+    position: relative;
+    text-align: center;
+    padding: 20px 12px;
+    border-radius: 15px;
+    background: #f3f8f4;
+    border: 1px solid #dce8de;
+}
+
+.chicken-cycle-item span {
+    display: block;
+    width: 38px;
+    height: 38px;
+    line-height: 38px;
+    margin: 0 auto 10px;
+    border-radius: 50%;
+    background: #17632f;
+    color: white;
+    font-weight: 800;
+}
+
+.chicken-cycle-item strong {
+    display: block;
+    color: #214b2c;
+    font-size: 0.9rem;
+}
+
+/* INFO BOX */
+.chicken-info-box {
+    margin-top: 22px;
+    padding: 22px 24px;
+    border-left: 5px solid #2b7a43;
+    border-radius: 0 14px 14px 0;
+    background: #eef7f0;
+}
+
+.chicken-info-box strong {
+    color: #145c2d;
+}
+
+.chicken-info-box p {
+    margin: 8px 0 0;
+    color: #526258;
+    line-height: 1.7;
+}
+
+/* TABLE */
+.chicken-table-wrapper {
+    margin-top: 22px;
+    overflow-x: auto;
+    border: 1px solid #dce8de;
+    border-radius: 14px;
+}
+
+.chicken-table {
+    width: 100%;
+    min-width: 650px;
+    border-collapse: collapse;
+    background: white;
+}
+
+.chicken-table th {
+    padding: 15px;
+    text-align: left;
+    background: #145c2d;
+    color: white;
+    font-size: 0.88rem;
+}
+
+.chicken-table td {
+    padding: 14px 15px;
+    border-bottom: 1px solid #e5ece6;
+    color: #4f5f54;
+    line-height: 1.6;
+    font-size: 0.91rem;
+}
+
+.chicken-table tr:last-child td {
+    border-bottom: none;
+}
+
+.chicken-table tr:nth-child(even) td {
+    background: #f7faf7;
+}
+
+/* DISEASE CARDS */
+.chicken-disease-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 22px;
+}
+
+.chicken-disease-card {
+    padding: 20px;
+    border-radius: 15px;
+    background: #fff9f5;
+    border: 1px solid #f0dfd3;
+}
+
+.chicken-disease-card i {
+    color: #a85b32;
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+}
+
+.chicken-disease-card h3 {
+    margin: 0 0 7px;
+    color: #714127;
+    font-size: 1rem;
+}
+
+.chicken-disease-card p {
+    margin: 0;
+    color: #685d56;
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+/* WARNING */
+.chicken-warning {
+    margin-top: 22px;
+    padding: 20px;
+    border-radius: 14px;
+    background: #fff8e8;
+    border: 1px solid #f0dfb2;
+    color: #69562b;
+    line-height: 1.7;
+}
+
+.chicken-warning strong {
+    color: #725516;
+}
+
+/* MANAGEMENT LIST */
+.chicken-management-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.chicken-management-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    border-radius: 13px;
+    background: #f7faf7;
+    border: 1px solid #e2ebe3;
+}
+
+.chicken-management-item i {
+    color: #19713a;
+    margin-top: 4px;
+}
+
+.chicken-management-item span {
+    color: #526158;
+    line-height: 1.6;
+}
+
+/* SUMMARY */
+.chicken-summary {
+    padding: 40px;
+    margin-top: 15px;
+    border-radius: 22px;
+    background:
+        linear-gradient(135deg, rgba(9,65,29,0.97), rgba(27,111,53,0.94));
+    color: white;
+    box-shadow: 0 15px 40px rgba(12, 70, 31, 0.18);
+}
+
+.chicken-summary h2 {
+    color: white;
+    margin-bottom: 15px;
+}
+
+.chicken-summary p {
+    color: rgba(255,255,255,0.88);
+    line-height: 1.8;
+}
+
+.chicken-summary-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.chicken-summary-pills span {
+    padding: 9px 14px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    font-size: 0.84rem;
+    font-weight: 600;
+}
+
+/* BACK BUTTON */
+.chicken-back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin: 10px 0 45px;
+    padding: 13px 20px;
+    border-radius: 10px;
+    background: #17632f;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.25s ease;
+}
+
+.chicken-back-button:hover {
+    background: #0f4b24;
+    transform: translateY(-2px);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    .chicken-hero {
+        min-height: 430px;
+    }
+
+    .chicken-hero-content {
+        padding: 65px 0;
+    }
+
+    .chicken-hero h1 {
+        font-size: 2.45rem;
+    }
+
+    .chicken-hero p {
+        font-size: 0.98rem;
+    }
+
+    .chicken-section {
+        padding: 24px 20px;
+        border-radius: 16px;
+    }
+
+    .chicken-feature-grid,
+    .chicken-production-grid,
+    .chicken-management-list {
+        grid-template-columns: 1fr;
+    }
+
+    .chicken-disease-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chicken-cycle {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .chicken-summary {
+        padding: 30px 22px;
+    }
+
+    .chicken-breadcrumb {
+        font-size: 0.78rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .chicken-hero {
+        min-height: 450px;
+    }
+
+    .chicken-hero h1 {
+        font-size: 2rem;
+    }
+
+    .chicken-hero-tags span {
+        font-size: 0.78rem;
+    }
+
+    .chicken-section {
+        padding: 21px 16px;
+    }
+
+    .chicken-cycle {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .chicken-cycle-item {
+        padding: 16px 8px;
+    }
+}/* =========================================================
+   GOOSE FARMING PAGE
+   Africa AgroVision
+   ========================================================= */
+
+.goose-page {
+    background: #f4f8f5;
+    color: #183b29;
+}
+
+/* ---------- HERO ---------- */
+
+.goose-hero {
+    min-height: 470px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(135deg, rgba(5, 54, 30, 0.96), rgba(18, 105, 78, 0.82)),
+        url("images/poultry-farming.jpg.jpg") center/cover no-repeat;
+}
+
+.goose-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.12), transparent 30%),
+        linear-gradient(90deg, rgba(0,0,0,0.18), transparent);
+}
+
+.goose-hero-content {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    padding: 80px 0;
+}
+
+.goose-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 16px;
+    border: 1px solid rgba(255,255,255,0.28);
+    border-radius: 30px;
+    background: rgba(255,255,255,0.10);
+    backdrop-filter: blur(8px);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.goose-hero h1 {
+    margin: 20px 0 16px;
+    font-size: clamp(2.5rem, 6vw, 4.8rem);
+    line-height: 1.05;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+}
+
+.goose-hero-content > p {
+    max-width: 780px;
+    margin: 0;
+    font-size: 1.08rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.92);
+}
+
+.goose-hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.goose-hero-tags span {
+    padding: 9px 15px;
+    border-radius: 30px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.20);
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+/* ---------- BREADCRUMB ---------- */
+
+.goose-breadcrumb {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    color: #65766b;
+}
+
+.goose-breadcrumb a {
+    color: #177245;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.goose-breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.goose-breadcrumb strong {
+    color: #183b29;
+}
+
+/* ---------- MAIN ---------- */
+
+.goose-main {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+    padding-bottom: 70px;
+}
+
+/* ---------- SECTIONS ---------- */
+
+.goose-section {
+    position: relative;
+    background: #ffffff;
+    margin: 28px 0;
+    padding: 42px;
+    border-radius: 22px;
+    border: 1px solid #dce9df;
+    box-shadow: 0 12px 35px rgba(18, 67, 40, 0.07);
+}
+
+.goose-section-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: #e3f3e9;
+    color: #137443;
+    font-size: 0.82rem;
+    font-weight: 900;
+    margin-bottom: 14px;
+}
+
+.goose-section h2 {
+    margin: 0 0 18px;
+    color: #104d2c;
+    font-size: clamp(1.6rem, 3vw, 2.25rem);
+    line-height: 1.2;
+}
+
+.goose-section > p {
+    color: #53665a;
+    line-height: 1.85;
+    font-size: 1rem;
+    margin: 0 0 16px;
+}
+
+.goose-section > p:last-child {
+    margin-bottom: 0;
+}
+
+/* ---------- FEATURE CARDS ---------- */
+
+.goose-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 28px;
+}
+
+.goose-feature-card {
+    padding: 25px 21px;
+    border-radius: 18px;
+    background: linear-gradient(145deg, #f6fbf7, #edf7f1);
+    border: 1px solid #d8eade;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.goose-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 28px rgba(17, 83, 48, 0.11);
+}
+
+.goose-feature-card i {
+    width: 48px;
+    height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: #dff2e6;
+    color: #167344;
+    font-size: 1.25rem;
+    margin-bottom: 17px;
+}
+
+.goose-feature-card h3 {
+    margin: 0 0 10px;
+    color: #174b2e;
+    font-size: 1.05rem;
+}
+
+.goose-feature-card p {
+    margin: 0;
+    color: #617166;
+    line-height: 1.65;
+    font-size: 0.91rem;
+}
+
+/* ---------- PRODUCTION CARDS ---------- */
+
+.goose-production-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.goose-production-card {
+    padding: 25px;
+    border-radius: 18px;
+    background: #f7fbf8;
+    border-left: 5px solid #238052;
+    border-top: 1px solid #e0ebe3;
+    border-right: 1px solid #e0ebe3;
+    border-bottom: 1px solid #e0ebe3;
+}
+
+.goose-production-card h3 {
+    margin: 0 0 10px;
+    color: #154d2d;
+    font-size: 1.08rem;
+}
+
+.goose-production-card p {
+    margin: 0;
+    color: #5c6e62;
+    line-height: 1.7;
+}
+
+/* ---------- TABLE ---------- */
+
+.goose-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 25px;
+    border-radius: 16px;
+    border: 1px solid #d9e7dd;
+}
+
+.goose-table {
+    width: 100%;
+    min-width: 650px;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+.goose-table th {
+    background: #155d35;
+    color: #fff;
+    text-align: left;
+    padding: 16px;
+    font-size: 0.9rem;
+}
+
+.goose-table td {
+    padding: 16px;
+    border-top: 1px solid #e4ece7;
+    color: #4f6257;
+    line-height: 1.6;
+    vertical-align: top;
+}
+
+.goose-table tbody tr:nth-child(even) {
+    background: #f7faf8;
+}
+
+.goose-table tbody tr:hover {
+    background: #edf7f0;
+}
+
+/* ---------- INFO BOX ---------- */
+
+.goose-info-box {
+    margin-top: 24px;
+    padding: 22px 24px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #edf8f1, #f5fbf7);
+    border: 1px solid #cfe5d7;
+}
+
+.goose-info-box strong {
+    display: block;
+    color: #126137;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.goose-info-box p {
+    margin: 0;
+    color: #596b60;
+    line-height: 1.7;
+}
+
+/* ---------- MANAGEMENT LIST ---------- */
+
+.goose-management-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 13px;
+    margin-top: 25px;
+}
+
+.goose-management-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    padding: 16px 18px;
+    background: #f7faf8;
+    border: 1px solid #e0eae3;
+    border-radius: 14px;
+    color: #506358;
+    line-height: 1.5;
+}
+
+.goose-management-item i {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #dff2e6;
+    color: #16804a;
+    font-size: 0.75rem;
+}
+
+/* ---------- BREEDING CYCLE ---------- */
+
+.goose-cycle {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.goose-cycle-item {
+    text-align: center;
+    padding: 20px 10px;
+    border-radius: 16px;
+    background: #f5faf7;
+    border: 1px solid #dbe9df;
+}
+
+.goose-cycle-item span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background: #176b3c;
+    color: #fff;
+    font-weight: 900;
+}
+
+.goose-cycle-item strong {
+    display: block;
+    color: #28533a;
+    font-size: 0.82rem;
+    line-height: 1.35;
+}
+
+/* ---------- DISEASE CARDS ---------- */
+
+.goose-disease-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.goose-disease-card {
+    padding: 24px;
+    border-radius: 18px;
+    background: #fff;
+    border: 1px solid #dce8df;
+    box-shadow: 0 8px 22px rgba(26, 67, 42, 0.05);
+}
+
+.goose-disease-card i {
+    color: #b87925;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.goose-disease-card h3 {
+    margin: 0 0 9px;
+    color: #244d35;
+    font-size: 1rem;
+}
+
+.goose-disease-card p {
+    margin: 0;
+    color: #617067;
+    font-size: 0.9rem;
+    line-height: 1.65;
+}
+
+.goose-warning {
+    margin-top: 24px;
+    padding: 20px 22px;
+    border-radius: 15px;
+    background: #fff8e9;
+    border: 1px solid #eed7a2;
+    color: #725724;
+    line-height: 1.65;
+}
+
+.goose-warning strong {
+    color: #805d19;
+}
+
+/* ---------- SUMMARY ---------- */
+
+.goose-summary {
+    margin: 35px 0;
+    padding: 48px 35px;
+    text-align: center;
+    border-radius: 25px;
+    background:
+        linear-gradient(135deg, #0c512d, #14744a);
+    color: #fff;
+    box-shadow: 0 18px 40px rgba(9, 72, 39, 0.18);
+}
+
+.goose-summary h2 {
+    margin: 0 0 15px;
+    font-size: clamp(1.7rem, 4vw, 2.4rem);
+}
+
+.goose-summary p {
+    max-width: 800px;
+    margin: 0 auto;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.8;
+}
+
+.goose-summary-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.goose-summary-pills span {
+    padding: 9px 15px;
+    border-radius: 30px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.18);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* ---------- BACK BUTTON ---------- */
+
+.goose-back-button {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    gap: 10px;
+    margin: 30px auto 0;
+    padding: 13px 22px;
+    border-radius: 12px;
+    background: #145d35;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.goose-back-button:hover {
+    background: #0d4828;
+    transform: translateY(-2px);
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 900px) {
+
+    .goose-feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .goose-disease-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .goose-cycle {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+
+    .goose-hero {
+        min-height: 430px;
+    }
+
+    .goose-hero-content {
+        padding: 65px 0;
+    }
+
+    .goose-hero h1 {
+        font-size: 2.45rem;
+    }
+
+    .goose-hero-content > p {
+        font-size: 0.95rem;
+    }
+
+    .goose-section {
+        padding: 28px 20px;
+        border-radius: 18px;
+    }
+
+    .goose-feature-grid,
+    .goose-production-grid,
+    .goose-management-list,
+    .goose-disease-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .goose-cycle {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .goose-breadcrumb {
+        font-size: 0.78rem;
+    }
+
+    .goose-summary {
+        padding: 35px 22px;
+    }
+}
+
+@media (max-width: 420px) {
+
+    .goose-hero h1 {
+        font-size: 2.1rem;
+    }
+
+    .goose-hero-tags span {
+        font-size: 0.72rem;
+        padding: 8px 11px;
+    }
+
+    .goose-cycle {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .goose-section h2 {
+        font-size: 1.5rem;
+    }
+}/* =========================================================
+   GUINEA FOWL FARMING PAGE
+   Africa AgroVision
+   ========================================================= */
+
+.guinea-page {
+    background: #f4f8f5;
+    color: #183b29;
+}
+
+/* ---------- HERO ---------- */
+
+.guinea-hero {
+    min-height: 470px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(135deg, rgba(8, 52, 29, 0.96), rgba(53, 91, 67, 0.84)),
+        url("images/poultry-farming.jpg.jpg") center/cover no-repeat;
+}
+
+.guinea-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 82% 18%, rgba(255,255,255,0.12), transparent 30%),
+        linear-gradient(90deg, rgba(0,0,0,0.18), transparent);
+}
+
+.guinea-hero-content {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    padding: 80px 0;
+}
+
+.guinea-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 16px;
+    border: 1px solid rgba(255,255,255,0.28);
+    border-radius: 30px;
+    background: rgba(255,255,255,0.10);
+    backdrop-filter: blur(8px);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.guinea-hero h1 {
+    margin: 20px 0 16px;
+    font-size: clamp(2.5rem, 6vw, 4.8rem);
+    line-height: 1.05;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+}
+
+.guinea-hero-content > p {
+    max-width: 780px;
+    margin: 0;
+    font-size: 1.08rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.92);
+}
+
+.guinea-hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.guinea-hero-tags span {
+    padding: 9px 15px;
+    border-radius: 30px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.20);
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+/* ---------- BREADCRUMB ---------- */
+
+.guinea-breadcrumb {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    color: #65766b;
+}
+
+.guinea-breadcrumb a {
+    color: #177245;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.guinea-breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.guinea-breadcrumb strong {
+    color: #183b29;
+}
+
+/* ---------- MAIN ---------- */
+
+.guinea-main {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+    padding-bottom: 70px;
+}
+
+/* ---------- SECTIONS ---------- */
+
+.guinea-section {
+    position: relative;
+    background: #ffffff;
+    margin: 28px 0;
+    padding: 42px;
+    border-radius: 22px;
+    border: 1px solid #dce9df;
+    box-shadow: 0 12px 35px rgba(18, 67, 40, 0.07);
+}
+
+.guinea-section-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: #e3f3e9;
+    color: #137443;
+    font-size: 0.82rem;
+    font-weight: 900;
+    margin-bottom: 14px;
+}
+
+.guinea-section h2 {
+    margin: 0 0 18px;
+    color: #104d2c;
+    font-size: clamp(1.6rem, 3vw, 2.25rem);
+    line-height: 1.2;
+}
+
+.guinea-section > p {
+    color: #53665a;
+    line-height: 1.85;
+    font-size: 1rem;
+    margin: 0 0 16px;
+}
+
+.guinea-section > p:last-child {
+    margin-bottom: 0;
+}
+
+/* ---------- FEATURE CARDS ---------- */
+
+.guinea-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 28px;
+}
+
+.guinea-feature-card {
+    padding: 25px 21px;
+    border-radius: 18px;
+    background: linear-gradient(145deg, #f6fbf7, #edf7f1);
+    border: 1px solid #d8eade;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.guinea-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 28px rgba(17, 83, 48, 0.11);
+}
+
+.guinea-feature-card i {
+    width: 48px;
+    height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: #e4f0e7;
+    color: #246442;
+    font-size: 1.25rem;
+    margin-bottom: 17px;
+}
+
+.guinea-feature-card h3 {
+    margin: 0 0 10px;
+    color: #174b2e;
+    font-size: 1.05rem;
+}
+
+.guinea-feature-card p {
+    margin: 0;
+    color: #617166;
+    line-height: 1.65;
+    font-size: 0.91rem;
+}
+
+/* ---------- PRODUCTION CARDS ---------- */
+
+.guinea-production-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.guinea-production-card {
+    padding: 25px;
+    border-radius: 18px;
+    background: #f7fbf8;
+    border-left: 5px solid #356d4a;
+    border-top: 1px solid #e0ebe3;
+    border-right: 1px solid #e0ebe3;
+    border-bottom: 1px solid #e0ebe3;
+}
+
+.guinea-production-card h3 {
+    margin: 0 0 10px;
+    color: #154d2d;
+    font-size: 1.08rem;
+}
+
+.guinea-production-card p {
+    margin: 0;
+    color: #5c6e62;
+    line-height: 1.7;
+}
+
+/* ---------- TABLE ---------- */
+
+.guinea-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 25px;
+    border-radius: 16px;
+    border: 1px solid #d9e7dd;
+}
+
+.guinea-table {
+    width: 100%;
+    min-width: 650px;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+.guinea-table th {
+    background: #315f45;
+    color: #fff;
+    text-align: left;
+    padding: 16px;
+    font-size: 0.9rem;
+}
+
+.guinea-table td {
+    padding: 16px;
+    border-top: 1px solid #e4ece7;
+    color: #4f6257;
+    line-height: 1.6;
+    vertical-align: top;
+}
+
+.guinea-table tbody tr:nth-child(even) {
+    background: #f7faf8;
+}
+
+.guinea-table tbody tr:hover {
+    background: #edf5ef;
+}
+
+/* ---------- INFO BOX ---------- */
+
+.guinea-info-box {
+    margin-top: 24px;
+    padding: 22px 24px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #edf7f0, #f5faf6);
+    border: 1px solid #d0e2d5;
+}
+
+.guinea-info-box strong {
+    display: block;
+    color: #275f3d;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.guinea-info-box p {
+    margin: 0;
+    color: #596b60;
+    line-height: 1.7;
+}
+
+/* ---------- MANAGEMENT LIST ---------- */
+
+.guinea-management-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 13px;
+    margin-top: 25px;
+}
+
+.guinea-management-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    padding: 16px 18px;
+    background: #f7faf8;
+    border: 1px solid #e0eae3;
+    border-radius: 14px;
+    color: #506358;
+    line-height: 1.5;
+}
+
+.guinea-management-item i {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #e3eee6;
+    color: #2d6845;
+    font-size: 0.75rem;
+}
+
+/* ---------- BREEDING CYCLE ---------- */
+
+.guinea-cycle {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.guinea-cycle-item {
+    text-align: center;
+    padding: 20px 10px;
+    border-radius: 16px;
+    background: #f5faf7;
+    border: 1px solid #dbe9df;
+}
+
+.guinea-cycle-item span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background: #35694a;
+    color: #fff;
+    font-weight: 900;
+}
+
+.guinea-cycle-item strong {
+    display: block;
+    color: #28533a;
+    font-size: 0.82rem;
+    line-height: 1.35;
+}
+
+/* ---------- DISEASE CARDS ---------- */
+
+.guinea-disease-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.guinea-disease-card {
+    padding: 24px;
+    border-radius: 18px;
+    background: #fff;
+    border: 1px solid #dce8df;
+    box-shadow: 0 8px 22px rgba(26, 67, 42, 0.05);
+}
+
+.guinea-disease-card i {
+    color: #8a6a34;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.guinea-disease-card h3 {
+    margin: 0 0 9px;
+    color: #244d35;
+    font-size: 1rem;
+}
+
+.guinea-disease-card p {
+    margin: 0;
+    color: #617067;
+    font-size: 0.9rem;
+    line-height: 1.65;
+}
+
+.guinea-warning {
+    margin-top: 24px;
+    padding: 20px 22px;
+    border-radius: 15px;
+    background: #fff8e9;
+    border: 1px solid #eed7a2;
+    color: #725724;
+    line-height: 1.65;
+}
+
+.guinea-warning strong {
+    color: #805d19;
+}
+
+/* ---------- SUMMARY ---------- */
+
+.guinea-summary {
+    margin: 35px 0;
+    padding: 48px 35px;
+    text-align: center;
+    border-radius: 25px;
+    background:
+        linear-gradient(135deg, #244b35, #356b4b);
+    color: #fff;
+    box-shadow: 0 18px 40px rgba(29, 74, 48, 0.18);
+}
+
+.guinea-summary h2 {
+    margin: 0 0 15px;
+    font-size: clamp(1.7rem, 4vw, 2.4rem);
+}
+
+.guinea-summary p {
+    max-width: 800px;
+    margin: 0 auto;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.8;
+}
+
+.guinea-summary-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.guinea-summary-pills span {
+    padding: 9px 15px;
+    border-radius: 30px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.18);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* ---------- BACK BUTTON ---------- */
+
+.guinea-back-button {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    gap: 10px;
+    margin: 30px auto 0;
+    padding: 13px 22px;
+    border-radius: 12px;
+    background: #315f45;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.guinea-back-button:hover {
+    background: #244a35;
+    transform: translateY(-2px);
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 900px) {
+
+    .guinea-feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .guinea-disease-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .guinea-cycle {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+
+    .guinea-hero {
+        min-height: 430px;
+    }
+
+    .guinea-hero-content {
+        padding: 65px 0;
+    }
+
+    .guinea-hero h1 {
+        font-size: 2.45rem;
+    }
+
+    .guinea-hero-content > p {
+        font-size: 0.95rem;
+    }
+
+    .guinea-section {
+        padding: 28px 20px;
+        border-radius: 18px;
+    }
+
+    .guinea-feature-grid,
+    .guinea-production-grid,
+    .guinea-management-list,
+    .guinea-disease-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .guinea-cycle {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .guinea-breadcrumb {
+        font-size: 0.78rem;
+    }
+
+    .guinea-summary {
+        padding: 35px 22px;
+    }
+}
+
+@media (max-width: 420px) {
+
+    .guinea-hero h1 {
+        font-size: 2.1rem;
+    }
+
+    .guinea-hero-tags span {
+        font-size: 0.72rem;
+        padding: 8px 11px;
+    }
+
+    .guinea-section h2 {
+        font-size: 1.5rem;
+    }
+}/* =========================================================
+   AFRICA AGROVISION
+   POULTRY MANAGEMENT PAGE
+   ========================================================= */
+
+.poultry-management-page {
+    background: #f4f8f4;
+    color: #26352b;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.poultry-management-page .site-header {
+    background: #0b3d20;
+    color: #ffffff;
+    padding: 0;
+    position: relative;
+    z-index: 100;
+    box-shadow: 0 3px 18px rgba(0, 0, 0, 0.15);
+}
+
+.poultry-management-page .header-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 16px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.poultry-management-page .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.poultry-management-page .logo i {
+    color: #4ade80;
+    font-size: 25px;
+}
+
+.poultry-management-page .main-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.poultry-management-page .main-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 9px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.poultry-management-page .main-nav a:hover {
+    background: #166534;
+    color: #bbf7d0;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.poultry-management-hero {
+    min-height: 470px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            110deg,
+            rgba(3, 48, 24, 0.96),
+            rgba(9, 91, 48, 0.82),
+            rgba(22, 101, 52, 0.58)
+        ),
+        url("poultry-farming.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.poultry-management-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at 85% 30%,
+            rgba(74, 222, 128, 0.22),
+            transparent 35%
+        );
+    pointer-events: none;
+}
+
+.poultry-management-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1150px;
+    width: 100%;
+    margin: auto;
+    padding: 80px 30px;
+    color: white;
+}
+
+.poultry-management-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 9px 15px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    margin-bottom: 22px;
+}
+
+.poultry-management-badge i {
+    color: #86efac;
+}
+
+.poultry-management-hero h1 {
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1.05;
+    margin: 0 0 22px;
+    font-weight: 850;
+    letter-spacing: -1.5px;
+}
+
+.poultry-management-hero-content > p {
+    max-width: 760px;
+    font-size: 20px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.92);
+    margin-bottom: 28px;
+}
+
+.poultry-management-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.poultry-management-tags span {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 14px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   BREADCRUMB
+   ========================================================= */
+
+.poultry-management-breadcrumb {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 20px 30px;
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    color: #607065;
+    font-size: 14px;
+}
+
+.poultry-management-breadcrumb a {
+    color: #167044;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.poultry-management-breadcrumb a:hover {
+    color: #22a65a;
+    text-decoration: underline;
+}
+
+.poultry-management-breadcrumb span {
+    color: #9aa79e;
+}
+
+.poultry-management-breadcrumb strong {
+    color: #26352b;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.poultry-management-main {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 10px 30px 80px;
+}
+
+
+/* =========================================================
+   MAIN SECTIONS
+   ========================================================= */
+
+.poultry-management-section {
+    position: relative;
+    background: #ffffff;
+    margin-bottom: 28px;
+    padding: 42px;
+    border-radius: 20px;
+    border: 1px solid #e2ebe4;
+    box-shadow: 0 8px 28px rgba(17, 75, 39, 0.06);
+    overflow: hidden;
+}
+
+.poultry-management-section::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        #166534,
+        #4ade80
+    );
+}
+
+.poultry-management-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+
+    margin-bottom: 17px;
+
+    border-radius: 14px;
+
+    background: #e8f7ec;
+    color: #166534;
+
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+}
+
+.poultry-management-section h2 {
+    color: #114d2a;
+    font-size: 32px;
+    line-height: 1.25;
+    margin-bottom: 18px;
+}
+
+.poultry-management-section h3 {
+    color: #176536;
+}
+
+.poultry-management-section p {
+    color: #56645b;
+    font-size: 16px;
+    line-height: 1.85;
+    margin-bottom: 16px;
+}
+
+
+/* =========================================================
+   HIGHLIGHT BOX
+   ========================================================= */
+
+.poultry-management-highlight {
+    margin-top: 25px;
+    padding: 20px 22px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    background: linear-gradient(
+        135deg,
+        #effbf2,
+        #e5f7ea
+    );
+
+    border-left: 5px solid #22a65a;
+    border-radius: 12px;
+
+    color: #405148;
+}
+
+.poultry-management-highlight strong {
+    color: #115b2d;
+    font-size: 16px;
+}
+
+.poultry-management-highlight span {
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   WARNING BOX
+   ========================================================= */
+
+.poultry-management-warning {
+    margin-top: 24px;
+    padding: 20px 22px;
+
+    background: #fff8e8;
+    border: 1px solid #f2dfad;
+    border-left: 5px solid #d89b21;
+
+    border-radius: 12px;
+
+    color: #665126;
+    line-height: 1.7;
+}
+
+.poultry-management-warning strong {
+    display: block;
+    color: #815d0e;
+    margin-bottom: 5px;
+}
+
+
+/* =========================================================
+   FEATURE CARDS
+   ========================================================= */
+
+.poultry-management-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.poultry-management-feature-card {
+    padding: 25px;
+    background: #f8fbf8;
+    border: 1px solid #e0ebe2;
+    border-radius: 16px;
+    transition: 0.3s ease;
+}
+
+.poultry-management-feature-card:hover {
+    transform: translateY(-5px);
+    border-color: #8bd6a4;
+    box-shadow: 0 12px 28px rgba(22, 101, 52, 0.1);
+}
+
+.poultry-management-feature-card > i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 50px;
+
+    margin-bottom: 17px;
+
+    border-radius: 14px;
+
+    background: #e4f7e9;
+    color: #166534;
+
+    font-size: 21px;
+}
+
+.poultry-management-feature-card h3 {
+    margin-bottom: 8px;
+    font-size: 19px;
+}
+
+.poultry-management-feature-card p {
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+
+/* =========================================================
+   CHECK GRID
+   ========================================================= */
+
+.poultry-management-check-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.poultry-management-check-grid > div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 15px 17px;
+
+    background: #f7faf7;
+    border: 1px solid #e3ebe4;
+    border-radius: 12px;
+
+    color: #46564c;
+    font-size: 14px;
+
+    transition: 0.25s ease;
+}
+
+.poultry-management-check-grid > div:hover {
+    background: #edf9f0;
+    transform: translateX(3px);
+}
+
+.poultry-management-check-grid i {
+    color: #1d914d;
+    min-width: 18px;
+}
+
+
+/* =========================================================
+   INFO GRID
+   ========================================================= */
+
+.poultry-management-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.poultry-management-info-card {
+    background: #f7faf7;
+    border: 1px solid #e0e9e2;
+    border-radius: 16px;
+    padding: 25px;
+}
+
+.poultry-management-info-card h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.poultry-management-info-card ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.poultry-management-info-card li {
+    margin-bottom: 9px;
+    color: #58655d;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.poultry-management-info-card li::marker {
+    color: #1b8c4a;
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.poultry-management-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 25px;
+    border-radius: 14px;
+    border: 1px solid #dfe9e1;
+}
+
+.poultry-management-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+    background: white;
+}
+
+.poultry-management-table th {
+    background: #145c31;
+    color: white;
+    text-align: left;
+    padding: 16px;
+    font-size: 14px;
+}
+
+.poultry-management-table td {
+    padding: 16px;
+    border-bottom: 1px solid #e4ebe5;
+    color: #56645b;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.poultry-management-table tr:nth-child(even) {
+    background: #f7faf7;
+}
+
+.poultry-management-table tr:last-child td {
+    border-bottom: none;
+}
+
+.poultry-management-table td:first-child {
+    font-weight: 800;
+    color: #176536;
+}
+
+
+/* =========================================================
+   BIOSECURITY GRID
+   ========================================================= */
+
+.poultry-management-bio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 25px;
+}
+
+.poultry-management-bio-grid > div {
+    padding: 23px;
+    border-radius: 15px;
+    background: #f7faf7;
+    border: 1px solid #e1eae3;
+    transition: 0.3s ease;
+}
+
+.poultry-management-bio-grid > div:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(22, 101, 52, 0.08);
+}
+
+.poultry-management-bio-grid i {
+    display: block;
+    color: #1b8c4a;
+    font-size: 25px;
+    margin-bottom: 14px;
+}
+
+.poultry-management-bio-grid strong {
+    display: block;
+    color: #185d32;
+    margin-bottom: 6px;
+}
+
+.poultry-management-bio-grid span {
+    color: #657269;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   HEALTH GRID
+   ========================================================= */
+
+.poultry-management-health-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 25px;
+}
+
+.poultry-management-health-grid > div {
+    padding: 24px;
+    background: #f8fbf8;
+    border: 1px solid #e1eae3;
+    border-radius: 16px;
+    transition: 0.3s ease;
+}
+
+.poultry-management-health-grid > div:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(22, 101, 52, 0.08);
+}
+
+.poultry-management-health-grid i {
+    color: #188b49;
+    font-size: 23px;
+    margin-bottom: 13px;
+}
+
+.poultry-management-health-grid h3 {
+    font-size: 18px;
+    margin-bottom: 7px;
+}
+
+.poultry-management-health-grid p {
+    font-size: 13px;
+    line-height: 1.65;
+    margin: 0;
+}
+
+
+/* =========================================================
+   CYCLE / PROCESS
+   ========================================================= */
+
+.poultry-management-cycle {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.poultry-management-cycle > div {
+    position: relative;
+
+    min-height: 115px;
+
+    padding: 18px 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background: #f3faf5;
+    border: 1px solid #dce9df;
+    border-radius: 14px;
+
+    color: #496055;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.poultry-management-cycle span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+
+    margin-bottom: 10px;
+
+    border-radius: 50%;
+
+    background: #166534;
+    color: white;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   RECORD GRID
+   ========================================================= */
+
+.poultry-management-record-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.poultry-management-record-grid > div {
+    padding: 22px;
+    background: #f8fbf8;
+    border: 1px solid #e1eae3;
+    border-radius: 15px;
+}
+
+.poultry-management-record-grid i {
+    display: block;
+    color: #198b4b;
+    font-size: 23px;
+    margin-bottom: 13px;
+}
+
+.poultry-management-record-grid strong {
+    display: block;
+    color: #195e33;
+    margin-bottom: 7px;
+}
+
+.poultry-management-record-grid span {
+    color: #66736b;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   WARNING GRID
+   ========================================================= */
+
+.poultry-management-warning-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.poultry-management-warning-grid > div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 15px 17px;
+
+    background: #fffaf0;
+    border: 1px solid #f0dfb7;
+    border-radius: 11px;
+
+    color: #67552f;
+    font-size: 14px;
+}
+
+.poultry-management-warning-grid i {
+    color: #d2941c;
+}
+
+
+/* =========================================================
+   DAILY CHECKLIST
+   ========================================================= */
+
+.poultry-management-daily {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.poultry-management-daily > div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 14px 16px;
+
+    background: #f4faf5;
+    border-radius: 11px;
+    border: 1px solid #dfebe1;
+
+    color: #4d5d53;
+    font-size: 14px;
+}
+
+.poultry-management-daily i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+
+    background: #1b8c4b;
+    color: white;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   SUMMARY
+   ========================================================= */
+
+.poultry-management-summary {
+    margin-top: 10px;
+    padding: 50px 40px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #064e2b,
+            #126b39,
+            #16864a
+        );
+
+    color: white;
+    border-radius: 24px;
+
+    box-shadow: 0 15px 40px rgba(5, 70, 32, 0.2);
+}
+
+.poultry-management-summary h2 {
+    font-size: 32px;
+    margin-bottom: 18px;
+}
+
+.poultry-management-summary p {
+    max-width: 800px;
+    margin: 0 auto 28px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.8;
+}
+
+.poultry-management-summary-pills {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.poultry-management-summary-pills span {
+    padding: 8px 14px;
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.13);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+.poultry-management-back-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    width: fit-content;
+
+    margin: 35px auto 0;
+
+    padding: 14px 24px;
+
+    background: #166534;
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 30px;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    transition: 0.3s ease;
+}
+
+.poultry-management-back-button:hover {
+    background: #22a65a;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(22, 101, 52, 0.2);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.poultry-management-page .site-footer {
+    background: #092d19;
+    color: white;
+    margin-top: 0;
+}
+
+.poultry-management-page .footer-container {
+    max-width: 1150px;
+    margin: auto;
+    padding: 50px 30px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 50px;
+}
+
+.poultry-management-page .footer-section h3 {
+    color: #86efac;
+    margin-bottom: 15px;
+}
+
+.poultry-management-page .footer-section p {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 8px;
+}
+
+.poultry-management-page .footer-section i {
+    width: 22px;
+    color: #4ade80;
+}
+
+.poultry-management-page .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    padding: 18px 20px;
+}
+
+.poultry-management-page .footer-bottom p {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+    .poultry-management-feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .poultry-management-bio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .poultry-management-health-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .poultry-management-record-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .poultry-management-cycle {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .poultry-management-page .header-container {
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px 18px;
+    }
+
+    .poultry-management-page .main-nav {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .poultry-management-page .main-nav a {
+        font-size: 12px;
+        padding: 7px 9px;
+    }
+
+
+    .poultry-management-hero {
+        min-height: 500px;
+    }
+
+    .poultry-management-hero-content {
+        padding: 65px 22px;
+    }
+
+    .poultry-management-hero h1 {
+        font-size: 42px;
+    }
+
+    .poultry-management-hero-content > p {
+        font-size: 17px;
+    }
+
+
+    .poultry-management-breadcrumb {
+        padding: 17px 20px;
+        font-size: 12px;
+    }
+
+
+    .poultry-management-main {
+        padding: 10px 16px 60px;
+    }
+
+
+    .poultry-management-section {
+        padding: 30px 23px;
+        border-radius: 16px;
+    }
+
+    .poultry-management-section h2 {
+        font-size: 26px;
+    }
+
+
+    .poultry-management-feature-grid,
+    .poultry-management-info-grid,
+    .poultry-management-health-grid,
+    .poultry-management-record-grid,
+    .poultry-management-check-grid,
+    .poultry-management-warning-grid,
+    .poultry-management-daily {
+        grid-template-columns: 1fr;
+    }
+
+
+    .poultry-management-bio-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .poultry-management-cycle {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .poultry-management-summary {
+        padding: 38px 23px;
+        border-radius: 18px;
+    }
+
+    .poultry-management-summary h2 {
+        font-size: 26px;
+    }
+
+
+    .poultry-management-page .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 40px 22px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 430px) {
+
+    .poultry-management-hero h1 {
+        font-size: 36px;
+    }
+
+    .poultry-management-badge {
+        font-size: 10px;
+    }
+
+    .poultry-management-section {
+        padding: 25px 18px;
+    }
+
+    .poultry-management-cycle {
+        grid-template-columns: 1fr;
+    }
+
+    .poultry-management-summary-pills span {
+        font-size: 11px;
+    }
+
 }
