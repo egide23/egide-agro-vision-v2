@@ -80,7 +80,56 @@
                     placeholder="Search crops, animals, jobs, equipment, services..."
                 >
 
-                <button type="button" id="searchButton">
+
+                <select id="marketCategory">
+
+                    <option value="">
+                        All Categories
+                    </option>
+
+                    <option value="crop">
+                        🌾 Crops
+                    </option>
+
+                    <option value="animal">
+                        🐄 Animals
+                    </option>
+
+                    <option value="poultry">
+                        🐔 Poultry
+                    </option>
+
+                    <option value="seeds">
+                        🌱 Seeds & Breeds
+                    </option>
+
+                    <option value="equipment">
+                        🚜 Equipment & Tools
+                    </option>
+
+                    <option value="service">
+                        🤝 Farm Services
+                    </option>
+
+                    <option value="worker">
+                        👨‍🌾 Farm Workers
+                    </option>
+
+                    <option value="job">
+                        💼 Agricultural Jobs
+                    </option>
+
+                    <option value="other">
+                        📦 Other
+                    </option>
+
+                </select>
+
+
+                <button
+                    type="button"
+                    id="searchButton"
+                >
                     🔍 Search
                 </button>
 
@@ -115,7 +164,11 @@
         <div class="market-grid">
 
 
-            <a href="#" class="market-card">
+            <a
+                href="#opportunityGrid"
+                class="market-card"
+                onclick="filterCategory('crop'); return false;"
+            >
 
                 <span>🌾</span>
 
@@ -131,7 +184,10 @@
 
 
 
-            <a href="#" class="market-card">
+            <a
+                href="post-offer.html"
+                class="market-card"
+            >
 
                 <span>🌱</span>
 
@@ -147,7 +203,11 @@
 
 
 
-            <a href="#" class="market-card">
+            <a
+                href="#opportunityGrid"
+                class="market-card"
+                onclick="filterCategory('animal'); return false;"
+            >
 
                 <span>🐄</span>
 
@@ -163,7 +223,10 @@
 
 
 
-            <a href="#" class="market-card">
+            <a
+                href="post-offer.html"
+                class="market-card"
+            >
 
                 <span>🐐</span>
 
@@ -179,7 +242,11 @@
 
 
 
-            <a href="#" class="market-card">
+            <a
+                href="#opportunityGrid"
+                class="market-card"
+                onclick="filterCategory('equipment'); return false;"
+            >
 
                 <span>🚜</span>
 
@@ -195,7 +262,11 @@
 
 
 
-            <a href="#" class="market-card">
+            <a
+                href="#opportunityGrid"
+                class="market-card"
+                onclick="filterCategory('service'); return false;"
+            >
 
                 <span>💊</span>
 
@@ -211,7 +282,11 @@
 
 
 
-            <a href="#" class="market-card">
+            <a
+                href="#opportunityGrid"
+                class="market-card"
+                onclick="filterCategory('worker'); return false;"
+            >
 
                 <span>👨‍🌾</span>
 
@@ -227,7 +302,11 @@
 
 
 
-            <a href="#" class="market-card">
+            <a
+                href="#opportunityGrid"
+                class="market-card"
+                onclick="filterCategory('job'); return false;"
+            >
 
                 <span>💼</span>
 
@@ -243,7 +322,11 @@
 
 
 
-            <a href="#" class="market-card">
+            <a
+                href="#opportunityGrid"
+                class="market-card"
+                onclick="filterCategory('service'); return false;"
+            >
 
                 <span>🤝</span>
 
@@ -259,7 +342,11 @@
 
 
 
-            <a href="#" class="market-card">
+            <a
+                href="#opportunityGrid"
+                class="market-card"
+                onclick="filterCategory('seeds'); return false;"
+            >
 
                 <span>🌱</span>
 
@@ -275,7 +362,11 @@
 
 
 
-            <a href="#" class="market-card">
+            <a
+                href="#opportunityGrid"
+                class="market-card"
+                onclick="filterCategory('crop'); return false;"
+            >
 
                 <span>📦</span>
 
@@ -291,7 +382,11 @@
 
 
 
-            <a href="#" class="market-card">
+            <a
+                href="#opportunityGrid"
+                class="market-card"
+                onclick="filterCategory('service'); return false;"
+            >
 
                 <span>🚚</span>
 
@@ -317,7 +412,6 @@
     ========================== -->
 
     <section class="market-opportunities">
-
 
         <div class="market-heading">
 
@@ -356,7 +450,6 @@
 
         </div>
 
-
     </section>
 
 
@@ -385,7 +478,6 @@
 
 
             <div class="trust-points">
-
 
                 <div>
 
@@ -425,7 +517,6 @@
 
                 </div>
 
-
             </div>
 
         </div>
@@ -454,7 +545,6 @@
 
             <div class="market-action-buttons">
 
-
                 <a
                     href="post-offer.html"
                     class="market-action-btn"
@@ -469,7 +559,6 @@
                 >
                     🔎 Post a Request
                 </a>
-
 
             </div>
 
@@ -612,7 +701,6 @@
             data.forEach(
                 function(offer) {
 
-
                     const card =
                         document.createElement(
                             "div"
@@ -623,13 +711,19 @@
                         "opportunity-card";
 
 
+                    card.dataset.category =
+                        String(
+                            offer.category || ""
+                        )
+                        .toLowerCase();
+
 
                     card.innerHTML = `
 
                         <div class="opportunity-top">
 
                             <span class="opportunity-type">
-                                🌱 ${offer.category}
+                                🌱 ${offer.category || "Other"}
                             </span>
 
                             <span class="opportunity-status">
@@ -640,19 +734,19 @@
 
 
                         <h3>
-                            ${offer.title}
+                            ${offer.title || "Untitled Offer"}
                         </h3>
 
 
                         <p>
-                            ${offer.description}
+                            ${offer.description || ""}
                         </p>
 
 
                         <div class="opportunity-info">
 
                             <span>
-                                📍 ${offer.location}
+                                📍 ${offer.location || "Location not provided"}
                             </span>
 
                             <span>
@@ -674,7 +768,7 @@
                         <a
                             href="#"
                             class="opportunity-btn"
-                            onclick="alert('Contact: ${offer.contact}')"
+                            onclick="event.preventDefault(); alert('Contact: ${offer.contact || "Contact seller"}')"
                         >
                             Contact Seller →
                         </a>
@@ -694,7 +788,7 @@
 
 
         // ==========================================
-        // SEARCH
+        // SEARCH + CATEGORY FILTER
         // ==========================================
 
         const searchInput =
@@ -709,10 +803,34 @@
             );
 
 
+        const categoryFilter =
+            document.getElementById(
+                "marketCategory"
+            );
+
+
+
+        function filterCategory(category) {
+
+            categoryFilter.value = category;
+
+            searchInput.value = "";
+
+            searchMarketplace();
+
+        }
+
+
         function searchMarketplace() {
 
             const searchTerm =
                 searchInput.value
+                    .trim()
+                    .toLowerCase();
+
+
+            const selectedCategory =
+                categoryFilter.value
                     .trim()
                     .toLowerCase();
 
@@ -723,6 +841,9 @@
                 );
 
 
+            let visibleCount = 0;
+
+
             cards.forEach(
                 function(card) {
 
@@ -731,13 +852,31 @@
                             .toLowerCase();
 
 
-                    if (
+                    const cardCategory =
+                        card.dataset.category || "";
+
+
+                    const matchesSearch =
                         searchTerm === "" ||
-                        cardText.includes(searchTerm)
+                        cardText.includes(
+                            searchTerm
+                        );
+
+
+                    const matchesCategory =
+                        selectedCategory === "" ||
+                        cardCategory === selectedCategory;
+
+
+                    if (
+                        matchesSearch &&
+                        matchesCategory
                     ) {
 
                         card.style.display =
                             "";
+
+                        visibleCount++;
 
                     } else {
 
@@ -749,14 +888,57 @@
                 }
             );
 
+
+            const resultsSection =
+                document.querySelector(
+                    ".market-opportunities"
+                );
+
+
+            if (resultsSection) {
+
+                resultsSection.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }
+
+
+            if (
+                visibleCount === 0 &&
+                cards.length > 0
+            ) {
+
+                alert(
+                    "No matching opportunities found."
+                );
+
+            }
+
         }
 
+
+
+        // Search button
 
         searchButton.addEventListener(
             "click",
             searchMarketplace
         );
 
+
+
+        // Category filter
+
+        categoryFilter.addEventListener(
+            "change",
+            searchMarketplace
+        );
+
+
+
+        // Enter key
 
         searchInput.addEventListener(
             "keyup",
