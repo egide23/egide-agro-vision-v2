@@ -1,0 +1,1639 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Animal Housing | Africa AgroVision</title>
+
+    <meta name="description"
+          content="Practical animal housing guide for Rwanda covering chickens, turkeys, ducks, pigs, goats, sheep and cattle, including space calculations, layouts, construction requirements and estimated RWF budgets.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f4f8f4;
+            color: #243127;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* HEADER */
+        header {
+            background: #104d24;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.12);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: #a8df65;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #a8df65;
+        }
+
+        /* HERO */
+        .hero {
+            background:
+                linear-gradient(rgba(8,53,24,0.82), rgba(8,53,24,0.82)),
+                url("images/animal-housing.jpg") center/cover no-repeat;
+            min-height: 430px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 70px 20px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.1rem, 5vw, 4rem);
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 780px;
+            margin: auto;
+            font-size: 1.05rem;
+            opacity: 0.95;
+        }
+
+        .breadcrumb {
+            margin-top: 25px;
+            font-size: 0.85rem;
+            opacity: 0.85;
+        }
+
+        /* GENERAL */
+        .container {
+            width: min(1120px, 92%);
+            margin: auto;
+        }
+
+        section {
+            padding: 65px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            color: #104d24;
+            font-size: clamp(1.7rem, 4vw, 2.5rem);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            max-width: 750px;
+            margin: auto;
+            color: #657267;
+        }
+
+        .intro-box {
+            background: white;
+            border-left: 6px solid #2e7d32;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        /* CARDS */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 26px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+            border: 1px solid #e1ebe2;
+        }
+
+        .card h3 {
+            color: #145c2a;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #59645c;
+            font-size: 0.94rem;
+        }
+
+        .number {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e7f4e8;
+            color: #145c2a;
+            font-weight: 800;
+            border-radius: 50%;
+            margin-bottom: 16px;
+        }
+
+        /* TABLES */
+        .table-wrap {
+            overflow-x: auto;
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 700px;
+        }
+
+        th {
+            background: #145c2a;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        td {
+            padding: 14px 15px;
+            border-bottom: 1px solid #e4ebe5;
+            font-size: 0.9rem;
+        }
+
+        tr:nth-child(even) {
+            background: #f7faf7;
+        }
+
+        /* CALCULATION BOX */
+        .calculation {
+            background: #104d24;
+            color: white;
+            padding: 28px;
+            border-radius: 16px;
+            margin-top: 25px;
+        }
+
+        .calculation h3 {
+            color: #b9eb78;
+            margin-bottom: 15px;
+        }
+
+        .formula {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            font-weight: 600;
+        }
+
+        /* BUDGET */
+        .budget-card {
+            background: white;
+            border-radius: 18px;
+            padding: 28px;
+            box-shadow: 0 7px 25px rgba(0,0,0,0.08);
+            border-top: 6px solid #2e7d32;
+        }
+
+        .budget-card h3 {
+            color: #104d24;
+            margin-bottom: 15px;
+        }
+
+        .budget-total {
+            font-size: 1.5rem;
+            color: #104d24;
+            font-weight: 800;
+            margin: 15px 0;
+        }
+
+        .budget-note {
+            color: #68736b;
+            font-size: 0.85rem;
+        }
+
+        /* PLAN */
+        .plan {
+            background: #eef7ef;
+            border: 1px solid #d8e8d9;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .plan pre {
+            font-family: monospace;
+            white-space: pre-wrap;
+            color: #29442f;
+            line-height: 1.6;
+        }
+
+        /* LIST */
+        ul.check-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        ul.check-list li {
+            margin-bottom: 10px;
+            padding-left: 28px;
+            position: relative;
+        }
+
+        ul.check-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #2e7d32;
+            font-weight: 800;
+        }
+
+        /* WARNING */
+        .warning {
+            background: #fff8e6;
+            border-left: 5px solid #e0a400;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #104d24, #236c32);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .cta h2 {
+            margin-bottom: 15px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 25px;
+            background: white;
+            color: #104d24;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 700;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #0c351a;
+            color: #dce8dd;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 7px 0;
+            font-size: 0.9rem;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 850px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-container {
+                flex-direction: column;
+            }
+
+            nav {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 45px 0;
+            }
+
+            .hero {
+                min-height: 390px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="nav-container">
+        <a href="dashboard.html" class="logo">
+            Africa <span>AgroVision</span>
+        </a>
+
+        <nav>
+            <a href="agriculture.html">Agriculture</a>
+            <a href="livestock-farming.html">Livestock</a>
+            <a href="ruminant-farming.html">Ruminants</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </div>
+</header>
+
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Animal Housing</h1>
+
+        <p>
+            Practical housing designs, space calculations, construction principles,
+            farm layouts and Rwanda-focused investment estimates for poultry,
+            pigs, goats, sheep and cattle.
+        </p>
+
+        <div class="breadcrumb">
+            Agriculture › Livestock Farming › Animal Housing
+        </div>
+    </div>
+</section>
+
+
+<!-- INTRODUCTION -->
+<section>
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Why Animal Housing Matters</h2>
+            <p>
+                Good housing is not simply a building. It is part of the production
+                system that protects animals, controls disease, reduces feed wastage,
+                improves comfort and makes daily farm management easier.
+            </p>
+        </div>
+
+        <div class="intro-box">
+            <p>
+                A good livestock house should provide protection from rain, excessive
+                heat, cold winds, predators and theft while maintaining ventilation,
+                drainage, cleanliness and sufficient space. In Rwanda, housing should
+                be designed around the local climate, available materials, farm size,
+                animal type and business objective.
+            </p>
+
+            <p style="margin-top:15px;">
+                <strong>Business principle:</strong> do not spend all your starting
+                capital on an expensive building. A well-designed, durable and
+                easy-to-clean agricultural structure can often produce better value
+                than an attractive building with unnecessary finishes.
+            </p>
+        </div>
+    </div>
+</section>
+
+
+<!-- UNIVERSAL DESIGN PRINCIPLES -->
+<section>
+    <div class="container">
+
+        <div class="section-title">
+            <h2>10 Principles of Good Animal Housing</h2>
+            <p>
+                These principles should be considered before purchasing materials.
+            </p>
+        </div>
+
+        <div class="grid">
+
+            <div class="card">
+                <div class="number">1</div>
+                <h3>Good Site</h3>
+                <p>
+                    Choose raised, well-drained ground away from flooding and
+                    stagnant water.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="number">2</div>
+                <h3>Ventilation</h3>
+                <p>
+                    Fresh air must enter and hot, humid air must escape without
+                    creating harmful drafts.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="number">3</div>
+                <h3>Drainage</h3>
+                <p>
+                    Rainwater, washing water and manure should not remain inside
+                    the building.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="number">4</div>
+                <h3>Correct Space</h3>
+                <p>
+                    Avoid overcrowding. Calculate floor area according to animal
+                    number, size, age and production system.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="number">5</div>
+                <h3>Easy Cleaning</h3>
+                <p>
+                    Floors, walls, feeders and drinkers should be designed for
+                    regular cleaning and disinfection.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="number">6</div>
+                <h3>Feed Access</h3>
+                <p>
+                    Feeding areas should allow all animals to reach feed without
+                    unnecessary competition.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="number">7</div>
+                <h3>Water Access</h3>
+                <p>
+                    Clean drinking water should be continuously available and
+                    protected from contamination.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="number">8</div>
+                <h3>Biosecurity</h3>
+                <p>
+                    Control visitors, rodents, wild birds, dirty footwear and
+                    equipment that can introduce disease.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="number">9</div>
+                <h3>Animal Welfare</h3>
+                <p>
+                    Housing should allow animals to rest, feed, drink and move
+                    normally without unnecessary injury.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="number">10</div>
+                <h3>Future Expansion</h3>
+                <p>
+                    Leave enough space around the building for future pens,
+                    feed storage, manure management and expansion.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- BASIC CALCULATION -->
+<section>
+    <div class="container">
+
+        <div class="section-title">
+            <h2>How to Calculate Housing Size</h2>
+            <p>
+                Never choose a building size only because it looks large enough.
+                Calculate the usable animal area first.
+            </p>
+        </div>
+
+        <div class="calculation">
+
+            <h3>Basic Formula</h3>
+
+            <div class="formula">
+                Required animal area =
+                Number of animals × recommended floor space per animal
+            </div>
+
+            <p>
+                Example: if 100 adult chickens require approximately 0.27 m² each:
+            </p>
+
+            <div class="formula">
+                100 × 0.27 m² = 27 m² minimum animal floor area
+            </div>
+
+            <p>
+                A practical design can then provide additional working margin,
+                equipment space and easier movement. Therefore, a 30 m² house
+                such as 6 m × 5 m can be used for the planning example below.
+            </p>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- HOUSING SUMMARY -->
+<section>
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Recommended Rwanda Starter Designs</h2>
+            <p>
+                These are practical planning models rather than fixed construction
+                requirements. Adapt them to breed, production system, climate and site.
+            </p>
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Animal</th>
+                        <th>Number</th>
+                        <th>Suggested House</th>
+                        <th>Approx. Floor Area</th>
+                        <th>Recommended System</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Chicken</td>
+                        <td>100</td>
+                        <td>6 m × 5 m</td>
+                        <td>30 m²</td>
+                        <td>Deep litter / semi-intensive</td>
+                    </tr>
+
+                    <tr>
+                        <td>Turkey</td>
+                        <td>50</td>
+                        <td>7 m × 6 m</td>
+                        <td>42 m²</td>
+                        <td>Deep litter + outside run</td>
+                    </tr>
+
+                    <tr>
+                        <td>Duck</td>
+                        <td>50</td>
+                        <td>6 m × 5 m</td>
+                        <td>30 m²</td>
+                        <td>Deep litter + outside run</td>
+                    </tr>
+
+                    <tr>
+                        <td>Adult pigs</td>
+                        <td>10</td>
+                        <td>6 m × 5 m</td>
+                        <td>30 m²</td>
+                        <td>Individual/group pens + manure alley</td>
+                    </tr>
+
+                    <tr>
+                        <td>Adult goats</td>
+                        <td>10</td>
+                        <td>5 m × 5 m</td>
+                        <td>25 m²</td>
+                        <td>Raised/deep litter or solid floor</td>
+                    </tr>
+
+                    <tr>
+                        <td>Adult sheep</td>
+                        <td>10</td>
+                        <td>5 m × 5 m</td>
+                        <td>25 m²</td>
+                        <td>Dry shelter + yard</td>
+                    </tr>
+
+                    <tr>
+                        <td>Cattle + goats + sheep</td>
+                        <td>25 total</td>
+                        <td>10 m × 8 m</td>
+                        <td>80 m²</td>
+                        <td>Separated livestock zones</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- CHICKEN -->
+<section>
+    <div class="container">
+
+        <div class="section-title">
+            <h2>1. Housing for 100 Chickens</h2>
+            <p>
+                A practical starter model for a small commercial chicken enterprise.
+            </p>
+        </div>
+
+        <div class="grid">
+
+            <div class="budget-card">
+                <h3>Recommended Structure</h3>
+
+                <ul class="check-list">
+                    <li>House: 6 m × 5 m</li>
+                    <li>Floor area: 30 m²</li>
+                    <li>Raised above surrounding ground</li>
+                    <li>Concrete floor with drainage</li>
+                    <li>Good cross ventilation</li>
+                    <li>Wide roof overhang</li>
+                    <li>Separate feed storage area</li>
+                    <li>Footbath at entrance</li>
+                </ul>
+            </div>
+
+            <div class="budget-card">
+                <h3>Space Calculation</h3>
+
+                <div class="formula">
+                    100 chickens × 0.27 m²
+                    = 27 m² minimum
+                </div>
+
+                <p>
+                    A 30 m² building provides a practical margin for movement,
+                    equipment and management.
+                </p>
+
+                <p style="margin-top:12px;">
+                    For layers, provide adequate nest and perch facilities according
+                    to the production system.
+                </p>
+            </div>
+
+            <div class="budget-card">
+                <h3>Estimated Investment</h3>
+
+                <p class="budget-total">
+                    RWF 4.5M – 7.0M
+                </p>
+
+                <p class="budget-note">
+                    Planning range for a durable small commercial structure,
+                    depending on materials, labor, location and equipment.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="plan">
+            <h3>Simple Layout</h3>
+
+<pre>
+                6 METRES
+        ┌──────────────────────┐
+        │                      │
+        │   FEED / WATER       │
+        │                      │
+        │                      │
+  5 m   │   MAIN BIRD AREA     │
+        │                      │
+        │                      │
+        │   FEED / WATER       │
+        │                      │
+        └──────────┬───────────┘
+                   │
+                ENTRY
+              + FOOTBATH
+</pre>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- TURKEY -->
+<section>
+    <div class="container">
+
+        <div class="section-title">
+            <h2>2. Housing for 50 Turkeys</h2>
+            <p>
+                Turkeys require substantially more space as they mature.
+            </p>
+        </div>
+
+        <div class="grid">
+
+            <div class="budget-card">
+                <h3>Recommended Structure</h3>
+
+                <ul class="check-list">
+                    <li>House: 7 m × 6 m</li>
+                    <li>Indoor area: 42 m²</li>
+                    <li>Large ventilation openings</li>
+                    <li>Dry deep-litter floor</li>
+                    <li>Protected feeding area</li>
+                    <li>Secure outside run</li>
+                    <li>Predator protection</li>
+                </ul>
+            </div>
+
+            <div class="budget-card">
+                <h3>Space Calculation</h3>
+
+                <div class="formula">
+                    50 × 0.7–0.9 m²
+                    = 35–45 m²
+                </div>
+
+                <p>
+                    A 42 m² house fits within this planning range for mature
+                    breeding-sized birds.
+                </p>
+            </div>
+
+            <div class="budget-card">
+                <h3>Estimated Investment</h3>
+
+                <p class="budget-total">
+                    RWF 6.0M – 9.0M
+                </p>
+
+                <p class="budget-note">
+                    Excludes birds, feed and major land-development costs.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="warning">
+            <strong>Important:</strong>
+            Turkeys should not be overcrowded. They can become stressed and may
+            injure one another during frightening events or poor management.
+        </div>
+
+    </div>
+</section>
+
+
+<!-- DUCK -->
+<section>
+    <div class="container">
+
+        <div class="section-title">
+            <h2>3. Housing for 50 Ducks</h2>
+            <p>
+                Ducks need a dry sleeping area plus access to a suitable outdoor
+                exercise area.
+            </p>
+        </div>
+
+        <div class="grid">
+
+            <div class="budget-card">
+                <h3>House Design</h3>
+
+                <ul class="check-list">
+                    <li>House: 6 m × 5 m</li>
+                    <li>Indoor floor: 30 m²</li>
+                    <li>Dry bedding</li>
+                    <li>Strong ventilation</li>
+                    <li>Non-slip floor</li>
+                    <li>Outdoor fenced run</li>
+                    <li>Drainage around water areas</li>
+                </ul>
+            </div>
+
+            <div class="budget-card">
+                <h3>Outdoor Area</h3>
+
+                <p>
+                    A useful business design should provide an additional fenced
+                    outdoor area rather than trying to put all activities inside
+                    the sleeping house.
+                </p>
+
+                <div class="formula">
+                    Example planning area:
+                    50 m² or more outdoor run
+                </div>
+            </div>
+
+            <div class="budget-card">
+                <h3>Estimated Investment</h3>
+
+                <p class="budget-total">
+                    RWF 4.5M – 7.0M
+                </p>
+
+                <p class="budget-note">
+                    Water facilities and extensive pond construction can increase
+                    the investment considerably.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- PIG -->
+<section>
+    <div class="container">
+
+        <div class="section-title">
+            <h2>4. Housing for 10 Adult Pigs</h2>
+            <p>
+                Pig housing must prioritize drainage, hygiene, ventilation and
+                manure management.
+            </p>
+        </div>
+
+        <div class="grid">
+
+            <div class="budget-card">
+                <h3>Recommended Structure</h3>
+
+                <ul class="check-list">
+                    <li>Overall building: about 30 m²</li>
+                    <li>Separate pens where appropriate</li>
+                    <li>Concrete non-slip floor</li>
+                    <li>Drainage channel</li>
+                    <li>Manure collection area</li>
+                    <li>Feed storage nearby</li>
+                    <li>Good roof overhang</li>
+                    <li>Open-sided ventilation</li>
+                </ul>
+            </div>
+
+            <div class="budget-card">
+                <h3>Practical Layout</h3>
+
+<pre>
+┌────────────┬────────────┐
+│   PEN 1    │   PEN 2    │
+│            │            │
+├────────────┼────────────┤
+│   PEN 3    │   PEN 4    │
+│            │            │
+├────────────┴────────────┤
+│    MANURE / DRAIN       │
+└─────────────────────────┘
+</pre>
+            </div>
+
+            <div class="budget-card">
+                <h3>Estimated Investment</h3>
+
+                <p class="budget-total">
+                    RWF 5.5M – 8.5M
+                </p>
+
+                <p class="budget-note">
+                    More expensive designs are possible when adding breeding,
+                    farrowing, water systems and manure treatment infrastructure.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="calculation">
+
+            <h3>Why Drainage Matters</h3>
+
+            <p>
+                Pig houses should not allow water and manure to remain around
+                resting areas. FAO guidance recommends concrete floors for
+                confined systems and appropriate floor slopes toward manure
+                drainage areas.
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- GOAT -->
+<section>
+    <div class="container">
+
+        <div class="section-title">
+            <h2>5. Housing for 10 Adult Goats</h2>
+            <p>
+                Goats need a dry, well-ventilated shelter protected from excessive
+                rain and muddy conditions.
+            </p>
+        </div>
+
+        <div class="grid">
+
+            <div class="budget-card">
+                <h3>Recommended Structure</h3>
+
+                <ul class="check-list">
+                    <li>House: 5 m × 5 m</li>
+                    <li>Total floor area: 25 m²</li>
+                    <li>Raised or well-drained floor</li>
+                    <li>Feed trough</li>
+                    <li>Clean water point</li>
+                    <li>Separate kidding area</li>
+                    <li>Outside exercise yard</li>
+                </ul>
+            </div>
+
+            <div class="budget-card">
+                <h3>Space Calculation</h3>
+
+                <div class="formula">
+                    10 adult goats × approximately 1.1 m²
+                    = 11 m² animal resting area
+                </div>
+
+                <p>
+                    The 25 m² structure provides room for feeding, handling,
+                    temporary separation, kidding and management activities.
+                </p>
+            </div>
+
+            <div class="budget-card">
+                <h3>Estimated Investment</h3>
+
+                <p class="budget-total">
+                    RWF 4.0M – 6.5M
+                </p>
+
+                <p class="budget-note">
+                    A simpler locally sourced structure may cost less; a raised
+                    timber/slatted system can increase the initial investment.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- SHEEP -->
+<section>
+    <div class="container">
+
+        <div class="section-title">
+            <h2>6. Housing for 10 Adult Sheep</h2>
+            <p>
+                Sheep housing should remain dry, clean and well ventilated.
+            </p>
+        </div>
+
+        <div class="grid">
+
+            <div class="budget-card">
+                <h3>Recommended Structure</h3>
+
+                <ul class="check-list">
+                    <li>House: 5 m × 5 m</li>
+                    <li>Total floor area: 25 m²</li>
+                    <li>Dry resting area</li>
+                    <li>Good roof overhang</li>
+                    <li>Feed trough</li>
+                    <li>Water point</li>
+                    <li>Small lambing/separation pen</li>
+                    <li>Outdoor yard</li>
+                </ul>
+            </div>
+
+            <div class="budget-card">
+                <h3>Space Calculation</h3>
+
+                <div class="formula">
+                    10 adult sheep × approximately 1.1 m²
+                    = 11 m² resting requirement
+                </div>
+
+                <p>
+                    Additional floor area is useful for handling, feeding,
+                    separation and future expansion.
+                </p>
+            </div>
+
+            <div class="budget-card">
+                <h3>Estimated Investment</h3>
+
+                <p class="budget-total">
+                    RWF 4.0M – 6.5M
+                </p>
+
+                <p class="budget-note">
+                    Local materials and an open-sided design can reduce construction
+                    cost while maintaining functionality.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- MIXED FARM -->
+<section>
+    <div class="container">
+
+        <div class="section-title">
+            <h2>7. One Farm House for 5 Cattle + 10 Goats + 10 Sheep</h2>
+            <p>
+                A mixed livestock farm should not simply put every animal into
+                one undivided room. The building can share the same roof while
+                maintaining separate animal zones.
+            </p>
+        </div>
+
+        <div class="calculation">
+
+            <h3>Planning Calculation</h3>
+
+            <div class="formula">
+                5 cattle × approximately 5 m² = 25 m²
+            </div>
+
+            <div class="formula">
+                10 goats × approximately 1.1 m² = 11 m²
+            </div>
+
+            <div class="formula">
+                10 sheep × approximately 1.1 m² = 11 m²
+            </div>
+
+            <div class="formula">
+                Basic animal area ≈ 47 m²
+            </div>
+
+            <p>
+                After adding feed alleys, partitions, handling space, water points,
+                storage and working space, a practical covered building of around
+                <strong>80 m²</strong> is a useful starter design.
+            </p>
+
+        </div>
+
+        <div class="budget-card" style="margin-top:25px;">
+
+            <h3>Recommended Farm Building</h3>
+
+            <p class="budget-total">
+                Approximately 10 m × 8 m = 80 m²
+            </p>
+
+            <ul class="check-list">
+                <li>Separate cattle zone</li>
+                <li>Separate goat zone</li>
+                <li>Separate sheep zone</li>
+                <li>Central or side feed alley</li>
+                <li>Drainage channel</li>
+                <li>Manure collection point</li>
+                <li>Feed storage room</li>
+                <li>Water supply point</li>
+                <li>Small treatment/isolation pen</li>
+                <li>Space for future expansion</li>
+            </ul>
+
+        </div>
+
+        <div class="plan">
+
+            <h3>Conceptual Layout</h3>
+
+<pre>
+                         10 METRES
+        ┌─────────────────────────────────────┐
+        │             CATTLE ZONE             │
+        │          5 CATTLE / RESTING         │
+        │                                     │
+        ├──────────────────┬──────────────────┤
+        │                  │                  │
+        │   GOAT ZONE      │    SHEEP ZONE    │
+        │    10 GOATS      │     10 SHEEP     │
+        │                  │                  │
+        ├──────────────────┴──────────────────┤
+        │       FEED / WORKING ALLEY          │
+        ├───────────────┬─────────────────────┤
+        │ FEED STORE    │ MANURE / DRAIN AREA │
+        └───────────────┴─────────────────────┘
+                         8 METRES
+</pre>
+
+        </div>
+
+        <div class="budget-card" style="margin-top:25px;">
+
+            <h3>Estimated Complete Housing Investment</h3>
+
+            <p class="budget-total">
+                RWF 13M – 20M
+            </p>
+
+            <p>
+                This is a planning range for a durable mixed-livestock structure
+                with separate zones, drainage, roofing, basic feeding facilities,
+                water points and manure management.
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- BUDGET TABLE -->
+<section>
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Rwanda Construction Budget Guide</h2>
+            <p>
+                Use these ranges to prepare an initial business plan before
+                requesting quotations from local builders.
+            </p>
+        </div>
+
+        <div class="table-wrap">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Housing Project</th>
+                        <th>Approx. Area</th>
+                        <th>Basic Planning Budget</th>
+                        <th>Higher-Durability Budget</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>100 chickens</td>
+                        <td>30 m²</td>
+                        <td>RWF 4.5M</td>
+                        <td>RWF 7.0M</td>
+                    </tr>
+
+                    <tr>
+                        <td>50 turkeys</td>
+                        <td>42 m²</td>
+                        <td>RWF 6.0M</td>
+                        <td>RWF 9.0M</td>
+                    </tr>
+
+                    <tr>
+                        <td>50 ducks</td>
+                        <td>30 m² + yard</td>
+                        <td>RWF 4.5M</td>
+                        <td>RWF 7.0M</td>
+                    </tr>
+
+                    <tr>
+                        <td>10 adult pigs</td>
+                        <td>30 m²</td>
+                        <td>RWF 5.5M</td>
+                        <td>RWF 8.5M</td>
+                    </tr>
+
+                    <tr>
+                        <td>10 adult goats</td>
+                        <td>25 m²</td>
+                        <td>RWF 4.0M</td>
+                        <td>RWF 6.5M</td>
+                    </tr>
+
+                    <tr>
+                        <td>10 adult sheep</td>
+                        <td>25 m²</td>
+                        <td>RWF 4.0M</td>
+                        <td>RWF 6.5M</td>
+                    </tr>
+
+                    <tr>
+                        <td>5 cattle + 10 goats + 10 sheep</td>
+                        <td>80 m²</td>
+                        <td>RWF 13M</td>
+                        <td>RWF 20M</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- WHAT BUDGET SHOULD INCLUDE -->
+<section>
+    <div class="container">
+
+        <div class="section-title">
+            <h2>What Your Housing Budget Should Cover</h2>
+        </div>
+
+        <div class="grid">
+
+            <div class="card">
+                <h3>1. Site Preparation</h3>
+                <p>
+                    Clearing, leveling, drainage and preparation of the building
+                    foundation.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>2. Foundation</h3>
+                <p>
+                    Foundation suitable for the selected wall and roof structure.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>3. Floor</h3>
+                <p>
+                    Durable, washable and appropriately sloped floors where
+                    concrete is required.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>4. Walls</h3>
+                <p>
+                    Brick, block, timber, poles, mesh or combinations according
+                    to animal and climate requirements.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>5. Roofing</h3>
+                <p>
+                    Durable roofing with adequate overhang and ventilation.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>6. Drainage</h3>
+                <p>
+                    Channels, collection points and safe disposal or reuse of
+                    manure and wastewater.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>7. Feeding Equipment</h3>
+                <p>
+                    Feed troughs, feeders, storage and access points.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>8. Water Equipment</h3>
+                <p>
+                    Drinkers, pipes, tanks and reliable clean-water access.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>9. Biosecurity</h3>
+                <p>
+                    Footbath, controlled entrance, cleaning equipment and
+                    isolation space.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- BUSINESS PLANNING -->
+<section>
+    <div class="container">
+
+        <div class="section-title">
+            <h2>How to Start an Animal-Housing Business in Rwanda</h2>
+            <p>
+                The building is only one part of the investment. Plan the whole
+                production system before construction begins.
+            </p>
+        </div>
+
+        <div class="grid">
+
+            <div class="card">
+                <div class="number">1</div>
+                <h3>Choose the Enterprise</h3>
+                <p>
+                    Decide whether the business will focus on eggs, meat, breeding,
+                    milk, breeding stock or multiple livestock enterprises.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="number">2</div>
+                <h3>Study Your Market</h3>
+                <p>
+                    Identify nearby buyers, restaurants, hotels, processors,
+                    traders, households and livestock markets.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="number">3</div>
+                <h3>Calculate Feed</h3>
+                <p>
+                    Feed can become one of the largest operating costs. Calculate
+                    expected consumption before buying animals.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="number">4</div>
+                <h3>Plan Water</h3>
+                <p>
+                    Confirm that clean water will be available every day before
+                    stocking animals.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="number">5</div>
+                <h3>Build for Expansion</h3>
+                <p>
+                    Design the first structure so that another house can be added
+                    without rebuilding the whole farm.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="number">6</div>
+                <h3>Keep Records</h3>
+                <p>
+                    Record construction costs, animals, feed, medicines,
+                    mortality, production, sales and profit.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- BUSINESS BUDGET FORMULA -->
+<section>
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Simple Farm Investment Formula</h2>
+        </div>
+
+        <div class="calculation">
+
+            <h3>Total Starting Capital</h3>
+
+            <div class="formula">
+                Housing
+                + Animals
+                + Feed Reserve
+                + Equipment
+                + Water
+                + Biosecurity
+                + Emergency Reserve
+                = Starting Capital
+            </div>
+
+            <p>
+                A common mistake is to spend nearly all available money on the
+                building and then have insufficient capital to feed the animals.
+                A good business plan protects operating cash after construction.
+            </p>
+
+            <div class="formula">
+                Example planning rule:
+                Keep a working-capital reserve for feed, health and unexpected
+                expenses after construction.
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- FARM MANAGEMENT CHECKLIST -->
+<section>
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Before You Build: 15-Point Checklist</h2>
+        </div>
+
+        <div class="card">
+
+            <ul class="check-list">
+
+                <li>Confirm the land is suitable and well drained.</li>
+
+                <li>Check access for vehicles and construction materials.</li>
+
+                <li>Identify the prevailing wind and sunlight pattern.</li>
+
+                <li>Calculate the required animal floor area.</li>
+
+                <li>Plan feeding and watering positions.</li>
+
+                <li>Plan drainage before pouring the floor.</li>
+
+                <li>Plan manure collection and storage.</li>
+
+                <li>Provide adequate ventilation.</li>
+
+                <li>Plan a biosecurity entrance.</li>
+
+                <li>Include an isolation or treatment area where appropriate.</li>
+
+                <li>Protect feed from moisture, rodents and contamination.</li>
+
+                <li>Provide reliable water.</li>
+
+                <li>Compare at least several local contractor quotations.</li>
+
+                <li>Keep a contingency amount for price changes and unforeseen work.</li>
+
+                <li>Plan how the farm will expand after the first production cycle.</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- FINAL ADVICE -->
+<section>
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Final Advice for Farmers</h2>
+        </div>
+
+        <div class="intro-box">
+
+            <p>
+                The best animal house is not necessarily the most expensive one.
+                It is the one that provides the correct space, good ventilation,
+                drainage, cleanliness, animal protection and efficient daily
+                management at a cost the farm can realistically support.
+            </p>
+
+            <p style="margin-top:15px;">
+                For a new farmer in Rwanda, it is usually safer to start with a
+                manageable number of animals, build a structure that can expand,
+                maintain sufficient working capital and grow according to actual
+                market demand.
+            </p>
+
+            <p style="margin-top:15px;">
+                Rwanda's agricultural development programs also emphasize
+                climate-smart livestock production, improved productivity,
+                nutrition, manure management and integration between crops and
+                livestock.
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- CTA -->
+<section class="cta">
+
+    <h2>Build Better. Manage Better. Farm Better.</h2>
+
+    <p>
+        Good housing creates the foundation for healthy animals,
+        efficient management and sustainable livestock production.
+    </p>
+
+    <a href="livestock-farming.html" class="back-btn">
+        ← Back to Livestock Farming
+    </a>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <p>
+        <strong>Africa AgroVision</strong>
+    </p>
+
+    <p>
+        Agriculture • Livestock • Innovation • Sustainable Farming
+    </p>
+
+    <p>
+        Kigali, Gasabo, Rwanda
+    </p>
+
+    <p>
+        Email: ntaganda12345@gmail.com
+    </p>
+
+    <p>
+        WhatsApp / Phone: +250 786 213 989
+    </p>
+
+    <p style="margin-top:20px;">
+        © 2026 Africa AgroVision. Byiringiro Egide.
+    </p>
+
+</footer>
+
+</body>
+</html>
+```

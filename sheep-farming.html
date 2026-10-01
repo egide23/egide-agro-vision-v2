@@ -1,0 +1,1005 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sheep Farming | Africa AgroVision</title>
+    <meta name="description" content="Learn about sheep farming, breeds, housing, feeding, breeding, lamb care, meat, wool, health, disease prevention and sustainable sheep management.">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background: #f5f8f4;
+            color: #26352a;
+            line-height: 1.7;
+        }
+
+        .sheep-page {
+            min-height: 100vh;
+        }
+
+        /* HERO */
+        .sheep-hero {
+            min-height: 430px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 80px 20px;
+            background:
+                linear-gradient(rgba(10, 55, 25, 0.72), rgba(10, 55, 25, 0.72)),
+                url("images/sheep-farming.jpg") center/cover no-repeat;
+            color: white;
+        }
+
+        .sheep-hero-content {
+            max-width: 900px;
+        }
+
+        .sheep-hero-icon {
+            width: 82px;
+            height: 82px;
+            margin: 0 auto 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.14);
+            border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(6px);
+            font-size: 36px;
+        }
+
+        .sheep-hero h1 {
+            margin: 0 0 15px;
+            font-size: clamp(2.3rem, 6vw, 4.6rem);
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .sheep-hero p {
+            max-width: 760px;
+            margin: auto;
+            font-size: 1.08rem;
+            opacity: 0.95;
+        }
+
+        /* BREADCRUMB */
+        .sheep-breadcrumb {
+            background: white;
+            padding: 15px 6%;
+            border-bottom: 1px solid #e1e9e1;
+            font-size: 0.92rem;
+            color: #607064;
+        }
+
+        .sheep-breadcrumb a {
+            color: #17652a;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .sheep-breadcrumb span {
+            margin: 0 8px;
+            color: #9aa59d;
+        }
+
+        /* MAIN */
+        .sheep-container {
+            width: min(1180px, 92%);
+            margin: auto;
+            padding: 65px 0;
+        }
+
+        .sheep-intro {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto 55px;
+        }
+
+        .sheep-intro h2 {
+            margin: 0 0 15px;
+            color: #145c27;
+            font-size: 2rem;
+        }
+
+        .sheep-intro p {
+            color: #647168;
+        }
+
+        /* SECTIONS */
+        .sheep-section {
+            background: white;
+            margin-bottom: 28px;
+            padding: 34px;
+            border-radius: 20px;
+            border: 1px solid #e2eae2;
+            box-shadow: 0 8px 25px rgba(30, 70, 40, 0.06);
+        }
+
+        .sheep-section h2 {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            margin: 0 0 18px;
+            color: #145c27;
+            font-size: 1.45rem;
+        }
+
+        .sheep-section h2 i {
+            width: 42px;
+            height: 42px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: #eaf5ec;
+            color: #17652a;
+            font-size: 18px;
+        }
+
+        .sheep-section p {
+            margin: 0 0 14px;
+            color: #59665d;
+        }
+
+        .sheep-section ul {
+            margin: 10px 0 0;
+            padding-left: 22px;
+        }
+
+        .sheep-section li {
+            margin-bottom: 8px;
+            color: #59665d;
+        }
+
+        /* INFO GRID */
+        .sheep-info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .sheep-info-card {
+            padding: 22px;
+            border-radius: 15px;
+            background: #f5faf5;
+            border: 1px solid #dfeade;
+        }
+
+        .sheep-info-card h3 {
+            margin: 0 0 8px;
+            color: #145c27;
+            font-size: 1.05rem;
+        }
+
+        .sheep-info-card p {
+            margin: 0;
+            font-size: 0.94rem;
+        }
+
+        /* TABLE */
+        .sheep-table-wrap {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+
+        .sheep-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 650px;
+        }
+
+        .sheep-table th,
+        .sheep-table td {
+            padding: 14px 16px;
+            border: 1px solid #dce6dc;
+            text-align: left;
+        }
+
+        .sheep-table th {
+            background: #17652a;
+            color: white;
+            font-weight: 600;
+        }
+
+        .sheep-table tr:nth-child(even) {
+            background: #f5faf5;
+        }
+
+        /* WARNING */
+        .sheep-warning {
+            background: #fff8e8;
+            border-left: 5px solid #d59a20;
+            padding: 20px 22px;
+            border-radius: 10px;
+            margin-top: 18px;
+        }
+
+        .sheep-warning strong {
+            color: #8a6414;
+        }
+
+        /* GOLDEN RULES */
+        .sheep-rules {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .sheep-rule {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 17px;
+            background: #f4faf4;
+            border-radius: 12px;
+            border: 1px solid #dfebdf;
+        }
+
+        .sheep-rule i {
+            color: #19833a;
+            margin-top: 5px;
+        }
+
+        .sheep-rule span {
+            color: #536157;
+        }
+
+        /* BACK BUTTON */
+        .sheep-back {
+            text-align: center;
+            margin: 55px 0 15px;
+        }
+
+        .sheep-back a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 13px 24px;
+            border-radius: 30px;
+            background: #17652a;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.25s ease;
+        }
+
+        .sheep-back a:hover {
+            background: #0f4d20;
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER */
+        .sheep-footer {
+            background: #0d3519;
+            color: #d9e8dc;
+            padding: 45px 20px 25px;
+            text-align: center;
+        }
+
+        .sheep-footer h3 {
+            margin: 0 0 10px;
+            color: white;
+        }
+
+        .sheep-footer p {
+            margin: 6px 0;
+            font-size: 0.93rem;
+        }
+
+        .sheep-footer a {
+            color: #b9e3c1;
+            text-decoration: none;
+        }
+
+        .sheep-footer-bottom {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.12);
+            font-size: 0.85rem;
+            color: #a9bcae;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 850px) {
+            .sheep-info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sheep-rules {
+                grid-template-columns: 1fr;
+            }
+
+            .sheep-section {
+                padding: 25px 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .sheep-hero {
+                min-height: 360px;
+                padding: 60px 18px;
+            }
+
+            .sheep-hero h1 {
+                font-size: 2.35rem;
+            }
+
+            .sheep-hero p {
+                font-size: 0.95rem;
+            }
+
+            .sheep-container {
+                width: 94%;
+                padding: 45px 0;
+            }
+
+            .sheep-section h2 {
+                font-size: 1.2rem;
+            }
+
+            .sheep-section h2 i {
+                width: 37px;
+                height: 37px;
+            }
+
+            .sheep-breadcrumb {
+                padding: 13px 4%;
+                font-size: 0.82rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="sheep-page">
+
+    <!-- HERO -->
+    <section class="sheep-hero">
+        <div class="sheep-hero-content">
+
+            <div class="sheep-hero-icon">
+                <i class="fa-solid fa-paw"></i>
+            </div>
+
+            <h1>Sheep Farming</h1>
+
+            <p>
+                A practical guide to sheep production covering breeds,
+                housing, feeding, breeding, lamb care, wool, meat,
+                health, farm management and sustainable production.
+            </p>
+
+        </div>
+    </section>
+
+    <!-- BREADCRUMB -->
+    <div class="sheep-breadcrumb">
+        <a href="agriculture.html">Agriculture</a>
+        <span>›</span>
+        <a href="livestock-farming.html">Livestock Farming</a>
+        <span>›</span>
+        <a href="ruminant-farming.html">Ruminant Farming</a>
+        <span>›</span>
+        Sheep Farming
+    </div>
+
+    <main class="sheep-container">
+
+        <div class="sheep-intro">
+            <h2>Healthy Sheep. Better Management. Stronger Farms.</h2>
+            <p>
+                Sheep farming can provide meat, wool, milk, breeding animals
+                and manure while making productive use of suitable pasture
+                and farm resources. Successful production depends on good
+                nutrition, housing, health care and responsible management.
+            </p>
+        </div>
+
+        <!-- 1 -->
+        <section class="sheep-section">
+            <h2><i class="fa-solid fa-circle-info"></i> What Is Sheep Farming?</h2>
+
+            <p>
+                Sheep farming is the raising and management of sheep for
+                products such as meat, wool, milk, breeding stock and manure.
+            </p>
+
+            <p>
+                Sheep can be raised under grazing, semi-intensive or
+                intensive systems depending on land, climate, feed resources,
+                labor and production goals.
+            </p>
+        </section>
+
+        <!-- 2 -->
+        <section class="sheep-section">
+            <h2><i class="fa-solid fa-layer-group"></i> Main Types of Sheep Production</h2>
+
+            <div class="sheep-info-grid">
+
+                <div class="sheep-info-card">
+                    <h3>Meat Production</h3>
+                    <p>
+                        Focuses on healthy growth, good body condition,
+                        efficient feeding and quality carcass production.
+                    </p>
+                </div>
+
+                <div class="sheep-info-card">
+                    <h3>Wool Production</h3>
+                    <p>
+                        Uses sheep selected for fleece quality, wool yield
+                        and appropriate fiber characteristics.
+                    </p>
+                </div>
+
+                <div class="sheep-info-card">
+                    <h3>Breeding Stock</h3>
+                    <p>
+                        Selects healthy animals with desirable genetics,
+                        fertility, structure and production characteristics.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 3 -->
+        <section class="sheep-section">
+            <h2><i class="fa-solid fa-dna"></i> Sheep Breeds and Selection</h2>
+
+            <p>
+                Breed selection should be based on the farm's production
+                goal, climate, available feed and local market conditions.
+            </p>
+
+            <ul>
+                <li>Select healthy animals with good body structure.</li>
+                <li>Choose breeds that can adapt to the local environment.</li>
+                <li>Consider growth rate and reproductive performance.</li>
+                <li>For wool production, evaluate fleece quality and quantity.</li>
+                <li>For meat production, consider growth and body conformation.</li>
+                <li>Avoid animals with obvious chronic health or structural problems.</li>
+            </ul>
+
+            <div class="sheep-table-wrap">
+                <table class="sheep-table">
+                    <tr>
+                        <th>Production Goal</th>
+                        <th>Important Selection Traits</th>
+                    </tr>
+                    <tr>
+                        <td>Meat</td>
+                        <td>Growth, body structure, body condition and feed efficiency</td>
+                    </tr>
+                    <tr>
+                        <td>Wool</td>
+                        <td>Fleece quality, fiber characteristics and wool yield</td>
+                    </tr>
+                    <tr>
+                        <td>Breeding</td>
+                        <td>Fertility, health, structure and desirable genetics</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- 4 -->
+        <section class="sheep-section">
+            <h2><i class="fa-solid fa-house"></i> Sheep Housing and Shelter</h2>
+
+            <p>
+                Sheep need shelter that protects them from excessive rain,
+                cold, heat, predators and poor environmental conditions.
+            </p>
+
+            <ul>
+                <li>Keep housing dry and clean.</li>
+                <li>Provide adequate ventilation.</li>
+                <li>Avoid overcrowding.</li>
+                <li>Provide comfortable resting areas.</li>
+                <li>Keep feed and water areas clean.</li>
+                <li>Maintain secure fencing around grazing areas.</li>
+                <li>Separate sick or vulnerable animals when necessary.</li>
+            </ul>
+        </section>
+
+        <!-- 5 -->
+        <section class="sheep-section">
+            <h2><i class="fa-solid fa-temperature-half"></i> Climate and Environment</h2>
+
+            <p>
+                Sheep performance is influenced by temperature, rainfall,
+                humidity, pasture conditions and shelter quality.
+            </p>
+
+            <ul>
+                <li>Provide shade during periods of high heat.</li>
+                <li>Protect sheep from prolonged wet conditions.</li>
+                <li>Keep bedding dry.</li>
+                <li>Ensure good air movement without harmful drafts.</li>
+                <li>Monitor lambs and weak animals closely during difficult weather.</li>
+            </ul>
+        </section>
+
+        <!-- 6 -->
+        <section class="sheep-section">
+            <h2><i class="fa-solid fa-wheat-awn"></i> Feeding and Nutrition</h2>
+
+            <p>
+                Sheep require adequate energy, protein, minerals, vitamins,
+                fiber and water for maintenance, growth, reproduction and
+                production.
+            </p>
+
+            <ul>
+                <li>Provide good-quality pasture, forage or hay.</li>
+                <li>Use supplementary feeds when forage quality is insufficient.</li>
+                <li>Provide appropriate minerals for the local production system.</li>
+                <li>Introduce major feed changes gradually.</li>
+                <li>Prevent access to moldy or spoiled feed.</li>
+                <li>Adjust nutrition according to age and production stage.</li>
+            </ul>
+
+            <div class="sheep-info-grid">
+
+                <div class="sheep-info-card">
+                    <h3>Lambs</h3>
+                    <p>
+                        Need appropriate early nutrition and close monitoring
+                        during the first weeks of life.
+                    </p>
+                </div>
+
+                <div class="sheep-info-card">
+                    <h3>Pregnant Ewes</h3>
+                    <p>
+                        Nutritional needs increase during pregnancy,
+                        particularly toward the final stage.
+                    </p>
+                </div>
+
+                <div class="sheep-info-card">
+                    <h3>Lactating Ewes</h3>
+                    <p>
+                        Need adequate energy, protein, minerals and water
+                        to support milk production.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 7 -->
+        <section class="sheep-section">
+            <h2><i class="fa-solid fa-droplet"></i> Water Management</h2>
+
+            <p>
+                Clean water is essential for digestion, metabolism,
+                temperature regulation and production.
+            </p>
+
+            <ul>
+                <li>Provide clean drinking water every day.</li>
+                <li>Clean water containers regularly.</li>
+                <li>Protect water from manure and contamination.</li>
+                <li>Pay special attention to water availability during hot weather.</li>
+                <li>Monitor animals for signs of dehydration.</li>
+            </ul>
+        </section>
+
+        <!-- 8 -->
+        <section class="sheep-section">
+            <h2><i class="fa-solid fa-baby"></i> Lamb Care and Management</h2>
+
+            <p>
+                Good newborn management can strongly influence lamb survival,
+                growth and future productivity.
+            </p>
+
+            <ul>
+                <li>Ensure newborn lambs receive adequate colostrum promptly.</li>
+                <li>Keep lambing areas clean and dry.</li>
+                <li>Monitor the navel and general condition after birth.</li>
+                <li>Observe feeding behavior carefully.</li>
+                <li>Protect lambs from cold, excessive wetness and predators.</li>
+                <li>Monitor growth and health regularly.</li>
+            </ul>
+        </section>
+
+        <!-- 9 -->
+        <section class="sheep-section">
+            <h2><i class="fa-solid fa-heart-pulse"></i> Breeding and Reproduction</h2>
+
+            <p>
+                Planned breeding helps maintain a healthy flock and improve
+                reproductive and production performance.
+            </p>
+
+            <ul>
+                <li>Select healthy breeding rams and ewes.</li>
+                <li>Maintain appropriate body condition before breeding.</li>
+                <li>Keep accurate breeding records.</li>
+                <li>Monitor pregnancy and lambing.</li>
+                <li>Evaluate reproductive performance over time.</li>
+            </ul>
+        </section>
+
+        <!-- 10 -->
+        <section class="sheep-section">
+            <h2><i class="fa-solid fa-scissors"></i> Wool Production and Management</h2>
+
+            <p>
+                In wool-producing systems, proper flock management helps
+                maintain fleece quality and animal welfare.
+            </p>
+
+            <ul>
+                <li>Keep sheep clean and free from excessive contamination.</li>
+                <li>Plan shearing according to local conditions and animal needs.</li>
+                <li>Use safe handling techniques during shearing.</li>
+                <li>Store wool in a clean, dry environment.</li>
+                <li>Keep records of wool yield and quality where relevant.</li>
+            </ul>
+        </section>
+
+        <!-- 11 -->
+        <section class="sheep-section">
+            <h2><i class="fa-solid fa-drumstick-bite"></i> Meat Sheep Management</h2>
+
+            <p>
+                Meat production depends on healthy growth, appropriate
+                nutrition, good flock health and responsible handling.
+            </p>
+
+            <ul>
+                <li>Monitor body weight and condition.</li>
+                <li>Provide adequate forage and supplementary feed when needed.</li>
+                <li>Control parasites and disease.</li>
+                <li>Reduce unnecessary stress during handling.</li>
+                <li>Plan marketing according to animal condition and market demand.</li>
+            </ul>
+        </section>
+
+        <!-- 12 -->
+        <section class="sheep-section">
+            <h2><i class="fa-solid fa-shield-virus"></i> Sheep Health and Disease Prevention</h2>
+
+            <p>
+                Regular observation and preventive management are important
+                for maintaining flock health.
+            </p>
+
+            <ul>
+                <li>Check sheep every day.</li>
+                <li>Maintain clean housing and feeding equipment.</li>
+                <li>Follow a locally appropriate vaccination program.</li>
+                <li>Use responsible parasite-control practices.</li>
+                <li>Quarantine newly introduced animals when appropriate.</li>
+                <li>Seek veterinary assistance when serious disease is suspected.</li>
+            </ul>
+
+            <div class="sheep-warning">
+                <strong>Important:</strong>
+                Severe weakness, difficulty breathing, persistent diarrhea,
+                inability to stand, sudden deaths or other serious symptoms
+                require prompt veterinary attention.
+            </div>
+        </section>
+
+        <!-- 13 -->
+        <section class="sheep-section">
+            <h2><i class="fa-solid fa-bug-slash"></i> Parasite Management</h2>
+
+            <p>
+                Internal and external parasites can reduce growth, fertility
+                and overall flock productivity.
+            </p>
+
+            <ul>
+                <li>Monitor sheep for poor body condition.</li>
+                <li>Watch for diarrhea and reduced appetite.</li>
+                <li>Inspect the skin and fleece regularly.</li>
+                <li>Avoid unnecessary repeated use of the same parasite-control product.</li>
+                <li>Use veterinary guidance and local recommendations where possible.</li>
+                <li>Manage grazing areas responsibly to reduce parasite pressure.</li>
+            </ul>
+        </section>
+
+        <!-- 14 -->
+        <section class="sheep-section">
+            <h2><i class="fa-solid fa-shield-halved"></i> Biosecurity</h2>
+
+            <p>
+                Biosecurity helps reduce the introduction and spread of
+                infectious diseases within a flock.
+            </p>
+
+            <ul>
+                <li>Quarantine newly purchased sheep before mixing.</li>
+                <li>Separate sick animals.</li>
+                <li>Clean and disinfect equipment when appropriate.</li>
+                <li>Control unnecessary animal movement.</li>
+                <li>Maintain clean feeding and watering areas.</li>
+                <li>Keep health and treatment records.</li>
+            </ul>
+        </section>
+
+        <!-- 15 -->
+        <section class="sheep-section">
+            <h2><i class="fa-solid fa-broom"></i> Manure and Waste Management</h2>
+
+            <p>
+                Sheep manure can be recycled as a valuable source of
+                nutrients for crops when handled correctly.
+            </p>
+
+            <ul>
+                <li>Keep manure away from drinking-water sources.</li>
+                <li>Clean housing regularly.</li>
+                <li>Compost manure where appropriate.</li>
+                <li>Use properly managed manure to improve soil fertility.</li>
+                <li>Prevent waste accumulation around animal areas.</li>
+            </ul>
+        </section>
+
+        <!-- 16 -->
+        <section class="sheep-section">
+            <h2><i class="fa-solid fa-weight-scale"></i> Growth and Body Condition</h2>
+
+            <p>
+                Regular monitoring helps identify nutritional or health
+                problems before they become severe.
+            </p>
+
+            <ul>
+                <li>Record weights where practical.</li>
+                <li>Monitor body condition regularly.</li>
+                <li>Compare growth between animals of similar age.</li>
+                <li>Investigate unexplained weight loss.</li>
+                <li>Give additional attention to young, pregnant and lactating animals.</li>
+            </ul>
+        </section>
+
+        <!-- 17 -->
+        <section class="sheep-section">
+            <h2><i class="fa-solid fa-clipboard-list"></i> Sheep Farm Records</h2>
+
+            <p>
+                Accurate records help farmers understand flock performance
+                and make informed management decisions.
+            </p>
+
+            <ul>
+                <li>Animal identification</li>
+                <li>Birth and lambing dates</li>
+                <li>Breeding information</li>
+                <li>Vaccination and treatment records</li>
+                <li>Deaths and causes where known</li>
+                <li>Growth and weight records</li>
+                <li>Wool production where applicable</li>
+                <li>Feed costs and other major expenses</li>
+                <li>Sales and market information</li>
+            </ul>
+        </section>
+
+        <!-- 18 -->
+        <section class="sheep-section">
+            <h2><i class="fa-solid fa-leaf"></i> Sustainable Sheep Farming</h2>
+
+            <p>
+                Sustainable sheep farming protects natural resources while
+                maintaining healthy animals and productive land.
+            </p>
+
+            <ul>
+                <li>Avoid excessive grazing pressure.</li>
+                <li>Use rotational or managed grazing where practical.</li>
+                <li>Protect water sources.</li>
+                <li>Maintain pasture and forage resources.</li>
+                <li>Recycle manure responsibly.</li>
+                <li>Keep flock size appropriate for available resources.</li>
+            </ul>
+        </section>
+
+        <!-- 19 -->
+        <section class="sheep-section">
+            <h2><i class="fa-solid fa-chart-line"></i> Sheep Farm Economics</h2>
+
+            <p>
+                Understanding costs and returns is important for building a
+                sustainable sheep enterprise.
+            </p>
+
+            <div class="sheep-info-grid">
+
+                <div class="sheep-info-card">
+                    <h3>Main Costs</h3>
+                    <p>
+                        Animals, feed, housing, veterinary care, labor,
+                        equipment and transportation.
+                    </p>
+                </div>
+
+                <div class="sheep-info-card">
+                    <h3>Possible Income</h3>
+                    <p>
+                        Meat, wool, breeding animals, milk and manure,
+                        depending on the production system.
+                    </p>
+                </div>
+
+                <div class="sheep-info-card">
+                    <h3>Important Records</h3>
+                    <p>
+                        Track expenses, animal performance, production,
+                        sales and market information.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 20 -->
+        <section class="sheep-section">
+            <h2><i class="fa-solid fa-list-check"></i> Daily Sheep Farm Checklist</h2>
+
+            <ul>
+                <li>Check all sheep for signs of illness or unusual behavior.</li>
+                <li>Confirm clean water is available.</li>
+                <li>Check feed and pasture conditions.</li>
+                <li>Inspect fencing and housing.</li>
+                <li>Check lambs and pregnant ewes carefully.</li>
+                <li>Remove dangerous objects from animal areas.</li>
+                <li>Record important health and production observations.</li>
+            </ul>
+        </section>
+
+        <!-- 21 -->
+        <section class="sheep-section">
+            <h2><i class="fa-solid fa-triangle-exclamation"></i> Warning Signs That Need Attention</h2>
+
+            <p>
+                Farmers should investigate sheep showing signs such as:
+            </p>
+
+            <ul>
+                <li>Loss of appetite</li>
+                <li>Severe weakness</li>
+                <li>Persistent diarrhea</li>
+                <li>Difficulty breathing</li>
+                <li>Abnormal walking</li>
+                <li>Rapid weight loss</li>
+                <li>Unusual swelling</li>
+                <li>Abnormal discharge</li>
+                <li>Sudden changes in flock behavior</li>
+            </ul>
+
+            <div class="sheep-warning">
+                <strong>Remember:</strong>
+                Early detection can help reduce losses. When a serious
+                condition is suspected, contact a qualified veterinary
+                professional promptly.
+            </div>
+        </section>
+
+        <!-- 22 -->
+        <section class="sheep-section">
+            <h2><i class="fa-solid fa-star"></i> Golden Rules of Sheep Farming</h2>
+
+            <div class="sheep-rules">
+
+                <div class="sheep-rule">
+                    <i class="fa-solid fa-check"></i>
+                    <span>Start with healthy and well-selected animals.</span>
+                </div>
+
+                <div class="sheep-rule">
+                    <i class="fa-solid fa-check"></i>
+                    <span>Provide clean water every day.</span>
+                </div>
+
+                <div class="sheep-rule">
+                    <i class="fa-solid fa-check"></i>
+                    <span>Provide balanced nutrition according to production stage.</span>
+                </div>
+
+                <div class="sheep-rule">
+                    <i class="fa-solid fa-check"></i>
+                    <span>Keep housing clean, dry and well ventilated.</span>
+                </div>
+
+                <div class="sheep-rule">
+                    <i class="fa-solid fa-check"></i>
+                    <span>Monitor sheep every day.</span>
+                </div>
+
+                <div class="sheep-rule">
+                    <i class="fa-solid fa-check"></i>
+                    <span>Maintain accurate flock records.</span>
+                </div>
+
+                <div class="sheep-rule">
+                    <i class="fa-solid fa-check"></i>
+                    <span>Use responsible parasite and disease-control practices.</span>
+                </div>
+
+                <div class="sheep-rule">
+                    <i class="fa-solid fa-check"></i>
+                    <span>Protect pasture, water and other natural resources.</span>
+                </div>
+
+            </div>
+        </section>
+
+        <div class="sheep-back">
+            <a href="ruminant-farming.html">
+                <i class="fa-solid fa-arrow-left"></i>
+                Back to Ruminant Farming
+            </a>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="sheep-footer">
+
+        <h3>Africa AgroVision</h3>
+
+        <p>
+            Agriculture • Innovation • Knowledge • Sustainable Development
+        </p>
+
+        <p>
+            <i class="fa-solid fa-location-dot"></i>
+            Kigali, Gasabo, Rwanda
+        </p>
+
+        <p>
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:ntaganda12345@gmail.com">
+                ntaganda12345@gmail.com
+            </a>
+        </p>
+
+        <p>
+            <i class="fa-brands fa-whatsapp"></i>
+            <a href="https://wa.me/250786213989" target="_blank">
+                +250 786 213 989
+            </a>
+        </p>
+
+        <div class="sheep-footer-bottom">
+            © 2026 Africa AgroVision. Byiringiro Egide.
+        </div>
+
+    </footer>
+
+</div>
+
+</body>
+</html>
+```

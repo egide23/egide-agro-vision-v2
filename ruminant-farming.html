@@ -1,0 +1,777 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ruminant Farming | Africa AgroVision</title>
+
+    <meta name="description"
+          content="Explore cattle, goat, and sheep farming through Africa AgroVision's ruminant farming knowledge centre.">
+
+    <meta name="keywords"
+          content="ruminant farming, cattle farming, goat farming, sheep farming, livestock farming, Africa AgroVision">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* =========================================
+           RUMINANT FARMING PAGE
+           ========================================= */
+
+        .ruminant-page {
+            margin: 0;
+            background: #f4f8f4;
+            color: #18351f;
+            font-family: "Poppins", Arial, sans-serif;
+        }
+
+        /* Header */
+        .ruminant-header {
+            background: linear-gradient(135deg, #0b3d1e, #145a2a);
+            padding: 16px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .ruminant-logo {
+            color: white;
+            text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: .3px;
+        }
+
+        .ruminant-logo span {
+            color: #9be15d;
+        }
+
+        .ruminant-nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .ruminant-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 9px 14px;
+            border-radius: 8px;
+            font-size: .9rem;
+            font-weight: 600;
+            transition: .25s ease;
+        }
+
+        .ruminant-nav a:hover {
+            background: rgba(255, 255, 255, .12);
+            transform: translateY(-1px);
+        }
+
+        /* Hero */
+        .ruminant-hero {
+            min-height: 430px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background:
+                linear-gradient(rgba(5, 38, 17, .78), rgba(10, 70, 32, .78)),
+                url("images/ruminant-farming.jpg") center/cover no-repeat;
+        }
+
+        .ruminant-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 70px 25px;
+            color: white;
+        }
+
+        .ruminant-hero-icon {
+            width: 82px;
+            height: 82px;
+            margin: 0 auto 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, .13);
+            border: 1px solid rgba(255, 255, 255, .25);
+            backdrop-filter: blur(8px);
+            font-size: 2.2rem;
+        }
+
+        .ruminant-hero h1 {
+            margin: 0 0 15px;
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -.8px;
+        }
+
+        .ruminant-hero p {
+            max-width: 720px;
+            margin: auto;
+            color: #e7f5e9;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Breadcrumb */
+        .ruminant-breadcrumb {
+            max-width: 1180px;
+            margin: 30px auto 0;
+            padding: 0 25px;
+            color: #607565;
+            font-size: .9rem;
+        }
+
+        .ruminant-breadcrumb a {
+            color: #176b32;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Main */
+        .ruminant-main {
+            max-width: 1180px;
+            margin: auto;
+            padding: 20px 25px 80px;
+        }
+
+        .ruminant-intro {
+            max-width: 850px;
+            margin: 25px auto 50px;
+            text-align: center;
+        }
+
+        .ruminant-intro .eyebrow {
+            display: inline-block;
+            margin-bottom: 10px;
+            color: #26763b;
+            font-size: .82rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .ruminant-intro h2 {
+            margin: 0 0 15px;
+            color: #123d20;
+            font-size: clamp(1.8rem, 4vw, 2.7rem);
+        }
+
+        .ruminant-intro p {
+            margin: 0;
+            color: #607565;
+            line-height: 1.8;
+        }
+
+        /* Cards */
+        .ruminant-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .ruminant-card {
+            position: relative;
+            overflow: hidden;
+            background: white;
+            border-radius: 20px;
+            border: 1px solid #dce9df;
+            box-shadow: 0 12px 35px rgba(24, 67, 35, .09);
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .ruminant-card:hover {
+            transform: translateY(-9px);
+            box-shadow: 0 20px 45px rgba(24, 67, 35, .16);
+        }
+
+        .ruminant-card-image {
+            height: 245px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .ruminant-card-image::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to top,
+                rgba(5, 38, 17, .45),
+                transparent 55%
+            );
+        }
+
+        .ruminant-card-image img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            transition: transform .5s ease;
+        }
+
+        .ruminant-card:hover .ruminant-card-image img {
+            transform: scale(1.07);
+        }
+
+        .ruminant-card-body {
+            padding: 27px;
+        }
+
+        .ruminant-card-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 17px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 13px;
+            background: #e9f6eb;
+            color: #176b32;
+            font-size: 1.35rem;
+        }
+
+        .ruminant-card h3 {
+            margin: 0 0 10px;
+            color: #123d20;
+            font-size: 1.45rem;
+        }
+
+        .ruminant-card p {
+            min-height: 76px;
+            margin: 0 0 22px;
+            color: #68796c;
+            line-height: 1.7;
+            font-size: .93rem;
+        }
+
+        .ruminant-explore {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            width: 100%;
+            padding: 13px 18px;
+            border-radius: 10px;
+            background: #176b32;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            transition: .25s ease;
+        }
+
+        .ruminant-explore:hover {
+            background: #0d4f24;
+            transform: translateY(-2px);
+        }
+
+        .ruminant-explore i {
+            transition: transform .25s ease;
+        }
+
+        .ruminant-explore:hover i {
+            transform: translateX(4px);
+        }
+
+        /* Information section */
+        .ruminant-info {
+            margin-top: 65px;
+            padding: 42px;
+            border-radius: 22px;
+            background: linear-gradient(135deg, #0e4f25, #176b32);
+            color: white;
+            box-shadow: 0 15px 35px rgba(14, 79, 37, .15);
+        }
+
+        .ruminant-info h2 {
+            margin: 0 0 14px;
+            font-size: 1.8rem;
+        }
+
+        .ruminant-info p {
+            max-width: 900px;
+            margin: 0;
+            color: #e3f2e6;
+            line-height: 1.8;
+        }
+
+        .ruminant-info-points {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 28px;
+        }
+
+        .ruminant-point {
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, .15);
+            border-radius: 14px;
+            background: rgba(255, 255, 255, .08);
+        }
+
+        .ruminant-point i {
+            margin-bottom: 10px;
+            color: #a8e063;
+            font-size: 1.3rem;
+        }
+
+        .ruminant-point strong {
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .ruminant-point span {
+            color: #d8eadc;
+            font-size: .88rem;
+            line-height: 1.6;
+        }
+
+        /* Back button */
+        .ruminant-back {
+            display: flex;
+            justify-content: center;
+            margin: 45px 0 10px;
+        }
+
+        .ruminant-back a {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 12px 20px;
+            border: 1px solid #cdddcf;
+            border-radius: 10px;
+            background: white;
+            color: #176b32;
+            text-decoration: none;
+            font-weight: 700;
+            transition: .25s ease;
+        }
+
+        .ruminant-back a:hover {
+            background: #edf7ef;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .ruminant-footer {
+            background: #092d17;
+            color: #d8eadc;
+            padding: 38px 25px;
+            text-align: center;
+        }
+
+        .ruminant-footer h3 {
+            margin: 0 0 10px;
+            color: white;
+        }
+
+        .ruminant-footer p {
+            margin: 6px 0;
+            font-size: .9rem;
+        }
+
+        .ruminant-footer a {
+            color: #9be15d;
+            text-decoration: none;
+        }
+
+        .ruminant-footer .copyright {
+            margin-top: 22px;
+            color: #91a998;
+            font-size: .82rem;
+        }
+
+        /* Tablet */
+        @media (max-width: 900px) {
+            .ruminant-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .ruminant-info-points {
+                grid-template-columns: 1fr;
+            }
+
+            .ruminant-header {
+                padding: 14px 4%;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 650px) {
+            .ruminant-header {
+                position: relative;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .ruminant-nav {
+                width: 100%;
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                padding-bottom: 3px;
+            }
+
+            .ruminant-nav a {
+                white-space: nowrap;
+                font-size: .82rem;
+            }
+
+            .ruminant-hero {
+                min-height: 390px;
+            }
+
+            .ruminant-hero-content {
+                padding: 55px 20px;
+            }
+
+            .ruminant-hero h1 {
+                font-size: 2.3rem;
+            }
+
+            .ruminant-hero p {
+                font-size: .92rem;
+            }
+
+            .ruminant-main {
+                padding-left: 17px;
+                padding-right: 17px;
+            }
+
+            .ruminant-breadcrumb {
+                padding: 0 17px;
+                font-size: .82rem;
+            }
+
+            .ruminant-grid {
+                grid-template-columns: 1fr;
+                gap: 22px;
+            }
+
+            .ruminant-card-image {
+                height: 220px;
+            }
+
+            .ruminant-card p {
+                min-height: auto;
+            }
+
+            .ruminant-info {
+                padding: 28px 22px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .ruminant-card,
+            .ruminant-card-image img,
+            .ruminant-explore,
+            .ruminant-back a {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="ruminant-page">
+
+    <!-- HEADER -->
+    <header class="ruminant-header">
+
+        <a href="dashboard.html" class="ruminant-logo">
+            Africa <span>AgroVision</span>
+        </a>
+
+        <nav class="ruminant-nav">
+            <a href="dashboard.html">
+                <i class="fa-solid fa-house"></i> Dashboard
+            </a>
+
+            <a href="agriculture.html">
+                <i class="fa-solid fa-seedling"></i> Agriculture
+            </a>
+
+            <a href="livestock-farming.html">
+                <i class="fa-solid fa-cow"></i> Livestock
+            </a>
+
+            <a href="poultry-farming.html">
+                <i class="fa-solid fa-dove"></i> Poultry
+            </a>
+        </nav>
+
+    </header>
+
+
+    <!-- HERO -->
+    <section class="ruminant-hero">
+
+        <div class="ruminant-hero-content">
+
+            <div class="ruminant-hero-icon">
+                <i class="fa-solid fa-cow"></i>
+            </div>
+
+            <h1>Ruminant Farming</h1>
+
+            <p>
+                Explore practical knowledge and modern farming guidance
+                for cattle, goats, and sheep — three important livestock
+                systems supporting food production, livelihoods, and
+                sustainable agriculture across Africa.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- BREADCRUMB -->
+    <div class="ruminant-breadcrumb">
+
+        <a href="agriculture.html">Agriculture</a>
+
+        <span> › </span>
+
+        <a href="livestock-farming.html">Livestock Farming</a>
+
+        <span> › Ruminant Farming</span>
+
+    </div>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="ruminant-main">
+
+        <section class="ruminant-intro">
+
+            <span class="eyebrow">Explore Livestock Knowledge</span>
+
+            <h2>Choose Your Ruminant Farming System</h2>
+
+            <p>
+                Select a livestock category below to explore dedicated
+                farming information, management practices, feeding,
+                health, breeding, housing, and production guidance.
+            </p>
+
+        </section>
+
+
+        <!-- THREE MAIN CARDS -->
+        <section class="ruminant-grid">
+
+
+            <!-- CATTLE -->
+            <article class="ruminant-card">
+
+                <div class="ruminant-card-image">
+                    <img
+                        src="images/cattle-farming.jpg"
+                        alt="Cattle farming">
+                </div>
+
+                <div class="ruminant-card-body">
+
+                    <div class="ruminant-card-icon">
+                        <i class="fa-solid fa-cow"></i>
+                    </div>
+
+                    <h3>Cattle Farming</h3>
+
+                    <p>
+                        Learn about cattle breeds, housing, feeding,
+                        breeding, health management, dairy production,
+                        beef production, and sustainable cattle farming.
+                    </p>
+
+                    <a href="cattle-farming.html"
+                       class="ruminant-explore">
+                        Explore More
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- GOAT -->
+            <article class="ruminant-card">
+
+                <div class="ruminant-card-image">
+                    <img
+                        src="images/goat-farming.jpg"
+                        alt="Goat farming">
+                </div>
+
+                <div class="ruminant-card-body">
+
+                    <div class="ruminant-card-icon">
+                        <i class="fa-solid fa-horse"></i>
+                    </div>
+
+                    <h3>Goat Farming</h3>
+
+                    <p>
+                        Discover practical goat farming knowledge covering
+                        breeds, housing, nutrition, breeding, health,
+                        kid management, and productive herd management.
+                    </p>
+
+                    <a href="goat-farming.html"
+                       class="ruminant-explore">
+                        Explore More
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- SHEEP -->
+            <article class="ruminant-card">
+
+                <div class="ruminant-card-image">
+                    <img
+                        src="images/sheep-farming.jpg"
+                        alt="Sheep farming">
+                </div>
+
+                <div class="ruminant-card-body">
+
+                    <div class="ruminant-card-icon">
+                        <i class="fa-solid fa-horse-head"></i>
+                    </div>
+
+                    <h3>Sheep Farming</h3>
+
+                    <p>
+                        Explore sheep production, breeds, housing,
+                        feeding, breeding, lamb care, disease prevention,
+                        wool, meat production, and flock management.
+                    </p>
+
+                    <a href="sheep-farming.html"
+                       class="ruminant-explore">
+                        Explore More
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+        </section>
+
+
+        <!-- INFORMATION SECTION -->
+        <section class="ruminant-info">
+
+            <h2>Why Ruminant Farming Matters</h2>
+
+            <p>
+                Ruminant livestock can contribute to food production,
+                household income, manure resources, employment, and
+                agricultural resilience. Good management helps farmers
+                improve animal welfare, productivity, and resource use.
+            </p>
+
+            <div class="ruminant-info-points">
+
+                <div class="ruminant-point">
+                    <i class="fa-solid fa-leaf"></i>
+                    <strong>Sustainable Production</strong>
+                    <span>
+                        Promote responsible use of land, feed, water,
+                        and other farm resources.
+                    </span>
+                </div>
+
+                <div class="ruminant-point">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    <strong>Animal Health</strong>
+                    <span>
+                        Strong health and preventive management support
+                        productive and healthy herds and flocks.
+                    </span>
+                </div>
+
+                <div class="ruminant-point">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <strong>Farm Productivity</strong>
+                    <span>
+                        Good records and management can help farmers
+                        understand production and improve efficiency.
+                    </span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- BACK BUTTON -->
+        <div class="ruminant-back">
+
+            <a href="livestock-farming.html">
+                <i class="fa-solid fa-arrow-left"></i>
+                Back to Livestock Farming
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="ruminant-footer">
+
+        <h3>Africa AgroVision</h3>
+
+        <p>
+            Agriculture • Innovation • Knowledge • Sustainable Farming
+        </p>
+
+        <p>
+            <i class="fa-solid fa-location-dot"></i>
+            Kigali, Gasabo, Rwanda
+        </p>
+
+        <p>
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:ntaganda12345@gmail.com">
+                ntaganda12345@gmail.com
+            </a>
+        </p>
+
+        <p>
+            <i class="fa-brands fa-whatsapp"></i>
+            +250 786 213 989
+        </p>
+
+        <p class="copyright">
+            © 2026 Africa AgroVision. Byiringiro Egide.
+        </p>
+
+    </footer>
+
+</body>
+</html>
+```

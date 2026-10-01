@@ -1,0 +1,1922 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cattle Farming | Africa AgroVision</title>
+
+    <meta name="description"
+          content="Learn about cattle farming, breeds, housing, feeding, breeding, calf care, dairy production, beef production, animal health, biosecurity and sustainable cattle management.">
+
+    <meta name="keywords"
+          content="cattle farming, dairy farming, beef cattle, cattle breeds, cattle feeding, calf care, cattle health, livestock farming, Africa AgroVision">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        /* =========================================
+           CATTLE FARMING PAGE
+           ========================================= */
+
+        .cattle-page {
+            margin: 0;
+            background: #f4f8f4;
+            color: #18351f;
+            font-family: "Poppins", Arial, sans-serif;
+        }
+
+        /* HEADER */
+        .cattle-header {
+            background: linear-gradient(135deg, #083719, #145a2a);
+            padding: 16px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0,0,0,.15);
+        }
+
+        .cattle-logo {
+            color: white;
+            text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: 800;
+        }
+
+        .cattle-logo span {
+            color: #a6e36b;
+        }
+
+        .cattle-nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .cattle-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 9px 13px;
+            border-radius: 8px;
+            font-size: .88rem;
+            font-weight: 600;
+            transition: .25s ease;
+        }
+
+        .cattle-nav a:hover {
+            background: rgba(255,255,255,.12);
+        }
+
+        /* HERO */
+        .cattle-hero {
+            min-height: 450px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    rgba(4,35,15,.72),
+                    rgba(10,74,33,.76)
+                ),
+                url("images/cattle-farming.jpg") center/cover no-repeat;
+        }
+
+        .cattle-hero-content {
+            max-width: 900px;
+            padding: 75px 25px;
+            color: white;
+        }
+
+        .cattle-hero-icon {
+            width: 86px;
+            height: 86px;
+            margin: 0 auto 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,.14);
+            border: 1px solid rgba(255,255,255,.25);
+            backdrop-filter: blur(8px);
+            font-size: 2.4rem;
+        }
+
+        .cattle-hero h1 {
+            margin: 0 0 15px;
+            font-size: clamp(2.3rem,5vw,4rem);
+            font-weight: 800;
+        }
+
+        .cattle-hero p {
+            max-width: 760px;
+            margin: auto;
+            color: #e6f4e9;
+            line-height: 1.85;
+            font-size: 1.02rem;
+        }
+
+        /* BREADCRUMB */
+        .cattle-breadcrumb {
+            max-width: 1180px;
+            margin: 30px auto 0;
+            padding: 0 25px;
+            color: #637565;
+            font-size: .9rem;
+        }
+
+        .cattle-breadcrumb a {
+            color: #176b32;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* MAIN */
+        .cattle-main {
+            max-width: 1180px;
+            margin: auto;
+            padding: 20px 25px 80px;
+        }
+
+        /* INTRO */
+        .cattle-intro {
+            max-width: 900px;
+            margin: 25px auto 45px;
+            text-align: center;
+        }
+
+        .cattle-eyebrow {
+            display: inline-block;
+            margin-bottom: 10px;
+            color: #26763b;
+            font-size: .82rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .cattle-intro h2 {
+            margin: 0 0 15px;
+            color: #123d20;
+            font-size: clamp(1.9rem,4vw,2.8rem);
+        }
+
+        .cattle-intro p {
+            margin: 0;
+            color: #627466;
+            line-height: 1.8;
+        }
+
+        /* SECTION */
+        .cattle-section {
+            margin-bottom: 30px;
+            padding: 34px;
+            background: white;
+            border: 1px solid #dce9df;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(22,65,34,.07);
+        }
+
+        .cattle-section h2 {
+            margin: 0 0 15px;
+            color: #123d20;
+            font-size: 1.65rem;
+        }
+
+        .cattle-section h3 {
+            margin: 25px 0 10px;
+            color: #176b32;
+            font-size: 1.12rem;
+        }
+
+        .cattle-section p {
+            color: #5e7062;
+            line-height: 1.8;
+        }
+
+        .cattle-section ul {
+            margin: 12px 0;
+            padding-left: 22px;
+        }
+
+        .cattle-section li {
+            margin: 9px 0;
+            color: #5e7062;
+            line-height: 1.7;
+        }
+
+        .cattle-section li::marker {
+            color: #176b32;
+        }
+
+        /* SECTION TITLE */
+        .cattle-title {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .cattle-title-icon {
+            width: 48px;
+            height: 48px;
+            flex: 0 0 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 13px;
+            background: #e9f6eb;
+            color: #176b32;
+            font-size: 1.3rem;
+        }
+
+        /* GRID */
+        .cattle-grid {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 18px;
+        }
+
+        .cattle-mini-card {
+            padding: 22px;
+            border-radius: 15px;
+            background: #f5faf6;
+            border: 1px solid #deebe0;
+        }
+
+        .cattle-mini-card h3 {
+            margin: 0 0 9px;
+        }
+
+        .cattle-mini-card p {
+            margin: 0;
+            font-size: .92rem;
+        }
+
+        /* THREE COLUMN */
+        .cattle-three {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 18px;
+        }
+
+        /* PRODUCTION CARDS */
+        .production-card {
+            padding: 25px;
+            border-radius: 17px;
+            background: linear-gradient(145deg,#f5faf6,#edf7ef);
+            border: 1px solid #d9e9dc;
+        }
+
+        .production-card .icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            background: #176b32;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .production-card h3 {
+            margin: 0 0 8px;
+        }
+
+        .production-card p {
+            margin: 0;
+            font-size: .9rem;
+        }
+
+        /* TABLE */
+        .cattle-table-wrap {
+            overflow-x: auto;
+            margin-top: 18px;
+        }
+
+        .cattle-table {
+            width: 100%;
+            min-width: 650px;
+            border-collapse: collapse;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .cattle-table th {
+            padding: 14px;
+            background: #145a2a;
+            color: white;
+            text-align: left;
+            font-size: .9rem;
+        }
+
+        .cattle-table td {
+            padding: 13px 14px;
+            border-bottom: 1px solid #dfe9e1;
+            color: #586b5c;
+            font-size: .9rem;
+        }
+
+        .cattle-table tr:nth-child(even) {
+            background: #f5faf6;
+        }
+
+        /* HIGHLIGHT */
+        .cattle-highlight {
+            margin: 20px 0;
+            padding: 22px;
+            border-left: 5px solid #2c8a45;
+            border-radius: 10px;
+            background: #edf7ef;
+        }
+
+        .cattle-highlight strong {
+            color: #145a2a;
+        }
+
+        /* WARNING */
+        .cattle-warning {
+            margin-top: 18px;
+            padding: 22px;
+            border-left: 5px solid #c78b19;
+            border-radius: 10px;
+            background: #fff8e8;
+        }
+
+        .cattle-warning strong {
+            color: #80590c;
+        }
+
+        /* DISEASE GRID */
+        .disease-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 17px;
+            margin-top: 20px;
+        }
+
+        .disease-card {
+            padding: 20px;
+            background: #f8fbf8;
+            border: 1px solid #dfeae1;
+            border-radius: 14px;
+        }
+
+        .disease-card h3 {
+            margin: 0 0 8px;
+            color: #174d28;
+            font-size: 1rem;
+        }
+
+        .disease-card p {
+            margin: 0;
+            font-size: .86rem;
+        }
+
+        /* CHECKLIST */
+        .checklist {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .check-item {
+            padding: 14px 16px;
+            border-radius: 10px;
+            background: #f2f8f3;
+            color: #526657;
+        }
+
+        .check-item i {
+            margin-right: 8px;
+            color: #23813c;
+        }
+
+        /* GOLDEN RULES */
+        .golden-rules {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .golden-rule {
+            padding: 19px;
+            border-radius: 13px;
+            background: linear-gradient(135deg,#0f5428,#176b32);
+            color: white;
+        }
+
+        .golden-rule strong {
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .golden-rule span {
+            color: #dcefe0;
+            font-size: .88rem;
+            line-height: 1.6;
+        }
+
+        /* FINAL SUMMARY */
+        .cattle-summary {
+            margin-top: 40px;
+            padding: 45px 30px;
+            border-radius: 22px;
+            text-align: center;
+            background:
+                linear-gradient(
+                    135deg,
+                    #0b3d1e,
+                    #176b32
+                );
+            color: white;
+            box-shadow: 0 15px 35px rgba(11,61,30,.18);
+        }
+
+        .cattle-summary h2 {
+            margin: 0 0 12px;
+            font-size: 2rem;
+        }
+
+        .cattle-summary p {
+            max-width: 780px;
+            margin: auto;
+            color: #e1f1e4;
+            line-height: 1.8;
+        }
+
+        /* BACK BUTTON */
+        .cattle-back {
+            display: flex;
+            justify-content: center;
+            margin: 42px 0 10px;
+        }
+
+        .cattle-back a {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 13px 20px;
+            border: 1px solid #cdddcf;
+            border-radius: 10px;
+            background: white;
+            color: #176b32;
+            text-decoration: none;
+            font-weight: 700;
+            transition: .25s ease;
+        }
+
+        .cattle-back a:hover {
+            background: #edf7ef;
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER */
+        .cattle-footer {
+            padding: 40px 25px;
+            text-align: center;
+            background: #092d17;
+            color: #d7e9db;
+        }
+
+        .cattle-footer h3 {
+            margin: 0 0 10px;
+            color: white;
+        }
+
+        .cattle-footer p {
+            margin: 6px 0;
+            font-size: .9rem;
+        }
+
+        .cattle-footer a {
+            color: #9be15d;
+            text-decoration: none;
+        }
+
+        .cattle-copyright {
+            margin-top: 22px;
+            color: #91a998;
+            font-size: .82rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+
+            .cattle-grid,
+            .cattle-three {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .disease-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .cattle-header {
+                padding: 14px 4%;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .cattle-header {
+                position: relative;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cattle-nav {
+                width: 100%;
+                overflow-x: auto;
+                flex-wrap: nowrap;
+            }
+
+            .cattle-nav a {
+                white-space: nowrap;
+                font-size: .8rem;
+            }
+
+            .cattle-hero {
+                min-height: 400px;
+            }
+
+            .cattle-hero-content {
+                padding: 60px 20px;
+            }
+
+            .cattle-hero h1 {
+                font-size: 2.35rem;
+            }
+
+            .cattle-hero p {
+                font-size: .9rem;
+            }
+
+            .cattle-main {
+                padding-left: 17px;
+                padding-right: 17px;
+            }
+
+            .cattle-breadcrumb {
+                padding: 0 17px;
+                font-size: .82rem;
+            }
+
+            .cattle-section {
+                padding: 25px 20px;
+            }
+
+            .cattle-grid,
+            .cattle-three,
+            .disease-grid,
+            .checklist,
+            .golden-rules {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .cattle-back a {
+                transition: none;
+            }
+        }
+
+    </style>
+</head>
+
+<body class="cattle-page">
+
+
+    <!-- HEADER -->
+    <header class="cattle-header">
+
+        <a href="dashboard.html" class="cattle-logo">
+            Africa <span>AgroVision</span>
+        </a>
+
+        <nav class="cattle-nav">
+
+            <a href="dashboard.html">
+                <i class="fa-solid fa-house"></i> Dashboard
+            </a>
+
+            <a href="agriculture.html">
+                <i class="fa-solid fa-seedling"></i> Agriculture
+            </a>
+
+            <a href="livestock-farming.html">
+                <i class="fa-solid fa-cow"></i> Livestock
+            </a>
+
+            <a href="ruminant-farming.html">
+                <i class="fa-solid fa-leaf"></i> Ruminants
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- HERO -->
+    <section class="cattle-hero">
+
+        <div class="cattle-hero-content">
+
+            <div class="cattle-hero-icon">
+                <i class="fa-solid fa-cow"></i>
+            </div>
+
+            <h1>Cattle Farming</h1>
+
+            <p>
+                A practical knowledge centre for cattle production,
+                covering breeds, housing, feeding, breeding, calf care,
+                dairy and beef production, animal health, biosecurity,
+                farm records, and sustainable cattle management.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- BREADCRUMB -->
+    <div class="cattle-breadcrumb">
+
+        <a href="agriculture.html">Agriculture</a>
+        <span> › </span>
+
+        <a href="livestock-farming.html">Livestock Farming</a>
+        <span> › </span>
+
+        <a href="ruminant-farming.html">Ruminant Farming</a>
+        <span> › Cattle Farming</span>
+
+    </div>
+
+
+    <!-- MAIN -->
+    <main class="cattle-main">
+
+
+        <!-- INTRO -->
+        <section class="cattle-intro">
+
+            <span class="cattle-eyebrow">
+                Livestock Knowledge Centre
+            </span>
+
+            <h2>Building Healthy, Productive Cattle Farms</h2>
+
+            <p>
+                Successful cattle farming depends on the connection between
+                good genetics, proper nutrition, clean water, suitable housing,
+                reproduction, disease prevention, animal welfare, records,
+                and responsible farm management.
+            </p>
+
+        </section>
+
+
+        <!-- 1 -->
+        <section class="cattle-section">
+
+            <div class="cattle-title">
+
+                <div class="cattle-title-icon">
+                    <i class="fa-solid fa-circle-info"></i>
+                </div>
+
+                <h2>1. What Is Cattle Farming?</h2>
+
+            </div>
+
+            <p>
+                Cattle farming is the raising and management of cattle for
+                purposes such as milk, meat, breeding animals, manure,
+                hides and other agricultural products. Cattle can also
+                contribute to farm nutrient cycling when manure is properly
+                collected and returned to crop production.
+            </p>
+
+            <p>
+                A successful cattle enterprise starts with choosing animals
+                suited to the local environment and production goal, followed
+                by appropriate feeding, housing, health care, reproduction,
+                record keeping, and marketing.
+            </p>
+
+        </section>
+
+
+        <!-- 2 -->
+        <section class="cattle-section">
+
+            <div class="cattle-title">
+
+                <div class="cattle-title-icon">
+                    <i class="fa-solid fa-layer-group"></i>
+                </div>
+
+                <h2>2. Main Types of Cattle Production</h2>
+
+            </div>
+
+            <div class="cattle-three">
+
+                <div class="production-card">
+
+                    <div class="icon">
+                        <i class="fa-solid fa-glass-water"></i>
+                    </div>
+
+                    <h3>Dairy Production</h3>
+
+                    <p>
+                        Focuses on producing milk. Management emphasizes
+                        appropriate genetics, nutrition, udder health,
+                        clean milking, reproduction, and calf management.
+                    </p>
+
+                </div>
+
+                <div class="production-card">
+
+                    <div class="icon">
+                        <i class="fa-solid fa-drumstick-bite"></i>
+                    </div>
+
+                    <h3>Beef Production</h3>
+
+                    <p>
+                        Focuses on producing healthy animals for meat.
+                        Growth, feed efficiency, genetics, health, and
+                        appropriate finishing management are important.
+                    </p>
+
+                </div>
+
+                <div class="production-card">
+
+                    <div class="icon">
+                        <i class="fa-solid fa-arrows-rotate"></i>
+                    </div>
+
+                    <h3>Dual-Purpose Production</h3>
+
+                    <p>
+                        Combines milk and meat production. This system can
+                        provide farmers with more than one source of farm
+                        output.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 3 -->
+        <section class="cattle-section">
+
+            <div class="cattle-title">
+
+                <div class="cattle-title-icon">
+                    <i class="fa-solid fa-paw"></i>
+                </div>
+
+                <h2>3. Cattle Breeds and Breed Selection</h2>
+
+            </div>
+
+            <p>
+                Breed choice should match the production objective, climate,
+                available feed, disease pressure, management capacity, and
+                market demand. There is no single breed that is ideal for
+                every farm.
+            </p>
+
+            <div class="cattle-grid">
+
+                <div class="cattle-mini-card">
+                    <h3>Local and Indigenous Cattle</h3>
+                    <p>
+                        Local cattle can have valuable adaptation to local
+                        climates, feed resources, and production conditions.
+                    </p>
+                </div>
+
+                <div class="cattle-mini-card">
+                    <h3>Exotic Dairy Breeds</h3>
+                    <p>
+                        Breeds such as Holstein-Friesian and Jersey are
+                        widely associated with dairy production, but their
+                        performance depends strongly on management and
+                        environment.
+                    </p>
+                </div>
+
+                <div class="cattle-mini-card">
+                    <h3>Beef Breeds</h3>
+                    <p>
+                        Examples include Angus, Hereford and Charolais.
+                        Breed characteristics vary in growth, mature size,
+                        carcass traits and environmental suitability.
+                    </p>
+                </div>
+
+                <div class="cattle-mini-card">
+                    <h3>Crossbreeding</h3>
+                    <p>
+                        Planned crossbreeding can combine useful traits from
+                        different breeds, but breeding decisions should have
+                        a clear objective.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="cattle-highlight">
+
+                <strong>
+                    Farm principle:
+                </strong>
+
+                Choose cattle for the environment and production system,
+                not simply because a breed is known for high production
+                elsewhere.
+
+            </div>
+
+        </section>
+
+
+        <!-- 4 -->
+        <section class="cattle-section">
+
+            <div class="cattle-title">
+
+                <div class="cattle-title-icon">
+                    <i class="fa-solid fa-house"></i>
+                </div>
+
+                <h2>4. Cattle Housing and Pen Design</h2>
+
+            </div>
+
+            <p>
+                Cattle housing should provide protection from excessive
+                weather, adequate ventilation, safe movement, comfortable
+                resting areas, and easy access to feed and water.
+            </p>
+
+            <div class="cattle-grid">
+
+                <div class="cattle-mini-card">
+                    <h3>Good Ventilation</h3>
+                    <p>
+                        Fresh air helps control humidity, heat, odors and
+                        harmful gases. Avoid poorly ventilated enclosed spaces.
+                    </p>
+                </div>
+
+                <div class="cattle-mini-card">
+                    <h3>Dry Resting Areas</h3>
+                    <p>
+                        Keep resting areas clean and as dry as practical to
+                        reduce contamination and support animal comfort.
+                    </p>
+                </div>
+
+                <div class="cattle-mini-card">
+                    <h3>Safe Flooring</h3>
+                    <p>
+                        Floors should provide adequate traction and drainage
+                        while reducing the risk of injury.
+                    </p>
+                </div>
+
+                <div class="cattle-mini-card">
+                    <h3>Feed and Water Access</h3>
+                    <p>
+                        Feeders and water points should be easy for animals
+                        to reach and easy for workers to clean.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 5 -->
+        <section class="cattle-section">
+
+            <div class="cattle-title">
+
+                <div class="cattle-title-icon">
+                    <i class="fa-solid fa-temperature-half"></i>
+                </div>
+
+                <h2>5. Climate, Heat and Environment</h2>
+
+            </div>
+
+            <p>
+                Cattle performance is affected by temperature, humidity,
+                shade, air movement, water availability and feed quality.
+                Heat stress can reduce feed intake, growth, fertility and
+                milk production.
+            </p>
+
+            <h3>During Hot Conditions</h3>
+
+            <ul>
+                <li>Provide reliable access to clean drinking water.</li>
+                <li>Provide shade and encourage air movement.</li>
+                <li>Avoid unnecessary handling during the hottest periods.</li>
+                <li>Monitor animals for signs of heat stress.</li>
+                <li>Keep water troughs clean and functioning.</li>
+            </ul>
+
+        </section>
+
+
+        <!-- 6 -->
+        <section class="cattle-section">
+
+            <div class="cattle-title">
+
+                <div class="cattle-title-icon">
+                    <i class="fa-solid fa-wheat-awn"></i>
+                </div>
+
+                <h2>6. Cattle Feeding and Nutrition</h2>
+
+            </div>
+
+            <p>
+                Cattle need a balanced supply of energy, protein, minerals,
+                vitamins, fibre and water. Nutritional requirements change
+                according to age, body size, pregnancy, milk production,
+                growth and production system.
+            </p>
+
+            <div class="cattle-table-wrap">
+
+                <table class="cattle-table">
+
+                    <thead>
+                        <tr>
+                            <th>Feed Resource</th>
+                            <th>Examples</th>
+                            <th>Main Role</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Forages</td>
+                            <td>Pasture, grasses, legumes</td>
+                            <td>Fibre and nutrients</td>
+                        </tr>
+
+                        <tr>
+                            <td>Hay</td>
+                            <td>Well-preserved dried forage</td>
+                            <td>Dry-season feed source</td>
+                        </tr>
+
+                        <tr>
+                            <td>Silage</td>
+                            <td>Fermented forage</td>
+                            <td>Preserved high-quality forage</td>
+                        </tr>
+
+                        <tr>
+                            <td>Concentrates</td>
+                            <td>Grains and formulated feeds</td>
+                            <td>Energy and/or protein supplementation</td>
+                        </tr>
+
+                        <tr>
+                            <td>Minerals</td>
+                            <td>Mineral mixtures or blocks</td>
+                            <td>Mineral balance</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div class="cattle-highlight">
+
+                <strong>
+                    Important:
+                </strong>
+
+                Feed changes should generally be introduced gradually.
+                Sudden major changes in diet can disturb rumen function.
+
+            </div>
+
+        </section>
+
+
+        <!-- 7 -->
+        <section class="cattle-section">
+
+            <div class="cattle-title">
+
+                <div class="cattle-title-icon">
+                    <i class="fa-solid fa-droplet"></i>
+                </div>
+
+                <h2>7. Water Management</h2>
+
+            </div>
+
+            <p>
+                Clean water is one of the most important resources on a cattle
+                farm. Water demand varies with animal size, temperature,
+                feed composition, pregnancy, lactation and activity.
+            </p>
+
+            <ul>
+                <li>Provide clean water throughout the day.</li>
+                <li>Check troughs frequently.</li>
+                <li>Remove manure, algae and other contamination.</li>
+                <li>Repair leaking or blocked water systems.</li>
+                <li>Monitor water access during hot weather.</li>
+            </ul>
+
+        </section>
+
+
+        <!-- 8 -->
+        <section class="cattle-section">
+
+            <div class="cattle-title">
+
+                <div class="cattle-title-icon">
+                    <i class="fa-solid fa-baby"></i>
+                </div>
+
+                <h2>8. Calf Care and Management</h2>
+
+            </div>
+
+            <p>
+                The first weeks of life are critical for calf survival,
+                growth and future productivity. Calves require appropriate
+                colostrum management, clean housing, adequate nutrition,
+                water and close observation.
+            </p>
+
+            <h3>Key Calf Practices</h3>
+
+            <ul>
+                <li>Ensure timely access to good-quality colostrum after birth.</li>
+                <li>Keep the calf's resting area clean and dry.</li>
+                <li>Monitor the calf's ability to stand, suckle and remain active.</li>
+                <li>Introduce appropriate feed according to the production system.</li>
+                <li>Provide clean water.</li>
+                <li>Monitor for diarrhea, respiratory problems and poor growth.</li>
+            </ul>
+
+            <div class="cattle-warning">
+
+                <strong>
+                    Warning:
+                </strong>
+
+                A weak calf, calf that cannot suckle, severe diarrhea,
+                breathing difficulty or other serious signs should receive
+                prompt attention from a qualified animal-health professional.
+
+            </div>
+
+        </section>
+
+
+        <!-- 9 -->
+        <section class="cattle-section">
+
+            <div class="cattle-title">
+
+                <div class="cattle-title-icon">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+
+                <h2>9. Breeding and Reproduction</h2>
+
+            </div>
+
+            <p>
+                Reproductive performance strongly influences the efficiency
+                of a cattle enterprise. Farmers should keep accurate records
+                of breeding, calving, health and production.
+            </p>
+
+            <div class="cattle-grid">
+
+                <div class="cattle-mini-card">
+                    <h3>Heat Detection</h3>
+                    <p>
+                        Observe females regularly for behavioural and physical
+                        signs associated with estrus.
+                    </p>
+                </div>
+
+                <div class="cattle-mini-card">
+                    <h3>Breeding Decisions</h3>
+                    <p>
+                        Select breeding animals based on health, fertility,
+                        production goals, structure and appropriate records.
+                    </p>
+                </div>
+
+                <div class="cattle-mini-card">
+                    <h3>Pregnancy Management</h3>
+                    <p>
+                        Pregnant animals require appropriate nutrition,
+                        observation and suitable management as calving approaches.
+                    </p>
+                </div>
+
+                <div class="cattle-mini-card">
+                    <h3>Calving</h3>
+                    <p>
+                        Provide a clean and safe area and monitor animals
+                        closely around calving.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 10 -->
+        <section class="cattle-section">
+
+            <div class="cattle-title">
+
+                <div class="cattle-title-icon">
+                    <i class="fa-solid fa-glass-water"></i>
+                </div>
+
+                <h2>10. Dairy Cattle Management</h2>
+
+            </div>
+
+            <p>
+                Dairy production requires consistent management of nutrition,
+                milking hygiene, udder health, reproduction, calf care and
+                cow comfort.
+            </p>
+
+            <h3>Clean Milking Practices</h3>
+
+            <ul>
+                <li>Keep the milking area clean.</li>
+                <li>Use clean equipment and containers.</li>
+                <li>Maintain good udder hygiene.</li>
+                <li>Separate abnormal milk according to veterinary advice.</li>
+                <li>Cool and store milk appropriately after milking.</li>
+                <li>Monitor cows for signs of mastitis and other health problems.</li>
+            </ul>
+
+            <div class="cattle-highlight">
+
+                <strong>
+                    Milk quality starts on the farm:
+                </strong>
+
+                Clean animals, clean hands, clean equipment, clean water,
+                proper storage and good animal health all contribute to
+                safer and better-quality milk.
+
+            </div>
+
+        </section>
+
+
+        <!-- 11 -->
+        <section class="cattle-section">
+
+            <div class="cattle-title">
+
+                <div class="cattle-title-icon">
+                    <i class="fa-solid fa-drumstick-bite"></i>
+                </div>
+
+                <h2>11. Beef Cattle Management</h2>
+
+            </div>
+
+            <p>
+                Beef production focuses on producing healthy animals that
+                grow efficiently and meet market requirements. Genetics,
+                nutrition, health, age, growth rate and management all
+                influence production outcomes.
+            </p>
+
+            <ul>
+                <li>Select animals according to the intended production system.</li>
+                <li>Provide adequate forage and supplementary feed when needed.</li>
+                <li>Monitor body condition and growth.</li>
+                <li>Maintain preventive health practices.</li>
+                <li>Keep accurate records of animals and treatments.</li>
+                <li>Plan marketing before animals reach the target market stage.</li>
+            </ul>
+
+        </section>
+
+
+        <!-- 12 -->
+        <section class="cattle-section">
+
+            <div class="cattle-title">
+
+                <div class="cattle-title-icon">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+
+                <h2>12. Cattle Health and Disease Prevention</h2>
+
+            </div>
+
+            <p>
+                Prevention is an important part of cattle health management.
+                Farmers should observe animals regularly and work with
+                qualified veterinary professionals for diagnosis, treatment
+                and vaccination decisions.
+            </p>
+
+            <div class="disease-grid">
+
+                <div class="disease-card">
+                    <h3>Respiratory Disease</h3>
+                    <p>
+                        Watch for coughing, nasal discharge, difficult
+                        breathing, fever or reduced activity.
+                    </p>
+                </div>
+
+                <div class="disease-card">
+                    <h3>Diarrhea</h3>
+                    <p>
+                        Monitor calves and adults for abnormal feces,
+                        dehydration, weakness and reduced appetite.
+                    </p>
+                </div>
+
+                <div class="disease-card">
+                    <h3>Mastitis</h3>
+                    <p>
+                        Dairy farmers should monitor udders and milk for
+                        abnormalities and seek veterinary guidance when needed.
+                    </p>
+                </div>
+
+                <div class="disease-card">
+                    <h3>Tick-Borne Problems</h3>
+                    <p>
+                        Monitor cattle for ticks and follow locally
+                        appropriate parasite-control programs.
+                    </p>
+                </div>
+
+                <div class="disease-card">
+                    <h3>Internal Parasites</h3>
+                    <p>
+                        Parasite management should be based on local risk,
+                        veterinary guidance and appropriate monitoring.
+                    </p>
+                </div>
+
+                <div class="disease-card">
+                    <h3>Foot and Hoof Problems</h3>
+                    <p>
+                        Watch for lameness, swelling, abnormal walking or
+                        reluctance to move.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="cattle-warning">
+
+                <strong>
+                    Veterinary note:
+                </strong>
+
+                Disease symptoms can overlap. Do not rely on this page for
+                diagnosis. When cattle are seriously ill or a regulated
+                disease is suspected, contact a qualified veterinarian or
+                animal-health authority promptly.
+
+            </div>
+
+        </section>
+
+
+        <!-- 13 -->
+        <section class="cattle-section">
+
+            <div class="cattle-title">
+
+                <div class="cattle-title-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+
+                <h2>13. Biosecurity on Cattle Farms</h2>
+
+            </div>
+
+            <p>
+                Biosecurity reduces the risk of introducing or spreading
+                infectious diseases between animals, farms, equipment and
+                people.
+            </p>
+
+            <ul>
+                <li>Monitor newly introduced animals before mixing them with the herd.</li>
+                <li>Maintain appropriate isolation procedures when required.</li>
+                <li>Clean and disinfect equipment where appropriate.</li>
+                <li>Limit unnecessary movement of people between herds.</li>
+                <li>Control contact with potentially infected animals.</li>
+                <li>Keep animal-health and movement records.</li>
+                <li>Follow local veterinary and livestock regulations.</li>
+            </ul>
+
+        </section>
+
+
+        <!-- 14 -->
+        <section class="cattle-section">
+
+            <div class="cattle-title">
+
+                <div class="cattle-title-icon">
+                    <i class="fa-solid fa-syringe"></i>
+                </div>
+
+                <h2>14. Vaccination and Veterinary Management</h2>
+
+            </div>
+
+            <p>
+                Vaccination schedules vary according to country, disease risk,
+                animal age, production system and veterinary recommendations.
+                Farmers should follow the current program provided by their
+                veterinarian or relevant animal-health authority.
+            </p>
+
+            <ul>
+                <li>Maintain vaccination records for every relevant animal group.</li>
+                <li>Follow vaccine storage and handling instructions.</li>
+                <li>Observe recommended timing and booster requirements.</li>
+                <li>Record treatments and withdrawal periods when applicable.</li>
+                <li>Seek veterinary advice for unexplained illness or mortality.</li>
+            </ul>
+
+        </section>
+
+
+        <!-- 15 -->
+        <section class="cattle-section">
+
+            <div class="cattle-title">
+
+                <div class="cattle-title-icon">
+                    <i class="fa-solid fa-broom"></i>
+                </div>
+
+                <h2>15. Cleaning, Manure and Waste Management</h2>
+
+            </div>
+
+            <p>
+                Good waste management improves hygiene, reduces environmental
+                problems and can turn manure into a useful farm resource.
+            </p>
+
+            <div class="cattle-grid">
+
+                <div class="cattle-mini-card">
+                    <h3>Manure Collection</h3>
+                    <p>
+                        Collect and store manure in a managed area to reduce
+                        contamination of water and animal resting areas.
+                    </p>
+                </div>
+
+                <div class="cattle-mini-card">
+                    <h3>Composting</h3>
+                    <p>
+                        Properly managed composting can transform manure and
+                        organic materials into a useful soil amendment.
+                    </p>
+                </div>
+
+                <div class="cattle-mini-card">
+                    <h3>Drainage</h3>
+                    <p>
+                        Good drainage helps prevent standing wastewater around
+                        cattle housing.
+                    </p>
+                </div>
+
+                <div class="cattle-mini-card">
+                    <h3>Environmental Protection</h3>
+                    <p>
+                        Avoid uncontrolled discharge of manure and wastewater
+                        into streams, wells or other sensitive areas.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 16 -->
+        <section class="cattle-section">
+
+            <div class="cattle-title">
+
+                <div class="cattle-title-icon">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                </div>
+
+                <h2>16. Body Condition and Growth Monitoring</h2>
+
+            </div>
+
+            <p>
+                Regular observation and measurement help farmers identify
+                nutritional, health or management problems before they become
+                more serious.
+            </p>
+
+            <ul>
+                <li>Monitor body condition regularly.</li>
+                <li>Record weights when practical.</li>
+                <li>Track growth of young animals.</li>
+                <li>Observe changes in appetite and activity.</li>
+                <li>Compare performance with farm targets.</li>
+                <li>Investigate unexpected weight loss or poor growth.</li>
+            </ul>
+
+        </section>
+
+
+        <!-- 17 -->
+        <section class="cattle-section">
+
+            <div class="cattle-title">
+
+                <div class="cattle-title-icon">
+                    <i class="fa-solid fa-clipboard-list"></i>
+                </div>
+
+                <h2>17. Farm Records and Management</h2>
+
+            </div>
+
+            <p>
+                Good records turn everyday farm activities into useful
+                information for decision-making.
+            </p>
+
+            <div class="cattle-table-wrap">
+
+                <table class="cattle-table">
+
+                    <thead>
+                        <tr>
+                            <th>Record</th>
+                            <th>Examples of Information</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Animal Identification</td>
+                            <td>Tag number, breed, sex, birth date</td>
+                        </tr>
+
+                        <tr>
+                            <td>Breeding</td>
+                            <td>Heat, service, pregnancy and calving information</td>
+                        </tr>
+
+                        <tr>
+                            <td>Health</td>
+                            <td>Vaccinations, treatments and illnesses</td>
+                        </tr>
+
+                        <tr>
+                            <td>Milk</td>
+                            <td>Daily or periodic milk production records</td>
+                        </tr>
+
+                        <tr>
+                            <td>Growth</td>
+                            <td>Weights, body condition and growth observations</td>
+                        </tr>
+
+                        <tr>
+                            <td>Finance</td>
+                            <td>Feed, veterinary, labour and sales costs</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- 18 -->
+        <section class="cattle-section">
+
+            <div class="cattle-title">
+
+                <div class="cattle-title-icon">
+                    <i class="fa-solid fa-leaf"></i>
+                </div>
+
+                <h2>18. Sustainable Cattle Farming</h2>
+
+            </div>
+
+            <p>
+                Sustainable cattle farming aims to balance productivity,
+                animal welfare, environmental responsibility and long-term
+                farm resilience.
+            </p>
+
+            <div class="cattle-three">
+
+                <div class="production-card">
+
+                    <div class="icon">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+
+                    <h3>Better Feed Resources</h3>
+
+                    <p>
+                        Improve forage production, conserve feed for difficult
+                        seasons and use locally suitable resources responsibly.
+                    </p>
+
+                </div>
+
+                <div class="production-card">
+
+                    <div class="icon">
+                        <i class="fa-solid fa-droplet"></i>
+                    </div>
+
+                    <h3>Responsible Water Use</h3>
+
+                    <p>
+                        Protect water sources and maintain efficient,
+                        clean watering systems.
+                    </p>
+
+                </div>
+
+                <div class="production-card">
+
+                    <div class="icon">
+                        <i class="fa-solid fa-recycle"></i>
+                    </div>
+
+                    <h3>Manure Recycling</h3>
+
+                    <p>
+                        Proper manure management can return nutrients to
+                        agricultural soils and reduce waste.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 19 -->
+        <section class="cattle-section">
+
+            <div class="cattle-title">
+
+                <div class="cattle-title-icon">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+
+                <h2>19. Cattle Farm Economics</h2>
+
+            </div>
+
+            <p>
+                Farmers should understand both production and costs.
+                A productive herd does not automatically mean a profitable
+                enterprise if major costs are poorly controlled.
+            </p>
+
+            <div class="cattle-grid">
+
+                <div class="cattle-mini-card">
+                    <h3>Major Costs</h3>
+                    <p>
+                        Feed, veterinary services, breeding, labour, housing,
+                        water, transport and animal purchases can contribute
+                        significantly to farm expenses.
+                    </p>
+                </div>
+
+                <div class="cattle-mini-card">
+                    <h3>Potential Income</h3>
+                    <p>
+                        Depending on the enterprise, income can come from
+                        milk, animals for meat, breeding animals, manure
+                        and other cattle-related products.
+                    </p>
+                </div>
+
+                <div class="cattle-mini-card">
+                    <h3>Market Planning</h3>
+                    <p>
+                        Understand local buyers, seasonal demand, quality
+                        requirements and transport before selling animals
+                        or products.
+                    </p>
+                </div>
+
+                <div class="cattle-mini-card">
+                    <h3>Financial Records</h3>
+                    <p>
+                        Record income and expenses regularly so that farm
+                        performance can be reviewed objectively.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 20 -->
+        <section class="cattle-section">
+
+            <div class="cattle-title">
+
+                <div class="cattle-title-icon">
+                    <i class="fa-solid fa-list-check"></i>
+                </div>
+
+                <h2>20. Daily Cattle Farm Checklist</h2>
+
+            </div>
+
+            <div class="checklist">
+
+                <div class="check-item">
+                    <i class="fa-solid fa-check"></i>
+                    Check all animals for unusual behaviour.
+                </div>
+
+                <div class="check-item">
+                    <i class="fa-solid fa-check"></i>
+                    Check clean water availability.
+                </div>
+
+                <div class="check-item">
+                    <i class="fa-solid fa-check"></i>
+                    Inspect feed supplies and feeding areas.
+                </div>
+
+                <div class="check-item">
+                    <i class="fa-solid fa-check"></i>
+                    Observe calves and young animals.
+                </div>
+
+                <div class="check-item">
+                    <i class="fa-solid fa-check"></i>
+                    Check for lameness or injuries.
+                </div>
+
+                <div class="check-item">
+                    <i class="fa-solid fa-check"></i>
+                    Observe pregnant or recently calved animals.
+                </div>
+
+                <div class="check-item">
+                    <i class="fa-solid fa-check"></i>
+                    Check housing cleanliness and ventilation.
+                </div>
+
+                <div class="check-item">
+                    <i class="fa-solid fa-check"></i>
+                    Record important health or production observations.
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 21 -->
+        <section class="cattle-section">
+
+            <div class="cattle-title">
+
+                <div class="cattle-title-icon">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+
+                <h2>21. Warning Signs That Need Attention</h2>
+
+            </div>
+
+            <p>
+                Contact a qualified animal-health professional when an animal
+                shows serious, persistent or rapidly worsening symptoms.
+            </p>
+
+            <ul>
+                <li>Severe difficulty breathing.</li>
+                <li>Inability to stand or walk normally.</li>
+                <li>Severe diarrhea or signs of dehydration.</li>
+                <li>Sudden loss of appetite or severe weakness.</li>
+                <li>Abnormal swelling or serious injury.</li>
+                <li>Repeated abortions or unusual reproductive problems.</li>
+                <li>Sudden deaths or an unusual number of sick animals.</li>
+                <li>Suspected contagious or regulated animal disease.</li>
+            </ul>
+
+        </section>
+
+
+        <!-- 22 -->
+        <section class="cattle-section">
+
+            <div class="cattle-title">
+
+                <div class="cattle-title-icon">
+                    <i class="fa-solid fa-lightbulb"></i>
+                </div>
+
+                <h2>22. Golden Rules of Cattle Farming</h2>
+
+            </div>
+
+            <div class="golden-rules">
+
+                <div class="golden-rule">
+                    <strong>01 — Start with Healthy Animals</strong>
+                    <span>
+                        Choose animals carefully and maintain good health
+                        practices from the beginning.
+                    </span>
+                </div>
+
+                <div class="golden-rule">
+                    <strong>02 — Feed for the Production Goal</strong>
+                    <span>
+                        Match nutrition to age, growth, pregnancy,
+                        lactation and production objectives.
+                    </span>
+                </div>
+
+                <div class="golden-rule">
+                    <strong>03 — Never Ignore Water</strong>
+                    <span>
+                        Clean and accessible water is fundamental to
+                        cattle health and productivity.
+                    </span>
+                </div>
+
+                <div class="golden-rule">
+                    <strong>04 — Prevent Before You Treat</strong>
+                    <span>
+                        Hygiene, biosecurity, vaccination and good management
+                        can reduce disease risk.
+                    </span>
+                </div>
+
+                <div class="golden-rule">
+                    <strong>05 — Watch Your Animals</strong>
+                    <span>
+                        Daily observation helps identify problems early.
+                    </span>
+                </div>
+
+                <div class="golden-rule">
+                    <strong>06 — Keep Records</strong>
+                    <span>
+                        What gets recorded can be monitored, compared and
+                        improved.
+                    </span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FINAL SUMMARY -->
+        <section class="cattle-summary">
+
+            <h2>Healthy Cattle. Better Management. Stronger Farms.</h2>
+
+            <p>
+                Cattle farming becomes more sustainable when farmers combine
+                suitable genetics, balanced nutrition, clean water, proper
+                housing, preventive health care, responsible breeding,
+                accurate records and good animal welfare. Africa AgroVision
+                aims to make practical agricultural knowledge easier to
+                discover and apply.
+            </p>
+
+        </section>
+
+
+        <!-- BACK -->
+        <div class="cattle-back">
+
+            <a href="ruminant-farming.html">
+                <i class="fa-solid fa-arrow-left"></i>
+                Back to Ruminant Farming
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="cattle-footer">
+
+        <h3>Africa AgroVision</h3>
+
+        <p>
+            Agriculture • Innovation • Knowledge • Sustainable Farming
+        </p>
+
+        <p>
+            <i class="fa-solid fa-location-dot"></i>
+            Kigali, Gasabo, Rwanda
+        </p>
+
+        <p>
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:ntaganda12345@gmail.com">
+                ntaganda12345@gmail.com
+            </a>
+        </p>
+
+        <p>
+            <i class="fa-brands fa-whatsapp"></i>
+            +250 786 213 989
+        </p>
+
+        <p class="cattle-copyright">
+            © 2026 Africa AgroVision. Byiringiro Egide.
+        </p>
+
+    </footer>
+
+</body>
+</html>
+```

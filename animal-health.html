@@ -1,0 +1,1926 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Animal Health | Africa AgroVision</title>
+
+    <meta name="description"
+        content="Africa AgroVision Animal Health Centre provides practical information on livestock and poultry health, disease prevention, vaccination, hygiene, nutrition, parasite control and early disease detection.">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =========================================================
+           AFRICA AGROVISION — ANIMAL HEALTH PAGE
+           ========================================================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Poppins", Arial, sans-serif;
+            background: #f4f8f3;
+            color: #18351f;
+            line-height: 1.7;
+        }
+
+        /* ================= HEADER ================= */
+
+        .health-header {
+            background:
+                linear-gradient(135deg, rgba(10, 62, 25, 0.96), rgba(29, 94, 43, 0.94));
+            color: white;
+            padding: 16px 6%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 18px rgba(0, 0, 0, 0.15);
+        }
+
+        .health-nav {
+            max-width: 1250px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .brand-icon {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.13);
+            font-size: 1.3rem;
+        }
+
+        .back-btn {
+            color: white;
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,.35);
+            padding: 9px 17px;
+            border-radius: 25px;
+            transition: .3s;
+            font-size: .9rem;
+        }
+
+        .back-btn:hover {
+            background: white;
+            color: #145525;
+        }
+
+        /* ================= HERO ================= */
+
+        .health-hero {
+            min-height: 440px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background:
+                linear-gradient(90deg, rgba(7,45,18,.95), rgba(10,71,29,.76), rgba(10,71,29,.25)),
+                url("images/animal-health.jpg") center/cover no-repeat;
+        }
+
+        .health-hero-content {
+            width: min(1250px, 90%);
+            margin: auto;
+            color: white;
+            padding: 65px 0;
+        }
+
+        .breadcrumb {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+            font-size: .86rem;
+            margin-bottom: 20px;
+            opacity: .9;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 14px;
+            border-radius: 30px;
+            background: rgba(255,255,255,.13);
+            border: 1px solid rgba(255,255,255,.25);
+            font-size: .84rem;
+            margin-bottom: 17px;
+        }
+
+        .health-hero h1 {
+            font-size: clamp(2.2rem, 5vw, 4.5rem);
+            line-height: 1.08;
+            margin: 0 0 20px;
+            max-width: 850px;
+        }
+
+        .health-hero h1 span {
+            color: #9be27a;
+        }
+
+        .health-hero p {
+            max-width: 760px;
+            font-size: 1.05rem;
+            color: #edf8ed;
+            margin-bottom: 28px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .hero-btn {
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        .hero-btn.primary {
+            background: #9be27a;
+            color: #103b1c;
+        }
+
+        .hero-btn.secondary {
+            border: 1px solid rgba(255,255,255,.45);
+            color: white;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* ================= GENERAL ================= */
+
+        .health-container {
+            width: min(1180px, 90%);
+            margin: auto;
+        }
+
+        .section {
+            padding: 75px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 42px;
+        }
+
+        .section-heading .eyebrow {
+            color: #28743a;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: .78rem;
+        }
+
+        .section-heading h2 {
+            margin: 8px 0 12px;
+            color: #123d1d;
+            font-size: clamp(1.8rem, 4vw, 2.7rem);
+        }
+
+        .section-heading p {
+            color: #607064;
+            margin: 0;
+        }
+
+        /* ================= QUICK NUMBERS ================= */
+
+        .quick-section {
+            margin-top: -45px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .quick-card {
+            background: white;
+            border-radius: 18px;
+            padding: 24px 18px;
+            text-align: center;
+            box-shadow: 0 12px 35px rgba(17, 61, 28, .11);
+            border: 1px solid #e1ece0;
+        }
+
+        .quick-card i {
+            color: #2f7b3d;
+            font-size: 1.7rem;
+            margin-bottom: 8px;
+        }
+
+        .quick-card strong {
+            display: block;
+            color: #123d1d;
+            font-size: 1.05rem;
+        }
+
+        .quick-card span {
+            color: #718073;
+            font-size: .82rem;
+        }
+
+        /* ================= INTRO ================= */
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .intro-text h2 {
+            font-size: 2rem;
+            color: #123d1d;
+            margin-top: 0;
+        }
+
+        .intro-text p {
+            color: #59695d;
+        }
+
+        .important-box {
+            background: #e9f5e7;
+            border-left: 5px solid #2e7d3c;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 22px;
+        }
+
+        .important-box strong {
+            color: #145525;
+        }
+
+        .intro-panel {
+            background: linear-gradient(145deg, #0f5424, #28773b);
+            color: white;
+            border-radius: 25px;
+            padding: 35px;
+            box-shadow: 0 20px 45px rgba(19, 77, 31, .18);
+        }
+
+        .intro-panel h3 {
+            margin-top: 0;
+            font-size: 1.45rem;
+        }
+
+        .intro-panel ul {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+
+        .intro-panel li {
+            margin-bottom: 10px;
+        }
+
+        /* ================= CARDS ================= */
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .health-card {
+            background: white;
+            border: 1px solid #e1eae0;
+            border-radius: 20px;
+            padding: 28px;
+            transition: .3s;
+            box-shadow: 0 7px 25px rgba(22, 62, 30, .06);
+        }
+
+        .health-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 35px rgba(22, 62, 30, .12);
+        }
+
+        .card-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 15px;
+            background: #e8f4e6;
+            color: #28753a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            margin-bottom: 17px;
+        }
+
+        .health-card h3 {
+            margin: 0 0 9px;
+            color: #174b25;
+        }
+
+        .health-card p {
+            color: #667267;
+            font-size: .93rem;
+            margin-bottom: 0;
+        }
+
+        .health-card ul {
+            padding-left: 20px;
+            color: #5f6d63;
+            font-size: .92rem;
+        }
+
+        /* ================= BIOSECURITY ================= */
+
+        .dark-section {
+            background: #0c3e1c;
+            color: white;
+        }
+
+        .dark-section .section-heading h2 {
+            color: white;
+        }
+
+        .dark-section .section-heading p {
+            color: #c7dac9;
+        }
+
+        .bio-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .bio-card {
+            background: rgba(255,255,255,.07);
+            border: 1px solid rgba(255,255,255,.12);
+            border-radius: 18px;
+            padding: 24px;
+        }
+
+        .bio-number {
+            font-size: .8rem;
+            color: #9be27a;
+            font-weight: 700;
+        }
+
+        .bio-card h3 {
+            margin: 8px 0;
+        }
+
+        .bio-card p {
+            color: #c8d7ca;
+            font-size: .9rem;
+        }
+
+        /* ================= TABLES ================= */
+
+        .table-wrapper {
+            overflow-x: auto;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 8px 30px rgba(20, 62, 30, .07);
+            border: 1px solid #e0e9df;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 720px;
+        }
+
+        th {
+            background: #165526;
+            color: white;
+            padding: 16px;
+            text-align: left;
+            font-size: .9rem;
+        }
+
+        td {
+            padding: 15px 16px;
+            border-bottom: 1px solid #e6ece5;
+            color: #536157;
+            font-size: .9rem;
+            vertical-align: top;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) td {
+            background: #f7faf6;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 9px;
+            border-radius: 20px;
+            background: #e8f4e6;
+            color: #216331;
+            font-size: .75rem;
+            font-weight: 700;
+        }
+
+        /* ================= SPECIES ================= */
+
+        .species-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .species-card {
+            background: white;
+            border-radius: 22px;
+            padding: 30px;
+            border: 1px solid #dfe9de;
+            box-shadow: 0 8px 28px rgba(22, 63, 31, .06);
+        }
+
+        .species-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .species-title .animal-icon {
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            background: #eaf5e7;
+            font-size: 1.5rem;
+        }
+
+        .species-title h3 {
+            margin: 0;
+            color: #174b25;
+        }
+
+        .species-card p {
+            color: #657267;
+            font-size: .92rem;
+        }
+
+        .species-card ul {
+            padding-left: 20px;
+            color: #5d6a60;
+        }
+
+        /* ================= WARNING ================= */
+
+        .warning-section {
+            background: #fff8e8;
+        }
+
+        .warning-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+        }
+
+        .warning-card {
+            background: white;
+            border-radius: 20px;
+            padding: 28px;
+            border-left: 5px solid #d99016;
+            box-shadow: 0 7px 25px rgba(100, 72, 15, .07);
+        }
+
+        .warning-card h3 {
+            margin-top: 0;
+            color: #704b09;
+        }
+
+        .warning-card li {
+            margin-bottom: 9px;
+            color: #635d50;
+        }
+
+        /* ================= CHECKLIST ================= */
+
+        .check-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .check-card {
+            background: white;
+            border-radius: 20px;
+            padding: 28px;
+            border: 1px solid #e1eae0;
+        }
+
+        .check-card h3 {
+            color: #174b25;
+        }
+
+        .check-card li {
+            list-style: none;
+            margin-bottom: 10px;
+            color: #5e6b61;
+        }
+
+        .check-card li i {
+            color: #328142;
+            margin-right: 8px;
+        }
+
+        /* ================= CTA ================= */
+
+        .cta {
+            background:
+                linear-gradient(135deg, #104b20, #26753a);
+            color: white;
+            border-radius: 28px;
+            padding: 50px;
+            text-align: center;
+            margin-bottom: 70px;
+            box-shadow: 0 20px 45px rgba(19, 77, 31, .18);
+        }
+
+        .cta h2 {
+            margin-top: 0;
+            font-size: 2rem;
+        }
+
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 25px;
+            color: #d7e7d9;
+        }
+
+        .cta a {
+            display: inline-block;
+            padding: 12px 22px;
+            border-radius: 30px;
+            background: #9be27a;
+            color: #123d1d;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #082c14;
+            color: #bcd0bf;
+            padding: 35px 6%;
+            text-align: center;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: .88rem;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 900px) {
+            .quick-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .card-grid,
+            .bio-grid,
+            .check-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .intro-grid,
+            .warning-grid,
+            .species-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 620px) {
+            .health-header {
+                padding: 13px 4%;
+            }
+
+            .brand {
+                font-size: 1rem;
+            }
+
+            .brand-icon {
+                width: 36px;
+                height: 36px;
+            }
+
+            .back-btn {
+                padding: 7px 12px;
+                font-size: .78rem;
+            }
+
+            .health-hero {
+                min-height: 500px;
+            }
+
+            .health-hero-content {
+                width: 88%;
+            }
+
+            .section {
+                padding: 55px 0;
+            }
+
+            .quick-grid,
+            .card-grid,
+            .bio-grid,
+            .check-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .health-card,
+            .species-card,
+            .check-card {
+                padding: 22px;
+            }
+
+            .cta {
+                padding: 35px 22px;
+                border-radius: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="health-header">
+    <nav class="health-nav">
+
+        <a href="dashboard.html" class="brand">
+            <span class="brand-icon">
+                <i class="fa-solid fa-leaf"></i>
+            </span>
+            Africa AgroVision
+        </a>
+
+        <a href="livestock-farming.html" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+            Livestock Farming
+        </a>
+
+    </nav>
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="health-hero">
+
+    <div class="health-hero-content">
+
+        <div class="breadcrumb">
+            <a href="dashboard.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <a href="livestock-farming.html">Livestock Farming</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Animal Health</span>
+        </div>
+
+        <div class="hero-badge">
+            <i class="fa-solid fa-shield-heart"></i>
+            Livestock Health & Disease Prevention
+        </div>
+
+        <h1>
+            Healthy Animals,
+            <span>Stronger Farms.</span>
+        </h1>
+
+        <p>
+            Practical animal-health knowledge for farmers covering disease
+            prevention, hygiene, vaccination, nutrition, parasite control,
+            early detection and responsible veterinary care.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#prevention" class="hero-btn primary">
+                Explore Health Guide
+            </a>
+
+            <a href="#emergency" class="hero-btn secondary">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                Emergency Signs
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= QUICK NUMBERS ================= -->
+
+<section class="quick-section">
+    <div class="health-container">
+
+        <div class="quick-grid">
+
+            <div class="quick-card">
+                <i class="fa-solid fa-eye"></i>
+                <strong>Daily</strong>
+                <span>Observe animals</span>
+            </div>
+
+            <div class="quick-card">
+                <i class="fa-solid fa-broom"></i>
+                <strong>Regularly</strong>
+                <span>Clean housing</span>
+            </div>
+
+            <div class="quick-card">
+                <i class="fa-solid fa-droplet"></i>
+                <strong>24/7</strong>
+                <span>Clean water access</span>
+            </div>
+
+            <div class="quick-card">
+                <i class="fa-solid fa-user-doctor"></i>
+                <strong>Early</strong>
+                <span>Veterinary attention</span>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= INTRO ================= -->
+
+<section class="section">
+
+    <div class="health-container">
+
+        <div class="intro-grid">
+
+            <div class="intro-text">
+
+                <h2>What Is Animal Health?</h2>
+
+                <p>
+                    Animal health is the overall physical condition, nutrition,
+                    welfare and disease resistance of livestock and poultry.
+                    Healthy animals generally grow better, reproduce more
+                    efficiently and use feed more effectively.
+                </p>
+
+                <p>
+                    Good animal health is not only about treating sick animals.
+                    Prevention is usually the foundation of a successful
+                    livestock enterprise.
+                </p>
+
+                <div class="important-box">
+                    <strong>
+                        <i class="fa-solid fa-lightbulb"></i>
+                        Farmer Principle
+                    </strong>
+
+                    <p>
+                        Prevention, early observation, good hygiene, proper
+                        nutrition and professional veterinary advice can greatly
+                        reduce avoidable animal-health problems.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="intro-panel">
+
+                <h3>
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    Five Foundations of Animal Health
+                </h3>
+
+                <ul>
+                    <li>Clean and safe housing</li>
+                    <li>Balanced nutrition</li>
+                    <li>Reliable access to clean water</li>
+                    <li>Disease prevention and biosecurity</li>
+                    <li>Early detection and veterinary support</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PREVENTION ================= -->
+
+<section class="section" id="prevention">
+
+    <div class="health-container">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">Prevention first</span>
+
+            <h2>Building a Healthy Herd</h2>
+
+            <p>
+                Most animal-health programs begin with management rather than
+                medication.
+            </p>
+
+        </div>
+
+        <div class="card-grid">
+
+            <div class="health-card">
+                <div class="card-icon">
+                    <i class="fa-solid fa-house"></i>
+                </div>
+
+                <h3>Clean Housing</h3>
+
+                <p>
+                    Keep shelters dry, well ventilated and protected from
+                    excessive heat, cold, rain and drafts.
+                </p>
+
+                <ul>
+                    <li>Remove manure regularly.</li>
+                    <li>Keep bedding dry.</li>
+                    <li>Prevent overcrowding.</li>
+                    <li>Repair sharp or dangerous structures.</li>
+                </ul>
+            </div>
+
+
+            <div class="health-card">
+                <div class="card-icon">
+                    <i class="fa-solid fa-wheat-awn"></i>
+                </div>
+
+                <h3>Balanced Nutrition</h3>
+
+                <p>
+                    Animals need appropriate energy, protein, minerals,
+                    vitamins and fibre according to species, age and production
+                    stage.
+                </p>
+
+                <ul>
+                    <li>Use clean feed.</li>
+                    <li>Avoid sudden feed changes.</li>
+                    <li>Store feed away from moisture and pests.</li>
+                    <li>Provide species-appropriate minerals.</li>
+                </ul>
+            </div>
+
+
+            <div class="health-card">
+                <div class="card-icon">
+                    <i class="fa-solid fa-faucet-drip"></i>
+                </div>
+
+                <h3>Clean Water</h3>
+
+                <p>
+                    Water is essential for digestion, temperature regulation,
+                    growth, milk production and general health.
+                </p>
+
+                <ul>
+                    <li>Provide water continuously.</li>
+                    <li>Clean drinkers frequently.</li>
+                    <li>Prevent manure contamination.</li>
+                    <li>Check water quality when problems occur.</li>
+                </ul>
+            </div>
+
+
+            <div class="health-card">
+                <div class="card-icon">
+                    <i class="fa-solid fa-syringe"></i>
+                </div>
+
+                <h3>Vaccination</h3>
+
+                <p>
+                    Vaccines help protect animals against specific infectious
+                    diseases when used correctly.
+                </p>
+
+                <ul>
+                    <li>Follow a local veterinary vaccination schedule.</li>
+                    <li>Respect storage requirements.</li>
+                    <li>Record vaccination dates.</li>
+                    <li>Do not vaccinate visibly sick animals without veterinary advice.</li>
+                </ul>
+            </div>
+
+
+            <div class="health-card">
+                <div class="card-icon">
+                    <i class="fa-solid fa-bug-slash"></i>
+                </div>
+
+                <h3>Parasite Control</h3>
+
+                <p>
+                    Internal and external parasites can reduce growth,
+                    production and animal condition.
+                </p>
+
+                <ul>
+                    <li>Monitor body condition.</li>
+                    <li>Inspect skin and coat.</li>
+                    <li>Use veterinary-guided treatment.</li>
+                    <li>Avoid unnecessary repeated drug use.</li>
+                </ul>
+            </div>
+
+
+            <div class="health-card">
+                <div class="card-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+
+                <h3>Early Detection</h3>
+
+                <p>
+                    Farmers are often the first people to notice changes in
+                    animal behaviour or production.
+                </p>
+
+                <ul>
+                    <li>Observe animals every day.</li>
+                    <li>Separate suspicious animals when appropriate.</li>
+                    <li>Record unusual deaths or symptoms.</li>
+                    <li>Seek veterinary help early.</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= BIOSECURITY ================= -->
+
+<section class="section dark-section">
+
+    <div class="health-container">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">Farm protection</span>
+
+            <h2>Biosecurity: Stop Disease Before It Spreads</h2>
+
+            <p>
+                Biosecurity means reducing the chance that disease enters,
+                survives or spreads within a farm.
+            </p>
+
+        </div>
+
+        <div class="bio-grid">
+
+            <div class="bio-card">
+                <span class="bio-number">01</span>
+                <h3>Control Visitors</h3>
+                <p>
+                    Limit unnecessary visitors and avoid allowing contaminated
+                    footwear or equipment into animal areas.
+                </p>
+            </div>
+
+            <div class="bio-card">
+                <span class="bio-number">02</span>
+                <h3>Quarantine New Animals</h3>
+                <p>
+                    Keep newly purchased or returning animals separate while
+                    their health status is assessed.
+                </p>
+            </div>
+
+            <div class="bio-card">
+                <span class="bio-number">03</span>
+                <h3>Separate Sick Animals</h3>
+                <p>
+                    Isolate animals showing suspicious signs when practical and
+                    seek professional advice.
+                </p>
+            </div>
+
+            <div class="bio-card">
+                <span class="bio-number">04</span>
+                <h3>Clean Equipment</h3>
+                <p>
+                    Clean and disinfect suitable equipment, housing and
+                    transport areas using appropriate procedures.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= COMMON SIGNS ================= -->
+
+<section class="section">
+
+    <div class="health-container">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">Know the warning signs</span>
+
+            <h2>Common Signs of Illness</h2>
+
+            <p>
+                A single sign does not always identify a disease. Look for
+                changes from the animal's normal behaviour.
+            </p>
+
+        </div>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Sign</th>
+                        <th>What You May Notice</th>
+                        <th>Possible Concern</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td><span class="tag">Behaviour</span></td>
+                        <td>Isolation, depression or unusual aggression</td>
+                        <td>Illness, pain, stress</td>
+                        <td>Observe closely and seek advice if persistent</td>
+                    </tr>
+
+                    <tr>
+                        <td><span class="tag">Appetite</span></td>
+                        <td>Reduced or complete loss of appetite</td>
+                        <td>Digestive, infectious or metabolic problems</td>
+                        <td>Check feed, water and other symptoms</td>
+                    </tr>
+
+                    <tr>
+                        <td><span class="tag">Breathing</span></td>
+                        <td>Coughing, nasal discharge or difficult breathing</td>
+                        <td>Respiratory disease</td>
+                        <td>Separate suspicious animals and contact a veterinarian</td>
+                    </tr>
+
+                    <tr>
+                        <td><span class="tag">Digestive</span></td>
+                        <td>Diarrhoea, bloating or abnormal faeces</td>
+                        <td>Infection, parasites or feed problems</td>
+                        <td>Check water/feed and seek professional advice</td>
+                    </tr>
+
+                    <tr>
+                        <td><span class="tag">Movement</span></td>
+                        <td>Lameness, weakness or reluctance to move</td>
+                        <td>Injury, infection or nutritional problems</td>
+                        <td>Inspect safely and seek veterinary help</td>
+                    </tr>
+
+                    <tr>
+                        <td><span class="tag">Production</span></td>
+                        <td>Sudden fall in milk, eggs, growth or weight</td>
+                        <td>Disease, nutrition or environmental stress</td>
+                        <td>Investigate quickly</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SPECIES HEALTH ================= -->
+
+<section class="section" style="background:#eef5ec;">
+
+    <div class="health-container">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">Species guide</span>
+
+            <h2>Health Priorities by Animal</h2>
+
+            <p>
+                Different species have different health risks and management
+                requirements.
+            </p>
+
+        </div>
+
+
+        <div class="species-grid">
+
+            <!-- CATTLE -->
+
+            <div class="species-card">
+
+                <div class="species-title">
+
+                    <div class="animal-icon">
+                        🐄
+                    </div>
+
+                    <div>
+                        <h3>Cattle Health</h3>
+                    </div>
+
+                </div>
+
+                <p>
+                    Good cattle health depends on nutrition, clean water,
+                    housing, pasture management, parasite control and disease
+                    prevention.
+                </p>
+
+                <ul>
+                    <li>Monitor body condition and appetite.</li>
+                    <li>Watch for coughing, diarrhoea and nasal discharge.</li>
+                    <li>Check hooves and movement regularly.</li>
+                    <li>Monitor calves carefully for diarrhoea and weakness.</li>
+                    <li>Follow locally recommended vaccination programs.</li>
+                </ul>
+
+            </div>
+
+
+            <!-- GOATS -->
+
+            <div class="species-card">
+
+                <div class="species-title">
+
+                    <div class="animal-icon">
+                        🐐
+                    </div>
+
+                    <div>
+                        <h3>Goat & Sheep Health</h3>
+                    </div>
+
+                </div>
+
+                <p>
+                    Small ruminants can be affected by parasites, respiratory
+                    problems, nutritional deficiencies and infectious diseases.
+                </p>
+
+                <ul>
+                    <li>Monitor body condition and coat quality.</li>
+                    <li>Watch for diarrhoea and weakness.</li>
+                    <li>Inspect feet and hooves.</li>
+                    <li>Manage grazing to reduce parasite exposure.</li>
+                    <li>Provide appropriate minerals and clean water.</li>
+                </ul>
+
+            </div>
+
+
+            <!-- PIGS -->
+
+            <div class="species-card">
+
+                <div class="species-title">
+
+                    <div class="animal-icon">
+                        🐖
+                    </div>
+
+                    <div>
+                        <h3>Pig Health</h3>
+                    </div>
+
+                </div>
+
+                <p>
+                    Pig health is strongly influenced by hygiene, ventilation,
+                    nutrition, stocking density and disease prevention.
+                </p>
+
+                <ul>
+                    <li>Keep pens dry and clean.</li>
+                    <li>Avoid overcrowding.</li>
+                    <li>Provide sufficient clean water.</li>
+                    <li>Monitor coughing, diarrhoea and skin changes.</li>
+                    <li>Use strict biosecurity when introducing pigs.</li>
+                </ul>
+
+            </div>
+
+
+            <!-- POULTRY -->
+
+            <div class="species-card">
+
+                <div class="species-title">
+
+                    <div class="animal-icon">
+                        🐔
+                    </div>
+
+                    <div>
+                        <h3>Poultry Health</h3>
+                    </div>
+
+                </div>
+
+                <p>
+                    Poultry require good ventilation, clean litter, safe feed,
+                    clean water and strong disease-prevention practices.
+                </p>
+
+                <ul>
+                    <li>Watch flock behaviour every day.</li>
+                    <li>Remove dead birds promptly and safely.</li>
+                    <li>Keep drinkers clean.</li>
+                    <li>Control rodents and wild birds.</li>
+                    <li>Follow veterinary vaccination programs.</li>
+                </ul>
+
+            </div>
+
+
+            <!-- RABBITS -->
+
+            <div class="species-card">
+
+                <div class="species-title">
+
+                    <div class="animal-icon">
+                        🐇
+                    </div>
+
+                    <div>
+                        <h3>Rabbit Health</h3>
+                    </div>
+
+                </div>
+
+                <p>
+                    Rabbits need clean housing, good ventilation, suitable
+                    forage, balanced feed and careful monitoring.
+                </p>
+
+                <ul>
+                    <li>Keep cages dry and clean.</li>
+                    <li>Provide appropriate fibre-rich feed.</li>
+                    <li>Monitor appetite and droppings.</li>
+                    <li>Check eyes, nose, skin and feet.</li>
+                    <li>Prevent overcrowding and excessive heat.</li>
+                </ul>
+
+            </div>
+
+
+            <!-- CALVES -->
+
+            <div class="species-card">
+
+                <div class="species-title">
+
+                    <div class="animal-icon">
+                        🐄
+                    </div>
+
+                    <div>
+                        <h3>Young Animal Health</h3>
+                    </div>
+
+                </div>
+
+                <p>
+                    Young animals are particularly vulnerable to dehydration,
+                    infections, parasites and poor nutrition.
+                </p>
+
+                <ul>
+                    <li>Ensure adequate early nutrition.</li>
+                    <li>Keep young animals warm, dry and clean.</li>
+                    <li>Monitor diarrhoea closely.</li>
+                    <li>Observe growth and behaviour.</li>
+                    <li>Follow veterinary preventive-care plans.</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DISEASE TABLE ================= -->
+
+<section class="section">
+
+    <div class="health-container">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">Disease awareness</span>
+
+            <h2>Common Health Problems</h2>
+
+            <p>
+                These examples are for awareness. Diagnosis should be based on
+                clinical examination and, when necessary, laboratory testing.
+            </p>
+
+        </div>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Problem</th>
+                        <th>Animals Commonly Affected</th>
+                        <th>Possible Signs</th>
+                        <th>Prevention Focus</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Internal parasites</td>
+                        <td>Cattle, goats, sheep and other livestock</td>
+                        <td>Weight loss, weakness, diarrhoea or poor growth</td>
+                        <td>Pasture management, monitoring and veterinary-guided control</td>
+                    </tr>
+
+                    <tr>
+                        <td>Respiratory disease</td>
+                        <td>Many livestock species</td>
+                        <td>Coughing, nasal discharge, breathing difficulty</td>
+                        <td>Ventilation, hygiene, reduced stress and biosecurity</td>
+                    </tr>
+
+                    <tr>
+                        <td>Diarrhoeal disease</td>
+                        <td>Especially young animals</td>
+                        <td>Loose faeces, dehydration, weakness</td>
+                        <td>Clean water, hygiene, nutrition and early intervention</td>
+                    </tr>
+
+                    <tr>
+                        <td>Mastitis</td>
+                        <td>Dairy animals</td>
+                        <td>Abnormal milk, swollen or painful udder</td>
+                        <td>Good milking hygiene and udder management</td>
+                    </tr>
+
+                    <tr>
+                        <td>Foot problems</td>
+                        <td>Cattle, sheep, goats and pigs</td>
+                        <td>Lameness, reluctance to walk</td>
+                        <td>Clean/dry housing and regular inspection</td>
+                    </tr>
+
+                    <tr>
+                        <td>External parasites</td>
+                        <td>Many livestock species</td>
+                        <td>Itching, skin damage, poor coat condition</td>
+                        <td>Hygiene, inspection and appropriate control</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= VACCINATION ================= -->
+
+<section class="section" style="background:#eef6ed;">
+
+    <div class="health-container">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">Prevention program</span>
+
+            <h2>Vaccination & Preventive Care</h2>
+
+            <p>
+                Vaccination schedules differ according to species, disease
+                risk, age, location and national veterinary recommendations.
+            </p>
+
+        </div>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Stage</th>
+                        <th>What to Monitor</th>
+                        <th>Recommended Practice</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>New animals</td>
+                        <td>Origin, health history and visible signs</td>
+                        <td>Use a quarantine and health-assessment process appropriate to the farm</td>
+                    </tr>
+
+                    <tr>
+                        <td>Young animals</td>
+                        <td>Growth, appetite, diarrhoea and weakness</td>
+                        <td>Follow species-specific veterinary preventive-care schedules</td>
+                    </tr>
+
+                    <tr>
+                        <td>Growing animals</td>
+                        <td>Weight gain, parasites and respiratory signs</td>
+                        <td>Monitor regularly and maintain good nutrition and housing</td>
+                    </tr>
+
+                    <tr>
+                        <td>Adult animals</td>
+                        <td>Production, body condition and reproductive health</td>
+                        <td>Maintain vaccination and parasite-control programs according to local advice</td>
+                    </tr>
+
+                    <tr>
+                        <td>Breeding animals</td>
+                        <td>Fertility, pregnancy and body condition</td>
+                        <td>Use veterinary guidance for reproductive-health planning</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PARASITES ================= -->
+
+<section class="section">
+
+    <div class="health-container">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">Parasite management</span>
+
+            <h2>Controlling Internal & External Parasites</h2>
+
+            <p>
+                Parasite control should be based on the species, local risk,
+                season, management system and professional advice.
+            </p>
+
+        </div>
+
+        <div class="card-grid">
+
+            <div class="health-card">
+                <div class="card-icon">
+                    <i class="fa-solid fa-worm"></i>
+                </div>
+
+                <h3>Internal Parasites</h3>
+
+                <p>
+                    Worms and other internal parasites may interfere with
+                    nutrition and growth.
+                </p>
+
+                <ul>
+                    <li>Monitor body condition.</li>
+                    <li>Watch for poor growth.</li>
+                    <li>Use appropriate diagnostic methods where available.</li>
+                    <li>Follow veterinary-guided treatment.</li>
+                </ul>
+            </div>
+
+            <div class="health-card">
+                <div class="card-icon">
+                    <i class="fa-solid fa-bug"></i>
+                </div>
+
+                <h3>External Parasites</h3>
+
+                <p>
+                    Ticks, lice, mites and other parasites can affect skin,
+                    comfort and productivity.
+                </p>
+
+                <ul>
+                    <li>Inspect skin and coat.</li>
+                    <li>Keep housing clean.</li>
+                    <li>Reduce parasite habitats.</li>
+                    <li>Use approved treatments correctly.</li>
+                </ul>
+            </div>
+
+            <div class="health-card">
+                <div class="card-icon">
+                    <i class="fa-solid fa-rotate"></i>
+                </div>
+
+                <h3>Responsible Treatment</h3>
+
+                <p>
+                    Repeated or incorrect use of medicines can contribute to
+                    treatment failure and antimicrobial resistance.
+                </p>
+
+                <ul>
+                    <li>Use veterinary guidance.</li>
+                    <li>Follow the product label.</li>
+                    <li>Respect withdrawal periods.</li>
+                    <li>Never guess medication doses.</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= EMERGENCY ================= -->
+
+<section class="section warning-section" id="emergency">
+
+    <div class="health-container">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">Act quickly</span>
+
+            <h2>When to Contact a Veterinarian</h2>
+
+            <p>
+                Some conditions can deteriorate rapidly. Early professional
+                assessment can be important.
+            </p>
+
+        </div>
+
+        <div class="warning-grid">
+
+            <div class="warning-card">
+
+                <h3>
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Urgent Warning Signs
+                </h3>
+
+                <ul>
+                    <li>Severe difficulty breathing</li>
+                    <li>Sudden inability to stand</li>
+                    <li>Severe bleeding or serious injury</li>
+                    <li>Convulsions or severe neurological signs</li>
+                    <li>Severe bloating</li>
+                    <li>Repeated sudden deaths in a group</li>
+                    <li>Large unexplained decline in production</li>
+                </ul>
+
+            </div>
+
+
+            <div class="warning-card">
+
+                <h3>
+                    <i class="fa-solid fa-phone-volume"></i>
+                    Protect the Rest of the Herd
+                </h3>
+
+                <ul>
+                    <li>Do not move sick animals unnecessarily.</li>
+                    <li>Separate suspicious animals where appropriate.</li>
+                    <li>Limit unnecessary visitors.</li>
+                    <li>Clean contaminated equipment safely.</li>
+                    <li>Record symptoms and deaths.</li>
+                    <li>Contact the appropriate veterinary authority.</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DAILY CHECKLIST ================= -->
+
+<section class="section">
+
+    <div class="health-container">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">Farm routine</span>
+
+            <h2>Simple Animal Health Checklist</h2>
+
+            <p>
+                A consistent observation routine helps farmers notice problems
+                before they become larger losses.
+            </p>
+
+        </div>
+
+
+        <div class="check-grid">
+
+            <div class="check-card">
+
+                <h3>
+                    <i class="fa-solid fa-sun"></i>
+                    Daily
+                </h3>
+
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Observe behaviour</li>
+                    <li><i class="fa-solid fa-check"></i> Check appetite</li>
+                    <li><i class="fa-solid fa-check"></i> Check water</li>
+                    <li><i class="fa-solid fa-check"></i> Look for injuries</li>
+                    <li><i class="fa-solid fa-check"></i> Check unusual faeces</li>
+                    <li><i class="fa-solid fa-check"></i> Observe breathing</li>
+                </ul>
+
+            </div>
+
+
+            <div class="check-card">
+
+                <h3>
+                    <i class="fa-solid fa-calendar-week"></i>
+                    Weekly
+                </h3>
+
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Inspect housing thoroughly</li>
+                    <li><i class="fa-solid fa-check"></i> Check body condition</li>
+                    <li><i class="fa-solid fa-check"></i> Inspect skin and coat</li>
+                    <li><i class="fa-solid fa-check"></i> Review feed storage</li>
+                    <li><i class="fa-solid fa-check"></i> Check equipment</li>
+                    <li><i class="fa-solid fa-check"></i> Review health records</li>
+                </ul>
+
+            </div>
+
+
+            <div class="check-card">
+
+                <h3>
+                    <i class="fa-solid fa-calendar-days"></i>
+                    Regularly
+                </h3>
+
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Review vaccination records</li>
+                    <li><i class="fa-solid fa-check"></i> Review parasite-control plan</li>
+                    <li><i class="fa-solid fa-check"></i> Evaluate animal performance</li>
+                    <li><i class="fa-solid fa-check"></i> Inspect facilities</li>
+                    <li><i class="fa-solid fa-check"></i> Update farm records</li>
+                    <li><i class="fa-solid fa-check"></i> Consult veterinary professionals</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= IMPORTANT NUMBERS ================= -->
+
+<section class="section" style="background:#edf5eb;">
+
+    <div class="health-container">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">Useful reference</span>
+
+            <h2>Important Numbers to Track</h2>
+
+            <p>
+                Farm records turn observations into useful management
+                information.
+            </p>
+
+        </div>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Record</th>
+                        <th>Why It Matters</th>
+                        <th>Suggested Frequency</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Animal deaths</td>
+                        <td>Can reveal disease or management problems</td>
+                        <td>Record every occurrence</td>
+                    </tr>
+
+                    <tr>
+                        <td>Animal treatments</td>
+                        <td>Helps track disease and medicine use</td>
+                        <td>Record every treatment</td>
+                    </tr>
+
+                    <tr>
+                        <td>Vaccinations</td>
+                        <td>Prevents missed preventive care</td>
+                        <td>Record every vaccination</td>
+                    </tr>
+
+                    <tr>
+                        <td>Body weight / growth</td>
+                        <td>Shows nutrition and production performance</td>
+                        <td>According to the farm production plan</td>
+                    </tr>
+
+                    <tr>
+                        <td>Milk / egg production</td>
+                        <td>Sudden changes may indicate a problem</td>
+                        <td>Daily or according to production system</td>
+                    </tr>
+
+                    <tr>
+                        <td>Feed consumption</td>
+                        <td>Helps detect changes in appetite and efficiency</td>
+                        <td>According to farm system</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="health-container">
+
+    <div class="cta">
+
+        <h2>
+            Healthy Animals Build Stronger Farms
+        </h2>
+
+        <p>
+            Animal health is a continuous process. Observe your animals,
+            maintain good management practices, keep accurate records and seek
+            qualified veterinary support whenever a problem is suspected.
+        </p>
+
+        <a href="livestock-farming.html">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to Livestock Farming
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>
+        <strong>Africa AgroVision</strong>
+    </p>
+
+    <p>
+        Agriculture • Livestock • Poultry • Innovation • Sustainable Farming
+    </p>
+
+    <p>
+        © 2026 Africa AgroVision. All rights reserved.
+    </p>
+
+</footer>
+
+
+</body>
+</html>
+```
