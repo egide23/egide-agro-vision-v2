@@ -6,88 +6,725 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Register | Africa AgroVision</title>
+    <title>Create Account | Africa AgroVision</title>
 
     <link rel="stylesheet" href="style.css">
 
     <!-- Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <style>
+
+        /* =====================================================
+           AFRICA AGROVISION — PROFESSIONAL REGISTRATION PAGE
+           ===================================================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #183522;
+            background: #f4f7f4;
+        }
+
+        .register-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 45px 20px;
+            position: relative;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    rgba(8, 48, 25, 0.78),
+                    rgba(8, 48, 25, 0.88)
+                ),
+                url("images/green-farm.jpg.jpg")
+                center center / cover no-repeat;
+        }
+
+        /* Decorative background circles */
+
+        .register-section::before {
+            content: "";
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04);
+            top: -180px;
+            right: -120px;
+        }
+
+        .register-section::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.035);
+            bottom: -150px;
+            left: -100px;
+        }
+
+        /* Main card */
+
+        .register-container {
+            width: 100%;
+            max-width: 510px;
+            position: relative;
+            z-index: 2;
+
+            background: rgba(255, 255, 255, 0.98);
+
+            border-radius: 24px;
+
+            padding: 42px 42px 34px;
+
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.30);
+
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+        /* Top green line */
+
+        .register-container::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 5px;
+
+            border-radius: 24px 24px 0 0;
+
+            background: linear-gradient(
+                90deg,
+                #0f4d25,
+                #2e7d32,
+                #66bb6a
+            );
+        }
+
+        /* Brand */
+
+        .brand {
+            text-align: center;
+            margin-bottom: 26px;
+        }
+
+        .brand-logo {
+            width: 62px;
+            height: 62px;
+
+            margin: 0 auto 15px;
+
+            border-radius: 18px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #14532d;
+
+            color: white;
+
+            font-size: 19px;
+            font-weight: 800;
+            letter-spacing: 1px;
+
+            box-shadow:
+                0 10px 25px rgba(20, 83, 45, 0.22);
+        }
+
+        .brand-name {
+            margin: 0;
+
+            font-size: 15px;
+            font-weight: 700;
+
+            letter-spacing: 0.8px;
+
+            color: #2e6b3b;
+        }
+
+        /* Heading */
+
+        .register-container h1 {
+            margin: 0;
+
+            text-align: center;
+
+            color: #12351f;
+
+            font-size: 30px;
+            line-height: 1.2;
+
+            font-weight: 750;
+            letter-spacing: -0.5px;
+        }
+
+        .intro {
+            margin: 11px auto 29px;
+
+            max-width: 410px;
+
+            text-align: center;
+
+            color: #68766c;
+
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+        /* Form */
+
+        .form-group {
+            margin-bottom: 17px;
+        }
+
+        .form-group label {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #263e2d;
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper input {
+            width: 100%;
+
+            height: 50px;
+
+            padding: 0 15px;
+
+            border: 1px solid #d6dfd8;
+
+            border-radius: 11px;
+
+            outline: none;
+
+            background: #fbfcfb;
+
+            color: #17251b;
+
+            font-size: 14px;
+
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .input-wrapper input:hover {
+            border-color: #b9c9bd;
+        }
+
+        .input-wrapper input:focus {
+            border-color: #2e7d32;
+
+            background: #ffffff;
+
+            box-shadow:
+                0 0 0 4px rgba(46, 125, 50, 0.09);
+        }
+
+        .input-wrapper input::placeholder {
+            color: #9aa59e;
+        }
+
+        /* Password */
+
+        .password-input {
+    padding-right: 58px !important;
+}
+
+        }
+
+        .show-password {
+    position: absolute;
+
+    right: 8px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: auto;
+    min-width: 42px;
+
+    border: none;
+    background: transparent;
+
+    color: #2d713b;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    padding: 4px 5px;
+
+    line-height: 1;
+}
+
+.show-password:hover {
+    color: #12351f;
+}
+        }
+
+        .show-password:hover {
+            color: #12351f;
+        }
+
+        .password-hint {
+            margin-top: 6px;
+
+            color: #8a948d;
+
+            font-size: 11px;
+        }
+
+        /* Message */
+
+        #message {
+            display: none;
+
+            margin: 4px 0 17px;
+
+            padding: 12px 14px;
+
+            border-radius: 10px;
+
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        #message.error {
+            display: block;
+
+            color: #8a2929;
+
+            background: #fff3f3;
+
+            border: 1px solid #efcaca;
+        }
+
+        #message.success {
+            display: block;
+
+            color: #21632c;
+
+            background: #f0faf2;
+
+            border: 1px solid #c9e6ce;
+        }
+
+        /* Button */
+
+        #registerButton {
+            width: 100%;
+
+            height: 52px;
+
+            border: none;
+            border-radius: 11px;
+
+            background: #14532d;
+
+            color: white;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 9px 20px rgba(20, 83, 45, 0.20);
+
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        #registerButton:hover {
+            background: #1b6a38;
+
+            transform: translateY(-1px);
+
+            box-shadow:
+                0 12px 24px rgba(20, 83, 45, 0.25);
+        }
+
+        #registerButton:active {
+            transform: translateY(0);
+        }
+
+        #registerButton:disabled {
+            opacity: 0.65;
+
+            cursor: not-allowed;
+
+            transform: none;
+
+            box-shadow: none;
+        }
+
+        /* Login */
+
+        .login-link {
+            text-align: center;
+
+            margin: 22px 0 0;
+
+            color: #718078;
+
+            font-size: 13px;
+        }
+
+        .login-link a {
+            color: #14532d;
+
+            font-weight: 700;
+
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Trust area */
+
+        .trust-area {
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 8px;
+
+            margin-top: 24px;
+            padding-top: 18px;
+
+            border-top: 1px solid #e5eae6;
+
+            color: #7a857e;
+
+            font-size: 11px;
+
+            line-height: 1.5;
+
+            text-align: center;
+        }
+
+        .trust-icon {
+            width: 22px;
+            height: 22px;
+
+            flex-shrink: 0;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #edf7ef;
+
+            color: #2e7d32;
+
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 560px) {
+
+            .register-section {
+                padding: 25px 14px;
+            }
+
+            .register-container {
+                padding: 36px 23px 28px;
+
+                border-radius: 19px;
+            }
+
+            .register-container h1 {
+                font-size: 26px;
+            }
+
+            .intro {
+                font-size: 13px;
+            }
+
+        }
+
+        @media (max-width: 380px) {
+
+            .register-container {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+
+            .brand-logo {
+                width: 56px;
+                height: 56px;
+            }
+
+            .register-container h1 {
+                font-size: 24px;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
+
 <section class="register-section">
+
 
     <div class="register-container">
 
-        <h1>Create Your Account</h1>
 
-        <p>
-            Join Africa AgroVision and become part of Africa's
-            agricultural future.
+        <!-- ==========================================
+             BRAND
+             ========================================== -->
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                AA
+            </div>
+
+            <p class="brand-name">
+                AFRICA AGROVISION
+            </p>
+
+        </div>
+
+
+        <!-- ==========================================
+             HEADING
+             ========================================== -->
+
+        <h1>
+            Create Your Account
+        </h1>
+
+        <p class="intro">
+            Join Africa AgroVision and become part of a growing
+            community focused on African agriculture, farming
+            knowledge and innovation.
         </p>
+
+
+        <!-- ==========================================
+             REGISTRATION FORM
+             ========================================== -->
 
         <form id="registerForm">
 
-            <label>Full Name</label>
 
-            <input
-                type="text"
-                id="name"
-                placeholder="Enter your full name"
-                required
+            <!-- FULL NAME -->
+
+            <div class="form-group">
+
+                <label for="name">
+                    Full Name
+                </label>
+
+                <div class="input-wrapper">
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your full name"
+                        autocomplete="name"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="form-group">
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <div class="input-wrapper">
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email address"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <div class="form-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <div class="input-wrapper">
+
+                    <input
+                        type="password"
+                        id="password"
+                        class="password-input"
+                        placeholder="Create a secure password"
+                        autocomplete="new-password"
+                        minlength="6"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="show-password"
+                        id="showPassword"
+                    >
+                        Show
+                    </button>
+
+                </div>
+
+                <div class="password-hint">
+                    Use at least 6 characters.
+                </div>
+
+            </div>
+
+
+            <!-- CONFIRM PASSWORD -->
+
+            <div class="form-group">
+
+                <label for="confirmPassword">
+                    Confirm Password
+                </label>
+
+                <div class="input-wrapper">
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        class="password-input"
+                        placeholder="Confirm your password"
+                        autocomplete="new-password"
+                        minlength="6"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="show-password"
+                        id="showConfirmPassword"
+                    >
+                        Show
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- MESSAGE -->
+
+            <div id="message"></div>
+
+
+            <!-- CREATE ACCOUNT -->
+
+            <button
+                type="submit"
+                id="registerButton"
             >
-
-            <label>Email Address</label>
-
-            <input
-                type="email"
-                id="email"
-                placeholder="Enter your email"
-                required
-            >
-
-            <label>Password</label>
-
-            <input
-                type="password"
-                id="password"
-                placeholder="Create a password"
-                required
-                minlength="6"
-            >
-
-            <label>Confirm Password</label>
-
-            <input
-                type="password"
-                id="confirmPassword"
-                placeholder="Confirm your password"
-                required
-                minlength="6"
-            >
-
-            <button type="submit" id="registerButton">
                 Create Account
             </button>
 
+
         </form>
 
+
+        <!-- ==========================================
+             LOGIN
+             ========================================== -->
+
         <p class="login-link">
+
             Already have an account?
-            <a href="login.html">Login Here</a>
+
+            <a href="login.html">
+                Login Here
+            </a>
+
         </p>
 
+
+        <!-- ==========================================
+             TRUST
+             ========================================== -->
+
+        <div class="trust-area">
+
+            <span class="trust-icon">
+                ✓
+            </span>
+
+            <span>
+                Your account is securely managed through
+                Africa AgroVision's authentication system.
+            </span>
+
+        </div>
+
+
     </div>
+
 
 </section>
 
 
 <script>
 
-// ==========================================
+
+// =====================================================
 // SUPABASE CONNECTION
-// ==========================================
+// =====================================================
 
 const SUPABASE_URL =
     "https://fhvyncltdliduhhfqzqq.supabase.co";
@@ -95,63 +732,189 @@ const SUPABASE_URL =
 const SUPABASE_PUBLISHABLE_KEY =
     "sb_publishable_b2M9akZhcgz5KjOZQ1mPtA_aNXZhv6J";
 
-const supabaseClient = window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_PUBLISHABLE_KEY
-);
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+    );
 
 
-// ==========================================
+// =====================================================
+// ELEMENTS
+// =====================================================
+
+const registerForm =
+    document.getElementById("registerForm");
+
+const registerButton =
+    document.getElementById("registerButton");
+
+const message =
+    document.getElementById("message");
+
+
+// =====================================================
+// SHOW MESSAGE
+// =====================================================
+
+function showMessage(text, type) {
+
+    message.textContent = text;
+
+    message.className = type;
+
+    message.style.display = "block";
+
+}
+
+
+// =====================================================
+// PASSWORD VISIBILITY
+// =====================================================
+
+document
+    .getElementById("showPassword")
+    .addEventListener("click", function () {
+
+        const password =
+            document.getElementById("password");
+
+        if (password.type === "password") {
+
+            password.type = "text";
+
+            this.textContent = "Hide";
+
+        } else {
+
+            password.type = "password";
+
+            this.textContent = "Show";
+
+        }
+
+    });
+
+
+document
+    .getElementById("showConfirmPassword")
+    .addEventListener("click", function () {
+
+        const password =
+            document.getElementById("confirmPassword");
+
+        if (password.type === "password") {
+
+            password.type = "text";
+
+            this.textContent = "Hide";
+
+        } else {
+
+            password.type = "password";
+
+            this.textContent = "Show";
+
+        }
+
+    });
+
+
+// =====================================================
 // REGISTRATION
-// ==========================================
+// =====================================================
 
-document.getElementById("registerForm").addEventListener(
+registerForm.addEventListener(
     "submit",
     async function(event) {
 
         event.preventDefault();
 
+
+        // -------------------------------------------------
+        // GET VALUES
+        // -------------------------------------------------
+
         const name =
-            document.getElementById("name").value.trim();
+            document
+                .getElementById("name")
+                .value
+                .trim();
 
         const email =
-            document.getElementById("email").value.trim().toLowerCase();
+            document
+                .getElementById("email")
+                .value
+                .trim()
+                .toLowerCase();
 
         const password =
-            document.getElementById("password").value;
+            document
+                .getElementById("password")
+                .value;
 
         const confirmPassword =
-            document.getElementById("confirmPassword").value;
+            document
+                .getElementById("confirmPassword")
+                .value;
 
-        const registerButton =
-            document.getElementById("registerButton");
+
+        message.style.display = "none";
 
 
-        // Check passwords
+        // -------------------------------------------------
+        // VALIDATION
+        // -------------------------------------------------
 
-        if (password !== confirmPassword) {
+        if (name.length < 2) {
 
-            alert("Passwords do not match.");
+            showMessage(
+                "Please enter your full name.",
+                "error"
+            );
 
             return;
         }
 
-
-        // Check password length
 
         if (password.length < 6) {
 
-            alert("Password must be at least 6 characters.");
+            showMessage(
+                "Your password must contain at least 6 characters.",
+                "error"
+            );
 
             return;
         }
 
 
+        if (password !== confirmPassword) {
+
+            showMessage(
+                "The passwords do not match. Please check them and try again.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        // -------------------------------------------------
+        // BUTTON LOADING
+        // -------------------------------------------------
+
         registerButton.disabled = true;
-        registerButton.textContent = "Creating Account...";
+
+        registerButton.textContent =
+            "Creating Account...";
 
 
         try {
+
+
+            // -------------------------------------------------
+            // CREATE SUPABASE ACCOUNT
+            // -------------------------------------------------
 
             const { data, error } =
                 await supabaseClient.auth.signUp({
@@ -163,7 +926,9 @@ document.getElementById("registerForm").addEventListener(
                     options: {
 
                         data: {
+
                             name: name
+
                         }
 
                     }
@@ -171,49 +936,96 @@ document.getElementById("registerForm").addEventListener(
                 });
 
 
+            // -------------------------------------------------
+            // ERROR
+            // -------------------------------------------------
+
             if (error) {
 
-                console.error(error);
+                console.error(
+                    "Registration error:",
+                    error
+                );
 
-                alert(error.message);
+                showMessage(
+                    error.message,
+                    "error"
+                );
 
                 return;
             }
 
 
-            console.log("User created:", data);
+            // -------------------------------------------------
+            // SUCCESS
+            // -------------------------------------------------
+
+            console.log(
+                "User created:",
+                data
+            );
 
 
             if (data.user && !data.session) {
 
-                alert(
-                    "Registration successful! Please check your email and confirm your account before logging in."
+                showMessage(
+                    "Registration successful! Please check your email and confirm your account before logging in.",
+                    "success"
                 );
 
             } else {
 
-                alert(
-                    "Registration successful! You can now login."
+                showMessage(
+                    "Registration successful! You can now log in.",
+                    "success"
                 );
 
             }
 
 
-            window.location.replace("login.html");
+            registerButton.textContent =
+                "Account Created";
+
+
+            // -------------------------------------------------
+            // GO TO LOGIN
+            // -------------------------------------------------
+
+            setTimeout(function() {
+
+                window.location.replace(
+                    "login.html"
+                );
+
+            }, 1800);
 
 
         } catch (error) {
 
-            console.error(error);
-
-            alert(
-                "Something went wrong. Please try again."
+            console.error(
+                "Unexpected registration error:",
+                error
             );
+
+            showMessage(
+                "Something went wrong. Please try again.",
+                "error"
+            );
+
 
         } finally {
 
-            registerButton.disabled = false;
-            registerButton.textContent = "Create Account";
+            if (
+                registerButton.textContent !==
+                "Account Created"
+            ) {
+
+                registerButton.disabled = false;
+
+                registerButton.textContent =
+                    "Create Account";
+
+            }
 
         }
 
@@ -221,6 +1033,7 @@ document.getElementById("registerForm").addEventListener(
 );
 
 </script>
+
 
 </body>
 

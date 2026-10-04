@@ -13,56 +13,745 @@
     <!-- Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+
+    <style>
+
+        /* =====================================================
+           AFRICA AGROVISION DASHBOARD
+        ===================================================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            font-family: Arial, sans-serif;
+
+            color: #173a23;
+
+            background:
+                linear-gradient(
+                    rgba(7, 42, 20, 0.78),
+                    rgba(15, 73, 34, 0.68)
+                ),
+                url("https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=2200&q=90");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+
+        /* =====================================================
+           NAVIGATION
+        ===================================================== */
+
+        .dashboard-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            width: 100%;
+
+            min-height: 70px;
+
+            padding: 0 5%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background: rgba(10, 55, 25, 0.96);
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.16);
+
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+
+        .dashboard-nav h2 {
+            margin: 0;
+
+            color: #ffffff;
+
+            font-size: 21px;
+            font-weight: 800;
+
+            white-space: nowrap;
+        }
+
+
+        .dashboard-nav ul {
+            margin: 0;
+            padding: 0;
+
+            display: flex;
+            align-items: center;
+
+            gap: 4px;
+
+            list-style: none;
+        }
+
+
+        .dashboard-nav li {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .dashboard-nav a {
+            display: block;
+
+            padding: 10px 12px;
+
+            border-radius: 9px;
+
+            color: rgba(255, 255, 255, 0.90);
+
+            font-size: 13px;
+            font-weight: 600;
+
+            text-decoration: none;
+
+            transition:
+                background 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+
+        .dashboard-nav a:hover {
+            background: rgba(255, 255, 255, 0.12);
+
+            color: #ffffff;
+
+            transform: translateY(-1px);
+        }
+
+
+        .dashboard-nav a[href="dashboard.html"] {
+            background: rgba(255, 255, 255, 0.13);
+
+            color: #ffffff;
+        }
+
+
+        #logout {
+            margin-left: 4px;
+
+            background: rgba(255, 255, 255, 0.09);
+        }
+
+
+        #logout:hover {
+            background: rgba(255, 80, 80, 0.20);
+        }
+
+
+        /* =====================================================
+           DASHBOARD HERO
+        ===================================================== */
+
+        .dashboard-hero {
+            position: relative;
+
+            width: min(1150px, 92%);
+
+            margin: 55px auto 35px;
+
+            padding: 65px 50px;
+
+            text-align: center;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(8, 48, 22, 0.84),
+                    rgba(27, 94, 32, 0.70)
+                );
+
+            border: 1px solid rgba(255, 255, 255, 0.16);
+
+            border-radius: 30px;
+
+            box-shadow:
+                0 30px 70px rgba(0, 0, 0, 0.25);
+
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+
+            overflow: hidden;
+
+            animation: heroAppear 0.7s ease;
+        }
+
+
+        .dashboard-hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+            height: 250px;
+
+            top: -130px;
+            right: -80px;
+
+            border-radius: 50%;
+
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+
+        .dashboard-hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            bottom: -100px;
+            left: -60px;
+
+            border-radius: 50%;
+
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+
+        @keyframes heroAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        .dashboard-hero h1 {
+            position: relative;
+            z-index: 2;
+
+            margin: 0 0 15px;
+
+            color: #ffffff;
+
+            font-size: clamp(30px, 5vw, 48px);
+
+            line-height: 1.15;
+
+            font-weight: 800;
+        }
+
+
+        .dashboard-hero > p {
+            position: relative;
+            z-index: 2;
+
+            max-width: 760px;
+
+            margin: 0 auto 30px;
+
+            color: rgba(255, 255, 255, 0.88);
+
+            font-size: 16px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           SEARCH
+        ===================================================== */
+
+        .dashboard-search {
+            position: relative;
+            z-index: 3;
+
+            width: min(650px, 100%);
+
+            margin: 0 auto;
+
+            display: flex;
+
+            gap: 9px;
+
+            padding: 7px;
+
+            background: rgba(255, 255, 255, 0.12);
+
+            border: 1px solid rgba(255, 255, 255, 0.17);
+
+            border-radius: 15px;
+
+            backdrop-filter: blur(8px);
+        }
+
+
+        .dashboard-search input {
+            flex: 1;
+
+            min-width: 0;
+
+            height: 48px;
+
+            padding: 0 16px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: rgba(255, 255, 255, 0.97);
+
+            color: #173a23;
+
+            font-size: 14px;
+
+            outline: none;
+        }
+
+
+        .dashboard-search input::placeholder {
+            color: #849188;
+        }
+
+
+        .dashboard-search input:focus {
+            box-shadow:
+                0 0 0 3px rgba(255, 255, 255, 0.18);
+        }
+
+
+        .dashboard-search button {
+            min-width: 105px;
+
+            height: 48px;
+
+            padding: 0 18px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: #ffffff;
+
+            color: #185423;
+
+            font-size: 14px;
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease;
+        }
+
+
+        .dashboard-search button:hover {
+            background: #eaf5ec;
+
+            transform: translateY(-1px);
+        }
+
+
+        /* =====================================================
+           DASHBOARD CARDS
+        ===================================================== */
+
+        .dashboard-cards {
+            width: min(1150px, 92%);
+
+            margin: 0 auto 70px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+
+            gap: 20px;
+        }
+
+
+        .dashboard-cards .card {
+            position: relative;
+
+            min-height: 300px;
+
+            padding: 28px 25px;
+
+            display: flex;
+            flex-direction: column;
+
+            text-decoration: none;
+
+            background: rgba(255, 255, 255, 0.96);
+
+            border: 1px solid rgba(255, 255, 255, 0.70);
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 18px 40px rgba(0, 0, 0, 0.17);
+
+            overflow: hidden;
+
+            transition:
+                transform 0.28s ease,
+                box-shadow 0.28s ease;
+        }
+
+
+        .dashboard-cards .card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 120px;
+            height: 120px;
+
+            right: -55px;
+            bottom: -55px;
+
+            border-radius: 50%;
+
+            background: rgba(46, 125, 50, 0.07);
+        }
+
+
+        .dashboard-cards .card:hover {
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 28px 55px rgba(0, 0, 0, 0.24);
+        }
+
+
+        /* =====================================================
+           CARD ICON
+        ===================================================== */
+
+        .card-icon {
+            width: 58px;
+            height: 58px;
+
+            margin-bottom: 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 16px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #e8f5e9,
+                    #d5ecd8
+                );
+
+            font-size: 28px;
+
+            box-shadow:
+                0 7px 16px rgba(27, 94, 32, 0.10);
+        }
+
+
+        /* =====================================================
+           CARD CONTENT
+        ===================================================== */
+
+        .dashboard-cards .card h3 {
+            margin: 0 0 10px;
+
+            color: #12351f;
+
+            font-size: 21px;
+
+            font-weight: 800;
+        }
+
+
+        .dashboard-cards .card p {
+            margin: 0;
+
+            color: #68766e;
+
+            font-size: 14px;
+
+            line-height: 1.65;
+        }
+
+
+        /* =====================================================
+           CARD BUTTON
+        ===================================================== */
+
+        .dashboard-btn {
+            margin-top: auto;
+
+            padding-top: 22px;
+
+            color: #1b6b2a;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            transition:
+                color 0.2s ease;
+        }
+
+
+        .dashboard-cards .card:hover .dashboard-btn {
+            color: #0d4318;
+        }
+
+
+        /* =====================================================
+           MOBILE NAVIGATION
+        ===================================================== */
+
+        @media (max-width: 1050px) {
+
+            .dashboard-nav {
+                padding: 12px 4%;
+
+                flex-direction: column;
+
+                gap: 10px;
+            }
+
+
+            .dashboard-nav ul {
+                width: 100%;
+
+                justify-content: center;
+
+                flex-wrap: wrap;
+            }
+
+
+            .dashboard-nav a {
+                padding: 8px 9px;
+
+                font-size: 12px;
+            }
+
+
+            .dashboard-cards {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+        }
+
+
+        /* =====================================================
+           SMALL DEVICES
+        ===================================================== */
+
+        @media (max-width: 650px) {
+
+            body {
+                background-attachment: scroll;
+            }
+
+
+            .dashboard-hero {
+                width: 94%;
+
+                margin-top: 25px;
+
+                padding: 42px 22px;
+
+                border-radius: 23px;
+            }
+
+
+            .dashboard-hero h1 {
+                font-size: 30px;
+            }
+
+
+            .dashboard-hero > p {
+                font-size: 14px;
+            }
+
+
+            .dashboard-search {
+                flex-direction: column;
+
+                padding: 7px;
+            }
+
+
+            .dashboard-search input,
+            .dashboard-search button {
+                width: 100%;
+            }
+
+
+            .dashboard-cards {
+                width: 94%;
+
+                grid-template-columns: 1fr;
+
+                gap: 16px;
+
+                margin-bottom: 40px;
+            }
+
+
+            .dashboard-cards .card {
+                min-height: 260px;
+            }
+
+
+            .dashboard-nav h2 {
+                font-size: 19px;
+            }
+
+
+            .dashboard-nav ul {
+                gap: 2px;
+            }
+
+
+            .dashboard-nav a {
+                padding: 7px 6px;
+
+                font-size: 11px;
+            }
+        }
+
+
+        /* =====================================================
+           VERY SMALL PHONES
+        ===================================================== */
+
+        @media (max-width: 390px) {
+
+            .dashboard-nav ul {
+                display: grid;
+
+                grid-template-columns:
+                    repeat(3, 1fr);
+
+                width: 100%;
+            }
+
+
+            .dashboard-nav a {
+                text-align: center;
+
+                font-size: 10px;
+            }
+
+
+            .dashboard-hero h1 {
+                font-size: 27px;
+            }
+
+
+            .dashboard-cards .card {
+                padding: 24px 21px;
+            }
+        }
+
+    </style>
+
 </head>
 
 
 <body>
 
 
-<!-- ==========================================
+<!-- =====================================================
      NAVIGATION
-========================================== -->
+===================================================== -->
 
 <nav class="dashboard-nav">
 
-    <h2>Africa AgroVision 🌱</h2>
+    <h2>
+        Africa AgroVision 🌱
+    </h2>
+
 
     <ul>
 
         <li>
-            <a href="dashboard.html">Dashboard</a>
+            <a href="dashboard.html">
+                Dashboard
+            </a>
         </li>
 
         <li>
-            <a href="profile.html">Profile</a>
+            <a href="profile.html">
+                Profile
+            </a>
         </li>
 
         <li>
-            <a href="about.html">About</a>
+            <a href="about.html">
+                About
+            </a>
         </li>
 
         <li>
-            <a href="index.html#services">Services</a>
+            <a href="index.html#services">
+                Services
+            </a>
         </li>
 
         <li>
-            <a href="index.html#projects">Projects</a>
+            <a href="index.html#projects">
+                Projects
+            </a>
         </li>
 
         <li>
-            <a href="index.html#gallery">Gallery</a>
+            <a href="index.html#gallery">
+                Gallery
+            </a>
         </li>
 
         <li>
-            <a href="ideas.html">Ideas & Feedback</a>
+            <a href="ideas.html">
+                Ideas & Feedback
+            </a>
         </li>
 
         <li>
-            <a href="index.html#contact">Contact</a>
+            <a href="index.html#contact">
+                Contact
+            </a>
         </li>
 
         <li>
-            <a href="#" id="logout">Logout</a>
+            <a href="#" id="logout">
+                Logout
+            </a>
         </li>
 
     </ul>
@@ -71,19 +760,22 @@
 
 
 
-<!-- ==========================================
+<!-- =====================================================
      DASHBOARD HERO
-========================================== -->
+===================================================== -->
 
 <section class="dashboard-hero">
+
 
     <h1 id="welcomeMessage">
         Welcome to Africa AgroVision 🌱
     </h1>
 
+
     <p>
-        Building Africa's agricultural future through innovation,
-        sustainability, technology, and collaboration.
+        Building Africa's agricultural future through
+        integrated farming, innovation, sustainability,
+        technology, and collaboration.
     </p>
 
 
@@ -92,8 +784,9 @@
         <input
             type="text"
             id="searchInput"
-            placeholder="Search Africa AgroVision..."
+            placeholder="Search farming, projects, gallery..."
         >
+
 
         <button
             type="button"
@@ -104,37 +797,45 @@
 
     </div>
 
+
 </section>
 
 
 
-<!-- ==========================================
+<!-- =====================================================
      DASHBOARD CARDS
-========================================== -->
+===================================================== -->
 
 <section class="dashboard-cards">
 
 
     <!-- AGRICULTURE -->
 
-    <a href="agriculture.html" class="card">
+    <a
+        href="agriculture.html"
+        class="card"
+    >
 
         <div class="card-icon">
             🌱
         </div>
 
+
         <h3>
             Agriculture
         </h3>
 
+
         <p>
-            Explore farming guides, crop production,
-            livestock management, climate-smart agriculture,
-            pest control, and modern farming innovations.
+            Explore crop production, livestock farming,
+            poultry, climate-smart agriculture, pest
+            management, animal health, and modern
+            farming knowledge.
         </p>
 
+
         <span class="dashboard-btn">
-            🌿 Explore More
+            🌿 Explore Agriculture →
         </span>
 
     </a>
@@ -143,23 +844,30 @@
 
     <!-- PROJECTS -->
 
-    <a href="projects.html" class="card">
+    <a
+        href="projects.html"
+        class="card"
+    >
 
         <div class="card-icon">
             🚜
         </div>
 
+
         <h3>
             Projects
         </h3>
 
+
         <p>
-            Explore our ongoing and completed
-            agricultural projects across Africa.
+            Explore practical agricultural projects,
+            farm business ideas, investment models,
+            production plans, and real opportunities.
         </p>
 
+
         <span class="dashboard-btn">
-            🚜 Explore Projects
+            🚜 Explore Projects →
         </span>
 
     </a>
@@ -168,24 +876,30 @@
 
     <!-- GALLERY -->
 
-    <a href="gallery.html" class="card">
+    <a
+        href="gallery.html"
+        class="card"
+    >
 
         <div class="card-icon">
             📷
         </div>
 
+
         <h3>
             Gallery
         </h3>
 
+
         <p>
-            View photos highlighting agriculture,
-            innovation, technology, and farming
-            across Africa.
+            Discover visual stories from agriculture,
+            livestock, farming innovation, technology,
+            landscapes, and agricultural development.
         </p>
 
+
         <span class="dashboard-btn">
-            📷 View Gallery
+            📷 View Gallery →
         </span>
 
     </a>
@@ -194,23 +908,30 @@
 
     <!-- CONTACT -->
 
-    <a href="contact.html" class="card">
+    <a
+        href="contact.html"
+        class="card"
+    >
 
         <div class="card-icon">
-            📞
+            🤝
         </div>
+
 
         <h3>
             Contact
         </h3>
 
+
         <p>
             Connect with Africa AgroVision for
-            partnerships, opportunities, and collaboration.
+            partnerships, agricultural opportunities,
+            collaboration, and professional support.
         </p>
 
+
         <span class="dashboard-btn">
-            📞 Contact Us
+            🤝 Contact Us →
         </span>
 
     </a>
@@ -220,21 +941,24 @@
 
 
 
-<!-- ==========================================
+<!-- =====================================================
      JAVASCRIPT
-========================================== -->
+===================================================== -->
 
 <script>
 
-// ==========================================
+
+// =====================================================
 // SUPABASE CONNECTION
-// ==========================================
+// =====================================================
 
 const SUPABASE_URL =
     "https://fhvyncltdliduhhfqzqq.supabase.co";
 
+
 const SUPABASE_PUBLISHABLE_KEY =
     "sb_publishable_b2M9akZhcgz5KjOZQ1mPtA_aNXZhv6J";
+
 
 const supabaseClient =
     window.supabase.createClient(
@@ -243,9 +967,10 @@ const supabaseClient =
     );
 
 
-// ==========================================
+
+// =====================================================
 // CHECK LOGIN SESSION
-// ==========================================
+// =====================================================
 
 async function checkUser() {
 
@@ -254,7 +979,8 @@ async function checkUser() {
         const {
             data,
             error
-        } = await supabaseClient.auth.getSession();
+        } =
+            await supabaseClient.auth.getSession();
 
 
         if (error) {
@@ -272,7 +998,8 @@ async function checkUser() {
         }
 
 
-        const session = data.session;
+        const session =
+            data.session;
 
 
         console.log(
@@ -297,11 +1024,12 @@ async function checkUser() {
         }
 
 
-        // ==========================================
+        // =================================================
         // USER IS LOGGED IN
-        // ==========================================
+        // =================================================
 
-        const user = session.user;
+        const user =
+            session.user;
 
 
         console.log(
@@ -310,9 +1038,9 @@ async function checkUser() {
         );
 
 
-        // ==========================================
+        // =================================================
         // SHOW USER NAME
-        // ==========================================
+        // =================================================
 
         const welcomeMessage =
             document.getElementById(
@@ -341,12 +1069,14 @@ async function checkUser() {
 
     }
 
+
     catch (error) {
 
         console.error(
             "Unexpected session error:",
             error
         );
+
 
         window.location.replace(
             "login.html"
@@ -363,9 +1093,9 @@ checkUser();
 
 
 
-// ==========================================
+// =====================================================
 // LOGOUT
-// ==========================================
+// =====================================================
 
 const logoutButton =
     document.getElementById(
@@ -398,7 +1128,9 @@ logoutButton.addEventListener(
             const {
                 error
             } =
-                await supabaseClient.auth.signOut();
+                await supabaseClient
+                    .auth
+                    .signOut();
 
 
             if (error) {
@@ -408,9 +1140,11 @@ logoutButton.addEventListener(
                     error
                 );
 
+
                 alert(
                     "Unable to logout. Please try again."
                 );
+
 
                 return;
             }
@@ -422,12 +1156,14 @@ logoutButton.addEventListener(
 
         }
 
+
         catch (error) {
 
             console.error(
                 "Unexpected logout error:",
                 error
             );
+
 
             alert(
                 "Something went wrong while logging out."
@@ -440,9 +1176,9 @@ logoutButton.addEventListener(
 
 
 
-// ==========================================
+// =====================================================
 // SEARCH
-// ==========================================
+// =====================================================
 
 const searchInput =
     document.getElementById(
@@ -470,6 +1206,7 @@ function performSearch() {
             "Please enter something to search."
         );
 
+
         return;
     }
 
@@ -479,11 +1216,16 @@ function performSearch() {
     if (
         searchTerm.includes("agriculture") ||
         searchTerm.includes("farming") ||
-        searchTerm.includes("farm")
+        searchTerm.includes("farm") ||
+        searchTerm.includes("crop") ||
+        searchTerm.includes("livestock") ||
+        searchTerm.includes("animal") ||
+        searchTerm.includes("poultry")
     ) {
 
         window.location.href =
             "agriculture.html";
+
 
         return;
     }
@@ -499,6 +1241,7 @@ function performSearch() {
         window.location.href =
             "projects.html";
 
+
         return;
     }
 
@@ -513,6 +1256,7 @@ function performSearch() {
 
         window.location.href =
             "gallery.html";
+
 
         return;
     }
@@ -530,6 +1274,7 @@ function performSearch() {
         window.location.href =
             "contact.html";
 
+
         return;
     }
 
@@ -544,6 +1289,7 @@ function performSearch() {
         window.location.href =
             "profile.html";
 
+
         return;
     }
 
@@ -557,6 +1303,7 @@ function performSearch() {
 
         window.location.href =
             "dashboard.html";
+
 
         return;
     }
@@ -573,7 +1320,9 @@ function performSearch() {
 
 
 
-// Search button
+// =====================================================
+// SEARCH BUTTON
+// =====================================================
 
 searchButton.addEventListener(
     "click",
@@ -582,7 +1331,9 @@ searchButton.addEventListener(
 
 
 
-// Search with Enter
+// =====================================================
+// SEARCH WITH ENTER
+// =====================================================
 
 searchInput.addEventListener(
     "keydown",

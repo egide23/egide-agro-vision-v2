@@ -69,18 +69,24 @@ nav {
 
 .hero {
     min-height: 100vh;
+
     background:
         linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
         url("hero.jpg");
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+
     padding: 120px 8% 60px;
+
     color: #fff;
+}
 }
 
 .hero h1 {
@@ -117,7 +123,7 @@ nav {
 /* =========================
    Registration & Login
 ========================= */
-
+.hero
 .register-section {
     min-height: 100vh;
     display: flex;
