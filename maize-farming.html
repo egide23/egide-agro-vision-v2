@@ -1,302 +1,1127 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#103e27">
+<meta name="description" content="Learn maize farming in Rwanda and Africa, from land preparation and planting to pest control, harvesting and grain storage.">
 
-<title>Complete Guide to Maize Farming | Africa AgroVision</title>
+<title>Maize Farming Guide | Africa AgroVision</title>
 
-<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+<style>
+:root{
+  --green:#124c2c;
+  --dark:#092f1c;
+  --light:#eaf5ed;
+  --gold:#e5aa34;
+  --text:#183d29;
+  --muted:#627568;
+  --border:#dfe9e1;
+  --bg:#f5f8f5;
+  --white:#fff;
+  --shadow:0 12px 35px rgba(10,49,25,.09);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+  line-height:1.75;
+}
+a{text-decoration:none;color:inherit}
+button{font:inherit;cursor:pointer}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a:focus-visible,button:focus-visible{
+  outline:3px solid #8ed19d;
+  outline-offset:3px;
+}
+
+/* NAVIGATION */
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:var(--dark);
+  box-shadow:0 4px 20px #0002;
+}
+.nav-inner{
+  max-width:1400px;
+  margin:auto;
+  min-height:76px;
+  padding:12px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:white;
+  font-size:21px;
+  font-weight:800;
+  white-space:nowrap;
+}
+.brand i{
+  display:grid;
+  place-items:center;
+  width:43px;
+  height:43px;
+  background:#287e45;
+  border-radius:11px;
+  color:#c5efca;
+}
+.brand em{color:#a6e3b2;font-style:normal}
+.brand small{
+  display:block;
+  color:#cfe5d4;
+  font-size:10px;
+  font-weight:400;
+  line-height:1.5;
+}
+.nav-links{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:5px;
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+.nav-links a{
+  display:block;
+  padding:10px 13px;
+  border-radius:8px;
+  color:#e6f1e9;
+  font-size:12px;
+  font-weight:700;
+}
+.nav-links a:hover,.nav-links a.active{background:#ffffff22}
+.menu-toggle{
+  display:none;
+  width:44px;
+  height:44px;
+  border:1px solid #ffffff55;
+  border-radius:9px;
+  background:transparent;
+  color:white;
+  font-size:20px;
+}
+
+/* HERO */
+.hero{
+  position:relative;
+  min-height:510px;
+  display:flex;
+  align-items:center;
+  background:
+    linear-gradient(90deg,rgba(7,38,21,.95),rgba(9,47,26,.79) 45%,rgba(9,47,26,.19)),
+    url("https://images.unsplash.com/photo-1601593768795-2a5d9b541f98?auto=format&fit=crop&w=1900&q=85")
+    center/cover;
+  color:white;
+}
+.hero-inner{
+  width:92%;
+  max-width:1260px;
+  margin:auto;
+  padding:75px 0 95px;
+}
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  padding:8px 14px;
+  border:1px solid #ffffff60;
+  border-radius:30px;
+  background:#ffffff19;
+  color:#d4efb6;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:1.2px;
+  text-transform:uppercase;
+}
+.hero h1{
+  max-width:790px;
+  margin:22px 0 18px;
+  font-size:clamp(37px,5.2vw,65px);
+  line-height:1.1;
+  letter-spacing:-1.5px;
+}
+.hero h1 span{color:#f2c76c}
+.hero p{
+  max-width:690px;
+  color:#e4eee6;
+  font-size:16px;
+  line-height:1.9;
+}
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:30px;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:14px 21px;
+  border-radius:10px;
+  background:#f0b846;
+  color:#263518;
+  font-size:13px;
+  font-weight:800;
+  transition:.2s;
+}
+.btn:hover{transform:translateY(-2px);background:#ffcd69}
+.btn.secondary{
+  background:#ffffff18;
+  border:1px solid #ffffff80;
+  color:white;
+}
+
+/* PAGE */
+.container{
+  width:92%;
+  max-width:1260px;
+  margin:auto;
+}
+.facts-wrap{
+  position:relative;
+  z-index:2;
+  margin-top:-55px;
+}
+.facts{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:0;
+  padding:16px;
+  background:white;
+  border:1px solid var(--border);
+  border-radius:17px;
+  box-shadow:var(--shadow);
+}
+.fact{
+  padding:22px 24px;
+  border-right:1px solid var(--border);
+}
+.fact:last-child{border-right:0}
+.fact-icon{
+  display:grid;
+  place-items:center;
+  width:43px;
+  height:43px;
+  border-radius:12px;
+  background:#e5f4e9;
+  color:#277b43;
+  font-size:19px;
+  margin-bottom:12px;
+}
+.fact strong{
+  display:block;
+  font-size:19px;
+  color:#174b2e;
+  margin-bottom:3px;
+}
+.fact span{
+  color:var(--muted);
+  font-size:12px;
+}
+.section{
+  padding:75px 0 0;
+}
+.section-label{
+  display:inline-block;
+  margin-bottom:10px;
+  color:#2c8749;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
+}
+.section h2{
+  margin:0 0 16px;
+  color:#123d26;
+  font-size:clamp(27px,3.3vw,37px);
+  line-height:1.25;
+}
+.section-lead{
+  max-width:850px;
+  margin:0 0 30px;
+  color:var(--muted);
+  font-size:15px;
+}
+.intro-panel{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:35px;
+  align-items:center;
+}
+.intro-panel p,.article-copy p{
+  color:#586d60;
+  font-size:14px;
+  line-height:1.95;
+  margin:0 0 17px;
+}
+.image-frame{
+  overflow:hidden;
+  border-radius:17px;
+  height:345px;
+  background:#e2eee5;
+  box-shadow:var(--shadow);
+}
+.image-frame img{transition:transform .4s}
+.image-frame:hover img{transform:scale(1.04)}
+.image-caption{
+  margin-top:10px;
+  color:#849187;
+  font-size:11px;
+}
+.highlight{
+  margin-top:22px;
+  padding:18px 21px;
+  background:#e7f4ea;
+  border-left:4px solid #2e8d4c;
+  border-radius:0 11px 11px 0;
+  color:#29583a;
+  font-size:13px;
+  line-height:1.8;
+}
+
+/* STAGES */
+.stage-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:22px;
+}
+.stage-card{
+  overflow:hidden;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:white;
+  box-shadow:var(--shadow);
+}
+.stage-image{
+  position:relative;
+  height:205px;
+  background:#e5efe7;
+}
+.stage-number{
+  position:absolute;
+  left:17px;
+  bottom:-18px;
+  width:39px;
+  height:39px;
+  display:grid;
+  place-items:center;
+  border:3px solid white;
+  border-radius:11px;
+  background:var(--green);
+  color:white;
+  font-size:14px;
+  font-weight:800;
+}
+.stage-body{padding:32px 22px 24px}
+.stage-body h3{
+  margin:0 0 11px;
+  color:#18432b;
+  font-size:20px;
+}
+.stage-body p{
+  margin:0 0 14px;
+  color:#65776a;
+  font-size:13px;
+  line-height:1.85;
+}
+.stage-body ul{
+  padding-left:18px;
+  margin:0;
+  color:#526a5b;
+  font-size:12px;
+  line-height:1.95;
+}
+.stage-body li{padding-left:3px}
+
+/* ARTICLE PANELS */
+.detail-panel{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:36px;
+  align-items:center;
+  margin-top:30px;
+  padding:26px;
+  background:white;
+  border:1px solid var(--border);
+  border-radius:18px;
+  box-shadow:var(--shadow);
+}
+.detail-panel.reverse .image-frame{order:2}
+.detail-panel .image-frame{height:315px}
+.detail-panel h3{
+  margin:0 0 14px;
+  font-size:24px;
+  color:#17472d;
+}
+.detail-panel p{
+  margin:0 0 14px;
+  color:#607367;
+  font-size:13px;
+  line-height:1.9;
+}
+.check-list{
+  list-style:none;
+  padding:0;
+  margin:14px 0 0;
+}
+.check-list li{
+  position:relative;
+  padding-left:27px;
+  margin-bottom:10px;
+  color:#516a59;
+  font-size:13px;
+  line-height:1.7;
+}
+.check-list li:before{
+  content:"✓";
+  position:absolute;
+  left:0;
+  top:0;
+  font-weight:900;
+  color:#2e914d;
+}
+
+/* TIMELINE */
+.timeline{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:15px;
+}
+.timeline-item{
+  position:relative;
+  padding:24px 18px;
+  border:1px solid #dbe9df;
+  border-radius:14px;
+  background:white;
+}
+.timeline-item .step{
+  display:grid;
+  place-items:center;
+  width:36px;
+  height:36px;
+  margin-bottom:14px;
+  border-radius:50%;
+  background:#e2f2e6;
+  color:#287a43;
+  font-size:14px;
+  font-weight:800;
+}
+.timeline-item h3{
+  margin:0 0 9px;
+  font-size:15px;
+  color:#17462c;
+}
+.timeline-item p{
+  margin:0;
+  color:#65796a;
+  font-size:12px;
+  line-height:1.8;
+}
+
+/* WARNING AND CTA */
+.warning{
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
+  margin-top:30px;
+  padding:23px;
+  border:1px solid #f0dfb9;
+  border-radius:13px;
+  background:#fff8e9;
+}
+.warning i{
+  color:#bf821a;
+  font-size:23px;
+  margin-top:3px;
+}
+.warning h3{margin:0 0 5px;font-size:16px}
+.warning p{
+  margin:0;
+  color:#795e35;
+  font-size:13px;
+}
+.cta{
+  margin:75px 0 80px;
+  padding:45px;
+  border-radius:20px;
+  background:linear-gradient(115deg,#0c3b23,#237343);
+  color:white;
+  text-align:center;
+}
+.cta h2{
+  margin:0 0 12px;
+  font-size:clamp(25px,3vw,35px);
+}
+.cta p{
+  max-width:700px;
+  margin:0 auto 24px;
+  color:#d7e9db;
+  font-size:14px;
+}
+.cta .btn{background:#f0b846}
+.footer{
+  padding:28px 15px;
+  background:#082f1b;
+  color:#d1e3d6;
+  text-align:center;
+  font-size:12px;
+}
+.footer a{color:#c2eac8}
+.footer a:hover{text-decoration:underline}
+
+/* RESPONSIVE */
+@media(max-width:1050px){
+  .nav-inner{flex-wrap:wrap}
+  .nav-links{justify-content:center}
+  .facts{grid-template-columns:repeat(2,1fr)}
+  .fact:nth-child(2){border-right:0}
+  .fact:nth-child(-n+2){border-bottom:1px solid var(--border)}
+  .stage-grid{grid-template-columns:repeat(2,1fr)}
+  .timeline{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:750px){
+  .nav-inner{min-height:70px}
+  .brand{font-size:18px}
+  .menu-toggle{display:block}
+  .nav-links{
+    display:none;
+    width:100%;
+    flex-direction:column;
+    align-items:stretch;
+    padding:10px 0;
+  }
+  .nav-links.open{display:flex}
+  .nav-links li{width:100%}
+  .nav-links a{padding:12px}
+  .hero{min-height:470px}
+  .hero-inner{padding:65px 0 85px}
+  .hero h1{font-size:38px}
+  .hero p{font-size:14px}
+  .intro-panel,.detail-panel{grid-template-columns:1fr}
+  .detail-panel.reverse .image-frame{order:0}
+  .image-frame,.detail-panel .image-frame{height:290px}
+  .section{padding-top:60px}
+  .timeline{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:550px){
+  .facts{padding:8px}
+  .fact{padding:18px 12px}
+  .fact strong{font-size:16px}
+  .fact span{font-size:11px}
+  .hero-actions{flex-direction:column}
+  .btn{width:100%}
+  .stage-grid,.timeline{grid-template-columns:1fr}
+  .stage-image{height:230px}
+  .detail-panel{padding:17px}
+  .cta{padding:32px 22px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{scroll-behavior:auto!important;transition:none!important}
+}
+</style>
 </head>
 
 <body>
 
-<!-- =========================
-Navigation
-========================= -->
+<!-- NAVIGATION -->
+<nav class="navbar" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <i class="fa-solid fa-leaf"></i>
+      <span>
+        Africa <em>AgroVision</em>
+        <small>Growing Agriculture. Connecting Opportunities.</small>
+      </span>
+    </a>
 
-<nav class="dashboard-nav">
+    <button type="button" class="menu-toggle"
+      id="menuToggle" aria-expanded="false"
+      aria-controls="navLinks" aria-label="Open navigation">
+      <i class="fa-solid fa-bars"></i>
+    </button>
 
-<h2>Africa AgroVision 🌱</h2>
-
-<ul>
-
-<li><a href="dashboard.html">Dashboard</a></li>
-<li><a href="agriculture.html">Agriculture</a></li>
-<li><a href="projects.html">Projects</a></li>
-<li><a href="gallery.html">Gallery</a></li>
-<li><a href="ideas.html">Ideas & Feedback</a></li>
-<li><a href="contact.html">Contact</a></li>
-
-</ul>
-
+    <ul class="nav-links" id="navLinks">
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a class="active" href="agriculture.html">Agriculture</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="ideas.html">Ideas & Feedback</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
 </nav>
 
-<!-- =========================
-Hero
-========================= -->
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <span class="eyebrow">
+      <i class="fa-solid fa-wheat-awn"></i>
+      Africa AgroVision • Crop Production Guide
+    </span>
 
-<section class="dashboard-hero">
+    <h1>Grow Better Maize.<br><span>Harvest Greater Opportunities.</span></h1>
 
-<h1>🌽 Maize Farming: The Complete Guide from Planting to Harvest</h1>
+    <p>
+      A practical guide to maize farming in Rwanda and across Africa.
+      Learn how to select suitable land, choose quality seed, plant correctly,
+      manage your crop and protect grain quality after harvest.
+    </p>
 
-<p>
+    <div class="hero-actions">
+      <a href="#introduction" class="btn">
+        <i class="fa-solid fa-book-open"></i> Start Learning
+      </a>
+      <a href="#farming-stages" class="btn secondary">
+        <i class="fa-solid fa-list-check"></i> Explore Farming Steps
+      </a>
+    </div>
+  </div>
+</header>
 
-Learn modern maize production techniques that help improve yields,
-increase profits, and promote sustainable farming across Africa.
+<main>
 
-</p>
+<!-- QUICK FACTS -->
+<div class="container facts-wrap">
+  <section class="facts" aria-label="Quick facts about maize">
+    <div class="fact">
+      <div class="fact-icon"><i class="fa-solid fa-cloud-sun-rain"></i></div>
+      <strong>500–1,200 mm</strong>
+      <span>Approximate seasonal rainfall requirement, depending on variety and conditions</span>
+    </div>
 
+    <div class="fact">
+      <div class="fact-icon"><i class="fa-solid fa-temperature-half"></i></div>
+      <strong>18–30°C</strong>
+      <span>Broad favorable temperature range for maize growth</span>
+    </div>
 
-<a href="maize-farming.html" class="crop-btn">
-View Maize Guide
-</a>
+    <div class="fact">
+      <div class="fact-icon"><i class="fa-solid fa-ruler-combined"></i></div>
+      <strong>75 × 25–30 cm</strong>
+      <span>Example spacing; confirm the recommended spacing for your seed variety</span>
+    </div>
 
+    <div class="fact">
+      <div class="fact-icon"><i class="fa-solid fa-flask"></i></div>
+      <strong>pH 5.5–7.0</strong>
+      <span>General soil pH range; soil testing guides corrective action</span>
+    </div>
+  </section>
+</div>
 
+<!-- INTRODUCTION -->
+<section class="section container" id="introduction">
+  <div class="intro-panel">
+    <div>
+      <span class="section-label">01 / Introduction</span>
+      <h2>Why Maize Farming Matters</h2>
+
+      <p>
+        Maize is one of Africa's most important food and cash crops.
+        It supports household food security, livestock feed production,
+        agricultural trade and rural employment.
+      </p>
+
+      <p>
+        In Rwanda, maize is grown in different agroecological conditions.
+        Successful production depends on selecting varieties suited to
+        the location, planting at the right time and maintaining healthy soil.
+      </p>
+
+      <p>
+        High yields result from a combination of quality seed, suitable
+        field preparation, balanced nutrition, timely weed management,
+        pest monitoring and proper post-harvest handling.
+      </p>
+
+      <div class="highlight">
+        <strong><i class="fa-solid fa-lightbulb"></i> Key principle:</strong>
+        Plan the whole season before planting. Seed choice, input costs,
+        labor, rainfall expectations and market opportunities all matter.
+      </div>
+    </div>
+
+    <div>
+      <div class="image-frame">
+        <img
+          src="https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=1100&q=85"
+          alt="Fresh maize cobs showing developed kernels"
+          loading="lazy">
+      </div>
+      <div class="image-caption">
+        Maize production connects farming, food security and agribusiness.
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- =========================
-Article
-========================= -->
-
-<section class="profile-container">
-
-<div class="profile-card">
-
-<h2>Introduction</h2>
-
-<p style="text-align:justify; line-height:1.9; margin-top:20px;">
-
-Maize is one of Africa's most important food and cash crops. It provides
-daily meals for millions of families, supports livestock production,
-supplies raw materials to industries, and generates income for farmers
-across the continent.
-
-Whether you are a beginner starting your first maize field or an
-experienced farmer looking to improve productivity, success begins with
-good planning and the consistent application of modern farming practices.
-
-High maize yields are not achieved by chance. They result from choosing
-the right seed, preparing fertile land, planting at the correct time,
-managing weeds and pests effectively, and harvesting properly.
-
-This guide explains every important stage of maize production—from
-choosing land to safely storing harvested grain.
-
-</p>
-
-<hr style="margin:40px 0;">
-
-<h2>📌 Quick Facts About Maize</h2>
-
-<div class="dashboard-cards">
-
-<div class="card">
-
-<h3>🌦 Climate</h3>
-
-<p>
-
-Best rainfall:
-<strong>500–1,200 mm</strong>
-
-<br><br>
-
-Ideal temperature:
-
-<strong>18°C–30°C</strong>
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>🌱 Soil</h3>
-
-<p>
-
-Deep, fertile and
-well-drained soils rich
-in organic matter.
-
-<br><br>
-
-Best pH:
-
-<strong>5.5–7.0</strong>
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>🌾 Planting</h3>
-
-<p>
-
-Row spacing:
-
-<strong>75 cm</strong>
-
-<br><br>
-
-Plant spacing:
-
-<strong>25–30 cm</strong>
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>🚜 Harvest</h3>
-
-<p>
-
-Usually harvested
-after physiological
-maturity when grains
-are hard and dry.
-
-</p>
-
-</div>
-
-</div>
-
-<hr style="margin:50px 0;">
-
-<h2>🌍 Choosing the Right Land</h2>
-
-<p style="text-align:justify; line-height:1.9; margin-top:20px;">
-
-Choosing the right field is the foundation of successful maize farming.
-Even the highest-quality seed cannot produce excellent yields if planted
-in unsuitable soil.
-
-Maize performs best in fertile, deep, and well-drained soils that allow
-roots to grow freely while retaining enough moisture during the growing
-season. Fields that become waterlogged after heavy rain should be
-avoided because standing water damages roots, limits oxygen, and
-encourages diseases.
-
-Before planting, inspect your land carefully. Remove large stones,
-tree stumps, and other obstacles that interfere with cultivation.
-Where possible, conduct a soil test to determine nutrient levels and
-soil acidity. This helps farmers apply the correct fertilizer instead
-of guessing.
-
-Good land selection reduces production costs and improves crop
-performance throughout the season.
-
-</p>
-
-<hr style="margin:50px 0;">
-
-<h2>🌽 Selecting the Right Seed Variety</h2>
-
-<p style="text-align:justify; line-height:1.9; margin-top:20px;">
-
-Seed selection has one of the greatest influences on maize production.
-Always purchase certified seed from trusted suppliers rather than using
-unknown grain from local markets.
-
-Certified seed offers higher germination rates, improved resistance to
-major diseases, better drought tolerance in suitable varieties, and
-higher yield potential.
-
-When selecting a variety, consider:
-
-</p>
-
-<ul style="line-height:2; margin:25px 40px;">
-
-<li>Rainfall patterns in your area.</li>
-
-<li>Length of the growing season.</li>
-
-<li>Resistance to pests and diseases.</li>
-
-<li>Expected grain yield.</li>
-
-<li>Market demand.</li>
-
-<li>Availability of irrigation.</li>
-
-</ul>
-
-<p style="text-align:justify; line-height:1.9;">
-
-Consult agricultural extension officers or certified seed companies to
-identify varieties that perform well in your region.
-
-</p>
-
-<hr style="margin:50px 0;">
-
-<h2>🚜 Land Preparation</h2>
-
-<p style="text-align:justify; line-height:1.9; margin-top:20px;">
-
-Proper land preparation creates favorable conditions for seed
-germination and root development.
-
-Prepare the field several weeks before planting by removing weeds,
-previous crop residues, and unwanted vegetation.
-
-The field should then be ploughed to loosen compacted soil before
-harrowing to produce a fine seedbed.
-
-Where conservation agriculture is practiced, minimum tillage may be
-used to reduce soil erosion and preserve soil moisture.
-
-Good land preparation improves water infiltration, reduces weed
-competition, and encourages uniform crop establishment.
-
-</p>
-
-<hr style="margin:50px 0;">
-
-<h2>🌱 Planting Maize</h2>
-
-<p style="text-align:justify; line-height:1.9; margin-top:20px;">
-
-Plant maize immediately after the first effective rains or when
-adequate irrigation water is available.
-
-Recommended spacing:
-
-</p>
-
-<ul style="line-height:2; margin:25px 40px;">
-
-<li>Row spacing: <strong>75 cm</strong></li>
-
-<li>Plant spacing: <strong>25–30 cm</strong></li>
-
-<li>Planting depth: <strong>3–5 cm</strong></li>
-
-</ul>
-
-<p style="text-align:justify; line-height:1.9;">
-
-Correct spacing allows each plant to receive enough sunlight,
-nutrients, water, and air circulation while reducing competition
-between plants.
-
-Timely planting is one of the simplest ways to increase maize yields.
-
-</p>
-
-</div>
-
+<!-- MAIN STAGES -->
+<section class="section container" id="farming-stages">
+  <span class="section-label">02 / Production Process</span>
+  <h2>Six Essential Stages of Maize Farming</h2>
+  <p class="section-lead">
+    Follow these stages to establish a healthy crop and improve your
+    chances of a successful harvest. Recommendations should be adapted
+    to local conditions and the selected maize variety.
+  </p>
+
+  <div class="stage-grid">
+
+    <article class="stage-card">
+      <div class="stage-image">
+        <img
+          src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=85"
+          alt="Agricultural field suitable for crop production"
+          loading="lazy">
+        <span class="stage-number">01</span>
+      </div>
+      <div class="stage-body">
+        <h3>Choose Suitable Land</h3>
+        <p>
+          Select fertile, well-drained soil with adequate sunlight
+          and good moisture availability.
+        </p>
+        <ul>
+          <li>Avoid fields prone to prolonged waterlogging.</li>
+          <li>Check soil depth, slope and drainage.</li>
+          <li>Use soil tests to guide amendments.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="stage-card">
+      <div class="stage-image">
+        <img
+          src="https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=900&q=85"
+          alt="Maize kernels on mature maize cobs"
+          loading="lazy">
+        <span class="stage-number">02</span>
+      </div>
+      <div class="stage-body">
+        <h3>Select Quality Seed</h3>
+        <p>
+          Choose certified seed appropriate for local rainfall,
+          altitude, disease pressure and market requirements.
+        </p>
+        <ul>
+          <li>Buy from recognized seed suppliers.</li>
+          <li>Check the label and expiry date.</li>
+          <li>Follow the variety's planting instructions.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="stage-card">
+      <div class="stage-image">
+        <img
+          src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=900&q=85"
+          alt="Farm field and agricultural cultivation"
+          loading="lazy">
+        <span class="stage-number">03</span>
+      </div>
+      <div class="stage-body">
+        <h3>Prepare the Field</h3>
+        <p>
+          Prepare a suitable seedbed while protecting soil
+          structure, organic matter and moisture.
+        </p>
+        <ul>
+          <li>Control existing weeds before planting.</li>
+          <li>Reduce compaction where necessary.</li>
+          <li>Consider erosion-control measures on slopes.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="stage-card">
+      <div class="stage-image">
+        <img
+          src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=900&q=85"
+          alt="Young green plants during early growth"
+          loading="lazy">
+        <span class="stage-number">04</span>
+      </div>
+      <div class="stage-body">
+        <h3>Plant at the Right Time</h3>
+        <p>
+          Plant after effective rainfall has established adequate
+          soil moisture, or when irrigation is available.
+        </p>
+        <ul>
+          <li>Use recommended spacing and depth.</li>
+          <li>Maintain a uniform plant population.</li>
+          <li>Check germination and fill gaps promptly if appropriate.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="stage-card">
+      <div class="stage-image">
+        <img
+          src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=900&q=85"
+          alt="Green cultivated plants requiring regular field management"
+          loading="lazy">
+        <span class="stage-number">05</span>
+      </div>
+      <div class="stage-body">
+        <h3>Manage Crop Health</h3>
+        <p>
+          Monitor crop growth, soil nutrition, weeds and pest
+          damage throughout the season.
+        </p>
+        <ul>
+          <li>Weed early to reduce competition.</li>
+          <li>Apply nutrients based on local guidance.</li>
+          <li>Scout regularly for fall armyworm and diseases.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="stage-card">
+      <div class="stage-image">
+        <img
+          src="https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=900&q=85"
+          alt="Mature maize cobs ready for grain handling"
+          loading="lazy">
+        <span class="stage-number">06</span>
+      </div>
+      <div class="stage-body">
+        <h3>Harvest & Store</h3>
+        <p>
+          Harvest mature maize, dry it safely and protect
+          grain from moisture, insects and contamination.
+        </p>
+        <ul>
+          <li>Harvest at the correct maturity stage.</li>
+          <li>Dry grain to the required storage moisture.</li>
+          <li>Use clean, dry and pest-resistant storage.</li>
+        </ul>
+      </div>
+    </article>
+
+  </div>
 </section>
+
+<!-- LAND -->
+<section class="section container" id="land">
+  <span class="section-label">03 / Field Establishment</span>
+  <h2>Land Selection & Soil Preparation</h2>
+
+  <div class="detail-panel">
+    <div class="image-frame">
+      <img
+        src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1100&q=85"
+        alt="Open agricultural fields with growing crops"
+        loading="lazy">
+    </div>
+
+    <div>
+      <h3>Build the Foundation for Healthy Roots</h3>
+      <p>
+        Maize needs soil that allows roots to develop and absorb
+        water and nutrients efficiently. Poor drainage, severe
+        compaction and low fertility can reduce crop performance.
+      </p>
+      <p>
+        Where possible, test the soil before planting. This helps
+        determine whether lime, organic matter or fertilizer is needed.
+        On sloping land, protect the field from erosion.
+      </p>
+
+      <ul class="check-list">
+        <li>Select deep, fertile and well-drained soil.</li>
+        <li>Manage previous crop residues responsibly.</li>
+        <li>Use contour farming or other erosion-control practices where appropriate.</li>
+        <li>Avoid unnecessary tillage that damages soil structure.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SEED -->
+<section class="section container" id="seed">
+  <span class="section-label">04 / Seed & Planting</span>
+  <h2>Choose the Right Variety and Plant Correctly</h2>
+
+  <div class="detail-panel reverse">
+    <div class="image-frame">
+      <img
+        src="https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=1100&q=85"
+        alt="Maize cobs with healthy kernels"
+        loading="lazy">
+    </div>
+
+    <div>
+      <h3>Quality Seed Is an Investment</h3>
+      <p>
+        Choose certified maize seed suited to your growing
+        environment. Compare maturity period, yield potential,
+        tolerance to local stresses and intended market.
+      </p>
+      <p>
+        A commonly used example is 75 cm between rows and
+        25–30 cm between planting positions, with planting
+        depth around 3–5 cm. Actual recommendations depend
+        on the variety, number of plants per position and local conditions.
+      </p>
+
+      <ul class="check-list">
+        <li>Plant when adequate soil moisture is available.</li>
+        <li>Follow the seed supplier's population and spacing guidance.</li>
+        <li>Use consistent planting depth for even emergence.</li>
+        <li>Inspect germination shortly after planting.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CROP MANAGEMENT -->
+<section class="section container" id="management">
+  <span class="section-label">05 / Crop Management</span>
+  <h2>Nutrition, Weeding & Pest Protection</h2>
+  <p class="section-lead">
+    Once the maize has emerged, consistent management is essential.
+    Small problems can become expensive when they are not detected early.
+  </p>
+
+  <div class="detail-panel">
+    <div class="image-frame">
+      <img
+        src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=1100&q=85"
+        alt="Healthy green crop foliage"
+        loading="lazy">
+    </div>
+
+    <div>
+      <h3>Keep the Crop Healthy</h3>
+      <p>
+        Fertilizer recommendations should be based on soil tests,
+        crop needs, expected yield and locally approved advice.
+        Excessive or poorly timed fertilizer can waste money and
+        harm the environment.
+      </p>
+      <p>
+        Early weed competition can substantially reduce maize
+        growth. Regular field scouting also helps farmers detect
+        fall armyworm, stem borers, leaf diseases and other problems.
+      </p>
+
+      <ul class="check-list">
+        <li>Inspect the field regularly, especially during early growth.</li>
+        <li>Control weeds before they compete strongly with maize.</li>
+        <li>Use integrated pest management and identify pests before treatment.</li>
+        <li>Only use locally registered pesticides according to their labels.</li>
+        <li>Keep records of field activities and input costs.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>
+      <h3>Important for Rwanda-based farmers</h3>
+      <p>
+        Planting dates, suitable varieties, fertilizer rates and
+        pest-control recommendations vary by district, altitude,
+        season and soil condition. Consult local agricultural
+        extension services and Rwanda Agriculture and Animal
+        Resources Development Board (RAB) guidance before making
+        major production decisions.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- HARVEST -->
+<section class="section container" id="harvest">
+  <span class="section-label">06 / Harvest & Post-Harvest</span>
+  <h2>Protect the Value of Your Harvest</h2>
+
+  <div class="detail-panel reverse">
+    <div class="image-frame">
+      <img
+        src="https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=1100&q=85"
+        alt="Mature maize cobs showing grain quality"
+        loading="lazy">
+    </div>
+
+    <div>
+      <h3>Harvest Carefully. Store Safely.</h3>
+      <p>
+        Harvest when the crop reaches maturity and conditions
+        allow safe handling. Avoid leaving mature grain exposed
+        unnecessarily to rain, pests and field losses.
+      </p>
+      <p>
+        After harvest, dry grain on clean surfaces or suitable
+        drying equipment. Grain intended for storage should
+        generally reach around 13–14% moisture or the limit
+        required by the buyer and storage system.
+      </p>
+
+      <ul class="check-list">
+        <li>Separate visibly moldy or damaged grain.</li>
+        <li>Do not dry maize directly on bare soil.</li>
+        <li>Use clean bags and dry, ventilated storage facilities.</li>
+        <li>Check moisture and inspect stored grain regularly.</li>
+        <li>Prevent aflatoxin risks through good drying and storage practices.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section container" id="timeline">
+  <span class="section-label">07 / Seasonal Planning</span>
+  <h2>Your Maize Farming Timeline</h2>
+  <p class="section-lead">
+    This is a practical sequence of activities rather than a fixed
+    calendar. The timing depends on rainfall, location and variety.
+  </p>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <span class="step">1</span>
+      <h3>Before Planting</h3>
+      <p>Assess land, test soil, choose seed, prepare a budget and plan inputs.</p>
+    </div>
+
+    <div class="timeline-item">
+      <span class="step">2</span>
+      <h3>Planting Period</h3>
+      <p>Plant with adequate moisture, correct spacing and suitable nutrient management.</p>
+    </div>
+
+    <div class="timeline-item">
+      <span class="step">3</span>
+      <h3>Early Growth</h3>
+      <p>Check emergence, manage weeds and scout for early pest damage.</p>
+    </div>
+
+    <div class="timeline-item">
+      <span class="step">4</span>
+      <h3>Flowering & Grain Fill</h3>
+      <p>Monitor crop health and moisture stress during sensitive growth stages.</p>
+    </div>
+
+    <div class="timeline-item">
+      <span class="step">5</span>
+      <h3>Harvest & Marketing</h3>
+      <p>Harvest mature maize, dry it, grade it, store it safely and identify buyers.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CALL TO ACTION -->
+<div class="container">
+  <section class="cta">
+    <h2>Turn Your Maize Harvest into a Business Opportunity</h2>
+    <p>
+      Explore Africa AgroVision's agricultural marketplace to
+      connect with potential maize buyers and sellers, discover
+      trading opportunities and grow your agribusiness.
+    </p>
+
+    <a href="agro-market.html" class="btn">
+      <i class="fa-solid fa-store"></i>
+      Visit Agricultural Marketplace
+    </a>
+  </section>
+</div>
+
+</main>
+
+<footer class="footer">
+  <p>
+    © 2026 <strong>Africa AgroVision</strong> —
+    Growing Agriculture. Connecting Opportunities.
+  </p>
+  <p>
+    <a href="dashboard.html">Dashboard</a> ·
+    <a href="agriculture.html">Agriculture</a> ·
+    <a href="contact.html">Contact Us</a>
+  </p>
+</footer>
+
+<script>
+"use strict";
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+  const isOpen = navLinks.classList.toggle("open");
+
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.setAttribute(
+    "aria-label",
+    isOpen ? "Close navigation" : "Open navigation"
+  );
+
+  menuToggle.innerHTML = isOpen
+    ? '<i class="fa-solid fa-xmark"></i>'
+    : '<i class="fa-solid fa-bars"></i>';
+});
+
+navLinks.addEventListener("click", event => {
+  if (event.target.closest("a") && window.innerWidth <= 750) {
+    navLinks.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Open navigation");
+    menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+  }
+});
+
+/* A branded placeholder is shown if an external image fails. */
+function createImagePlaceholder(label) {
+  const title = String(label)
+    .replace(/[<>&"']/g, "")
+    .slice(0, 45);
+
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="650">
+      <rect width="1000" height="650" fill="#dcecdf"/>
+      <path d="M0 440 Q250 300 500 440 T1000 440 V650 H0Z"
+        fill="#a7d0ad"/>
+      <path d="M0 520 Q250 390 500 520 T1000 520 V650 H0Z"
+        fill="#6da97b"/>
+      <text x="500" y="265" text-anchor="middle"
+        font-family="Arial" font-size="43" font-weight="bold"
+        fill="#235b37">${title}</text>
+      <text x="500" y="325" text-anchor="middle"
+        font-family="Arial" font-size="25"
+        fill="#417b50">Africa AgroVision</text>
+    </svg>`;
+
+  return "data:image/svg+xml;charset=UTF-8," +
+    encodeURIComponent(svg);
+}
+
+document.querySelectorAll("img").forEach(image => {
+  image.addEventListener("error", function() {
+    this.onerror = null;
+    this.src = createImagePlaceholder(this.alt || "Maize Farming");
+  });
+});
+</script>
 
 </body>
 </html>

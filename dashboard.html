@@ -1,1356 +1,996 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Dashboard | Africa AgroVision</title>
-
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Supabase -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-
-    <style>
-
-        /* =====================================================
-           AFRICA AGROVISION DASHBOARD
-        ===================================================== */
-
-        * {
-            box-sizing: border-box;
-        }
-
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-
-        body {
-            margin: 0;
-            min-height: 100vh;
-
-            font-family: Arial, sans-serif;
-
-            color: #173a23;
-
-            background:
-                linear-gradient(
-                    rgba(7, 42, 20, 0.78),
-                    rgba(15, 73, 34, 0.68)
-                ),
-                url("https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=2200&q=90");
-
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-
-
-        /* =====================================================
-           NAVIGATION
-        ===================================================== */
-
-        .dashboard-nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-
-            width: 100%;
-
-            min-height: 70px;
-
-            padding: 0 5%;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            background: rgba(10, 55, 25, 0.96);
-
-            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-
-            box-shadow:
-                0 8px 25px rgba(0, 0, 0, 0.16);
-
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-
-
-        .dashboard-nav h2 {
-            margin: 0;
-
-            color: #ffffff;
-
-            font-size: 21px;
-            font-weight: 800;
-
-            white-space: nowrap;
-        }
-
-
-        .dashboard-nav ul {
-            margin: 0;
-            padding: 0;
-
-            display: flex;
-            align-items: center;
-
-            gap: 4px;
-
-            list-style: none;
-        }
-
-
-        .dashboard-nav li {
-            margin: 0;
-            padding: 0;
-        }
-
-
-        .dashboard-nav a {
-            display: block;
-
-            padding: 10px 12px;
-
-            border-radius: 9px;
-
-            color: rgba(255, 255, 255, 0.90);
-
-            font-size: 13px;
-            font-weight: 600;
-
-            text-decoration: none;
-
-            transition:
-                background 0.2s ease,
-                color 0.2s ease,
-                transform 0.2s ease;
-        }
-
-
-        .dashboard-nav a:hover {
-            background: rgba(255, 255, 255, 0.12);
-
-            color: #ffffff;
-
-            transform: translateY(-1px);
-        }
-
-
-        .dashboard-nav a[href="dashboard.html"] {
-            background: rgba(255, 255, 255, 0.13);
-
-            color: #ffffff;
-        }
-
-
-        #logout {
-            margin-left: 4px;
-
-            background: rgba(255, 255, 255, 0.09);
-        }
-
-
-        #logout:hover {
-            background: rgba(255, 80, 80, 0.20);
-        }
-
-
-        /* =====================================================
-           DASHBOARD HERO
-        ===================================================== */
-
-        .dashboard-hero {
-            position: relative;
-
-            width: min(1150px, 92%);
-
-            margin: 55px auto 35px;
-
-            padding: 65px 50px;
-
-            text-align: center;
-
-            color: white;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(8, 48, 22, 0.84),
-                    rgba(27, 94, 32, 0.70)
-                );
-
-            border: 1px solid rgba(255, 255, 255, 0.16);
-
-            border-radius: 30px;
-
-            box-shadow:
-                0 30px 70px rgba(0, 0, 0, 0.25);
-
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-
-            overflow: hidden;
-
-            animation: heroAppear 0.7s ease;
-        }
-
-
-        .dashboard-hero::before {
-            content: "";
-
-            position: absolute;
-
-            width: 250px;
-            height: 250px;
-
-            top: -130px;
-            right: -80px;
-
-            border-radius: 50%;
-
-            background: rgba(255, 255, 255, 0.07);
-        }
-
-
-        .dashboard-hero::after {
-            content: "";
-
-            position: absolute;
-
-            width: 180px;
-            height: 180px;
-
-            bottom: -100px;
-            left: -60px;
-
-            border-radius: 50%;
-
-            background: rgba(255, 255, 255, 0.06);
-        }
-
-
-        @keyframes heroAppear {
-
-            from {
-                opacity: 0;
-                transform: translateY(18px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-
-        .dashboard-hero h1 {
-            position: relative;
-            z-index: 2;
-
-            margin: 0 0 15px;
-
-            color: #ffffff;
-
-            font-size: clamp(30px, 5vw, 48px);
-
-            line-height: 1.15;
-
-            font-weight: 800;
-        }
-
-
-        .dashboard-hero > p {
-            position: relative;
-            z-index: 2;
-
-            max-width: 760px;
-
-            margin: 0 auto 30px;
-
-            color: rgba(255, 255, 255, 0.88);
-
-            font-size: 16px;
-
-            line-height: 1.7;
-        }
-
-
-        /* =====================================================
-           SEARCH
-        ===================================================== */
-
-        .dashboard-search {
-            position: relative;
-            z-index: 3;
-
-            width: min(650px, 100%);
-
-            margin: 0 auto;
-
-            display: flex;
-
-            gap: 9px;
-
-            padding: 7px;
-
-            background: rgba(255, 255, 255, 0.12);
-
-            border: 1px solid rgba(255, 255, 255, 0.17);
-
-            border-radius: 15px;
-
-            backdrop-filter: blur(8px);
-        }
-
-
-        .dashboard-search input {
-            flex: 1;
-
-            min-width: 0;
-
-            height: 48px;
-
-            padding: 0 16px;
-
-            border: none;
-
-            border-radius: 10px;
-
-            background: rgba(255, 255, 255, 0.97);
-
-            color: #173a23;
-
-            font-size: 14px;
-
-            outline: none;
-        }
-
-
-        .dashboard-search input::placeholder {
-            color: #849188;
-        }
-
-
-        .dashboard-search input:focus {
-            box-shadow:
-                0 0 0 3px rgba(255, 255, 255, 0.18);
-        }
-
-
-        .dashboard-search button {
-            min-width: 105px;
-
-            height: 48px;
-
-            padding: 0 18px;
-
-            border: none;
-
-            border-radius: 10px;
-
-            background: #ffffff;
-
-            color: #185423;
-
-            font-size: 14px;
-            font-weight: 800;
-
-            cursor: pointer;
-
-            transition:
-                transform 0.2s ease,
-                background 0.2s ease;
-        }
-
-
-        .dashboard-search button:hover {
-            background: #eaf5ec;
-
-            transform: translateY(-1px);
-        }
-
-
-        /* =====================================================
-           DASHBOARD CARDS
-        ===================================================== */
-
-        .dashboard-cards {
-            width: min(1150px, 92%);
-
-            margin: 0 auto 70px;
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(4, minmax(0, 1fr));
-
-            gap: 20px;
-        }
-
-
-        .dashboard-cards .card {
-            position: relative;
-
-            min-height: 300px;
-
-            padding: 28px 25px;
-
-            display: flex;
-            flex-direction: column;
-
-            text-decoration: none;
-
-            background: rgba(255, 255, 255, 0.96);
-
-            border: 1px solid rgba(255, 255, 255, 0.70);
-
-            border-radius: 22px;
-
-            box-shadow:
-                0 18px 40px rgba(0, 0, 0, 0.17);
-
-            overflow: hidden;
-
-            transition:
-                transform 0.28s ease,
-                box-shadow 0.28s ease;
-        }
-
-
-        .dashboard-cards .card::after {
-            content: "";
-
-            position: absolute;
-
-            width: 120px;
-            height: 120px;
-
-            right: -55px;
-            bottom: -55px;
-
-            border-radius: 50%;
-
-            background: rgba(46, 125, 50, 0.07);
-        }
-
-
-        .dashboard-cards .card:hover {
-            transform: translateY(-8px);
-
-            box-shadow:
-                0 28px 55px rgba(0, 0, 0, 0.24);
-        }
-
-
-        /* =====================================================
-           CARD ICON
-        ===================================================== */
-
-        .card-icon {
-            width: 58px;
-            height: 58px;
-
-            margin-bottom: 20px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 16px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #e8f5e9,
-                    #d5ecd8
-                );
-
-            font-size: 28px;
-
-            box-shadow:
-                0 7px 16px rgba(27, 94, 32, 0.10);
-        }
-
-
-        /* =====================================================
-           CARD CONTENT
-        ===================================================== */
-
-        .dashboard-cards .card h3 {
-            margin: 0 0 10px;
-
-            color: #12351f;
-
-            font-size: 21px;
-
-            font-weight: 800;
-        }
-
-
-        .dashboard-cards .card p {
-            margin: 0;
-
-            color: #68766e;
-
-            font-size: 14px;
-
-            line-height: 1.65;
-        }
-
-
-        /* =====================================================
-           CARD BUTTON
-        ===================================================== */
-
-        .dashboard-btn {
-            margin-top: auto;
-
-            padding-top: 22px;
-
-            color: #1b6b2a;
-
-            font-size: 13px;
-            font-weight: 800;
-
-            transition:
-                color 0.2s ease;
-        }
-
-
-        .dashboard-cards .card:hover .dashboard-btn {
-            color: #0d4318;
-        }
-
-
-        /* =====================================================
-           MOBILE NAVIGATION
-        ===================================================== */
-
-        @media (max-width: 1050px) {
-
-            .dashboard-nav {
-                padding: 12px 4%;
-
-                flex-direction: column;
-
-                gap: 10px;
-            }
-
-
-            .dashboard-nav ul {
-                width: 100%;
-
-                justify-content: center;
-
-                flex-wrap: wrap;
-            }
-
-
-            .dashboard-nav a {
-                padding: 8px 9px;
-
-                font-size: 12px;
-            }
-
-
-            .dashboard-cards {
-                grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
-            }
-        }
-
-
-        /* =====================================================
-           SMALL DEVICES
-        ===================================================== */
-
-        @media (max-width: 650px) {
-
-            body {
-                background-attachment: scroll;
-            }
-
-
-            .dashboard-hero {
-                width: 94%;
-
-                margin-top: 25px;
-
-                padding: 42px 22px;
-
-                border-radius: 23px;
-            }
-
-
-            .dashboard-hero h1 {
-                font-size: 30px;
-            }
-
-
-            .dashboard-hero > p {
-                font-size: 14px;
-            }
-
-
-            .dashboard-search {
-                flex-direction: column;
-
-                padding: 7px;
-            }
-
-
-            .dashboard-search input,
-            .dashboard-search button {
-                width: 100%;
-            }
-
-
-            .dashboard-cards {
-                width: 94%;
-
-                grid-template-columns: 1fr;
-
-                gap: 16px;
-
-                margin-bottom: 40px;
-            }
-
-
-            .dashboard-cards .card {
-                min-height: 260px;
-            }
-
-
-            .dashboard-nav h2 {
-                font-size: 19px;
-            }
-
-
-            .dashboard-nav ul {
-                gap: 2px;
-            }
-
-
-            .dashboard-nav a {
-                padding: 7px 6px;
-
-                font-size: 11px;
-            }
-        }
-
-
-        /* =====================================================
-           VERY SMALL PHONES
-        ===================================================== */
-
-        @media (max-width: 390px) {
-
-            .dashboard-nav ul {
-                display: grid;
-
-                grid-template-columns:
-                    repeat(3, 1fr);
-
-                width: 100%;
-            }
-
-
-            .dashboard-nav a {
-                text-align: center;
-
-                font-size: 10px;
-            }
-
-
-            .dashboard-hero h1 {
-                font-size: 27px;
-            }
-
-
-            .dashboard-cards .card {
-                padding: 24px 21px;
-            }
-        }
-
-    </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b3c25">
+<meta name="description" content="Africa AgroVision - Rwanda's agricultural knowledge, projects and marketplace platform">
+<title>Dashboard | Africa AgroVision</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+:root{
+  --green:#14532d;
+  --dark:#09351f;
+  --light:#eaf5ed;
+  --text:#163d28;
+  --muted:#66766c;
+  --border:#e1eae3;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:#f5f8f5;
+}
+a{text-decoration:none;color:inherit}
+button,input{font:inherit}
+button{cursor:pointer}
+a:focus-visible,button:focus-visible,input:focus-visible{
+  outline:3px solid #79ca92;
+  outline-offset:3px;
+}
+[hidden]{display:none!important}
+
+/* NAVIGATION */
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:var(--dark);
+  box-shadow:0 5px 22px #0002;
+}
+.nav-inner{
+  max-width:1450px;
+  margin:auto;
+  padding:12px 25px;
+  min-height:74px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:18px;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:white;
+  font-size:22px;
+  font-weight:800;
+  white-space:nowrap;
+}
+.logo>i{color:#9cdea9;font-size:29px}
+.logo em{color:#a5e6ad;font-style:normal}
+.logo small{
+  display:block;
+  font-size:10px;
+  font-weight:500;
+  color:#d5e8d9;
+  margin-top:5px;
+}
+.nav-menu{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+  gap:4px;
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.nav-menu a{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:10px 11px;
+  color:#e9f2eb;
+  border-radius:8px;
+  font-size:12px;
+  font-weight:700;
+}
+.nav-menu a:hover,
+.nav-menu a.active{background:#ffffff20}
+.nav-menu .logout{
+  background:#a91c2a;
+  color:white;
+  margin-left:7px;
+}
+.nav-menu .logout:hover{background:#c92a39}
+.menu-toggle{
+  display:none;
+  width:44px;
+  height:44px;
+  border:1px solid #ffffff50;
+  border-radius:9px;
+  background:transparent;
+  color:white;
+  font-size:20px;
+}
+
+/* HERO */
+.hero{
+  min-height:320px;
+  display:flex;
+  align-items:center;
+  background:
+    linear-gradient(90deg,#ffffffef 0%,#ffffffd6 49%,#ffffff32 100%),
+    url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+}
+.hero-inner{
+  width:94%;
+  max-width:1390px;
+  margin:auto;
+  padding:45px 0 65px;
+}
+.hero-label{
+  display:inline-flex;
+  gap:8px;
+  align-items:center;
+  margin-bottom:14px;
+  color:#267947;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+.hero h1{
+  margin:0 0 13px;
+  max-width:760px;
+  color:#103c25;
+  font-size:clamp(32px,4.5vw,49px);
+  line-height:1.13;
+  letter-spacing:-1px;
+}
+.hero p{
+  max-width:650px;
+  margin:0;
+  color:#435b4a;
+  font-size:15px;
+  line-height:1.8;
+}
+.hero-actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:23px;
+}
+.hero-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:14px 20px;
+  border-radius:9px;
+  background:var(--green);
+  color:white;
+  font-size:13px;
+  font-weight:800;
+  transition:.2s;
+}
+.hero-btn:hover{background:#267b44;transform:translateY(-2px)}
+.hero-btn.outline{
+  background:#ffffffe8;
+  color:var(--green);
+  border:1px solid var(--green);
+}
+
+/* MAIN */
+.container{
+  width:94%;
+  max-width:1390px;
+  margin:auto;
+}
+.search-box{
+  position:relative;
+  z-index:2;
+  display:flex;
+  gap:10px;
+  margin:-30px 0 30px;
+  padding:9px;
+  background:white;
+  border:1px solid var(--border);
+  border-radius:13px;
+  box-shadow:0 10px 30px #103c231c;
+}
+.search-input-wrap{
+  flex:1;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:0 14px;
+}
+.search-input-wrap i{color:#819488}
+.search-box input{
+  width:100%;
+  min-width:0;
+  height:45px;
+  border:0;
+  outline:none;
+  background:transparent;
+  color:var(--text);
+  font-size:14px;
+}
+.search-box button{
+  min-width:140px;
+  border:0;
+  border-radius:9px;
+  background:var(--green);
+  color:white;
+  font-size:13px;
+  font-weight:800;
+}
+.search-box button:hover{background:#267b44}
+.search-feedback{
+  display:none;
+  margin-bottom:24px;
+  padding:14px;
+  border-radius:10px;
+  background:#fff4d9;
+  color:#805817;
+  font-size:13px;
+}
+.section-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:22px;
+}
+.section-head h2{
+  margin:0 0 8px;
+  font-size:28px;
+  color:#103c25;
+}
+.section-head p{
+  margin:0;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+}
+.section-count{
+  font-size:12px;
+  color:#708775;
+  white-space:nowrap;
+}
+
+/* CARDS */
+.cards-grid{
+  display:grid;
+  grid-template-columns:repeat(12,minmax(0,1fr));
+  gap:19px;
+}
+.card{
+  grid-column:span 3;
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  overflow:hidden;
+  border:1px solid var(--border);
+  border-radius:17px;
+  background:white;
+  box-shadow:0 8px 25px #123b2412;
+  transition:transform .25s,box-shadow .25s;
+}
+.card:nth-child(n+5){grid-column:span 4}
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 18px 36px #123b2428;
+}
+.card-photo{
+  position:relative;
+  height:195px;
+  overflow:hidden;
+  background:#e3eee6;
+}
+.card-photo img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .35s;
+}
+.card:hover .card-photo img{transform:scale(1.045)}
+.card-photo:after{
+  content:"";
+  position:absolute;
+  inset:60% 0 0;
+  background:linear-gradient(transparent,#0005);
+  pointer-events:none;
+}
+.card-icon{
+  position:absolute;
+  z-index:1;
+  bottom:13px;
+  left:16px;
+  display:grid;
+  place-items:center;
+  width:47px;
+  height:47px;
+  border:3px solid white;
+  border-radius:50%;
+  background:var(--accent,#277c42);
+  color:white;
+  font-size:19px;
+  box-shadow:0 4px 12px #0003;
+}
+.card-body{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  padding:21px;
+}
+.card-label{
+  margin-bottom:9px;
+  color:var(--accent,#277c42);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.8px;
+  text-transform:uppercase;
+}
+.card h3{
+  margin:0 0 10px;
+  color:#103923;
+  font-size:21px;
+}
+.card p{
+  flex:1;
+  margin:0 0 20px;
+  color:#66766c;
+  font-size:13px;
+  line-height:1.7;
+}
+.card-action{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  padding-top:15px;
+  border-top:1px solid #e9efea;
+  color:var(--accent,#277c42);
+  font-size:13px;
+  font-weight:800;
+}
+.card-action i{
+  display:grid;
+  place-items:center;
+  width:31px;
+  height:31px;
+  border-radius:50%;
+  background:var(--accent,#277c42);
+  color:white;
+}
+.project{--accent:#ae581a}
+.gallery{--accent:#1768b6}
+.market{--accent:#277b40}
+.my-market{--accent:#7424a4}
+.contact{--accent:#b92335}
+.ideas{--accent:#c9850b}
+
+/* PHOTOGRAPH FRAMING */
+.project .card-photo img{object-position:center 45%}
+.market .card-photo img{object-position:center 55%}
+.contact .card-photo img{object-position:center 30%}
+
+/* QUICK ACCESS */
+.quick-access{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  margin:30px 0 55px;
+  padding:26px;
+  border:1px solid #d8e9dc;
+  border-radius:16px;
+  background:linear-gradient(110deg,#e3f3e7,#f1f9f2);
+}
+.quick-access h2{
+  margin:0 0 8px;
+  font-size:22px;
+}
+.quick-access p{
+  margin:0;
+  color:var(--muted);
+  font-size:13px;
+}
+.quick-buttons{
+  display:flex;
+  gap:9px;
+  flex-wrap:wrap;
+}
+.quick-buttons a{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  padding:13px 15px;
+  border:1px solid #d8e8db;
+  border-radius:10px;
+  background:white;
+  color:#175432;
+  font-size:12px;
+  font-weight:800;
+}
+.quick-buttons a:hover{background:#d6ebdc}
+.footer{
+  padding:28px 15px;
+  border-top:1px solid var(--border);
+  background:white;
+  color:#708075;
+  text-align:center;
+  font-size:12px;
+}
+.footer strong{color:#267644}
+
+/* TABLET */
+@media(max-width:1200px){
+  .nav-inner{flex-wrap:wrap}
+  .nav-menu{justify-content:center}
+  .card{grid-column:span 6}
+  .card:nth-child(n+5){grid-column:span 4}
+  .quick-access{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:850px){
+  .card:nth-child(n+5){grid-column:span 6}
+  .card-photo{height:210px}
+}
+
+/* PHONE */
+@media(max-width:720px){
+  .nav-inner{min-height:69px;padding:11px 5%}
+  .logo{font-size:19px}
+  .logo>i{font-size:26px}
+  .menu-toggle{display:block}
+  .nav-menu{
+    display:none;
+    width:100%;
+    flex-direction:column;
+    align-items:stretch;
+    padding:9px 0;
+  }
+  .nav-menu.open{display:flex}
+  .nav-menu li{width:100%}
+  .nav-menu a{padding:13px}
+  .nav-menu .logout{margin-left:0}
+  .hero{min-height:320px}
+  .hero-inner{padding:45px 0 65px}
+  .hero h1{font-size:32px}
+  .hero p{font-size:13px}
+  .section-head{flex-direction:column;align-items:flex-start}
+  .section-head h2{font-size:24px}
+  .search-box button{min-width:100px}
+}
+@media(max-width:560px){
+  .card,.card:nth-child(n+5){grid-column:span 12}
+  .card-photo{height:220px}
+  .hero-actions{flex-direction:column}
+  .hero-btn{width:100%}
+  .search-box{padding:7px}
+  .search-box button{min-width:85px;padding:0 12px}
+  .search-box input{font-size:12px}
+  .quick-access{padding:20px}
+  .quick-buttons{width:100%;flex-direction:column}
+  .quick-buttons a{justify-content:center}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{
+    transition:none!important;
+    scroll-behavior:auto!important;
+  }
+}
+</style>
 </head>
-
 
 <body>
 
+<nav class="navbar" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <i class="fa-solid fa-leaf"></i>
+      <span>
+        Africa <em>AgroVision</em>
+        <small>Growing Agriculture. Connecting Opportunities.</small>
+      </span>
+    </a>
 
-<!-- =====================================================
-     NAVIGATION
-===================================================== -->
+    <button type="button" class="menu-toggle" id="menuToggle"
+      aria-label="Open navigation" aria-expanded="false"
+      aria-controls="navMenu">
+      <i class="fa-solid fa-bars"></i>
+    </button>
 
-<nav class="dashboard-nav">
-
-    <h2>
-        Africa AgroVision 🌱
-    </h2>
-
-
-    <ul>
-
-        <li>
-            <a href="dashboard.html">
-                Dashboard
-            </a>
-        </li>
-
-        <li>
-            <a href="profile.html">
-                Profile
-            </a>
-        </li>
-
-        <li>
-            <a href="about.html">
-                About
-            </a>
-        </li>
-
-        <li>
-            <a href="index.html#services">
-                Services
-            </a>
-        </li>
-
-        <li>
-            <a href="index.html#projects">
-                Projects
-            </a>
-        </li>
-
-        <li>
-            <a href="index.html#gallery">
-                Gallery
-            </a>
-        </li>
-
-        <li>
-            <a href="ideas.html">
-                Ideas & Feedback
-            </a>
-        </li>
-
-        <li>
-            <a href="index.html#contact">
-                Contact
-            </a>
-        </li>
-
-        <li>
-            <a href="#" id="logout">
-                Logout
-            </a>
-        </li>
-
+    <ul class="nav-menu" id="navMenu">
+      <li><a class="active" href="dashboard.html">Dashboard</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="ideas.html">Ideas</a></li>
+      <li><a href="agro-market.html">Marketplace</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li>
+        <a href="#" class="logout" id="logout">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </a>
+      </li>
     </ul>
-
+  </div>
 </nav>
 
+<header class="hero">
+  <div class="hero-inner">
+    <span class="hero-label">
+      <i class="fa-solid fa-seedling"></i>
+      Rwanda • Agriculture • Innovation
+    </span>
 
-
-<!-- =====================================================
-     DASHBOARD HERO
-===================================================== -->
-
-<section class="dashboard-hero">
-
-
-    <h1 id="welcomeMessage">
-        Welcome to Africa AgroVision 🌱
-    </h1>
-
+    <h1 id="welcomeMessage">Welcome to Africa AgroVision!</h1>
 
     <p>
-        Building Africa's agricultural future through
-        integrated farming, innovation, sustainability,
-        technology, and collaboration.
+      Explore agricultural knowledge, practical farming projects,
+      marketplace opportunities and innovation in Rwanda and
+      across Africa. Connect with farmers, buyers and entrepreneurs.
     </p>
 
+    <div class="hero-actions">
+      <a class="hero-btn" href="agro-market.html">
+        <i class="fa-solid fa-store"></i> Explore Marketplace
+      </a>
+      <a class="hero-btn outline" href="agriculture.html">
+        <i class="fa-solid fa-seedling"></i> Explore Agriculture
+      </a>
+    </div>
+  </div>
+</header>
 
-    <div class="dashboard-search">
+<main class="container">
 
-        <input
-            type="text"
-            id="searchInput"
-            placeholder="Search farming, projects, gallery..."
-        >
+  <form class="search-box" id="dashboardSearch">
+    <div class="search-input-wrap">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input
+        id="searchInput"
+        type="search"
+        placeholder="Search agriculture, projects, marketplace..."
+        aria-label="Search dashboard sections">
+    </div>
+    <button type="submit">Search</button>
+  </form>
 
+  <div class="search-feedback" id="searchFeedback" role="status"></div>
 
-        <button
-            type="button"
-            id="searchButton"
-        >
-            Search
-        </button>
-
+  <section aria-labelledby="dashboardTitle">
+    <div class="section-head">
+      <div>
+        <h2 id="dashboardTitle">Explore Your Dashboard</h2>
+        <p>Discover farming knowledge, business opportunities and agricultural services.</p>
+      </div>
+      <span class="section-count">7 sections available</span>
     </div>
 
+    <div class="cards-grid">
 
-</section>
-
-
-
-<!-- =====================================================
-     DASHBOARD CARDS
-===================================================== -->
-
-<section class="dashboard-cards">
-
-
-    <!-- AGRICULTURE -->
-
-    <a
-        href="agriculture.html"
-        class="card"
-    >
-
-        <div class="card-icon">
-            🌱
+      <!-- AGRICULTURE -->
+      <a href="agriculture.html" class="card">
+        <div class="card-photo">
+          <img
+            src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=85"
+            alt="Green agricultural farmland"
+            loading="lazy">
+          <span class="card-icon">
+            <i class="fa-solid fa-seedling"></i>
+          </span>
         </div>
-
-
-        <h3>
-            Agriculture
-        </h3>
-
-
-        <p>
-            Explore crop production, livestock farming,
-            poultry, climate-smart agriculture, pest
-            management, animal health, and modern
-            farming knowledge.
-        </p>
-
-
-        <span class="dashboard-btn">
-            🌿 Explore Agriculture →
-        </span>
-
-    </a>
-
-
-
-    <!-- PROJECTS -->
-
-    <a
-        href="projects.html"
-        class="card"
-    >
-
-        <div class="card-icon">
-            🚜
+        <div class="card-body">
+          <span class="card-label">Knowledge & Farming</span>
+          <h3>Agriculture</h3>
+          <p>
+            Learn about crop production, livestock, poultry,
+            climate-smart farming and modern agricultural practices
+            relevant to Rwanda.
+          </p>
+          <span class="card-action">
+            Explore Agriculture
+            <i class="fa-solid fa-arrow-right"></i>
+          </span>
         </div>
+      </a>
 
-
-        <h3>
-            Projects
-        </h3>
-
-
-        <p>
-            Explore practical agricultural projects,
-            farm business ideas, investment models,
-            production plans, and real opportunities.
-        </p>
-
-
-        <span class="dashboard-btn">
-            🚜 Explore Projects →
-        </span>
-
-    </a>
-
-
-
-    <!-- GALLERY -->
-
-    <a
-        href="gallery.html"
-        class="card"
-    >
-
-        <div class="card-icon">
-            📷
+      <!-- PROJECTS -->
+      <a href="projects.html" class="card project">
+        <div class="card-photo">
+          <img
+            src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=1000&q=85"
+            data-backup="https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=1000&q=85"
+            alt="Livestock farming project"
+            loading="lazy">
+          <span class="card-icon">
+            <i class="fa-solid fa-chart-line"></i>
+          </span>
         </div>
-
-
-        <h3>
-            Gallery
-        </h3>
-
-
-        <p>
-            Discover visual stories from agriculture,
-            livestock, farming innovation, technology,
-            landscapes, and agricultural development.
-        </p>
-
-
-        <span class="dashboard-btn">
-            📷 View Gallery →
-        </span>
-
-    </a>
-
-
-
-    <!-- CONTACT -->
-
-    <a
-        href="contact.html"
-        class="card"
-    >
-
-        <div class="card-icon">
-            🤝
+        <div class="card-body">
+          <span class="card-label">Innovation & Investment</span>
+          <h3>Projects</h3>
+          <p>
+            Explore pig farming, poultry, livestock and crop
+            production projects, with business planning,
+            budgeting and investment opportunities.
+          </p>
+          <span class="card-action">
+            Explore Projects
+            <i class="fa-solid fa-arrow-right"></i>
+          </span>
         </div>
+      </a>
 
+      <!-- GALLERY -->
+      <a href="gallery.html" class="card gallery">
+        <div class="card-photo">
+          <img
+            src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1000&q=85"
+            alt="Natural landscape"
+            loading="lazy">
+          <span class="card-icon">
+            <i class="fa-solid fa-camera"></i>
+          </span>
+        </div>
+        <div class="card-body">
+          <span class="card-label">Photos & Inspiration</span>
+          <h3>Gallery</h3>
+          <p>
+            Explore agricultural photographs, landscapes,
+            farm animals, crops, technologies and stories
+            of rural development.
+          </p>
+          <span class="card-action">
+            View Gallery
+            <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </div>
+      </a>
 
-        <h3>
-            Contact
-        </h3>
+      <!-- MARKETPLACE -->
+      <a href="agro-market.html" class="card market">
+        <div class="card-photo">
+          <img
+            src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1000&q=85"
+            data-backup="https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=1000&q=85"
+            alt="Agricultural produce available in a market"
+            loading="lazy">
+          <span class="card-icon">
+            <i class="fa-solid fa-store"></i>
+          </span>
+        </div>
+        <div class="card-body">
+          <span class="card-label">Trade & Opportunities</span>
+          <h3>Marketplace</h3>
+          <p>
+            Buy and sell maize, dry beans, rice, wheat,
+            groundnuts, livestock and other agricultural
+            products. Connect with farmers and buyers.
+          </p>
+          <span class="card-action">
+            Explore Marketplace
+            <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </div>
+      </a>
 
+      <!-- MY MARKETPLACE -->
+      <a href="my-marketplace.html" class="card my-market">
+        <div class="card-photo">
+          <img
+            src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=1000&q=85"
+            alt="Agricultural products offered for sale"
+            loading="lazy">
+          <span class="card-icon">
+            <i class="fa-solid fa-list-check"></i>
+          </span>
+        </div>
+        <div class="card-body">
+          <span class="card-label">My Listings & Requests</span>
+          <h3>My Marketplace</h3>
+          <p>
+            Manage your crop and animal listings,
+            update your products, review buying requests
+            and organize your marketplace activity.
+          </p>
+          <span class="card-action">
+            Manage My Listings
+            <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </div>
+      </a>
 
-        <p>
-            Connect with Africa AgroVision for
-            partnerships, agricultural opportunities,
-            collaboration, and professional support.
-        </p>
+      <!-- CONTACT US: ACTUAL PHOTO -->
+      <a href="contact.html" class="card contact">
+        <div class="card-photo">
+          <img
+            src="images/contact-profile.png"
+            alt="Africa AgroVision contact representative"
+            loading="lazy">
+          <span class="card-icon">
+            <i class="fa-solid fa-handshake"></i>
+          </span>
+        </div>
+        <div class="card-body">
+          <span class="card-label">Partnerships & Support</span>
+          <h3>Contact Us</h3>
+          <p>
+            Connect with Africa AgroVision to discuss
+            agricultural business opportunities,
+            partnerships, collaboration and support.
+          </p>
+          <span class="card-action">
+            Get in Touch
+            <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </div>
+      </a>
 
+      <!-- IDEAS -->
+      <a href="ideas.html" class="card ideas">
+        <div class="card-photo">
+          <img
+            src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=1000&q=85"
+            alt="Workspace for developing project ideas"
+            loading="lazy">
+          <span class="card-icon">
+            <i class="fa-solid fa-lightbulb"></i>
+          </span>
+        </div>
+        <div class="card-body">
+          <span class="card-label">Ideas & Community</span>
+          <h3>Ideas & Feedback</h3>
+          <p>
+            Share agricultural innovations, propose
+            new projects and contribute ideas for
+            improving Africa AgroVision.
+          </p>
+          <span class="card-action">
+            Share Your Ideas
+            <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </div>
+      </a>
 
-        <span class="dashboard-btn">
-            🤝 Contact Us →
-        </span>
+    </div>
+  </section>
 
-    </a>
+  <!-- QUICK ACCESS -->
+  <section class="quick-access">
+    <div>
+      <h2>
+        <i class="fa-solid fa-rocket"></i>
+        Quick Marketplace Access
+      </h2>
+      <p>Go directly to the agricultural marketplace service you need.</p>
+    </div>
 
+    <div class="quick-buttons">
+      <a href="buy-crop.html">
+        <i class="fa-solid fa-wheat-awn"></i> Buy Crops
+      </a>
+      <a href="sell-crop.html">
+        <i class="fa-solid fa-seedling"></i> Sell Crops
+      </a>
+      <a href="buy-animal.html">
+        <i class="fa-solid fa-cow"></i> Buy Animals
+      </a>
+      <a href="sell-animal.html">
+        <i class="fa-solid fa-paw"></i> Sell Animals
+      </a>
+      <a href="my-marketplace.html">
+        <i class="fa-solid fa-list"></i> My Listings
+      </a>
+    </div>
+  </section>
 
-</section>
+</main>
 
+<footer class="footer">
+  © 2026 <strong>Africa AgroVision</strong> —
+  Growing Agriculture. Connecting Opportunities.
+</footer>
 
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
+"use strict";
 
-
-// =====================================================
-// SUPABASE CONNECTION
-// =====================================================
-
+/* SUPABASE */
 const SUPABASE_URL =
-    "https://fhvyncltdliduhhfqzqq.supabase.co";
+  "https://fhvyncltdliduhhfqzqq.supabase.co";
 
+const SUPABASE_KEY =
+  "sb_publishable_Z5hzSz2kuIJL-FwUP9IZ4Q_oXFkHn9T";
 
-const SUPABASE_PUBLISHABLE_KEY =
-    "sb_publishable_b2M9akZhcgz5KjOZQ1mPtA_aNXZhv6J";
+let supabaseClient = null;
 
+/* MOBILE NAVIGATION */
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
 
-const supabaseClient =
-    window.supabase.createClient(
-        SUPABASE_URL,
-        SUPABASE_PUBLISHABLE_KEY
-    );
+menuToggle.addEventListener("click", () => {
+  const open = navMenu.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", String(open));
+  menuToggle.setAttribute(
+    "aria-label",
+    open ? "Close navigation" : "Open navigation"
+  );
+  menuToggle.innerHTML = open
+    ? '<i class="fa-solid fa-xmark"></i>'
+    : '<i class="fa-solid fa-bars"></i>';
+});
 
+navMenu.addEventListener("click", event => {
+  if (event.target.closest("a") && window.innerWidth <= 720) {
+    navMenu.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+  }
+});
 
-
-// =====================================================
-// CHECK LOGIN SESSION
-// =====================================================
-
+/* AUTHENTICATION */
 async function checkUser() {
+  if (!supabaseClient) return;
 
-    try {
+  try {
+    const { data, error } = await supabaseClient.auth.getUser();
 
-        const {
-            data,
-            error
-        } =
-            await supabaseClient.auth.getSession();
+    if (error) throw error;
 
-
-        if (error) {
-
-            console.error(
-                "Session error:",
-                error
-            );
-
-            window.location.replace(
-                "login.html"
-            );
-
-            return;
-        }
-
-
-        const session =
-            data.session;
-
-
-        console.log(
-            "Current session:",
-            session
-        );
-
-
-        // No logged-in user
-
-        if (!session) {
-
-            console.log(
-                "No active login session."
-            );
-
-            window.location.replace(
-                "login.html"
-            );
-
-            return;
-        }
-
-
-        // =================================================
-        // USER IS LOGGED IN
-        // =================================================
-
-        const user =
-            session.user;
-
-
-        console.log(
-            "Logged-in user:",
-            user
-        );
-
-
-        // =================================================
-        // SHOW USER NAME
-        // =================================================
-
-        const welcomeMessage =
-            document.getElementById(
-                "welcomeMessage"
-            );
-
-
-        const userName =
-            user.user_metadata &&
-            user.user_metadata.name;
-
-
-        if (userName) {
-
-            welcomeMessage.textContent =
-                "Welcome, " +
-                userName +
-                " 🌱";
-
-        } else {
-
-            welcomeMessage.textContent =
-                "Welcome to Africa AgroVision 🌱";
-
-        }
-
+    if (!data?.user) {
+      window.location.replace("login.html");
+      return;
     }
 
+    const name =
+      data.user.user_metadata?.full_name ||
+      data.user.user_metadata?.name ||
+      "";
 
-    catch (error) {
+    document.getElementById("welcomeMessage").textContent =
+      name ? "Welcome, " + name + "!" : "Welcome to Africa AgroVision!";
 
-        console.error(
-            "Unexpected session error:",
-            error
-        );
-
-
-        window.location.replace(
-            "login.html"
-        );
-
-    }
-
+  } catch (error) {
+    console.error("Authentication error:", error);
+    window.location.replace("login.html");
+  }
 }
 
-
-// Start session check
-
-checkUser();
-
-
-
-// =====================================================
-// LOGOUT
-// =====================================================
-
-const logoutButton =
-    document.getElementById(
-        "logout"
-    );
-
-
-logoutButton.addEventListener(
-    "click",
-    async function(event) {
-
-        event.preventDefault();
-
-
-        const confirmed =
-            confirm(
-                "Are you sure you want to logout?"
-            );
-
-
-        if (!confirmed) {
-
-            return;
-
-        }
-
-
-        try {
-
-            const {
-                error
-            } =
-                await supabaseClient
-                    .auth
-                    .signOut();
-
-
-            if (error) {
-
-                console.error(
-                    "Logout error:",
-                    error
-                );
-
-
-                alert(
-                    "Unable to logout. Please try again."
-                );
-
-
-                return;
-            }
-
-
-            window.location.replace(
-                "login.html"
-            );
-
-        }
-
-
-        catch (error) {
-
-            console.error(
-                "Unexpected logout error:",
-                error
-            );
-
-
-            alert(
-                "Something went wrong while logging out."
-            );
-
-        }
-
-    }
-);
-
-
-
-// =====================================================
-// SEARCH
-// =====================================================
-
-const searchInput =
-    document.getElementById(
-        "searchInput"
-    );
-
-
-const searchButton =
-    document.getElementById(
-        "searchButton"
-    );
-
-
-function performSearch() {
-
-    const searchTerm =
-        searchInput.value
-            .trim()
-            .toLowerCase();
-
-
-    if (searchTerm === "") {
-
-        alert(
-            "Please enter something to search."
-        );
-
-
-        return;
-    }
-
-
-    // Agriculture
-
-    if (
-        searchTerm.includes("agriculture") ||
-        searchTerm.includes("farming") ||
-        searchTerm.includes("farm") ||
-        searchTerm.includes("crop") ||
-        searchTerm.includes("livestock") ||
-        searchTerm.includes("animal") ||
-        searchTerm.includes("poultry")
-    ) {
-
-        window.location.href =
-            "agriculture.html";
-
-
-        return;
-    }
-
-
-    // Projects
-
-    if (
-        searchTerm.includes("project") ||
-        searchTerm.includes("projects")
-    ) {
-
-        window.location.href =
-            "projects.html";
-
-
-        return;
-    }
-
-
-    // Gallery
-
-    if (
-        searchTerm.includes("gallery") ||
-        searchTerm.includes("photos") ||
-        searchTerm.includes("images")
-    ) {
-
-        window.location.href =
-            "gallery.html";
-
-
-        return;
-    }
-
-
-    // Contact
-
-    if (
-        searchTerm.includes("contact") ||
-        searchTerm.includes("whatsapp") ||
-        searchTerm.includes("telegram") ||
-        searchTerm.includes("email")
-    ) {
-
-        window.location.href =
-            "contact.html";
-
-
-        return;
-    }
-
-
-    // Profile
-
-    if (
-        searchTerm.includes("profile") ||
-        searchTerm.includes("account")
-    ) {
-
-        window.location.href =
-            "profile.html";
-
-
-        return;
-    }
-
-
-    // Dashboard
-
-    if (
-        searchTerm.includes("dashboard") ||
-        searchTerm.includes("home")
-    ) {
-
-        window.location.href =
-            "dashboard.html";
-
-
-        return;
-    }
-
-
-    // No result
-
-    alert(
-        "No results found for: " +
-        searchInput.value
-    );
-
+/* LOGOUT */
+document.getElementById("logout").addEventListener("click", async event => {
+  event.preventDefault();
+
+  if (!confirm("Are you sure you want to log out?")) return;
+
+  if (!supabaseClient) {
+    alert("Account service is unavailable.");
+    return;
+  }
+
+  try {
+    const { error } = await supabaseClient.auth.signOut();
+    if (error) throw error;
+    window.location.replace("login.html");
+  } catch (error) {
+    console.error("Logout error:", error);
+    alert("Unable to log out. Please try again.");
+  }
+});
+
+/* SEARCH */
+const searchRoutes = [
+  { words:["my marketplace","my listings","my products"], url:"my-marketplace.html" },
+  { words:["buy crop","buy crops"], url:"buy-crop.html" },
+  { words:["sell crop","sell crops"], url:"sell-crop.html" },
+  { words:["buy animal","buy animals"], url:"buy-animal.html" },
+  { words:["sell animal","sell animals"], url:"sell-animal.html" },
+  { words:["pig farming","business plan","projects","project","investment"], url:"projects.html" },
+  { words:["marketplace","market","trading","buy","sell"], url:"agro-market.html" },
+  { words:["agriculture","farming","livestock","poultry","crops"], url:"agriculture.html" },
+  { words:["gallery","photos","pictures"], url:"gallery.html" },
+  { words:["contact","partnership","support"], url:"contact.html" },
+  { words:["ideas","feedback","suggestions"], url:"ideas.html" },
+  { words:["profile","account"], url:"profile.html" },
+  { words:["about"], url:"about.html" },
+  { words:["services"], url:"index.html#services" },
+  { words:["dashboard","home"], url:"dashboard.html" }
+];
+
+document.getElementById("dashboardSearch").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const input = document.getElementById("searchInput");
+  const feedback = document.getElementById("searchFeedback");
+  const query = input.value.trim().toLowerCase();
+
+  feedback.style.display = "none";
+
+  if (!query) {
+    feedback.textContent = "Please enter a section to search.";
+    feedback.style.display = "block";
+    input.focus();
+    return;
+  }
+
+  const match = searchRoutes.find(route =>
+    route.words.some(word => query.includes(word))
+  );
+
+  if (match) {
+    window.location.href = match.url;
+  } else {
+    feedback.textContent =
+      "No matching section found. Try Agriculture, Projects, Marketplace or Contact.";
+    feedback.style.display = "block";
+  }
+});
+
+/* IMAGE FALLBACKS */
+function imagePlaceholder(title) {
+  const safe = String(title).replace(/[<>&"']/g, "").slice(0, 50);
+
+  const svg = `
+  <svg xmlns="http://www.w3.org/2000/svg" width="900" height="560">
+    <rect width="900" height="560" fill="#e1efe4"/>
+    <circle cx="450" cy="215" r="75" fill="#c0dfc8"/>
+    <path d="M415 240c10-55 60-75 85-85-3 70-40 115-85 85Z"
+      fill="#35844c"/>
+    <text x="450" y="365" text-anchor="middle"
+      font-family="Arial" font-size="33" font-weight="bold"
+      fill="#215b36">${safe}</text>
+    <text x="450" y="405" text-anchor="middle"
+      font-family="Arial" font-size="20"
+      fill="#6c8974">Africa AgroVision</text>
+  </svg>`;
+
+  return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
 }
 
+document.querySelectorAll(".card").forEach(card => {
+  const img = card.querySelector("img");
+  const title = card.querySelector("h3")?.textContent || "Africa AgroVision";
 
+  let usedBackup = false;
 
-// =====================================================
-// SEARCH BUTTON
-// =====================================================
-
-searchButton.addEventListener(
-    "click",
-    performSearch
-);
-
-
-
-// =====================================================
-// SEARCH WITH ENTER
-// =====================================================
-
-searchInput.addEventListener(
-    "keydown",
-    function(event) {
-
-        if (event.key === "Enter") {
-
-            performSearch();
-
-        }
-
+  img.addEventListener("error", function() {
+    if (!usedBackup && this.dataset.backup) {
+      usedBackup = true;
+      this.src = this.dataset.backup;
+      return;
     }
-);
 
+    this.onerror = null;
+    this.src = imagePlaceholder(title);
+  });
+});
+
+/* INITIALIZATION */
+function initializeDashboard() {
+  if (!window.supabase?.createClient) {
+    console.error("Supabase library unavailable.");
+    return;
+  }
+
+  try {
+    supabaseClient = window.supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_KEY
+    );
+    checkUser();
+  } catch (error) {
+    console.error("Supabase initialization error:", error);
+  }
+}
+
+initializeDashboard();
 </script>
 
-
 </body>
-
 </html>

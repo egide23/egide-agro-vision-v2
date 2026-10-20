@@ -1,0 +1,1263 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sell Crops | Africa AgroVision</title>
+
+<meta name="description"
+content="Sell your agricultural crops on Africa AgroVision and connect with buyers across Africa.">
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #173b20;
+    min-height: 100vh;
+    background:
+        linear-gradient(
+            rgba(7,35,17,.74),
+            rgba(7,35,17,.74)
+        ),
+        url("images/green-farm.jpg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #114d1f;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 6%;
+    box-shadow: 0 3px 12px rgba(0,0,0,.25);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 22px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #b8e994;
+}
+
+.hero {
+    text-align: center;
+    color: white;
+    padding: 70px 20px 45px;
+}
+
+.hero h1 {
+    font-size: 46px;
+    margin-bottom: 12px;
+}
+
+.hero p {
+    font-size: 18px;
+    max-width: 750px;
+    margin: auto;
+    line-height: 1.7;
+}
+
+.container {
+    width: 92%;
+    max-width: 1000px;
+    margin: auto;
+    padding-bottom: 60px;
+}
+
+.form-card {
+    background: rgba(255,255,255,.97);
+    border-radius: 18px;
+    padding: 35px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.25);
+}
+
+.section-title {
+    color: #145a24;
+    font-size: 24px;
+    margin-bottom: 22px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #d9ead3;
+}
+
+.form-section {
+    margin-bottom: 35px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+}
+
+.field.full {
+    grid-column: 1 / -1;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #214c2b;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #c7d8ca;
+    border-radius: 9px;
+    font-size: 15px;
+    outline: none;
+    background: white;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #218739;
+    box-shadow: 0 0 0 3px rgba(33,135,57,.12);
+}
+
+textarea {
+    min-height: 130px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.radio-group {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 5px;
+}
+
+.radio-group label {
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.radio-group input {
+    width: auto;
+}
+
+.hint {
+    color: #687a6d;
+    font-size: 13px;
+    margin-top: 7px;
+    line-height: 1.5;
+}
+
+/* PRODUCT PHOTO PREVIEW */
+
+.photo-preview {
+    border: 1px solid #d9ead3;
+    border-radius: 14px;
+    padding: 18px;
+    background: #f4faf5;
+    margin-top: 18px;
+}
+
+.photo-preview h3 {
+    color: #145a24;
+    margin-bottom: 8px;
+    font-size: 17px;
+}
+
+.photo-preview p {
+    color: #64736a;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.photo-preview img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+    background: #e5eee6;
+}
+
+.photo-caption {
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #216235;
+    text-align: center;
+}
+
+.submit-area {
+    text-align: center;
+    margin-top: 10px;
+}
+
+button {
+    border: none;
+    background: #1b6e2b;
+    color: white;
+    padding: 15px 35px;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover:not(:disabled) {
+    background: #145a24;
+    transform: translateY(-2px);
+}
+
+button:disabled {
+    opacity: .7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.message {
+    display: none;
+    margin: 20px 0;
+    padding: 16px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    line-height: 1.6;
+}
+
+.success {
+    background: #dff3e3;
+    color: #17652a;
+    border: 1px solid #a9d8b3;
+}
+
+.error {
+    background: #fde2e2;
+    color: #9b1c1c;
+    border: 1px solid #efaaaa;
+}
+
+.success a {
+    display: inline-block;
+    margin-top: 12px;
+    background: #1b6e2b;
+    color: white;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+}
+
+.login-box {
+    display: none;
+    background: #fff4d6;
+    border: 1px solid #e5c56a;
+    color: #684f08;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.login-box h3 {
+    margin-bottom: 8px;
+}
+
+.login-box p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.login-box a {
+    display: inline-block;
+    text-decoration: none;
+    background: #1b6e2b;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    margin: 4px;
+    font-weight: bold;
+}
+
+.login-box a.register {
+    background: #315f38;
+}
+
+.trust-box {
+    margin-top: 30px;
+    background: rgba(232,247,235,.97);
+    padding: 22px;
+    border-radius: 14px;
+    text-align: center;
+    color: #20562b;
+}
+
+footer {
+    background: #0d3517;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+}
+
+@media (max-width:700px) {
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .form-card {
+        padding: 22px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .field.full {
+        grid-column: auto;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav a {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .photo-preview img {
+        height: 210px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html" class="logo">
+        🌱 Africa AgroVision
+    </a>
+
+    <div>
+        <a href="index.html">Home</a>
+        <a href="agro-market.html">Marketplace</a>
+        <a href="dashboard.html">Dashboard</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>Sell Your Crops</h1>
+
+    <p>
+        List your agricultural products on Africa AgroVision
+        and connect with potential buyers.
+    </p>
+</section>
+
+<div class="container">
+
+    <div id="loginBox" class="login-box">
+        <h3>🔐 Login Required</h3>
+
+        <p>
+            You need an Africa AgroVision account to publish a crop listing.
+            If you already have an account, log in. If you are new,
+            create your account first.
+        </p>
+
+        <a href="login.html">Log In</a>
+        <a href="register.html" class="register">
+            Create Account
+        </a>
+    </div>
+
+    <div class="form-card">
+
+        <form id="sellCropForm">
+
+            <!-- CROP INFORMATION -->
+
+            <div class="form-section">
+                <h2 class="section-title">🌾 Crop Information</h2>
+
+                <div class="form-grid">
+
+                    <div class="field">
+                        <label for="crop">Crop *</label>
+
+                        <select id="crop" required>
+                            <option value="">Select crop</option>
+                            <option>Maize</option>
+                            <option>Beans</option>
+                            <option>Rice</option>
+                            <option>Coffee</option>
+                            <option>Tomatoes</option>
+                            <option>Potatoes</option>
+                            <option>Wheat</option>
+                            <option>Cassava</option>
+                            <option>Sweet Potatoes</option>
+                            <option>Sorghum</option>
+                            <option>Bananas</option>
+                            <option>Avocados</option>
+                            <option>Onions</option>
+                            <option>Cabbage</option>
+                            <option>Carrots</option>
+                            <option>Chili</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="field" id="otherCropField" hidden>
+                        <label for="otherCrop">
+                            Specify Crop *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="otherCrop"
+                            maxlength="100"
+                            placeholder="e.g. Groundnuts">
+                    </div>
+
+                    <div class="field">
+                        <label for="quantity">Available Quantity *</label>
+
+                        <input
+                            type="text"
+                            id="quantity"
+                            maxlength="100"
+                            placeholder="e.g. 500 kg"
+                            required>
+                    </div>
+
+                    <div class="field">
+                        <label for="quality">Quality / Grade *</label>
+
+                        <select id="quality" required>
+                            <option value="">Select quality</option>
+                            <option>Premium</option>
+                            <option>Grade A</option>
+                            <option>Grade B</option>
+                            <option>Standard</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="condition">Product Condition *</label>
+
+                        <select id="condition" required>
+                            <option value="">Select condition</option>
+                            <option>Fresh</option>
+                            <option>Dry</option>
+                            <option>Processed</option>
+                            <option>Stored</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <!-- AUTOMATIC IMAGE -->
+
+                <div class="photo-preview">
+                    <h3>📷 Automatic Product Picture</h3>
+
+                    <p>
+                        Africa AgroVision selects an illustrative
+                        picture based on the crop you choose.
+                        This helps buyers recognize the product.
+                        The picture is not a photograph of your
+                        actual stock.
+                    </p>
+
+                    <img
+                        id="cropPreview"
+                        alt="Crop photograph preview"
+                        src="images/green-farm.jpg.jpg">
+
+                    <div id="photoCaption" class="photo-caption">
+                        Select a crop to preview its picture.
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- PRICE -->
+
+            <div class="form-section">
+                <h2 class="section-title">
+                    💰 Price & Availability
+                </h2>
+
+                <div class="form-grid">
+
+                    <div class="field">
+                        <label for="price">Asking Price *</label>
+
+                        <input
+                            type="text"
+                            id="price"
+                            maxlength="100"
+                            placeholder="e.g. 500 RWF per kg"
+                            required>
+                    </div>
+
+                    <div class="field">
+                        <label>Price Flexibility</label>
+
+                        <div class="radio-group">
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="flexibility"
+                                    value="Negotiable"
+                                    checked>
+                                Negotiable
+                            </label>
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="flexibility"
+                                    value="Fixed">
+                                Fixed
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="field full">
+                        <label>Availability</label>
+
+                        <div class="radio-group">
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="availability"
+                                    value="Available now"
+                                    checked>
+                                Available now
+                            </label>
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="availability"
+                                    value="Available soon">
+                                Available soon
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- LOCATION -->
+
+            <div class="form-section">
+                <h2 class="section-title">
+                    📍 Location & Delivery
+                </h2>
+
+                <div class="form-grid">
+
+                    <div class="field">
+                        <label for="location">Location *</label>
+
+                        <input
+                            type="text"
+                            id="location"
+                            maxlength="200"
+                            placeholder="e.g. Kigali"
+                            required>
+                    </div>
+
+                    <div class="field">
+                        <label for="delivery">
+                            Delivery Option *
+                        </label>
+
+                        <select id="delivery" required>
+                            <option value="">Select option</option>
+                            <option>Buyer collects</option>
+                            <option>Seller delivers</option>
+                            <option>Delivery negotiable</option>
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CONTACT -->
+
+            <div class="form-section">
+                <h2 class="section-title">
+                    👤 Seller Contact Information
+                </h2>
+
+                <div class="form-grid">
+
+                    <div class="field">
+                        <label for="sellerName">
+                            Full Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="sellerName"
+                            maxlength="150"
+                            autocomplete="name"
+                            placeholder="Your full name"
+                            required>
+                    </div>
+
+                    <div class="field">
+                        <label for="phone">
+                            Phone / WhatsApp *
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            maxlength="25"
+                            autocomplete="tel"
+                            placeholder="+250..."
+                            required>
+                    </div>
+
+                    <div class="field">
+                        <label for="email">Email *</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            maxlength="254"
+                            autocomplete="email"
+                            placeholder="your@email.com"
+                            required>
+                    </div>
+
+                    <div class="field">
+                        <label for="preferredContact">
+                            Preferred Contact *
+                        </label>
+
+                        <select id="preferredContact" required>
+                            <option value="">
+                                Select contact method
+                            </option>
+                            <option>Phone</option>
+                            <option>WhatsApp</option>
+                            <option>Email</option>
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- DESCRIPTION -->
+
+            <div class="form-section">
+                <h2 class="section-title">
+                    📝 Describe Your Crop
+                </h2>
+
+                <div class="form-grid">
+                    <div class="field full">
+                        <label for="description">
+                            Product Description *
+                        </label>
+
+                        <textarea
+                            id="description"
+                            maxlength="5000"
+                            placeholder="Describe your crop, quality, quantity, packaging, harvest date, and any other useful information..."
+                            required></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MESSAGES -->
+
+            <div
+                id="successMessage"
+                class="message success"
+                role="status"
+                aria-live="polite">
+
+                Your crop listing has been published successfully!
+
+                <div>
+                    <a href="agro-market.html">
+                        View Marketplace
+                    </a>
+
+                    <a href="my-marketplace.html">
+                        My Marketplace
+                    </a>
+                </div>
+            </div>
+
+            <div
+                id="errorMessage"
+                class="message error"
+                role="alert">
+            </div>
+
+            <!-- SUBMIT -->
+
+            <div class="submit-area">
+                <button
+                    type="submit"
+                    id="submitButton"
+                    disabled>
+                    Checking Login...
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="trust-box">
+        <strong>🌍 Africa AgroVision Marketplace</strong>
+
+        <p style="margin-top:8px">
+            Helping farmers connect with buyers and grow stronger
+            agricultural businesses.
+        </p>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Africa AgroVision —
+    Connecting Agriculture, People & Opportunity
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+"use strict";
+
+/* SUPABASE */
+
+const SUPABASE_URL =
+    "https://fhvyncltdliduhhfqzqq.supabase.co";
+
+const SUPABASE_KEY =
+    "sb_publishable_Z5hzSz2kuIJL-FwUP9IZ4Q_oXFkHn9T";
+
+let supabaseClient = null;
+let authenticatedUser = null;
+let isSubmitting = false;
+
+/*
+  PRODUCT IMAGE CATALOGUE
+
+  These paths refer to real photographs you place
+  inside your project's images/crops/ folder.
+
+  Using exact filenames is more reliable than
+  searching randomly for pictures.
+
+  For example:
+  images/crops/beans.jpg must contain a photo of beans.
+*/
+
+const CROP_IMAGES = {
+    "maize": "images/crops/maize.jpg",
+    "beans": "images/crops/beans.jpg",
+    "rice": "images/crops/rice.jpg",
+    "coffee": "images/crops/coffee.jpg",
+    "tomatoes": "images/crops/tomatoes.jpg",
+    "potatoes": "images/crops/potatoes.jpg",
+    "wheat": "images/crops/wheat.jpg",
+    "cassava": "images/crops/cassava.jpg",
+    "sweet potatoes": "images/crops/sweet-potatoes.jpg",
+    "sorghum": "images/crops/sorghum.jpg",
+    "bananas": "images/crops/bananas.jpg",
+    "avocados": "images/crops/avocados.jpg",
+    "onions": "images/crops/onions.jpg",
+    "cabbage": "images/crops/cabbage.jpg",
+    "carrots": "images/crops/carrots.jpg",
+    "chili": "images/crops/chili.jpg",
+    "groundnuts": "images/crops/groundnuts.jpg"
+};
+
+const DEFAULT_CROP_IMAGE =
+    "images/green-farm.jpg.jpg";
+
+/* ELEMENTS */
+
+const form = document.getElementById("sellCropForm");
+const cropSelect = document.getElementById("crop");
+const otherCropField = document.getElementById("otherCropField");
+const otherCropInput = document.getElementById("otherCrop");
+const cropPreview = document.getElementById("cropPreview");
+const photoCaption = document.getElementById("photoCaption");
+const loginBox = document.getElementById("loginBox");
+const successMessage = document.getElementById("successMessage");
+const errorMessage = document.getElementById("errorMessage");
+const submitButton = document.getElementById("submitButton");
+
+function getValue(id) {
+    return document.getElementById(id).value.trim();
+}
+
+function normalizeProductName(name) {
+    return String(name || "")
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, " ");
+}
+
+function getSelectedCrop() {
+    if (cropSelect.value === "Other") {
+        return otherCropInput.value.trim();
+    }
+
+    return cropSelect.value.trim();
+}
+
+function getCropImage(cropName) {
+    const key = normalizeProductName(cropName);
+
+    return CROP_IMAGES[key] || DEFAULT_CROP_IMAGE;
+}
+
+/* AUTOMATIC PICTURE PREVIEW */
+
+function updateCropPreview() {
+    const crop = getSelectedCrop();
+
+    if (!crop) {
+        cropPreview.src = DEFAULT_CROP_IMAGE;
+        cropPreview.alt = "Agricultural farm";
+        photoCaption.textContent =
+            "Select a crop to preview its picture.";
+        return;
+    }
+
+    const image = getCropImage(crop);
+    const hasMatchingImage =
+        Object.prototype.hasOwnProperty.call(
+            CROP_IMAGES,
+            normalizeProductName(crop)
+        );
+
+    cropPreview.src = image;
+
+    cropPreview.alt = hasMatchingImage
+        ? "Illustrative photograph of " + crop
+        : "General agricultural photograph";
+
+    photoCaption.textContent = hasMatchingImage
+        ? "Selected crop: " + crop
+        : "No specific picture available for " +
+          crop + ". A general farm picture will be used.";
+}
+
+cropPreview.addEventListener("error", function() {
+    if (
+        !cropPreview.src.endsWith(DEFAULT_CROP_IMAGE)
+    ) {
+        cropPreview.src = DEFAULT_CROP_IMAGE;
+        photoCaption.textContent =
+            "The selected crop picture is missing. " +
+            "Please add the matching image to your images/crops folder.";
+    }
+});
+
+cropSelect.addEventListener("change", function() {
+    const isOther = cropSelect.value === "Other";
+
+    otherCropField.hidden = !isOther;
+    otherCropInput.required = isOther;
+
+    if (!isOther) {
+        otherCropInput.value = "";
+    }
+
+    updateCropPreview();
+});
+
+otherCropInput.addEventListener("input", updateCropPreview);
+
+/* MESSAGES */
+
+function clearMessages() {
+    successMessage.style.display = "none";
+    errorMessage.style.display = "none";
+    errorMessage.textContent = "";
+}
+
+function showError(message) {
+    errorMessage.textContent = message;
+    errorMessage.style.display = "block";
+
+    errorMessage.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+}
+
+function setButtonState(state) {
+    if (state === "loading") {
+        submitButton.disabled = true;
+        submitButton.textContent = "Publishing Listing...";
+        return;
+    }
+
+    if (state === "login") {
+        submitButton.disabled = true;
+        submitButton.textContent = "Login Required";
+        return;
+    }
+
+    submitButton.disabled = false;
+    submitButton.textContent = "Publish Crop Listing";
+}
+
+/* INITIALIZE SUPABASE */
+
+function initializeSupabase() {
+    if (!window.supabase?.createClient) {
+        setButtonState("login");
+
+        showError(
+            "The marketplace service could not load. " +
+            "Please check your internet connection and refresh."
+        );
+
+        return false;
+    }
+
+    try {
+        supabaseClient = window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY
+        );
+
+        return true;
+    } catch (error) {
+        console.error("Supabase initialization error:", error);
+
+        setButtonState("login");
+
+        showError(
+            "The marketplace could not initialize. Please refresh."
+        );
+
+        return false;
+    }
+}
+
+/* LOGIN */
+
+async function checkLogin() {
+    if (!supabaseClient) return null;
+
+    try {
+        const {
+            data: { user },
+            error
+        } = await supabaseClient.auth.getUser();
+
+        if (error) throw error;
+
+        if (!user) {
+            authenticatedUser = null;
+            loginBox.style.display = "block";
+            setButtonState("login");
+            return null;
+        }
+
+        authenticatedUser = user;
+        loginBox.style.display = "none";
+
+        if (!isSubmitting) {
+            setButtonState("ready");
+        }
+
+        return user;
+
+    } catch (error) {
+        console.error("Login check error:", error);
+
+        authenticatedUser = null;
+        setButtonState("login");
+
+        showError(
+            "We could not verify your login. " +
+            "Please check your connection and refresh."
+        );
+
+        return null;
+    }
+}
+
+/* VALIDATE */
+
+function validateListing() {
+    if (!form.reportValidity()) return false;
+
+    const crop = getSelectedCrop();
+    const phone = getValue("phone");
+
+    if (!crop) {
+        showError("Please specify the crop you are selling.");
+        return false;
+    }
+
+    const phoneDigits = phone.replace(/\D/g, "");
+
+    if (
+        phoneDigits.length < 9 ||
+        phoneDigits.length > 15
+    ) {
+        showError("Please enter a valid phone number.");
+        return false;
+    }
+
+    return true;
+}
+
+/* BUILD LISTING */
+
+function buildListing(userId) {
+    const crop = getSelectedCrop();
+    const quantity = getValue("quantity");
+    const quality = getValue("quality");
+    const condition = getValue("condition");
+    const price = getValue("price");
+
+    const flexibility = document.querySelector(
+        'input[name="flexibility"]:checked'
+    )?.value || "Negotiable";
+
+    const availability = document.querySelector(
+        'input[name="availability"]:checked'
+    )?.value || "Available now";
+
+    const location = getValue("location");
+    const delivery = getValue("delivery");
+    const sellerName = getValue("sellerName");
+    const phone = getValue("phone");
+    const email = getValue("email");
+    const preferredContact = getValue("preferredContact");
+    const description = getValue("description");
+
+    const fullDescription = [
+        description,
+        "",
+        "Crop / Product: " + crop,
+        "Quality / Grade: " + quality,
+        "Condition: " + condition,
+        "Price flexibility: " + flexibility,
+        "Availability: " + availability,
+        "Delivery: " + delivery,
+        "Seller: " + sellerName,
+        "Email: " + email,
+        "Preferred contact: " + preferredContact
+    ].join("\n");
+
+    return {
+        user_id: userId,
+        category: "crop",
+        title: crop + " for sale",
+        description: fullDescription,
+        location: location,
+        quantity: quantity,
+        price: price,
+        contact: phone,
+        status: "active"
+    };
+}
+
+/*
+  IMPORTANT:
+  The image is selected automatically using the crop name.
+
+  The database insertion below uses only the columns
+  already expected by your existing marketplace.
+
+  This avoids failing if the database does not yet have
+  an image_url column.
+
+  The Marketplace page must use the same CROP_IMAGES
+  catalogue when displaying the listing.
+
+  If you later add an image_url column, you can also
+  save the chosen image URL directly with each listing.
+*/
+
+/* SUBMIT */
+
+form.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    if (isSubmitting) return;
+
+    clearMessages();
+
+    if (!supabaseClient) {
+        showError(
+            "Marketplace service is unavailable. Refresh and try again."
+        );
+        return;
+    }
+
+    if (!validateListing()) return;
+
+    isSubmitting = true;
+    setButtonState("loading");
+
+    try {
+        const {
+            data: { user },
+            error: authError
+        } = await supabaseClient.auth.getUser();
+
+        if (authError) throw authError;
+
+        if (!user) {
+            authenticatedUser = null;
+            loginBox.style.display = "block";
+
+            showError(
+                "Your session has expired. Please log in again."
+            );
+
+            return;
+        }
+
+        authenticatedUser = user;
+        loginBox.style.display = "none";
+
+        const listing = buildListing(user.id);
+
+        const { data, error } = await supabaseClient
+            .from("marketplace_listings")
+            .insert(listing)
+            .select("id, title, status")
+            .single();
+
+        if (error) throw error;
+
+        if (!data || !data.id) {
+            throw new Error(
+                "The marketplace did not confirm your listing. " +
+                "Please check My Marketplace before submitting again."
+            );
+        }
+
+        console.log("Crop listing published:", data);
+
+        form.reset();
+
+        otherCropField.hidden = true;
+        otherCropInput.required = false;
+
+        updateCropPreview();
+
+        successMessage.style.display = "block";
+
+        successMessage.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    } catch (error) {
+        console.error("Crop listing error:", error);
+
+        let message = error?.message ||
+            "An unexpected error occurred.";
+
+        if (
+            error?.code === "42501" ||
+            /row-level security|permission denied/i.test(message)
+        ) {
+            message =
+                "Your account does not have permission to publish listings. " +
+                "Please check the INSERT and SELECT policies " +
+                "for marketplace_listings in Supabase.";
+        }
+
+        showError(
+            "We could not confirm publication. " + message
+        );
+
+    } finally {
+        isSubmitting = false;
+
+        if (authenticatedUser) {
+            setButtonState("ready");
+        } else {
+            setButtonState("login");
+        }
+    }
+});
+
+/* START */
+
+async function startPage() {
+    updateCropPreview();
+
+    if (!initializeSupabase()) return;
+
+    await checkLogin();
+
+    supabaseClient.auth.onAuthStateChange(
+        (_event, session) => {
+            if (isSubmitting) return;
+
+            if (session?.user) {
+                authenticatedUser = session.user;
+                loginBox.style.display = "none";
+                setButtonState("ready");
+            } else {
+                authenticatedUser = null;
+                loginBox.style.display = "block";
+                setButtonState("login");
+            }
+        }
+    );
+}
+
+startPage();
+
+</script>
+
+</body>
+</html>

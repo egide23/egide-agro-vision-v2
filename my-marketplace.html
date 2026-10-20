@@ -1,0 +1,1364 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a3719">
+
+    <title>My Marketplace | Africa AgroVision</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            color: #173a23;
+
+            background:
+                linear-gradient(
+                    rgba(7, 42, 20, 0.80),
+                    rgba(15, 73, 34, 0.72)
+                ),
+                url("https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=2200&q=85");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        button,
+        input,
+        textarea {
+            font: inherit;
+        }
+
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible,
+        a:focus-visible {
+            outline: 3px solid #80d99b;
+            outline-offset: 3px;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        .market-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            min-height: 70px;
+            padding: 12px 5%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+
+            background: rgba(10, 55, 25, 0.96);
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.16);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .market-nav h2 {
+            margin: 0;
+            color: white;
+            font-size: 21px;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        .market-nav ul {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 5px;
+            list-style: none;
+        }
+
+        .market-nav a {
+            display: block;
+            padding: 10px 12px;
+            border-radius: 9px;
+            color: rgba(255,255,255,0.90);
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            transition:
+                background 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .market-nav a:hover {
+            background: rgba(255,255,255,0.12);
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .market-hero {
+            width: min(1150px, 92%);
+            margin: 50px auto 30px;
+            padding: 55px 35px;
+            text-align: center;
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(8,48,22,0.86),
+                    rgba(27,94,32,0.72)
+                );
+
+            border: 1px solid rgba(255,255,255,0.16);
+            border-radius: 28px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.24);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .market-hero h1 {
+            margin: 0 0 12px;
+            font-size: clamp(30px,5vw,46px);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .market-hero p {
+            max-width: 720px;
+            margin: 0 auto;
+            color: rgba(255,255,255,0.88);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .market-content {
+            width: min(1150px,92%);
+            margin: 0 auto 70px;
+        }
+
+        .user-status {
+            margin-bottom: 20px;
+            padding: 15px 18px;
+            border-radius: 13px;
+            background: rgba(255,255,255,0.96);
+            color: #35533f;
+            font-size: 14px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.13);
+        }
+
+        .user-status strong {
+            color: #145b24;
+        }
+
+        /* =========================
+           LISTING GRID
+        ========================= */
+
+        #myListingsGrid {
+            display: grid;
+            grid-template-columns: repeat(3,minmax(0,1fr));
+            gap: 22px;
+        }
+
+        .listing-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            background: rgba(255,255,255,0.98);
+            border: 1px solid rgba(255,255,255,0.75);
+            border-radius: 20px;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.17);
+            overflow: hidden;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .listing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.23);
+        }
+
+        /* PROFESSIONAL CARD IMAGES */
+
+        .listing-image-wrap {
+            position: relative;
+            width: 100%;
+            height: 195px;
+            overflow: hidden;
+            background: #e6f0e8;
+        }
+
+        .listing-image {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.4s ease;
+        }
+
+        .listing-card:hover .listing-image {
+            transform: scale(1.045);
+        }
+
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to top,
+                rgba(0,35,12,0.25),
+                transparent 65%
+            );
+            pointer-events: none;
+        }
+
+        .listing-body {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 23px;
+        }
+
+        .listing-type {
+            display: inline-flex;
+            align-items: center;
+            width: fit-content;
+            margin-bottom: 14px;
+            padding: 7px 11px;
+            border-radius: 999px;
+            background: #e8f5e9;
+            color: #176326;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        .listing-type.request {
+            background: #fff2dc;
+            color: #8a5800;
+        }
+
+        .listing-card h3 {
+            margin: 0 0 12px;
+            color: #153c21;
+            font-size: 20px;
+            line-height: 1.35;
+            overflow-wrap: anywhere;
+        }
+
+        .listing-description {
+            margin: 0 0 18px;
+            color: #66756c;
+            font-size: 14px;
+            line-height: 1.65;
+            overflow-wrap: anywhere;
+            white-space: pre-line;
+        }
+
+        .listing-details {
+            margin-top: auto;
+            display: grid;
+            gap: 10px;
+            padding: 16px;
+            border: 1px solid #e6eee7;
+            border-radius: 12px;
+            background: #f7faf8;
+        }
+
+        .listing-detail {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            font-size: 13px;
+        }
+
+        .listing-detail span:first-child {
+            color: #77847c;
+            font-weight: 600;
+        }
+
+        .listing-detail span:last-child {
+            color: #21472d;
+            font-weight: 700;
+            text-align: right;
+            overflow-wrap: anywhere;
+            min-width: 0;
+        }
+
+        .listing-time {
+            margin-top: 15px;
+            color: #8a968f;
+            font-size: 12px;
+        }
+
+        /* =========================
+           MANAGE BUTTONS
+        ========================= */
+
+        .listing-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 18px;
+            padding-top: 16px;
+            border-top: 1px solid #e4ebe5;
+        }
+
+        .edit-button,
+        .delete-button {
+            flex: 1;
+            padding: 12px 10px;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 13px;
+            font-weight: 800;
+            cursor: pointer;
+
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .edit-button {
+            background: #1b6b2a;
+        }
+
+        .edit-button:hover {
+            background: #12491d;
+            transform: translateY(-1px);
+            box-shadow: 0 7px 16px rgba(27,107,42,0.22);
+        }
+
+        .delete-button {
+            background: #b42318;
+        }
+
+        .delete-button:hover {
+            background: #8f1c13;
+            transform: translateY(-1px);
+            box-shadow: 0 7px 16px rgba(180,35,24,0.22);
+        }
+
+        .edit-button:disabled,
+        .delete-button:disabled,
+        .save-edit-button:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* =========================
+           EDIT PANEL
+        ========================= */
+
+        .edit-panel {
+            display: none;
+            margin-top: 18px;
+            padding: 18px;
+            background: #f4f8f5;
+            border: 1px solid #dce8df;
+            border-radius: 15px;
+        }
+
+        .edit-panel.active {
+            display: block;
+        }
+
+        .edit-panel h4 {
+            margin: 0 0 14px;
+            color: #173a23;
+            font-size: 16px;
+        }
+
+        .edit-field {
+            margin-bottom: 12px;
+        }
+
+        .edit-field label {
+            display: block;
+            margin-bottom: 6px;
+            color: #486052;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .edit-field input,
+        .edit-field textarea {
+            width: 100%;
+            padding: 10px 11px;
+            border: 1px solid #cddbd1;
+            border-radius: 9px;
+            background: white;
+            color: #173a23;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+        }
+
+        .edit-field textarea {
+            min-height: 95px;
+            resize: vertical;
+        }
+
+        .edit-field input:focus,
+        .edit-field textarea:focus {
+            border-color: #1b6b2a;
+            box-shadow: 0 0 0 3px rgba(27,107,42,0.10);
+            outline: none;
+        }
+
+        .edit-actions {
+            display: flex;
+            gap: 9px;
+            margin-top: 14px;
+        }
+
+        .save-edit-button,
+        .cancel-edit-button {
+            flex: 1;
+            padding: 11px;
+            border: none;
+            border-radius: 9px;
+            font-size: 12px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .save-edit-button {
+            background: #176326;
+            color: white;
+        }
+
+        .save-edit-button:hover {
+            background: #12491d;
+        }
+
+        .cancel-edit-button {
+            background: #e3e9e5;
+            color: #38513f;
+        }
+
+        .cancel-edit-button:hover {
+            background: #d5ded8;
+        }
+
+        /* =========================
+           MESSAGE BOX
+        ========================= */
+
+        .message-box {
+            padding: 35px 25px;
+            text-align: center;
+            background: rgba(255,255,255,0.96);
+            border-radius: 20px;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.16);
+            color: #617067;
+            line-height: 1.7;
+            grid-column: 1 / -1;
+        }
+
+        .message-box h3 {
+            margin: 0 0 10px;
+            color: #173a23;
+            font-size: 22px;
+        }
+
+        .message-box p {
+            margin: 0 auto;
+            max-width: 600px;
+            font-size: 14px;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 22px;
+            padding: 12px 19px;
+            border-radius: 10px;
+            background: #1b6b2a;
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 800;
+            transition: background 0.2s ease;
+        }
+
+        .back-button:hover {
+            background: #12491d;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 1000px) {
+            #myListingsGrid {
+                grid-template-columns: repeat(2,minmax(0,1fr));
+            }
+        }
+
+        @media (max-width: 700px) {
+            body {
+                background-attachment: scroll;
+            }
+
+            .market-nav {
+                padding: 12px 4%;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .market-nav ul {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .market-nav a {
+                padding: 8px;
+                font-size: 11px;
+            }
+
+            .market-hero {
+                width: 94%;
+                margin-top: 25px;
+                padding: 42px 22px;
+                border-radius: 23px;
+            }
+
+            .market-hero p {
+                font-size: 14px;
+            }
+
+            .market-content {
+                width: 94%;
+            }
+
+            #myListingsGrid {
+                grid-template-columns: 1fr;
+            }
+
+            .listing-image-wrap {
+                height: 210px;
+            }
+
+            .listing-body {
+                padding: 20px;
+            }
+
+            .listing-actions,
+            .edit-actions {
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .listing-card,
+            .listing-image {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav class="market-nav">
+        <h2>Africa AgroVision 🌱</h2>
+
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="agro-market.html">Marketplace</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="agriculture.html">Agriculture</a></li>
+            <li><a href="index.html">Home</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+
+    <section class="market-hero">
+        <h1>My Marketplace 🛒</h1>
+
+        <p>
+            Manage and view the agricultural listings and
+            buyer requests connected to your Africa AgroVision account.
+        </p>
+    </section>
+
+    <!-- CONTENT -->
+
+    <main class="market-content">
+
+        <div class="user-status" id="userStatus">
+            Checking your account...
+        </div>
+
+        <div id="myListingsGrid">
+            <div class="message-box">
+                <h3>Loading your marketplace...</h3>
+                <p>
+                    Please wait while Africa AgroVision
+                    checks your marketplace activity.
+                </p>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        "use strict";
+
+        // ==========================================
+        // SUPABASE
+        // ==========================================
+
+        const SUPABASE_URL =
+            "https://fhvyncltdliduhhfqzqq.supabase.co";
+
+        const SUPABASE_PUBLISHABLE_KEY =
+            "sb_publishable_Z5hzSz2kuIJL-FwUP9IZ4Q_oXFkHn9T";
+
+        const userStatus =
+            document.getElementById("userStatus");
+
+        const myListingsGrid =
+            document.getElementById("myListingsGrid");
+
+        let supabaseClient = null;
+
+        // ==========================================
+        // ESCAPE HTML - CORRECTED
+        // ==========================================
+
+        function escapeHTML(value) {
+            if (value === null || value === undefined) {
+                return "";
+            }
+
+            return String(value)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        // ==========================================
+        // PROFESSIONAL AGRICULTURAL IMAGES
+        // ==========================================
+
+        const MARKET_IMAGES = {
+            crops:
+                "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=900&q=85",
+
+            vegetables:
+                "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=900&q=85",
+
+            fruits:
+                "https://images.unsplash.com/photo-1619566636858-adf3ef46400b?auto=format&fit=crop&w=900&q=85",
+
+            poultry:
+                "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=900&q=85",
+
+            livestock:
+                "https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=900&q=85",
+
+            equipment:
+                "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=900&q=85",
+
+            market:
+                "https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=900&q=85"
+        };
+
+        function getListingImage(listing) {
+            const savedImage =
+                listing.image_url ||
+                listing.image ||
+                listing.photo_url;
+
+            if (
+                typeof savedImage === "string" &&
+                /^https:\/\//i.test(savedImage.trim())
+            ) {
+                return savedImage.trim();
+            }
+
+            const text = (
+                String(listing.title || "") + " " +
+                String(listing.description || "")
+            ).toLowerCase();
+
+            if (
+                /chicken|poultry|hen|broiler|layer|chick|egg/.test(text)
+            ) {
+                return MARKET_IMAGES.poultry;
+            }
+
+            if (
+                /cow|cattle|goat|sheep|pig|livestock|dairy|milk/.test(text)
+            ) {
+                return MARKET_IMAGES.livestock;
+            }
+
+            if (
+                /tractor|machine|equipment|irrigation|pump|tools/.test(text)
+            ) {
+                return MARKET_IMAGES.equipment;
+            }
+
+            if (
+                /banana|mango|avocado|orange|pineapple|fruit/.test(text)
+            ) {
+                return MARKET_IMAGES.fruits;
+            }
+
+            if (
+                /tomato|cabbage|carrot|onion|potato|vegetable/.test(text)
+            ) {
+                return MARKET_IMAGES.vegetables;
+            }
+
+            if (
+                /maize|rice|beans|wheat|seed|crop|farm/.test(text)
+            ) {
+                return MARKET_IMAGES.crops;
+            }
+
+            return MARKET_IMAGES.market;
+        }
+
+        // ==========================================
+        // FORMAT POSTED TIME
+        // ==========================================
+
+        function formatPostedTime(createdAt) {
+            if (!createdAt) {
+                return "Recently posted";
+            }
+
+            const created = new Date(createdAt);
+
+            if (Number.isNaN(created.getTime())) {
+                return "Recently posted";
+            }
+
+            const difference = Math.max(
+                0,
+                Math.floor(
+                    (Date.now() - created.getTime()) / 1000
+                )
+            );
+
+            if (difference < 60) {
+                return "Posted just now";
+            }
+
+            const minutes = Math.floor(difference / 60);
+
+            if (minutes < 60) {
+                return `Posted ${minutes} minute${minutes === 1 ? "" : "s"} ago`;
+            }
+
+            const hours = Math.floor(minutes / 60);
+
+            if (hours < 24) {
+                return `Posted ${hours} hour${hours === 1 ? "" : "s"} ago`;
+            }
+
+            const days = Math.floor(hours / 24);
+
+            if (days < 7) {
+                return `Posted ${days} day${days === 1 ? "" : "s"} ago`;
+            }
+
+            const weeks = Math.floor(days / 7);
+
+            if (weeks < 5) {
+                return `Posted ${weeks} week${weeks === 1 ? "" : "s"} ago`;
+            }
+
+            const months = Math.floor(days / 30);
+
+            if (months < 12) {
+                return `Posted ${months} month${months === 1 ? "" : "s"} ago`;
+            }
+
+            const years = Math.floor(days / 365);
+
+            return `Posted ${years} year${years === 1 ? "" : "s"} ago`;
+        }
+
+        // ==========================================
+        // SHOW MESSAGE
+        // ==========================================
+
+        function showMessage(title, description, link = false) {
+            myListingsGrid.innerHTML = `
+                <div class="message-box">
+                    <h3>${escapeHTML(title)}</h3>
+                    <p>${escapeHTML(description)}</p>
+
+                    ${link ? `
+                        <a href="agro-market.html"
+                           class="back-button">
+                            Browse Marketplace →
+                        </a>
+                    ` : ""}
+                </div>
+            `;
+        }
+
+        // ==========================================
+        // AUTHENTICATION
+        // ==========================================
+
+        async function getCurrentUser() {
+            const { data, error } =
+                await supabaseClient.auth.getUser();
+
+            if (error || !data.user) {
+                throw new Error(
+                    "Your session has expired. Please log in again."
+                );
+            }
+
+            return data.user;
+        }
+
+        // ==========================================
+        // TOGGLE EDIT PANEL
+        // ==========================================
+
+        function toggleEditPanel(listingId) {
+            const panel = document.getElementById(
+                "edit-panel-" + listingId
+            );
+
+            if (panel) {
+                panel.classList.toggle("active");
+            }
+        }
+
+        // ==========================================
+        // CANCEL EDIT
+        // ==========================================
+
+        function cancelEdit(listingId) {
+            const panel = document.getElementById(
+                "edit-panel-" + listingId
+            );
+
+            if (panel) {
+                panel.classList.remove("active");
+            }
+        }
+
+        // ==========================================
+        // UPDATE LISTING
+        // ==========================================
+
+        async function updateListing(listingId, button) {
+            if (!listingId) {
+                alert("This marketplace listing could not be identified.");
+                return;
+            }
+
+            button.disabled = true;
+            button.textContent = "Saving...";
+
+            try {
+                const user = await getCurrentUser();
+
+                const getValue = field =>
+                    document.getElementById(
+                        "edit-" + field + "-" + listingId
+                    ).value.trim();
+
+                const location = getValue("location");
+                const quantity = getValue("quantity");
+                const price = getValue("price");
+                const contact = getValue("contact");
+                const description = getValue("description");
+
+                if (!description) {
+                    alert("Please enter a description.");
+                    return;
+                }
+
+                const { data, error } = await supabaseClient
+                    .from("marketplace_listings")
+                    .update({
+                        location,
+                        quantity,
+                        price,
+                        contact,
+                        description
+                    })
+                    .eq("id", listingId)
+                    .eq("user_id", user.id)
+                    .select("id");
+
+                if (error) {
+                    throw error;
+                }
+
+                if (!data || data.length === 0) {
+                    throw new Error(
+                        "No changes were saved. Check your Supabase UPDATE and SELECT policies."
+                    );
+                }
+
+                alert(
+                    "Your marketplace post has been updated successfully."
+                );
+
+                await loadMyMarketplace();
+
+            } catch (error) {
+                console.error("Update listing error:", error);
+
+                alert(
+                    "Unable to update listing:\n\n" +
+                    error.message
+                );
+
+            } finally {
+                button.disabled = false;
+                button.textContent = "💾 Save Changes";
+            }
+        }
+
+        // ==========================================
+        // DELETE LISTING
+        // ==========================================
+
+        async function deleteListing(listingId, button) {
+            if (!listingId) {
+                alert("This marketplace listing could not be identified.");
+                return;
+            }
+
+            const confirmed = window.confirm(
+                "Are you sure you want to remove this marketplace post?\n\nThis action cannot be undone."
+            );
+
+            if (!confirmed) {
+                return;
+            }
+
+            button.disabled = true;
+            button.textContent = "Removing...";
+
+            try {
+                const user = await getCurrentUser();
+
+                const { data, error } = await supabaseClient
+                    .from("marketplace_listings")
+                    .delete()
+                    .eq("id", listingId)
+                    .eq("user_id", user.id)
+                    .select("id");
+
+                if (error) {
+                    throw error;
+                }
+
+                if (!data || data.length === 0) {
+                    throw new Error(
+                        "No listing was deleted. Check your Supabase DELETE and SELECT policies."
+                    );
+                }
+
+                alert("Your marketplace post has been removed.");
+
+                await loadMyMarketplace();
+
+            } catch (error) {
+                console.error("Delete listing error:", error);
+
+                alert(
+                    "Unable to remove listing:\n\n" +
+                    error.message
+                );
+
+            } finally {
+                button.disabled = false;
+                button.textContent = "🗑 Remove Post";
+            }
+        }
+
+        // ==========================================
+        // RENDER EDIT FIELD
+        // ==========================================
+
+        function editInput(label, field, listingId, value) {
+            return `
+                <div class="edit-field">
+                    <label for="edit-${field}-${listingId}">
+                        ${escapeHTML(label)}
+                    </label>
+                    <input
+                        type="text"
+                        id="edit-${field}-${listingId}"
+                        value="${escapeHTML(value || "")}"
+                    >
+                </div>
+            `;
+        }
+
+        // ==========================================
+        // LOAD USER MARKETPLACE
+        // ==========================================
+
+        async function loadMyMarketplace() {
+            try {
+                const user = await getCurrentUser();
+
+                const userName =
+                    user.user_metadata?.name ||
+                    user.email ||
+                    "Africa AgroVision user";
+
+                userStatus.innerHTML =
+                    "<strong>Logged in as:</strong> " +
+                    escapeHTML(userName);
+
+                const { data: listings, error } =
+                    await supabaseClient
+                        .from("marketplace_listings")
+                        .select("*")
+                        .eq("user_id", user.id)
+                        .eq("status", "active")
+                        .order("created_at", {
+                            ascending: false
+                        });
+
+                if (error) {
+                    throw error;
+                }
+
+                if (!listings || listings.length === 0) {
+                    showMessage(
+                        "No marketplace activity yet 🛒",
+                        "You have not posted any active marketplace offers or buyer requests yet.",
+                        true
+                    );
+                    return;
+                }
+
+                myListingsGrid.innerHTML = listings.map(
+                    function(listing) {
+                        const isRequest = String(
+                            listing.title || ""
+                        ).toLowerCase().startsWith(
+                            "buyer request:"
+                        );
+
+                        const typeLabel = isRequest
+                            ? "🔎 Buyer Request"
+                            : "🌱 Available for Sale";
+
+                        const listingId =
+                            escapeHTML(listing.id);
+
+                        const image =
+                            escapeHTML(getListingImage(listing));
+
+                        const fallback =
+                            escapeHTML(MARKET_IMAGES.market);
+
+                        return `
+                            <article class="listing-card">
+
+                                <!-- LISTING IMAGE -->
+
+                                <div class="listing-image-wrap">
+                                    <img
+                                        class="listing-image"
+                                        src="${image}"
+                                        alt="${escapeHTML(listing.title || "Agricultural marketplace listing")}"
+                                        loading="lazy"
+                                        onerror="this.onerror=null;this.src='${fallback}'"
+                                    >
+                                    <div class="image-overlay"></div>
+                                </div>
+
+                                <div class="listing-body">
+
+                                    <div class="listing-type ${isRequest ? "request" : ""}">
+                                        ${typeLabel}
+                                    </div>
+
+                                    <h3>
+                                        ${escapeHTML(
+                                            listing.title ||
+                                            "Marketplace Listing"
+                                        )}
+                                    </h3>
+
+                                    <p class="listing-description">${escapeHTML(
+                                        listing.description ||
+                                        "No description provided."
+                                    )}</p>
+
+                                    <div class="listing-details">
+
+                                        <div class="listing-detail">
+                                            <span>Location</span>
+                                            <span>${escapeHTML(
+                                                listing.location ||
+                                                "Not specified"
+                                            )}</span>
+                                        </div>
+
+                                        <div class="listing-detail">
+                                            <span>Quantity</span>
+                                            <span>${escapeHTML(
+                                                listing.quantity ||
+                                                "Not specified"
+                                            )}</span>
+                                        </div>
+
+                                        <div class="listing-detail">
+                                            <span>Price / Budget</span>
+                                            <span>${escapeHTML(
+                                                listing.price ||
+                                                "Not specified"
+                                            )}</span>
+                                        </div>
+
+                                        <div class="listing-detail">
+                                            <span>Contact</span>
+                                            <span>${escapeHTML(
+                                                listing.contact ||
+                                                "Not specified"
+                                            )}</span>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="listing-time">
+                                        🕒 ${escapeHTML(
+                                            formatPostedTime(
+                                                listing.created_at
+                                            )
+                                        )}
+                                    </div>
+
+                                    <div class="listing-actions">
+
+                                        <button
+                                            type="button"
+                                            class="edit-button"
+                                            data-action="edit"
+                                            data-id="${listingId}"
+                                        >
+                                            ✏️ Edit Post
+                                        </button>
+
+                                        <button
+                                            type="button"
+                                            class="delete-button"
+                                            data-action="delete"
+                                            data-id="${listingId}"
+                                        >
+                                            🗑 Remove Post
+                                        </button>
+
+                                    </div>
+
+                                    <div
+                                        class="edit-panel"
+                                        id="edit-panel-${listingId}"
+                                    >
+
+                                        <h4>✏️ Edit Marketplace Post</h4>
+
+                                        ${editInput(
+                                            "Location",
+                                            "location",
+                                            listingId,
+                                            listing.location
+                                        )}
+
+                                        ${editInput(
+                                            "Quantity",
+                                            "quantity",
+                                            listingId,
+                                            listing.quantity
+                                        )}
+
+                                        ${editInput(
+                                            "Price / Budget",
+                                            "price",
+                                            listingId,
+                                            listing.price
+                                        )}
+
+                                        ${editInput(
+                                            "Contact",
+                                            "contact",
+                                            listingId,
+                                            listing.contact
+                                        )}
+
+                                        <div class="edit-field">
+                                            <label for="edit-description-${listingId}">
+                                                Description
+                                            </label>
+
+                                            <textarea
+                                                id="edit-description-${listingId}"
+                                            >${escapeHTML(
+                                                listing.description || ""
+                                            )}</textarea>
+                                        </div>
+
+                                        <div class="edit-actions">
+
+                                            <button
+                                                type="button"
+                                                class="save-edit-button"
+                                                data-action="save"
+                                                data-id="${listingId}"
+                                            >
+                                                💾 Save Changes
+                                            </button>
+
+                                            <button
+                                                type="button"
+                                                class="cancel-edit-button"
+                                                data-action="cancel"
+                                                data-id="${listingId}"
+                                            >
+                                                Cancel
+                                            </button>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </article>
+                        `;
+                    }
+                ).join("");
+
+            } catch (error) {
+                console.error(
+                    "Marketplace loading error:",
+                    error
+                );
+
+                if (
+                    error.message?.includes("session") ||
+                    error.message?.includes("JWT")
+                ) {
+                    window.location.replace("login.html");
+                    return;
+                }
+
+                showMessage(
+                    "Unable to load marketplace activity",
+                    error.message ||
+                    "Something went wrong. Please try again."
+                );
+            }
+        }
+
+        // ==========================================
+        // BUTTON EVENT HANDLING
+        // ==========================================
+
+        myListingsGrid.addEventListener("click", event => {
+            const button = event.target.closest(
+                "button[data-action]"
+            );
+
+            if (!button) {
+                return;
+            }
+
+            const action = button.dataset.action;
+            const listingId = button.dataset.id;
+
+            if (action === "edit") {
+                toggleEditPanel(listingId);
+            }
+
+            if (action === "cancel") {
+                cancelEdit(listingId);
+            }
+
+            if (action === "save") {
+                updateListing(listingId, button);
+            }
+
+            if (action === "delete") {
+                deleteListing(listingId, button);
+            }
+        });
+
+        // ==========================================
+        // INITIALIZE
+        // ==========================================
+
+        async function initializeMarketplace() {
+            if (!window.supabase?.createClient) {
+                showMessage(
+                    "Connection unavailable",
+                    "Supabase could not load. Please check your internet connection and refresh."
+                );
+                return;
+            }
+
+            supabaseClient = window.supabase.createClient(
+                SUPABASE_URL,
+                SUPABASE_PUBLISHABLE_KEY
+            );
+
+            await loadMyMarketplace();
+        }
+
+        initializeMarketplace();
+
+    </script>
+
+</body>
+</html>

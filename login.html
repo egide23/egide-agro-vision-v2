@@ -1,787 +1,488 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Login | Africa AgroVision</title>
-
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Supabase -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-    <style>
-
-        /* =====================================================
-           AFRICA AGROVISION — LOGIN PAGE
-        ===================================================== */
-
-        * {
-            box-sizing: border-box;
-        }
-
-
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            min-height: 100%;
-        }
-
-
-        body {
-            min-height: 100vh;
-
-            font-family: Arial, sans-serif;
-
-            background-color: #12351f;
-
-            background-image:
-                linear-gradient(
-                    135deg,
-                    rgba(4, 35, 17, 0.58),
-                    rgba(16, 78, 35, 0.38),
-                    rgba(3, 31, 15, 0.68)
-                ),
-                url("https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=2200&q=90") !important;
-
-            background-size: cover !important;
-            background-position: center center !important;
-            background-repeat: no-repeat !important;
-            background-attachment: fixed !important;
-
-            color: #173a23;
-        }
-
-
-        /* =====================================================
-           PAGE LAYER
-        ===================================================== */
-
-        .register-section {
-            width: 100%;
-            min-height: 100vh;
-
-            margin: 0;
-            padding: 45px 20px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            background: transparent !important;
-        }
-
-
-        /* =====================================================
-           LOGIN CARD
-        ===================================================== */
-
-        .register-container {
-            position: relative;
-
-            width: 100%;
-            max-width: 500px;
-
-            padding: 42px 42px 38px;
-
-            background: rgba(255, 255, 255, 0.96) !important;
-
-            border: 1px solid rgba(255, 255, 255, 0.75);
-
-            border-top: 5px solid #1b5e20;
-
-            border-radius: 26px;
-
-            box-shadow:
-                0 30px 80px rgba(0, 0, 0, 0.38);
-
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-
-            animation: loginCardAppear 0.7s ease;
-        }
-
-
-        @keyframes loginCardAppear {
-
-            from {
-                opacity: 0;
-                transform: translateY(18px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-
-        /* =====================================================
-           BRAND
-        ===================================================== */
-
-        .brand-mark {
-            width: 52px;
-            height: 52px;
-
-            margin-bottom: 18px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 15px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #12351f,
-                    #2e7d32
-                );
-
-            color: white;
-
-            font-size: 17px;
-            font-weight: 900;
-
-            letter-spacing: 1px;
-
-            box-shadow:
-                0 8px 20px rgba(27, 94, 32, 0.22);
-        }
-
-
-        .brand-name {
-            margin-bottom: 9px;
-
-            color: #1b5e20;
-
-            font-size: 12px;
-            font-weight: 800;
-
-            letter-spacing: 2px;
-        }
-
-
-        /* =====================================================
-           HEADING
-        ===================================================== */
-
-        .register-container h1 {
-            margin: 0 0 10px;
-
-            color: #102f1b;
-
-            font-size: 34px;
-            font-weight: 800;
-
-            line-height: 1.15;
-        }
-
-
-        .intro-text {
-            margin: 0 0 30px;
-
-            color: #627066;
-
-            font-size: 15px;
-
-            line-height: 1.65;
-        }
-
-
-        /* =====================================================
-           FORM
-        ===================================================== */
-
-        #loginForm {
-            width: 100%;
-        }
-
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-
-        .register-container label {
-            display: block;
-
-            margin-bottom: 8px;
-
-            color: #183d25;
-
-            font-size: 13px;
-            font-weight: 800;
-
-            letter-spacing: 0.2px;
-        }
-
-
-        .input-wrapper {
-            position: relative;
-        }
-
-
-        .register-container input {
-            width: 100%;
-
-            min-height: 52px;
-
-            padding: 14px 16px;
-
-            border: 1px solid #d1ddd5;
-
-            border-radius: 13px;
-
-            background: #f8fbf9;
-
-            color: #173a23;
-
-            font-family: inherit;
-            font-size: 15px;
-
-            outline: none;
-
-            transition:
-                border-color 0.25s ease,
-                box-shadow 0.25s ease,
-                background 0.25s ease;
-        }
-
-
-        .register-container input::placeholder {
-            color: #98a49d;
-        }
-
-
-        .register-container input:hover {
-            border-color: #aebeb4;
-        }
-
-
-        .register-container input:focus {
-            border-color: #2e7d32;
-
-            background: #ffffff;
-
-            box-shadow:
-                0 0 0 4px rgba(46, 125, 50, 0.11);
-        }
-
-
-        /* =====================================================
-           LOGIN BUTTON
-        ===================================================== */
-
-        #loginButton {
-            width: 100%;
-
-            min-height: 53px;
-
-            margin-top: 4px;
-
-            padding: 14px 20px;
-
-            border: none;
-
-            border-radius: 13px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #123f20,
-                    #1b6b2a,
-                    #2e7d32
-                );
-
-            color: #ffffff;
-
-            font-family: inherit;
-
-            font-size: 15px;
-            font-weight: 800;
-
-            letter-spacing: 0.2px;
-
-            cursor: pointer;
-
-            box-shadow:
-                0 10px 25px rgba(27, 94, 32, 0.24);
-
-            transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease,
-                opacity 0.25s ease;
-        }
-
-
-        #loginButton:hover {
-            transform: translateY(-2px);
-
-            box-shadow:
-                0 15px 30px rgba(27, 94, 32, 0.32);
-        }
-
-
-        #loginButton:active {
-            transform: translateY(0);
-        }
-
-
-        #loginButton:disabled {
-            opacity: 0.72;
-
-            cursor: not-allowed;
-
-            transform: none;
-        }
-
-
-        /* =====================================================
-           CREATE ACCOUNT
-        ===================================================== */
-
-        .login-link {
-            margin: 24px 0 0 !important;
-
-            padding-top: 20px;
-
-            border-top: 1px solid #e5ebe7;
-
-            color: #69766e !important;
-
-            text-align: center;
-
-            font-size: 14px;
-
-            line-height: 1.6;
-        }
-
-
-        .login-link a {
-            color: #1b5e20 !important;
-
-            font-weight: 800;
-
-            text-decoration: none;
-
-            transition: color 0.2s ease;
-        }
-
-
-        .login-link a:hover {
-            color: #2e7d32 !important;
-
-            text-decoration: underline;
-        }
-
-
-        /* =====================================================
-           TRUST MESSAGE
-        ===================================================== */
-
-        .trust-message {
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            gap: 7px;
-
-            margin-top: 20px;
-
-            color: #708078;
-
-            font-size: 11px;
-
-            text-align: center;
-        }
-
-
-        .trust-icon {
-            width: 18px;
-            height: 18px;
-
-            display: inline-flex;
-
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 50%;
-
-            background: #e7f3e9;
-
-            color: #23712c;
-
-            font-size: 10px;
-            font-weight: 900;
-        }
-
-
-        /* =====================================================
-           MOBILE
-        ===================================================== */
-
-        @media (max-width: 600px) {
-
-            body {
-                background-attachment: scroll !important;
-            }
-
-
-            .register-section {
-                min-height: 100vh;
-
-                padding: 25px 15px;
-            }
-
-
-            .register-container {
-                max-width: 100%;
-
-                padding: 32px 24px 28px;
-
-                border-radius: 21px;
-            }
-
-
-            .register-container h1 {
-                font-size: 29px;
-            }
-
-
-            .intro-text {
-                font-size: 14px;
-
-                margin-bottom: 25px;
-            }
-
-
-            .brand-mark {
-                width: 48px;
-                height: 48px;
-            }
-        }
-
-
-        /* =====================================================
-           SMALL PHONES
-        ===================================================== */
-
-        @media (max-width: 380px) {
-
-            .register-container {
-                padding: 28px 19px 25px;
-            }
-
-
-            .register-container h1 {
-                font-size: 26px;
-            }
-
-
-            .register-container input {
-                min-height: 49px;
-            }
-
-
-            #loginButton {
-                min-height: 50px;
-            }
-        }
-
-    </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#103e27">
+
+<title>Login | Africa AgroVision</title>
+
+<link rel="preconnect" href="https://images.unsplash.com">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+:root{
+  --green:#14532d;
+  --dark:#092f1c;
+  --muted:#687a6e;
+  --border:#dce8df;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#103e27;
+  color:#183c28;
+}
+a{color:inherit;text-decoration:none}
+.page{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1.08fr .92fr;
+}
+.visual{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding:46px 7%;
+  color:white;
+  background:
+    linear-gradient(180deg,rgba(6,37,20,.55),rgba(6,37,20,.88)),
+    url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=85")
+    center/cover;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:22px;
+  font-weight:800;
+}
+.brand-mark{
+  width:45px;
+  height:45px;
+  display:grid;
+  place-items:center;
+  border-radius:13px;
+  background:#ffffff25;
+  border:1px solid #ffffff55;
+  font-size:23px;
+}
+.visual-content{max-width:610px}
+.eyebrow{
+  display:inline-block;
+  margin-bottom:17px;
+  padding:8px 14px;
+  border:1px solid #ffffff60;
+  border-radius:30px;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:1.1px;
+  text-transform:uppercase;
+}
+.visual h1{
+  margin:0 0 20px;
+  font-size:clamp(38px,4.5vw,65px);
+  line-height:1.12;
+  letter-spacing:-1px;
+}
+.visual h1 span{color:#f4c96b}
+.visual p{
+  max-width:550px;
+  font-size:16px;
+  line-height:1.9;
+  color:#e1eee5;
+}
+.visual-footer{
+  font-size:12px;
+  color:#d2e4d6;
+}
+.form-side{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:55px 28px;
+  background:#f8fbf8;
+}
+.form-card{
+  width:100%;
+  max-width:440px;
+}
+.form-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:36px;
+  gap:15px;
+}
+.back-link{
+  font-size:12px;
+  font-weight:700;
+  color:#39714b;
+}
+.form-badge{
+  background:#e6f4e9;
+  border-radius:30px;
+  padding:7px 12px;
+  font-size:11px;
+  font-weight:800;
+  color:#287b43;
+}
+h2{
+  margin:0 0 12px;
+  color:#123d26;
+  font-size:36px;
+  letter-spacing:-.7px;
+}
+.intro{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.8;
+  margin:0 0 33px;
+}
+.field{margin-bottom:20px}
+label{
+  display:block;
+  font-size:13px;
+  font-weight:800;
+  margin-bottom:9px;
+  color:#254c32;
+}
+.input-wrap{position:relative}
+input{
+  width:100%;
+  height:53px;
+  padding:0 16px;
+  border:1px solid #d5e3d8;
+  border-radius:11px;
+  outline:none;
+  background:white;
+  font:inherit;
+  font-size:14px;
+  color:#1c3c28;
+  transition:.2s;
+}
+input:focus{
+  border-color:#2e854a;
+  box-shadow:0 0 0 4px #2e854a18;
+}
+input::placeholder{color:#9aaba0}
+.password-input{padding-right:70px}
+.show-password{
+  position:absolute;
+  right:10px;
+  top:50%;
+  transform:translateY(-50%);
+  border:0;
+  background:transparent;
+  color:#2d7c46;
+  font-weight:800;
+  font-size:12px;
+  padding:8px;
+}
+.form-options{
+  display:flex;
+  justify-content:flex-end;
+  margin:-3px 0 23px;
+}
+.forgot{
+  font-size:12px;
+  font-weight:800;
+  color:#287b43;
+}
+.forgot:hover,.back-link:hover{text-decoration:underline}
+.submit-btn{
+  width:100%;
+  min-height:54px;
+  border:0;
+  border-radius:11px;
+  background:linear-gradient(110deg,#104a29,#268346);
+  color:white;
+  font-size:15px;
+  font-weight:800;
+  box-shadow:0 10px 24px #14532d28;
+  cursor:pointer;
+}
+.submit-btn:hover{filter:brightness(1.07)}
+.submit-btn:disabled{opacity:.7;cursor:wait}
+.message{
+  display:none;
+  padding:13px 15px;
+  margin-bottom:19px;
+  border-radius:10px;
+  font-size:13px;
+  line-height:1.6;
+}
+.message.error{
+  display:block;
+  background:#fff0f0;
+  border:1px solid #efcccc;
+  color:#912f2f;
+}
+.message.success{
+  display:block;
+  background:#eaf7ee;
+  border:1px solid #c5e8cf;
+  color:#216638;
+}
+.signup{
+  margin:28px 0 0;
+  padding-top:23px;
+  border-top:1px solid var(--border);
+  text-align:center;
+  font-size:13px;
+  color:#66776b;
+}
+.signup a{
+  color:#21783e;
+  font-weight:800;
+}
+.signup a:hover{text-decoration:underline}
+.trust{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  margin-top:28px;
+  color:#819087;
+  font-size:11px;
+  text-align:center;
+}
+.trust-icon{color:#2d8b4b}
+@media(max-width:850px){
+  .page{grid-template-columns:1fr}
+  .visual{min-height:290px;padding:30px 7%}
+  .visual-content{margin:35px 0}
+  .visual h1{font-size:37px}
+  .visual p{font-size:13px}
+  .visual-footer{display:none}
+  .form-side{padding:45px 22px 65px}
+}
+@media(max-width:480px){
+  .visual{min-height:250px}
+  .visual h1{font-size:31px}
+  .visual p{display:none}
+  h2{font-size:30px}
+  .form-side{padding:32px 20px 55px}
+}
+</style>
 </head>
-
 
 <body>
 
+<main class="page">
 
-<section class="register-section">
+  <section class="visual">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">🌱</span>
+      Africa AgroVision
+    </a>
 
+    <div class="visual-content">
+      <span class="eyebrow">Agriculture • Innovation • Opportunities</span>
 
-    <div class="register-container">
+      <h1>Growing Together.<br>
+        <span>Building the Future.</span>
+      </h1>
 
-
-        <!-- BRAND -->
-
-        <div class="brand-mark">
-            AA
-        </div>
-
-        <div class="brand-name">
-            AFRICA AGROVISION
-        </div>
-
-
-        <!-- HEADING -->
-
-        <h1>
-            Welcome Back
-        </h1>
-
-
-        <p class="intro-text">
-            Sign in to continue exploring agricultural
-            knowledge, livestock farming, innovation,
-            and opportunities across Africa.
-        </p>
-
-
-        <!-- LOGIN FORM -->
-
-        <form id="loginForm">
-
-
-            <!-- EMAIL -->
-
-            <div class="form-group">
-
-                <label for="email">
-                    Email Address
-                </label>
-
-                <div class="input-wrapper">
-
-                    <input
-                        type="email"
-                        id="email"
-                        placeholder="Enter your email"
-                        autocomplete="email"
-                        required
-                    >
-
-                </div>
-
-            </div>
-
-
-            <!-- PASSWORD -->
-
-            <div class="form-group">
-
-                <label for="password">
-                    Password
-                </label>
-
-                <div class="input-wrapper">
-
-                    <input
-                        type="password"
-                        id="password"
-                        placeholder="Enter your password"
-                        autocomplete="current-password"
-                        required
-                    >
-
-                </div>
-
-            </div>
-
-
-            <!-- LOGIN -->
-
-            <button
-                type="submit"
-                id="loginButton"
-            >
-                Login
-            </button>
-
-
-        </form>
-
-
-        <!-- CREATE ACCOUNT -->
-
-        <p class="login-link">
-
-            Don't have an account?
-
-            <a href="register.html">
-                Create one here
-            </a>
-
-        </p>
-
-
-        <!-- TRUST -->
-
-        <div class="trust-message">
-
-            <span class="trust-icon">
-                ✓
-            </span>
-
-            Secure account access powered by Africa AgroVision
-
-        </div>
-
-
+      <p>
+        Connect with agricultural knowledge, explore farming
+        opportunities, and build a stronger agricultural
+        future through Africa AgroVision.
+      </p>
     </div>
 
+    <div class="visual-footer">
+      © 2026 Africa AgroVision. Growing Agriculture.
+      Connecting Opportunities.
+    </div>
+  </section>
 
-</section>
+  <section class="form-side">
+    <div class="form-card">
 
+      <div class="form-top">
+        <a href="index.html" class="back-link">
+          ← Back to Home
+        </a>
+        <span class="form-badge">Member Access</span>
+      </div>
+
+      <h2>Welcome Back</h2>
+
+      <p class="intro">
+        Sign in to your account to continue exploring
+        agricultural knowledge, projects and marketplace
+        opportunities.
+      </p>
+
+      <form id="loginForm">
+
+        <div class="field">
+          <label for="email">Email Address</label>
+          <div class="input-wrap">
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter your email address"
+              autocomplete="email"
+              required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="input-wrap">
+            <input
+              type="password"
+              id="password"
+              class="password-input"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+              required>
+
+            <button type="button"
+              class="show-password"
+              id="showPassword"
+              aria-label="Show password">
+              Show
+            </button>
+          </div>
+        </div>
+
+        <div class="form-options">
+          <a class="forgot" href="reset-password.html">
+            Forgot Password?
+          </a>
+        </div>
+
+        <div id="message"
+          class="message"
+          role="status"
+          aria-live="polite"></div>
+
+        <button type="submit"
+          class="submit-btn"
+          id="loginButton">
+          Sign In to Your Account →
+        </button>
+
+      </form>
+
+      <p class="signup">
+        New to Africa AgroVision?
+        <a href="register.html">Create an Account</a>
+      </p>
+
+      <div class="trust">
+        <span class="trust-icon">✓</span>
+        Authentication powered by Supabase
+      </div>
+
+    </div>
+  </section>
+
+</main>
 
 <script>
+"use strict";
 
-
-// =====================================================
-// SUPABASE CONNECTION
-// =====================================================
+/* SUPABASE CONFIGURATION */
 
 const SUPABASE_URL =
-    "https://fhvyncltdliduhhfqzqq.supabase.co";
+  "https://fhvyncltdliduhhfqzqq.supabase.co";
 
+/*
+  Use the publishable key from your uploaded login
+  and registration pages. Both pages must use the
+  same Supabase project.
+*/
+const SUPABASE_KEY =
+  "sb_publishable_b2M9akZhcgz5KjOZQ1mPtA_aNXZhv6J";
 
-const SUPABASE_PUBLISHABLE_KEY =
-    "sb_publishable_b2M9akZhcgz5KjOZQ1mPtA_aNXZhv6J";
+const form = document.getElementById("loginForm");
+const button = document.getElementById("loginButton");
+const message = document.getElementById("message");
+const passwordInput = document.getElementById("password");
+const showPassword = document.getElementById("showPassword");
 
+function showMessage(text, type){
+  message.textContent = text;
+  message.className = "message " + type;
+}
 
-const supabaseClient =
-    window.supabase.createClient(
-        SUPABASE_URL,
-        SUPABASE_PUBLISHABLE_KEY
+showPassword.addEventListener("click", function(){
+  const visible = passwordInput.type === "text";
+  passwordInput.type = visible ? "password" : "text";
+  showPassword.textContent = visible ? "Show" : "Hide";
+  showPassword.setAttribute(
+    "aria-label",
+    visible ? "Show password" : "Hide password"
+  );
+});
+
+let supabaseClient = null;
+
+try{
+  if(!window.supabase){
+    throw new Error("Supabase library could not load.");
+  }
+
+  supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+}catch(error){
+  showMessage(
+    "Authentication is temporarily unavailable. Check your internet connection and Supabase configuration.",
+    "error"
+  );
+  button.disabled = true;
+}
+
+form.addEventListener("submit", async function(event){
+  event.preventDefault();
+
+  if(!supabaseClient) return;
+
+  const email = document.getElementById("email")
+    .value.trim().toLowerCase();
+
+  const password = passwordInput.value;
+
+  message.className = "message";
+  message.textContent = "";
+
+  button.disabled = true;
+  button.textContent = "Signing In...";
+
+  try{
+    const {data,error} =
+      await supabaseClient.auth.signInWithPassword({
+        email,
+        password
+      });
+
+    if(error) throw error;
+
+    if(!data.session){
+      throw new Error(
+        "No active session was created. Please confirm your email if required."
+      );
+    }
+
+    showMessage(
+      "Login successful! Opening your dashboard...",
+      "success"
     );
 
+    window.location.replace("dashboard.html");
 
-
-// =====================================================
-// LOGIN
-// =====================================================
-
-document
-    .getElementById("loginForm")
-    .addEventListener(
-        "submit",
-        async function(event) {
-
-
-            event.preventDefault();
-
-
-            const email =
-                document
-                    .getElementById("email")
-                    .value
-                    .trim()
-                    .toLowerCase();
-
-
-            const password =
-                document
-                    .getElementById("password")
-                    .value;
-
-
-            const loginButton =
-                document.getElementById(
-                    "loginButton"
-                );
-
-
-            // Disable button
-
-            loginButton.disabled = true;
-
-            loginButton.textContent =
-                "Logging in...";
-
-
-            try {
-
-
-                // Sign in with Supabase
-
-                const {
-                    data,
-                    error
-                } =
-                    await supabaseClient
-                        .auth
-                        .signInWithPassword({
-
-                            email: email,
-
-                            password: password
-
-                        });
-
-
-                // Login failed
-
-                if (error) {
-
-                    console.error(
-                        "Login error:",
-                        error
-                    );
-
-                    alert(error.message);
-
-                    return;
-                }
-
-
-                // Login successful
-
-                console.log(
-                    "Login successful:",
-                    data
-                );
-
-
-                alert(
-                    "Login successful!"
-                );
-
-
-                // Open dashboard
-
-                window.location.href =
-                    "dashboard.html";
-
-
-            }
-
-
-            catch (error) {
-
-                console.error(
-                    "Unexpected error:",
-                    error
-                );
-
-
-                alert(
-                    "Something went wrong. Please try again."
-                );
-
-            }
-
-
-            finally {
-
-                loginButton.disabled =
-                    false;
-
-                loginButton.textContent =
-                    "Login";
-
-            }
-
-        }
+  }catch(error){
+    showMessage(
+      error.message || "Login failed. Please try again.",
+      "error"
     );
 
+    button.disabled = false;
+    button.textContent = "Sign In to Your Account →";
+  }
+});
 </script>
 
-
 </body>
-
 </html>

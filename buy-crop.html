@@ -1,0 +1,1139 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Buy Crops | Africa AgroVision Marketplace</title>
+
+<meta name="description"
+content="Buy quality agricultural crops through Africa AgroVision. Tell suppliers what you need, your quantity, location and contact details.">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #18351f;
+    min-height: 100vh;
+    background:
+        linear-gradient(
+            rgba(7,35,17,.72),
+            rgba(7,35,17,.72)
+        ),
+        url("images/green-farm.jpg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+nav {
+    width: 100%;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    background: rgba(8,43,20,.94);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 20px rgba(0,0,0,.25);
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: .5px;
+}
+
+.logo span {
+    color: #8ee38f;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: #9be79c;
+}
+
+.page-intro {
+    text-align: center;
+    color: white;
+    padding: 65px 20px 35px;
+}
+
+.page-intro .icon {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255,255,255,.14);
+    border: 1px solid rgba(255,255,255,.25);
+    font-size: 30px;
+    color: #a6e8a7;
+    box-shadow: 0 10px 35px rgba(0,0,0,.25);
+}
+
+.page-intro h1 {
+    font-size: 46px;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.page-intro p {
+    max-width: 760px;
+    margin: auto;
+    line-height: 1.7;
+    color: #e8f4e9;
+    font-size: 17px;
+}
+
+.marketplace-container {
+    width: min(950px,92%);
+    margin: 15px auto 70px;
+}
+
+.request-card {
+    background: rgba(255,255,255,.96);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 25px 70px rgba(0,0,0,.30);
+    border: 1px solid rgba(255,255,255,.8);
+}
+
+.card-heading {
+    margin-bottom: 30px;
+}
+
+.card-heading h2 {
+    font-size: 28px;
+    color: #164d25;
+    margin-bottom: 8px;
+}
+
+.card-heading p {
+    color: #64736a;
+    line-height: 1.6;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #294833;
+    margin-bottom: 8px;
+}
+
+.required {
+    color: #c0392b;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 14px 15px;
+    border: 1px solid #d7e1d9;
+    border-radius: 11px;
+    background: #fbfdfb;
+    color: #203c27;
+    font-size: 14px;
+    outline: none;
+    transition: .25s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #3c914d;
+    box-shadow: 0 0 0 4px rgba(60,145,77,.10);
+    background: white;
+}
+
+textarea {
+    min-height: 130px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.hint {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #7b887e;
+}
+
+.form-section {
+    grid-column: 1 / -1;
+    margin-top: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e3ebe4;
+}
+
+.form-section h3 {
+    font-size: 18px;
+    color: #205c2f;
+}
+
+.form-section p {
+    margin-top: 4px;
+    color: #7a857d;
+    font-size: 13px;
+}
+
+.submit-area {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.submit-btn {
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+    padding: 16px 25px;
+    background: linear-gradient(135deg,#1b6b30,#2f9144);
+    color: white;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(28,104,47,.25);
+    transition: .3s;
+}
+
+.submit-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(28,104,47,.35);
+}
+
+.submit-btn:disabled {
+    opacity: .65;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.submit-btn i {
+    margin-right: 8px;
+}
+
+#successMessage,
+#errorMessage {
+    display: none;
+    margin-top: 25px;
+    padding: 18px;
+    border-radius: 12px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+#successMessage {
+    background: #edf9ef;
+    border: 1px solid #b9dfbf;
+    color: #236332;
+}
+
+#errorMessage {
+    background: #fdeaea;
+    border: 1px solid #e6b7b7;
+    color: #9b2525;
+}
+
+.success-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.success-actions a {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 8px;
+    background: #1b6b30;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.login-box {
+    display: none;
+    margin-bottom: 25px;
+    padding: 22px;
+    border-radius: 15px;
+    background: #fff5d9;
+    border: 1px solid #e4c86c;
+    color: #66510d;
+    text-align: center;
+}
+
+.login-box h3 {
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.login-box p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.login-box a {
+    display: inline-block;
+    padding: 11px 20px;
+    margin: 4px;
+    background: #1b6b30;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-box a.register {
+    background: #315d39;
+}
+
+.trust-box {
+    margin-top: 25px;
+    padding: 18px;
+    background: #f4f8f4;
+    border-radius: 13px;
+    display: flex;
+    gap: 13px;
+    align-items: flex-start;
+}
+
+.trust-box i {
+    color: #318344;
+    font-size: 20px;
+    margin-top: 2px;
+}
+
+.trust-box strong {
+    display: block;
+    color: #285a34;
+    margin-bottom: 4px;
+}
+
+.trust-box p {
+    font-size: 13px;
+    color: #69756d;
+    line-height: 1.5;
+}
+
+footer {
+    text-align: center;
+    color: #e4f0e5;
+    padding: 25px 20px 35px;
+    font-size: 13px;
+}
+
+@media (max-width:700px) {
+    nav {
+        padding: 15px 5%;
+        flex-direction: column;
+    }
+
+    .nav-links {
+        gap: 12px;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .page-intro {
+        padding: 45px 18px 25px;
+    }
+
+    .page-intro h1 {
+        font-size: 34px;
+    }
+
+    .page-intro p {
+        font-size: 15px;
+    }
+
+    .request-card {
+        padding: 25px 20px;
+        border-radius: 18px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full,
+    .form-section {
+        grid-column: auto;
+    }
+
+    .card-heading h2 {
+        font-size: 24px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+    <a href="index.html" class="logo">
+        Africa <span>AgroVision</span>
+    </a>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="agro-market.html">Marketplace</a>
+        <a href="dashboard.html">Dashboard</a>
+    </div>
+</nav>
+
+<!-- INTRODUCTION -->
+
+<section class="page-intro">
+    <div class="icon">
+        <i class="fa-solid fa-wheat-awn"></i>
+    </div>
+
+    <h1>Buy Crops</h1>
+
+    <p>
+        Tell us what agricultural products you are looking for.
+        Provide your quantity, quality preference, location and contact
+        information, and make your request clear to potential suppliers.
+    </p>
+</section>
+
+<main class="marketplace-container">
+
+    <!-- LOGIN NOTICE -->
+
+    <div id="loginBox" class="login-box">
+        <h3>🔐 Login Required</h3>
+
+        <p>
+            You need an Africa AgroVision account to submit a crop
+            request. If you already have an account, log in.
+            If you are new, create your account first.
+        </p>
+
+        <a href="login.html">Log In</a>
+        <a href="register.html" class="register">Create Account</a>
+    </div>
+
+    <div class="request-card">
+
+        <div class="card-heading">
+            <h2>Submit Your Crop Request</h2>
+
+            <p>
+                Give us enough information to understand exactly what
+                you need. A clear request makes it easier to connect
+                you with the right agricultural supplier.
+            </p>
+        </div>
+
+        <form id="buyCropForm">
+
+            <div class="form-grid">
+
+                <!-- CROP INFORMATION -->
+
+                <div class="form-section">
+                    <h3>Crop Information</h3>
+                    <p>Tell us about the agricultural product you want.</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="crop">
+                        Crop / Product <span class="required">*</span>
+                    </label>
+
+                    <select id="crop" required>
+                        <option value="">Select a crop</option>
+                        <option>Maize</option>
+                        <option>Beans</option>
+                        <option>Rice</option>
+                        <option>Coffee</option>
+                        <option>Tomatoes</option>
+                        <option>Potatoes</option>
+                        <option>Sweet Potatoes</option>
+                        <option>Cassava</option>
+                        <option>Sorghum</option>
+                        <option>Wheat</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="quantity">
+                        Quantity <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="quantity"
+                        placeholder="Example: 500 kg"
+                        maxlength="100"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="quality">Quality / Grade</label>
+
+                    <select id="quality">
+                        <option value="">Select preference</option>
+                        <option>Premium quality</option>
+                        <option>Standard quality</option>
+                        <option>Any good quality</option>
+                        <option>Organic preferred</option>
+                        <option>Not specified</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="price">
+                        Expected Price / Budget
+                    </label>
+
+                    <input
+                        type="text"
+                        id="price"
+                        maxlength="100"
+                        placeholder="Example: 700 RWF per kg">
+
+                    <span class="hint">
+                        Leave blank if you want suppliers to provide offers.
+                    </span>
+                </div>
+
+                <!-- LOCATION -->
+
+                <div class="form-section">
+                    <h3>Delivery / Collection Location</h3>
+                    <p>
+                        Tell suppliers where the crop is needed or
+                        where you can collect it.
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <label for="location">
+                        Location <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="location"
+                        maxlength="200"
+                        placeholder="Example: Kigali, Gasabo"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="delivery">Delivery Preference</label>
+
+                    <select id="delivery">
+                        <option>Supplier delivery preferred</option>
+                        <option>I will collect the product</option>
+                        <option>Either option</option>
+                    </select>
+                </div>
+
+                <!-- CONTACT INFORMATION -->
+
+                <div class="form-section">
+                    <h3>Your Contact Information</h3>
+                    <p>
+                        Provide a reliable way for suppliers to contact you.
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">
+                        Full Name <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        maxlength="150"
+                        autocomplete="name"
+                        placeholder="Your full name"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">
+                        Phone / WhatsApp <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        maxlength="25"
+                        autocomplete="tel"
+                        placeholder="+250 7XX XXX XXX"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        maxlength="254"
+                        autocomplete="email"
+                        placeholder="you@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="preferredContact">
+                        Preferred Contact Method
+                    </label>
+
+                    <select id="preferredContact">
+                        <option>WhatsApp</option>
+                        <option>Phone call</option>
+                        <option>Email</option>
+                    </select>
+                </div>
+
+                <!-- REQUEST DESCRIPTION -->
+
+                <div class="form-section">
+                    <h3>Tell Suppliers Exactly What You Need</h3>
+                    <p>
+                        Add any important requirements or questions.
+                    </p>
+                </div>
+
+                <div class="form-group full">
+                    <label for="message">
+                        Your Request <span class="required">*</span>
+                    </label>
+
+                    <textarea
+                        id="message"
+                        maxlength="5000"
+                        placeholder="Example: I am looking for 500 kg of good-quality beans. I prefer clean, dry beans and would like delivery to Kigali. Please include your price and delivery cost."
+                        required></textarea>
+                </div>
+
+            </div>
+
+            <!-- SUBMIT BUTTON -->
+
+            <div class="submit-area">
+                <button
+                    type="submit"
+                    class="submit-btn"
+                    id="submitButton"
+                    disabled>
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+                    Checking Login...
+                </button>
+            </div>
+
+            <!-- SUCCESS -->
+
+            <div id="successMessage" role="status" aria-live="polite">
+                <strong>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Crop request published successfully!
+                </strong>
+
+                <p style="margin-top:8px">
+                    Your request has been saved to Africa AgroVision Marketplace.
+                    Suppliers can now discover your request in Latest Opportunities.
+                </p>
+
+                <div class="success-actions">
+                    <a href="agro-market.html#latestOpportunities">
+                        View Marketplace
+                    </a>
+
+                    <a href="my-marketplace.html">
+                        My Marketplace
+                    </a>
+                </div>
+            </div>
+
+            <!-- ERROR -->
+
+            <div
+                id="errorMessage"
+                role="alert"
+                aria-live="assertive">
+            </div>
+
+            <!-- TRUST -->
+
+            <div class="trust-box">
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <div>
+                    <strong>
+                        Clear information. Better connections.
+                    </strong>
+
+                    <p>
+                        Africa AgroVision is designed to make agricultural
+                        connections easier by helping buyers clearly
+                        communicate what they need, where they need it,
+                        and how they can be contacted.
+                    </p>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</main>
+
+<footer>
+    © 2026 Africa AgroVision — Connecting agriculture with opportunity.
+</footer>
+
+<!-- SUPABASE LIBRARY -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+"use strict";
+
+/* SUPABASE CONFIGURATION */
+
+const SUPABASE_URL =
+    "https://fhvyncltdliduhhfqzqq.supabase.co";
+
+const SUPABASE_KEY =
+    "sb_publishable_Z5hzSz2kuIJL-FwUP9IZ4Q_oXFkHn9T";
+
+let supabaseClient = null;
+let isSubmitting = false;
+let authenticatedUser = null;
+
+/* ELEMENTS */
+
+const form = document.getElementById("buyCropForm");
+const loginBox = document.getElementById("loginBox");
+const successMessage = document.getElementById("successMessage");
+const errorMessage = document.getElementById("errorMessage");
+const submitButton = document.getElementById("submitButton");
+
+const normalButtonHTML =
+    '<i class="fa-solid fa-paper-plane"></i> Submit Crop Request';
+
+const loadingButtonHTML =
+    '<i class="fa-solid fa-spinner fa-spin"></i> Publishing Request...';
+
+const loginButtonHTML =
+    '<i class="fa-solid fa-lock"></i> Login Required';
+
+/* HELPER FUNCTIONS */
+
+function getValue(id) {
+    return document.getElementById(id).value.trim();
+}
+
+function showError(message) {
+    errorMessage.textContent = message;
+    errorMessage.style.display = "block";
+
+    errorMessage.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+}
+
+function clearMessages() {
+    successMessage.style.display = "none";
+    errorMessage.style.display = "none";
+    errorMessage.textContent = "";
+}
+
+function setButtonState(state) {
+    if (state === "loading") {
+        submitButton.disabled = true;
+        submitButton.innerHTML = loadingButtonHTML;
+        return;
+    }
+
+    if (state === "login") {
+        submitButton.disabled = true;
+        submitButton.innerHTML = loginButtonHTML;
+        return;
+    }
+
+    submitButton.disabled = false;
+    submitButton.innerHTML = normalButtonHTML;
+}
+
+/* INITIALIZE SUPABASE */
+
+function initializeSupabase() {
+    if (!window.supabase?.createClient) {
+        setButtonState("login");
+
+        showError(
+            "Unable to connect to the marketplace service. " +
+            "Please check your internet connection and refresh."
+        );
+
+        return false;
+    }
+
+    try {
+        supabaseClient = window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY
+        );
+
+        return true;
+    } catch (error) {
+        console.error("Supabase initialization error:", error);
+
+        setButtonState("login");
+
+        showError(
+            "Marketplace initialization failed. " +
+            "Please refresh the page."
+        );
+
+        return false;
+    }
+}
+
+/* CHECK USER LOGIN */
+
+async function checkLogin() {
+    if (!supabaseClient) return null;
+
+    try {
+        const {
+            data: { user },
+            error
+        } = await supabaseClient.auth.getUser();
+
+        if (error) {
+            throw error;
+        }
+
+        if (!user) {
+            authenticatedUser = null;
+            loginBox.style.display = "block";
+            setButtonState("login");
+            return null;
+        }
+
+        authenticatedUser = user;
+        loginBox.style.display = "none";
+
+        if (!isSubmitting) {
+            setButtonState("ready");
+        }
+
+        return user;
+
+    } catch (error) {
+        console.error("Login verification error:", error);
+
+        authenticatedUser = null;
+        setButtonState("login");
+
+        showError(
+            "We could not verify your login. " +
+            "Please check your connection and try refreshing the page."
+        );
+
+        return null;
+    }
+}
+
+/* FORM VALIDATION */
+
+function validateCropRequest() {
+    if (!form.reportValidity()) {
+        return false;
+    }
+
+    const crop = getValue("crop");
+    const quantity = getValue("quantity");
+    const location = getValue("location");
+    const name = getValue("name");
+    const phone = getValue("phone");
+    const message = getValue("message");
+    const email = getValue("email");
+    const preferredContact = getValue("preferredContact");
+
+    if (!crop || !quantity || !location || !name || !phone || !message) {
+        showError("Please complete all required fields.");
+        return false;
+    }
+
+    const phoneDigits = phone.replace(/\D/g, "");
+
+    if (phoneDigits.length < 9 || phoneDigits.length > 15) {
+        showError(
+            "Please enter a valid phone number, including the country code if applicable."
+        );
+        return false;
+    }
+
+    if (preferredContact === "Email" && !email) {
+        showError(
+            "Please provide an email address because you selected Email as your preferred contact method."
+        );
+        return false;
+    }
+
+    return true;
+}
+
+/* BUILD THE BUYER REQUEST */
+
+function buildCropRequest(userId) {
+    const crop = getValue("crop");
+    const quantity = getValue("quantity");
+    const quality = getValue("quality");
+    const price = getValue("price");
+    const location = getValue("location");
+    const delivery = getValue("delivery");
+    const name = getValue("name");
+    const phone = getValue("phone");
+    const email = getValue("email");
+    const preferredContact = getValue("preferredContact");
+    const message = getValue("message");
+
+    const fullDescription = [
+        "Buyer request:",
+        "",
+        message,
+        "",
+        "Crop / Product: " + crop,
+        "Quantity needed: " + quantity,
+        "Quality preference: " + (quality || "Not specified"),
+        "Expected price / budget: " + (price || "Not specified"),
+        "Delivery preference: " + delivery,
+        "Buyer name: " + name,
+        "Phone / WhatsApp: " + phone,
+        "Email: " + (email || "Not provided"),
+        "Preferred contact: " + preferredContact
+    ].join("\n");
+
+    return {
+        user_id: userId,
+        category: "crop",
+        title: "Buyer Request: " + crop,
+        description: fullDescription,
+        location: location,
+        quantity: quantity,
+        price: price || "Price negotiable",
+        contact: phone,
+        status: "active"
+    };
+}
+
+/* SUBMIT REQUEST */
+
+form.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    if (isSubmitting) return;
+
+    clearMessages();
+
+    if (!supabaseClient) {
+        showError(
+            "Marketplace service is unavailable. Please refresh the page."
+        );
+        return;
+    }
+
+    if (!validateCropRequest()) return;
+
+    isSubmitting = true;
+    setButtonState("loading");
+
+    try {
+        /*
+        Verify the user with Supabase before publishing.
+        Do not rely only on a previously cached session.
+        */
+
+        const {
+            data: { user },
+            error: authError
+        } = await supabaseClient.auth.getUser();
+
+        if (authError) throw authError;
+
+        if (!user) {
+            authenticatedUser = null;
+            loginBox.style.display = "block";
+
+            showError(
+                "Your session has expired. Please log in before submitting."
+            );
+
+            return;
+        }
+
+        authenticatedUser = user;
+        loginBox.style.display = "none";
+
+        const request = buildCropRequest(user.id);
+
+        /*
+        Insert the request and ask Supabase to return
+        the saved record. This confirms that the
+        insert completed and a row is readable.
+        */
+
+        const { data, error } = await supabaseClient
+            .from("marketplace_listings")
+            .insert(request)
+            .select("id, title, status")
+            .single();
+
+        if (error) {
+            throw error;
+        }
+
+        if (!data || !data.id) {
+            throw new Error(
+                "The marketplace did not confirm the saved request. " +
+                "Please check My Marketplace before trying again."
+            );
+        }
+
+        console.log("Crop request saved:", data);
+
+        form.reset();
+
+        successMessage.style.display = "block";
+
+        successMessage.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    } catch (error) {
+        console.error("Crop request submission error:", error);
+
+        let message =
+            error?.message ||
+            "An unexpected error occurred while submitting your request.";
+
+        /*
+        Give clearer explanations for common database
+        and permissions problems.
+        */
+
+        if (
+            error?.code === "42501" ||
+            /row-level security|permission denied/i.test(message)
+        ) {
+            message =
+                "Your account does not have permission to publish this request. " +
+                "Please check the marketplace_listings INSERT policy in Supabase.";
+        }
+
+        if (/column .* does not exist/i.test(message)) {
+            message =
+                "The marketplace database structure does not match the form. " +
+                "Please check the marketplace_listings table columns. " +
+                "Details: " + error.message;
+        }
+
+        showError(
+            "We could not confirm publication of your crop request. " +
+            message
+        );
+
+    } finally {
+        isSubmitting = false;
+
+        if (authenticatedUser) {
+            setButtonState("ready");
+        } else {
+            setButtonState("login");
+        }
+    }
+});
+
+/* START THE PAGE */
+
+async function startBuyCropPage() {
+    if (!initializeSupabase()) return;
+
+    await checkLogin();
+
+    supabaseClient.auth.onAuthStateChange(
+        (_event, session) => {
+            if (!isSubmitting) {
+                if (session?.user) {
+                    authenticatedUser = session.user;
+                    loginBox.style.display = "none";
+                    setButtonState("ready");
+                } else {
+                    authenticatedUser = null;
+                    loginBox.style.display = "block";
+                    setButtonState("login");
+                }
+            }
+        }
+    );
+}
+
+startBuyCropPage();
+
+</script>
+
+</body>
+</html>

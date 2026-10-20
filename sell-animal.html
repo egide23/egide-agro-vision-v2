@@ -1,0 +1,1084 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sell Animals | Africa AgroVision Marketplace</title>
+<meta name="description" content="Sell livestock, poultry and other animals on Africa AgroVision Marketplace.">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    color:#18351f;
+    min-height:100vh;
+    background:linear-gradient(rgba(12,35,18,.76),rgba(12,35,18,.76)),
+    url("images/green-farm.jpg.jpg") center/cover fixed;
+}
+nav{
+    padding:18px 7%;
+    display:flex;justify-content:space-between;align-items:center;
+    gap:20px;background:rgba(8,43,20,.95);
+    position:sticky;top:0;z-index:1000;
+    box-shadow:0 3px 20px rgba(0,0,0,.25);
+}
+.logo{color:white;text-decoration:none;font-size:22px;font-weight:800}
+.logo span{color:#8ee38f}
+.nav-links{display:flex;gap:25px;flex-wrap:wrap}
+.nav-links a{color:white;text-decoration:none;font-size:14px;font-weight:600}
+.nav-links a:hover{color:#9be79c}
+.page-intro{text-align:center;color:white;padding:65px 20px 35px}
+.page-intro .icon{
+    width:72px;height:72px;margin:0 auto 20px;
+    display:flex;align-items:center;justify-content:center;
+    border-radius:50%;background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.25);
+    font-size:30px;color:#a6e8a7;
+}
+.page-intro h1{font-size:46px;margin-bottom:15px}
+.page-intro p{max-width:780px;margin:auto;line-height:1.7;color:#e8f4e9;font-size:17px}
+.marketplace-container{width:min(950px,92%);margin:15px auto 70px}
+.request-card{
+    background:rgba(255,255,255,.97);border-radius:24px;
+    padding:40px;box-shadow:0 25px 70px rgba(0,0,0,.3);
+}
+.card-heading{margin-bottom:30px}
+.card-heading h2{font-size:28px;color:#164d25;margin-bottom:8px}
+.card-heading p{color:#64736a;line-height:1.6}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.form-group{display:flex;flex-direction:column}
+.form-group.full,.form-section,.condition-box,.image-box{grid-column:1/-1}
+.form-group[hidden]{display:none}
+label{font-size:14px;font-weight:700;color:#294833;margin-bottom:8px}
+.required{color:#c0392b}
+input,select,textarea{
+    width:100%;padding:14px 15px;border:1px solid #d7e1d9;
+    border-radius:11px;background:#fbfdfb;color:#203c27;
+    font-size:14px;outline:none;
+}
+input:focus,select:focus,textarea:focus{
+    border-color:#3c914d;
+    box-shadow:0 0 0 4px rgba(60,145,77,.1);
+}
+textarea{min-height:140px;resize:vertical;line-height:1.6}
+.hint{margin-top:6px;font-size:12px;color:#7b887e;line-height:1.5}
+.form-section{
+    margin-top:8px;padding-bottom:8px;
+    border-bottom:1px solid #e3ebe4;
+}
+.form-section h3{font-size:18px;color:#205c2f}
+.form-section p{margin-top:4px;color:#7a857d;font-size:13px}
+.condition-box,.image-box{
+    padding:20px;border-radius:14px;
+    background:#f4f8f4;border:1px solid #e0e9e1;
+}
+.condition-title{font-size:14px;font-weight:700;color:#294833;margin-bottom:14px}
+.condition-options{display:flex;flex-wrap:wrap;gap:14px}
+.condition-option{
+    display:flex;align-items:center;gap:7px;
+    color:#506158;font-size:13px;cursor:pointer;
+}
+.condition-option input{width:auto}
+.image-box h3{font-size:18px;color:#205c2f;margin-bottom:8px}
+.image-box p{color:#66776a;font-size:13px;line-height:1.6;margin-bottom:15px}
+.animal-image{
+    width:100%;height:290px;object-fit:cover;
+    border-radius:12px;background:#e5eee6;display:block;
+}
+.image-caption{text-align:center;margin:12px 0;color:#276338;font-size:14px;font-weight:bold}
+.photo-upload{margin-top:18px}
+.photo-upload label{display:block}
+.photo-upload input{background:white}
+.submit-area{margin-top:30px}
+.submit-btn{
+    width:100%;border:none;border-radius:12px;padding:16px 25px;
+    background:linear-gradient(135deg,#1b6b30,#2f9144);
+    color:white;font-size:16px;font-weight:800;cursor:pointer;
+    box-shadow:0 10px 25px rgba(28,104,47,.25);
+}
+.submit-btn:hover:not(:disabled){transform:translateY(-2px)}
+.submit-btn:disabled{opacity:.65;cursor:not-allowed;transform:none}
+#successMessage,#errorMessage{
+    display:none;margin-top:25px;padding:18px;
+    border-radius:12px;text-align:center;line-height:1.6;
+}
+#successMessage{background:#edf9ef;border:1px solid #b9dfbf;color:#236332}
+#errorMessage{background:#fff1f0;border:1px solid #e6b8b4;color:#9b2c24}
+.success-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:15px}
+.success-actions a{
+    padding:10px 16px;border-radius:8px;background:#1b6b30;
+    color:white;text-decoration:none;font-size:13px;font-weight:bold;
+}
+#loginBox{
+    display:none;margin-bottom:25px;padding:20px;border-radius:14px;
+    background:#f0f7f1;border:1px solid #cfe1d2;text-align:center;
+}
+#loginBox h3{color:#205c2f;margin-bottom:8px}
+#loginBox p{color:#66736b;font-size:14px;line-height:1.6;margin-bottom:15px}
+.login-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.login-actions a{
+    padding:11px 18px;border-radius:9px;text-decoration:none;
+    font-weight:700;background:#1b6b30;color:white;
+}
+.login-actions .register-link{background:white;color:#1b6b30;border:1px solid #1b6b30}
+.trust-box{
+    margin-top:25px;padding:18px;background:#f4f8f4;
+    border-radius:13px;display:flex;gap:13px;align-items:flex-start;
+}
+.trust-box i{color:#318344;font-size:20px}
+.trust-box strong{display:block;color:#285a34;margin-bottom:4px}
+.trust-box p{font-size:13px;color:#69756d;line-height:1.5}
+footer{text-align:center;color:#e4f0e5;padding:25px 20px 35px;font-size:13px}
+@media(max-width:700px){
+    nav{padding:15px 5%;flex-direction:column}
+    .nav-links{gap:12px;justify-content:center}
+    .nav-links a{font-size:12px}
+    .page-intro{padding:45px 18px 25px}
+    .page-intro h1{font-size:34px}
+    .page-intro p{font-size:15px}
+    .request-card{padding:25px 20px;border-radius:18px}
+    .form-grid{grid-template-columns:1fr}
+    .form-group.full,.form-section,.condition-box,.image-box{grid-column:auto}
+    .animal-image{height:210px}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html" class="logo">Africa <span>AgroVision</span></a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="agro-market.html">Marketplace</a>
+        <a href="dashboard.html">Dashboard</a>
+    </div>
+</nav>
+
+<section class="page-intro">
+    <div class="icon"><i class="fa-solid fa-horse"></i></div>
+    <h1>Sell Animals</h1>
+    <p>
+        Have livestock, poultry or other animals to sell?
+        Create a clear listing with animal type, breed, age,
+        health information, price, location and contact details.
+    </p>
+</section>
+
+<main class="marketplace-container">
+<div class="request-card">
+
+    <div class="card-heading">
+        <h2>Create Your Animal Listing</h2>
+        <p>Give potential buyers the information they need to understand your animals and contact you with confidence.</p>
+    </div>
+
+    <div id="loginBox">
+        <h3><i class="fa-solid fa-lock"></i> Login Required</h3>
+        <p>You need an Africa AgroVision account to publish an animal listing.</p>
+        <div class="login-actions">
+            <a href="login.html">Log In</a>
+            <a href="register.html" class="register-link">Create Account</a>
+        </div>
+    </div>
+
+    <form id="sellAnimalForm">
+    <div class="form-grid">
+
+        <div class="form-section">
+            <h3>Animal Information</h3>
+            <p>Tell buyers what you have available.</p>
+        </div>
+
+        <div class="form-group">
+            <label for="animalType">Animal Type <span class="required">*</span></label>
+            <select id="animalType" required>
+                <option value="">Select animal</option>
+                <option>Cattle</option>
+                <option>Goats</option>
+                <option>Sheep</option>
+                <option>Pigs</option>
+                <option>Chickens</option>
+                <option>Turkeys</option>
+                <option>Ducks</option>
+                <option>Rabbits</option>
+                <option>Dogs</option>
+                <option>Cats</option>
+                <option>Fish</option>
+                <option>Other</option>
+            </select>
+        </div>
+
+        <div class="form-group" id="otherAnimalGroup" hidden>
+            <label for="otherAnimal">Specify Animal <span class="required">*</span></label>
+            <input id="otherAnimal" type="text" maxlength="100" placeholder="Enter animal type">
+        </div>
+
+        <div class="form-group">
+            <label for="breed">Breed</label>
+            <input id="breed" type="text" maxlength="120" placeholder="Example: Large White, Belgian Malinois">
+        </div>
+
+        <div class="form-group">
+            <label for="quantity">Number Available <span class="required">*</span></label>
+            <input id="quantity" type="number" min="1" max="1000000" step="1" placeholder="Example: 15" required>
+        </div>
+
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input id="age" type="text" maxlength="100" placeholder="Example: 8 months">
+        </div>
+
+        <div class="form-group">
+            <label for="sex">Sex</label>
+            <select id="sex">
+                <option>Mixed</option>
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="purpose">Suitable Purpose</label>
+            <select id="purpose">
+                <option>Breeding</option>
+                <option>Meat production</option>
+                <option>Milk production</option>
+                <option>Egg production</option>
+                <option>General farming</option>
+                <option>Companionship / Pet</option>
+                <option>Other</option>
+            </select>
+        </div>
+
+        <!-- AUTOMATIC PHOTO -->
+
+        <div class="image-box">
+            <h3><i class="fa-solid fa-camera"></i> Animal Picture</h3>
+            <p>
+                The picture changes automatically based on animal type and breed.
+                You can also select a photograph of the actual animal you are selling.
+                The real photo is preferred when available.
+            </p>
+
+            <img id="animalPreview" class="animal-image" alt="Animal picture preview">
+
+            <div id="imageCaption" class="image-caption">
+                Select an animal to preview its picture.
+            </div>
+
+            <div class="photo-upload">
+                <label for="animalPhoto">Upload Actual Animal Photo (Optional)</label>
+                <input type="file" id="animalPhoto" accept="image/jpeg,image/png,image/webp">
+                <span class="hint">
+                    JPG, PNG or WebP. Maximum 5 MB.
+                    Uploaded photographs require a configured Supabase Storage bucket.
+                </span>
+            </div>
+        </div>
+
+        <!-- HEALTH -->
+
+        <div class="form-section">
+            <h3>Health & Animal Condition</h3>
+            <p>Provide accurate information about your animals.</p>
+        </div>
+
+        <div class="condition-box">
+            <div class="condition-title">Animal Health Information</div>
+            <div class="condition-options">
+                <label class="condition-option">
+                    <input type="checkbox" name="health" value="Healthy"> Healthy
+                </label>
+                <label class="condition-option">
+                    <input type="checkbox" name="health" value="Vaccinated"> Vaccinated
+                </label>
+                <label class="condition-option">
+                    <input type="checkbox" name="health" value="Veterinary checked"> Veterinary checked
+                </label>
+                <label class="condition-option">
+                    <input type="checkbox" name="health" value="Vaccination records available"> Records available
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="healthDetails">Health Details</label>
+            <input id="healthDetails" type="text" maxlength="300" placeholder="Example: Vaccinated and healthy">
+        </div>
+
+        <div class="form-group">
+            <label for="identification">Identification / Records</label>
+            <select id="identification">
+                <option>Available</option>
+                <option>Not available</option>
+                <option>Not applicable</option>
+            </select>
+        </div>
+
+        <!-- PRICE -->
+
+        <div class="form-section">
+            <h3>Price & Availability</h3>
+            <p>Tell buyers your selling conditions.</p>
+        </div>
+
+        <div class="form-group">
+            <label for="price">Asking Price <span class="required">*</span></label>
+            <input id="price" type="text" maxlength="100" placeholder="Example: 450,000 RWF per animal" required>
+        </div>
+
+        <div class="form-group">
+            <label for="negotiable">Price Flexibility</label>
+            <select id="negotiable">
+                <option>Price negotiable</option>
+                <option>Fixed price</option>
+                <option>Depends on quantity</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="availability">Availability</label>
+            <select id="availability">
+                <option>Available immediately</option>
+                <option>Available within 7 days</option>
+                <option>Available within 30 days</option>
+                <option>Other</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="minimum">Minimum Purchase</label>
+            <input id="minimum" type="text" maxlength="100" placeholder="Example: Minimum 2 animals">
+        </div>
+
+        <!-- LOCATION -->
+
+        <div class="form-section">
+            <h3>Location & Delivery</h3>
+            <p>Let buyers know where they can find the animals.</p>
+        </div>
+
+        <div class="form-group">
+            <label for="location">Location <span class="required">*</span></label>
+            <input id="location" type="text" maxlength="200" placeholder="Example: Kigali, Gasabo" required>
+        </div>
+
+        <div class="form-group">
+            <label for="delivery">Delivery Option</label>
+            <select id="delivery">
+                <option>Buyer collects</option>
+                <option>Seller can deliver</option>
+                <option>Delivery can be arranged</option>
+                <option>Either option</option>
+            </select>
+        </div>
+
+        <!-- CONTACT -->
+
+        <div class="form-section">
+            <h3>Seller Contact Information</h3>
+            <p>Give interested buyers a reliable way to reach you.</p>
+        </div>
+
+        <div class="form-group">
+            <label for="name">Full Name <span class="required">*</span></label>
+            <input id="name" type="text" maxlength="150" autocomplete="name" placeholder="Your full name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone / WhatsApp <span class="required">*</span></label>
+            <input id="phone" type="tel" maxlength="25" autocomplete="tel" placeholder="+250 7XX XXX XXX" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input id="email" type="email" maxlength="254" autocomplete="email" placeholder="you@example.com">
+        </div>
+
+        <div class="form-group">
+            <label for="preferredContact">Preferred Contact</label>
+            <select id="preferredContact">
+                <option>WhatsApp</option>
+                <option>Phone call</option>
+                <option>Email</option>
+            </select>
+        </div>
+
+        <!-- DESCRIPTION -->
+
+        <div class="form-section">
+            <h3>Describe Your Animals</h3>
+            <p>Give buyers the details that make your listing useful.</p>
+        </div>
+
+        <div class="form-group full">
+            <label for="description">Animal Description <span class="required">*</span></label>
+            <textarea
+                id="description"
+                maxlength="5000"
+                placeholder="Example: I have 8 healthy Large White pigs, approximately 7–8 months old. Buyers can visit before purchase."
+                required></textarea>
+        </div>
+
+    </div>
+
+    <div class="submit-area">
+        <button type="submit" class="submit-btn" id="submitButton" disabled>
+            <i class="fa-solid fa-spinner fa-spin"></i> Checking Login...
+        </button>
+    </div>
+
+    <div id="successMessage" role="status" aria-live="polite">
+        <strong><i class="fa-solid fa-circle-check"></i> Animal listing published successfully!</strong>
+        <p style="margin-top:8px">Your listing has been saved to Africa AgroVision Marketplace.</p>
+        <div class="success-actions">
+            <a href="agro-market.html">View Marketplace</a>
+            <a href="my-marketplace.html">My Marketplace</a>
+        </div>
+    </div>
+
+    <div id="errorMessage" role="alert"></div>
+
+    <div class="trust-box">
+        <i class="fa-solid fa-shield-halved"></i>
+        <div>
+            <strong>Build trust with accurate information.</strong>
+            <p>Clear information about breed, age, health, quantity, price and location helps buyers make informed decisions.</p>
+        </div>
+    </div>
+
+    </form>
+</div>
+</main>
+
+<footer>
+    © 2026 Africa AgroVision — Connecting farmers, buyers and opportunity.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+"use strict";
+
+/* SUPABASE */
+
+const SUPABASE_URL =
+    "https://fhvyncltdliduhhfqzqq.supabase.co";
+
+const SUPABASE_KEY =
+    "sb_publishable_Z5hzSz2kuIJL-FwUP9IZ4Q_oXFkHn9T";
+
+/*
+  OPTIONAL STORAGE CONFIGURATION
+
+  Create a Supabase Storage bucket named:
+  marketplace-images
+
+  Configure Storage policies so authenticated users
+  can upload their own files, and configure public
+  read access if you want publicly visible photos.
+
+  Also add an image_url column of type text to
+  marketplace_listings before enabling saved uploads.
+
+  Until configured, leave this as false.
+*/
+
+const ENABLE_PHOTO_UPLOAD = false;
+const PHOTO_BUCKET = "marketplace-images";
+
+let supabaseClient = null;
+let authenticatedUser = null;
+let isSubmitting = false;
+let previewObjectUrl = null;
+
+/* IMAGE CATALOGUE */
+
+const ANIMAL_IMAGES = {
+    cattle: "images/animals/cattle.jpg",
+    goats: "images/animals/goats.jpg",
+    sheep: "images/animals/sheep.jpg",
+    pigs: "images/animals/pigs.jpg",
+    chickens: "images/animals/chickens.jpg",
+    turkeys: "images/animals/turkeys.jpg",
+    ducks: "images/animals/ducks.jpg",
+    rabbits: "images/animals/rabbits.jpg",
+    dogs: "images/animals/dogs.jpg",
+    cats: "images/animals/cats.jpg",
+    fish: "images/animals/fish.jpg"
+};
+
+const BREED_IMAGES = {
+    "belgian malinois": "images/animals/belgian-malinois.jpg",
+    "german shepherd": "images/animals/german-shepherd.jpg",
+    "labrador retriever": "images/animals/labrador-retriever.jpg",
+    "golden retriever": "images/animals/golden-retriever.jpg",
+    "boer goat": "images/animals/boer-goat.jpg",
+    "saanen": "images/animals/saanen-goat.jpg",
+    "large white": "images/animals/large-white-pig.jpg",
+    "landrace": "images/animals/landrace-pig.jpg",
+    "holstein friesian": "images/animals/holstein-friesian.jpg",
+    "jersey": "images/animals/jersey-cattle.jpg",
+    "brahman": "images/animals/brahman-cattle.jpg",
+    "broiler": "images/animals/broiler-chickens.jpg",
+    "layers": "images/animals/layer-chickens.jpg",
+    "pekin": "images/animals/pekin-ducks.jpg",
+    "muscovy": "images/animals/muscovy-ducks.jpg",
+    "tilapia": "images/animals/tilapia.jpg"
+};
+
+const BREED_TYPES = {
+    "belgian malinois": "dogs",
+    "german shepherd": "dogs",
+    "labrador retriever": "dogs",
+    "golden retriever": "dogs",
+    "boer goat": "goats",
+    "saanen": "goats",
+    "large white": "pigs",
+    "landrace": "pigs",
+    "holstein friesian": "cattle",
+    "jersey": "cattle",
+    "brahman": "cattle",
+    "broiler": "chickens",
+    "layers": "chickens",
+    "pekin": "ducks",
+    "muscovy": "ducks",
+    "tilapia": "fish"
+};
+
+/* ELEMENTS */
+
+const form = document.getElementById("sellAnimalForm");
+const animalTypeInput = document.getElementById("animalType");
+const otherAnimalGroup = document.getElementById("otherAnimalGroup");
+const otherAnimalInput = document.getElementById("otherAnimal");
+const breedInput = document.getElementById("breed");
+const animalPhotoInput = document.getElementById("animalPhoto");
+const animalPreview = document.getElementById("animalPreview");
+const imageCaption = document.getElementById("imageCaption");
+const loginBox = document.getElementById("loginBox");
+const successMessage = document.getElementById("successMessage");
+const errorMessage = document.getElementById("errorMessage");
+const submitButton = document.getElementById("submitButton");
+
+function getValue(id) {
+    return document.getElementById(id).value.trim();
+}
+
+function normalize(value) {
+    return String(value || "")
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, " ");
+}
+
+function getAnimalType() {
+    return animalTypeInput.value === "Other"
+        ? otherAnimalInput.value.trim()
+        : animalTypeInput.value.trim();
+}
+
+/* SAFE PLACEHOLDER */
+
+function makePlaceholder(label) {
+    const safeLabel = String(label || "Animal")
+        .replace(/[<>&"']/g, "")
+        .slice(0, 70);
+
+    const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="850" height="550">
+        <rect width="100%" height="100%" fill="#e7f1e8"/>
+        <circle cx="425" cy="205" r="85" fill="#d0e5d3"/>
+        <rect x="385" y="180" width="80" height="60" rx="10"
+              fill="none" stroke="#39764a" stroke-width="12"/>
+        <circle cx="410" cy="201" r="8" fill="#39764a"/>
+        <path d="M396 230 L417 212 L435 226 L449 204"
+              fill="none" stroke="#39764a" stroke-width="8"/>
+        <text x="425" y="350" text-anchor="middle"
+              font-family="Arial" font-size="28"
+              font-weight="bold" fill="#205c2f">${safeLabel}</text>
+        <text x="425" y="390" text-anchor="middle"
+              font-family="Arial" font-size="19" fill="#66836c">
+              Matching photograph not available
+        </text>
+    </svg>`;
+
+    return "data:image/svg+xml;charset=UTF-8," +
+        encodeURIComponent(svg);
+}
+
+/* AUTOMATIC IMAGE MATCHING */
+
+function resolveAnimalImage() {
+    const animal = normalize(getAnimalType());
+    const breed = normalize(getValue("breed"));
+
+    if (!animal) {
+        return {
+            src: makePlaceholder("Select an animal"),
+            caption: "Select an animal to preview its picture."
+        };
+    }
+
+    const matchedBreed = Object.keys(BREED_IMAGES)
+        .sort((a, b) => b.length - a.length)
+        .find(key =>
+            breed === key ||
+            breed.startsWith(key + " ") ||
+            breed.endsWith(" " + key)
+        );
+
+    if (matchedBreed && BREED_TYPES[matchedBreed] === animal) {
+        return {
+            src: BREED_IMAGES[matchedBreed],
+            caption: getAnimalType() + " — " + getValue("breed")
+        };
+    }
+
+    if (breed) {
+        return {
+            src: makePlaceholder(
+                getAnimalType() + " — " + getValue("breed")
+            ),
+            caption: "No verified breed-specific picture available."
+        };
+    }
+
+    if (ANIMAL_IMAGES[animal]) {
+        return {
+            src: ANIMAL_IMAGES[animal],
+            caption: "Illustrative photograph of " + getAnimalType()
+        };
+    }
+
+    return {
+        src: makePlaceholder(getAnimalType()),
+        caption: "No matching photograph available."
+    };
+}
+
+function releasePreviewUrl() {
+    if (previewObjectUrl) {
+        URL.revokeObjectURL(previewObjectUrl);
+        previewObjectUrl = null;
+    }
+}
+
+function updateAnimalPreview() {
+    releasePreviewUrl();
+
+    const file = animalPhotoInput.files[0];
+
+    if (file) {
+        previewObjectUrl = URL.createObjectURL(file);
+        animalPreview.src = previewObjectUrl;
+        animalPreview.alt = "Seller-selected photograph";
+        imageCaption.textContent = "Your actual animal photograph";
+        return;
+    }
+
+    const result = resolveAnimalImage();
+
+    animalPreview.onerror = function() {
+        this.onerror = null;
+        this.src = makePlaceholder(getAnimalType());
+        imageCaption.textContent = "Matching photograph is unavailable.";
+    };
+
+    animalPreview.src = result.src;
+    animalPreview.alt = result.caption;
+    imageCaption.textContent = result.caption;
+}
+
+animalTypeInput.addEventListener("change", function() {
+    const other = animalTypeInput.value === "Other";
+
+    otherAnimalGroup.hidden = !other;
+    otherAnimalInput.required = other;
+
+    if (!other) otherAnimalInput.value = "";
+
+    updateAnimalPreview();
+});
+
+otherAnimalInput.addEventListener("input", updateAnimalPreview);
+breedInput.addEventListener("input", updateAnimalPreview);
+
+animalPhotoInput.addEventListener("change", function() {
+    const file = animalPhotoInput.files[0];
+
+    if (file) {
+        const allowed = [
+            "image/jpeg",
+            "image/png",
+            "image/webp"
+        ];
+
+        if (!allowed.includes(file.type) || file.size > 5 * 1024 * 1024) {
+            animalPhotoInput.value = "";
+            showError("Please select a JPG, PNG or WebP image smaller than 5 MB.");
+        }
+    }
+
+    updateAnimalPreview();
+});
+
+/* MESSAGES */
+
+function clearMessages() {
+    successMessage.style.display = "none";
+    errorMessage.style.display = "none";
+    errorMessage.textContent = "";
+}
+
+function showError(message) {
+    errorMessage.textContent = message;
+    errorMessage.style.display = "block";
+    errorMessage.scrollIntoView({behavior:"smooth",block:"center"});
+}
+
+function setButtonState(state) {
+    if (state === "loading") {
+        submitButton.disabled = true;
+        submitButton.innerHTML =
+            '<i class="fa-solid fa-spinner fa-spin"></i> Publishing Listing...';
+        return;
+    }
+
+    if (state === "login") {
+        submitButton.disabled = true;
+        submitButton.innerHTML =
+            '<i class="fa-solid fa-lock"></i> Login Required';
+        return;
+    }
+
+    submitButton.disabled = false;
+    submitButton.innerHTML =
+        '<i class="fa-solid fa-paw"></i> Submit Animal Listing';
+}
+
+/* SUPABASE INITIALIZATION */
+
+function initializeSupabase() {
+    if (!window.supabase?.createClient) {
+        setButtonState("login");
+        showError("Marketplace service could not load. Check your connection.");
+        return false;
+    }
+
+    try {
+        supabaseClient = window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY
+        );
+        return true;
+    } catch (error) {
+        console.error("Supabase initialization:", error);
+        setButtonState("login");
+        showError("Marketplace initialization failed.");
+        return false;
+    }
+}
+
+/* LOGIN VERIFICATION */
+
+async function checkLogin() {
+    if (!supabaseClient) return null;
+
+    try {
+        const {data:{user},error} =
+            await supabaseClient.auth.getUser();
+
+        if (error) throw error;
+
+        if (!user) {
+            authenticatedUser = null;
+            loginBox.style.display = "block";
+            setButtonState("login");
+            return null;
+        }
+
+        authenticatedUser = user;
+        loginBox.style.display = "none";
+
+        if (!isSubmitting) setButtonState("ready");
+
+        return user;
+
+    } catch (error) {
+        console.error("Login check:", error);
+        authenticatedUser = null;
+        setButtonState("login");
+        showError("Could not verify login. Please refresh and try again.");
+        return null;
+    }
+}
+
+/* VALIDATION */
+
+function validateListing() {
+    if (!form.reportValidity()) return false;
+
+    const animal = getAnimalType();
+    const quantity = Number(getValue("quantity"));
+    const phone = getValue("phone");
+    const email = getValue("email");
+
+    if (!animal) {
+        showError("Please specify the animal type.");
+        return false;
+    }
+
+    if (!Number.isSafeInteger(quantity) || quantity < 1 || quantity > 1000000) {
+        showError("Please enter a valid number of animals.");
+        return false;
+    }
+
+    const digits = phone.replace(/\D/g,"");
+
+    if (digits.length < 9 || digits.length > 15) {
+        showError("Please enter a valid phone number.");
+        return false;
+    }
+
+    if (getValue("preferredContact") === "Email" && !email) {
+        showError("Please enter your email address.");
+        return false;
+    }
+
+    return true;
+}
+
+/* OPTIONAL IMAGE UPLOAD */
+
+async function uploadAnimalPhoto(userId) {
+    const file = animalPhotoInput.files[0];
+
+    if (!file || !ENABLE_PHOTO_UPLOAD) return null;
+
+    const extension = file.type === "image/png"
+        ? "png"
+        : file.type === "image/webp"
+        ? "webp"
+        : "jpg";
+
+    const randomId = crypto.randomUUID();
+    const path = userId + "/" + randomId + "." + extension;
+
+    const {error} = await supabaseClient.storage
+        .from(PHOTO_BUCKET)
+        .upload(path,file,{
+            contentType:file.type,
+            upsert:false
+        });
+
+    if (error) throw error;
+
+    const {data} = supabaseClient.storage
+        .from(PHOTO_BUCKET)
+        .getPublicUrl(path);
+
+    return data.publicUrl;
+}
+
+/* BUILD LISTING */
+
+function buildListing(userId,imageUrl) {
+    const animal = getAnimalType();
+    const breed = getValue("breed");
+    const quantity = getValue("quantity");
+    const age = getValue("age");
+    const sex = getValue("sex");
+    const purpose = getValue("purpose");
+    const healthDetails = getValue("healthDetails");
+    const identification = getValue("identification");
+    const price = getValue("price");
+    const negotiable = getValue("negotiable");
+    const availability = getValue("availability");
+    const minimum = getValue("minimum");
+    const location = getValue("location");
+    const delivery = getValue("delivery");
+    const name = getValue("name");
+    const phone = getValue("phone");
+    const email = getValue("email");
+    const preferredContact = getValue("preferredContact");
+    const description = getValue("description");
+
+    const healthOptions = Array.from(
+        document.querySelectorAll('input[name="health"]:checked')
+    ).map(input => input.value);
+
+    const fullDescription = [
+        description,
+        "",
+        "Animal Details:",
+        "Animal type: " + animal,
+        "Breed: " + (breed || "Not specified"),
+        "Number available: " + quantity,
+        "Age: " + (age || "Not specified"),
+        "Sex: " + sex,
+        "Suitable purpose: " + purpose,
+        "Health: " + (healthOptions.join(", ") || "Not specified"),
+        "Health details: " + (healthDetails || "Not specified"),
+        "Identification / records: " + identification,
+        "Price flexibility: " + negotiable,
+        "Availability: " + availability,
+        "Minimum purchase: " + (minimum || "Not specified"),
+        "Delivery: " + delivery,
+        "Seller name: " + name,
+        "Phone / WhatsApp: " + phone,
+        "Email: " + (email || "Not provided"),
+        "Preferred contact: " + preferredContact
+    ].join("\n");
+
+    const listing = {
+        user_id: userId,
+        category: "animal",
+        title: animal + " for sale" + (breed ? " - " + breed : ""),
+        description: fullDescription,
+        location: location,
+        quantity: quantity,
+        price: price,
+        contact: phone,
+        status: "active"
+    };
+
+    if (imageUrl) {
+        listing.image_url = imageUrl;
+    }
+
+    return listing;
+}
+
+/* SUBMIT */
+
+form.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    if (isSubmitting) return;
+
+    clearMessages();
+
+    if (!supabaseClient) {
+        showError("Marketplace service is unavailable.");
+        return;
+    }
+
+    if (!validateListing()) return;
+
+    if (animalPhotoInput.files.length && !ENABLE_PHOTO_UPLOAD) {
+        showError(
+            "Photo upload is not yet enabled in Supabase. " +
+            "Please remove the selected photo to publish your listing, " +
+            "or configure Storage and enable uploads in this page."
+        );
+        return;
+    }
+
+    isSubmitting = true;
+    setButtonState("loading");
+
+    try {
+        const {data:{user},error:authError} =
+            await supabaseClient.auth.getUser();
+
+        if (authError) throw authError;
+
+        if (!user) {
+            authenticatedUser = null;
+            loginBox.style.display = "block";
+            showError("Your session has expired. Please log in again.");
+            return;
+        }
+
+        authenticatedUser = user;
+        loginBox.style.display = "none";
+
+        const imageUrl = await uploadAnimalPhoto(user.id);
+        const listing = buildListing(user.id,imageUrl);
+
+        const {data,error} = await supabaseClient
+            .from("marketplace_listings")
+            .insert(listing)
+            .select("id, title, status")
+            .single();
+
+        if (error) throw error;
+
+        if (!data || !data.id) {
+            throw new Error(
+                "Publication was not confirmed. Check My Marketplace before retrying."
+            );
+        }
+
+        console.log("Animal listing published:",data);
+
+        form.reset();
+        otherAnimalGroup.hidden = true;
+        otherAnimalInput.required = false;
+        updateAnimalPreview();
+
+        successMessage.style.display = "block";
+        successMessage.scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
+
+    } catch (error) {
+        console.error("Animal listing error:",error);
+
+        let message = error?.message || "An unexpected error occurred.";
+
+        if (
+            error?.code === "42501" ||
+            /row-level security|permission denied/i.test(message)
+        ) {
+            message =
+                "Your account does not have permission to publish. " +
+                "Check the INSERT and SELECT policies for marketplace_listings " +
+                "and Storage upload permissions in Supabase.";
+        }
+
+        showError("We could not confirm publication. " + message);
+
+    } finally {
+        isSubmitting = false;
+        setButtonState(authenticatedUser ? "ready" : "login");
+    }
+});
+
+/* START */
+
+async function startPage() {
+    updateAnimalPreview();
+
+    if (!initializeSupabase()) return;
+
+    await checkLogin();
+
+    supabaseClient.auth.onAuthStateChange((_event,session) => {
+        if (isSubmitting) return;
+
+        if (session?.user) {
+            authenticatedUser = session.user;
+            loginBox.style.display = "none";
+            setButtonState("ready");
+        } else {
+            authenticatedUser = null;
+            loginBox.style.display = "block";
+            setButtonState("login");
+        }
+    });
+}
+
+startPage();
+
+window.addEventListener("beforeunload",releasePreviewUrl);
+</script>
+
+</body>
+</html>

@@ -1,636 +1,803 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Poultry Farming | Africa AgroVision</title>
-
-    <style>
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f8f4;
-            color: #222;
-            line-height: 1.6;
-        }
-
-        /* HERO SECTION */
-
-        .poultry-hero {
-            min-height: 520px;
-            display: flex;
-            align-items: center;
-            padding: 80px 10%;
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(0, 70, 35, 0.92),
-                    rgba(0, 70, 35, 0.65)
-                ),
-                url("poultry-farming.jpg");
-
-            background-size: cover;
-            background-position: center;
-        }
-
-        .poultry-hero-content {
-            max-width: 700px;
-            color: white;
-        }
-
-        .breadcrumb {
-            font-size: 15px;
-            margin-bottom: 20px;
-            opacity: 0.9;
-        }
-
-        .poultry-hero h1 {
-            font-size: 55px;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .poultry-hero-content > p:not(.breadcrumb) {
-            font-size: 21px;
-            margin-bottom: 30px;
-            max-width: 600px;
-        }
-
-        .hero-button {
-            display: inline-block;
-            background: #ffffff;
-            color: #166534;
-            text-decoration: none;
-            padding: 15px 28px;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .hero-button:hover {
-            background: #22c55e;
-            color: white;
-            transform: translateY(-3px);
-        }
-
-
-        /* INTRODUCTION */
-
-        .poultry-introduction {
-            padding: 80px 10%;
-            background: white;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        .poultry-introduction h2 {
-            color: #166534;
-            font-size: 38px;
-            margin-bottom: 25px;
-        }
-
-        .poultry-introduction p {
-            font-size: 18px;
-            max-width: 850px;
-            color: #555;
-        }
-
-
-        /* POULTRY AREAS */
-
-        .poultry-areas {
-            padding: 80px 10%;
-            background: #f4f8f4;
-        }
-
-        .section-heading {
-            text-align: center;
-            max-width: 750px;
-            margin: 0 auto 50px;
-        }
-
-        .section-heading h2 {
-            color: #166534;
-            font-size: 38px;
-            margin-bottom: 15px;
-        }
-
-        .section-heading p {
-            color: #666;
-            font-size: 17px;
-        }
-
-
-        /* CARDS */
-
-        .poultry-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        .poultry-card {
-            background: white;
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-            transition: 0.3s;
-            border: 1px solid #e0e8e0;
-        }
-
-        .poultry-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.13);
-        }
-
-        .poultry-card-icon {
-            height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(
-                135deg,
-                #166534,
-                #22c55e
-            );
-            font-size: 65px;
-        }
-
-        .poultry-card-content {
-            padding: 25px;
-        }
-
-        .poultry-card h3 {
-            color: #166534;
-            font-size: 25px;
-            margin-bottom: 12px;
-        }
-
-        .poultry-card p {
-            color: #666;
-            font-size: 16px;
-            margin-bottom: 20px;
-        }
-
-        .explore-button {
-            display: inline-block;
-            background: #166534;
-            color: white;
-            text-decoration: none;
-            padding: 11px 20px;
-            border-radius: 25px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .explore-button:hover {
-            background: #22c55e;
-            transform: translateY(-2px);
-        }
-
-
-        /* TURKEY FEATURE */
-
-        .turkey-feature {
-            padding: 80px 10%;
-            background: white;
-        }
-
-        .turkey-feature-box {
-            max-width: 1100px;
-            margin: auto;
-            background: linear-gradient(
-                135deg,
-                #064e3b,
-                #166534
-            );
-            color: white;
-            border-radius: 22px;
-            padding: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-        }
-
-        .turkey-feature-content {
-            max-width: 700px;
-        }
-
-        .turkey-feature h2 {
-            font-size: 36px;
-            margin-bottom: 15px;
-        }
-
-        .turkey-feature p {
-            font-size: 18px;
-            opacity: 0.92;
-            margin-bottom: 25px;
-        }
-
-        .turkey-button {
-            display: inline-block;
-            background: white;
-            color: #166534;
-            text-decoration: none;
-            padding: 14px 25px;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .turkey-button:hover {
-            background: #22c55e;
-            color: white;
-        }
-
-        .turkey-icon {
-            font-size: 100px;
-            min-width: 130px;
-            text-align: center;
-        }
-
-
-        /* FOOTER */
-
-        footer {
-            background: #0f3d20;
-            color: white;
-            text-align: center;
-            padding: 30px 10%;
-        }
-
-        footer p {
-            margin: 5px 0;
-            opacity: 0.9;
-        }
-
-
-        /* MOBILE */
-
-        @media (max-width: 900px) {
-
-            .poultry-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .turkey-feature-box {
-                flex-direction: column;
-                text-align: center;
-            }
-
-        }
-
-
-        @media (max-width: 768px) {
-
-            .poultry-hero {
-                min-height: 500px;
-                padding: 60px 7%;
-            }
-
-            .poultry-hero h1 {
-                font-size: 38px;
-            }
-
-            .poultry-hero-content > p:not(.breadcrumb) {
-                font-size: 18px;
-            }
-
-            .poultry-introduction,
-            .poultry-areas,
-            .turkey-feature {
-                padding: 60px 7%;
-            }
-
-            .poultry-introduction h2,
-            .section-heading h2 {
-                font-size: 30px;
-            }
-
-            .poultry-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .turkey-feature-box {
-                padding: 35px 25px;
-            }
-
-            .turkey-feature h2 {
-                font-size: 29px;
-            }
-
-            .turkey-icon {
-                font-size: 80px;
-            }
-
-        }
-
-    </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#103e27">
+<meta name="description" content="Explore poultry farming in Rwanda and Africa: chickens, ducks, turkeys, geese, guinea fowl and good poultry management.">
+
+<title>Poultry Farming | Africa AgroVision</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+:root{
+  --green:#14532d;
+  --dark:#092f1c;
+  --light:#e8f5eb;
+  --gold:#f0bd57;
+  --text:#183d29;
+  --muted:#64766a;
+  --bg:#f5f8f5;
+  --border:#e1eae2;
+  --shadow:0 12px 32px rgba(11,55,27,.09);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.7;
+}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font:inherit}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.container{width:92%;max-width:1240px;margin:auto}
+
+/* NAVIGATION */
+.navbar{
+  position:sticky;top:0;z-index:100;
+  background:var(--dark);
+  box-shadow:0 4px 18px #0002;
+}
+.nav-inner{
+  max-width:1400px;margin:auto;padding:12px 24px;
+  min-height:76px;display:flex;align-items:center;
+  justify-content:space-between;gap:20px;
+}
+.logo{
+  display:flex;align-items:center;gap:12px;
+  color:#fff;font-size:21px;font-weight:800;
+}
+.logo-icon{
+  width:43px;height:43px;display:grid;place-items:center;
+  background:#287e45;border-radius:11px;color:#d5f5dc;
+}
+.logo em{font-style:normal;color:#abe7b7}
+.logo small{
+  display:block;font-size:10px;font-weight:400;
+  color:#cfe6d4;line-height:1.4;
+}
+.nav-links{
+  display:flex;flex-wrap:wrap;gap:5px;
+  list-style:none;margin:0;padding:0;
+}
+.nav-links a{
+  display:block;padding:10px 12px;
+  color:#e7f1e9;border-radius:8px;
+  font-size:12px;font-weight:700;
+}
+.nav-links a:hover,.nav-links .active{background:#ffffff22}
+.menu-toggle{
+  display:none;width:44px;height:44px;
+  border:1px solid #ffffff70;border-radius:9px;
+  background:transparent;color:white;font-size:20px;
+}
+
+/* HERO */
+.hero{
+  position:relative;min-height:520px;
+  display:flex;align-items:center;
+  background:
+    linear-gradient(90deg,rgba(7,43,23,.96) 0%,rgba(7,43,23,.78) 47%,rgba(7,43,23,.3) 100%),
+    url("https://www.zurueckzumursprung.at/fileadmin/_processed_/8/5/csm_hueho951_jpg_bfe6e56a46.jpg")
+    center/cover;
+  background-color:#174a2d;color:white;
+}
+.hero-inner{padding:80px 0 95px}
+.breadcrumb{
+  display:flex;flex-wrap:wrap;align-items:center;
+  gap:9px;margin-bottom:25px;
+  font-size:12px;color:#d8e8dc;
+}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid #ffffff65;background:#ffffff18;
+  border-radius:30px;padding:8px 14px;
+  color:#d6edbf;font-size:11px;font-weight:800;
+  letter-spacing:1px;text-transform:uppercase;
+}
+.hero h1{
+  max-width:810px;margin:20px 0;
+  font-size:clamp(37px,5.1vw,64px);
+  line-height:1.12;letter-spacing:-1.3px;
+}
+.hero h1 span{color:var(--gold)}
+.hero p{
+  max-width:660px;font-size:16px;
+  color:#e4efe6;line-height:1.9;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:29px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  gap:10px;padding:14px 22px;border-radius:10px;
+  background:var(--gold);color:#273617;
+  font-size:13px;font-weight:800;transition:.2s;
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.btn.outline{background:#ffffff18;color:white;border:1px solid #ffffff80}
+
+/* FACTS */
+.facts-wrap{position:relative;z-index:2;margin-top:-48px}
+.facts{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+  background:white;padding:13px;border-radius:17px;
+  border:1px solid var(--border);box-shadow:var(--shadow);
+}
+.fact{padding:23px;border-right:1px solid var(--border)}
+.fact:last-child{border-right:0}
+.fact i{
+  display:grid;place-items:center;width:44px;height:44px;
+  background:var(--light);color:#287c44;
+  border-radius:12px;font-size:19px;margin-bottom:12px;
+}
+.fact strong{display:block;color:#17462c;font-size:17px}
+.fact p{margin:5px 0 0;color:var(--muted);font-size:12px}
+
+/* SECTIONS */
+.section{padding:75px 0 0}
+.section-label{
+  display:block;margin-bottom:10px;color:#2d854a;
+  font-size:11px;font-weight:800;
+  letter-spacing:1.3px;text-transform:uppercase;
+}
+.section h2{
+  margin:0 0 15px;color:#123d26;
+  font-size:clamp(27px,3.4vw,38px);line-height:1.25;
+}
+.section-lead{
+  max-width:850px;color:var(--muted);
+  font-size:15px;line-height:1.9;margin:0 0 30px;
+}
+.intro{
+  display:grid;grid-template-columns:1.05fr .95fr;
+  align-items:center;gap:38px;
+}
+.intro p{color:#5d7163;font-size:14px;line-height:1.95}
+.intro-photo{
+  height:350px;overflow:hidden;border-radius:17px;
+  background:#e4eee6;box-shadow:var(--shadow);
+}
+.note{
+  padding:18px 20px;margin-top:22px;
+  border-left:4px solid #308d4d;
+  background:#e7f4e9;border-radius:0 10px 10px 0;
+  color:#2a603d;font-size:13px;
+}
+
+/* CARDS */
+.cards{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:23px;
+}
+.card{
+  display:flex;flex-direction:column;overflow:hidden;
+  background:white;border:1px solid var(--border);
+  border-radius:17px;box-shadow:var(--shadow);
+  transition:transform .25s,box-shadow .25s;
+}
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 18px 36px rgba(11,55,27,.15);
+}
+.card-photo{
+  position:relative;height:230px;
+  overflow:hidden;background:#e4eee6;
+}
+.card-photo img{transition:transform .35s}
+.card:hover .card-photo img{transform:scale(1.05)}
+.card-photo:after{
+  content:"";position:absolute;inset:55% 0 0;
+  background:linear-gradient(transparent,#0006);
+  pointer-events:none;
+}
+.photo-label{
+  position:absolute;z-index:1;left:17px;bottom:16px;
+  padding:7px 12px;border-radius:7px;
+  background:#ffffffeb;color:#17442a;
+  font-size:11px;font-weight:800;
+}
+.card-content{
+  display:flex;flex-direction:column;
+  flex:1;padding:23px;
+}
+.card-category{
+  font-size:10px;letter-spacing:1px;text-transform:uppercase;
+  color:#348650;font-weight:800;margin-bottom:9px;
+}
+.card h3{font-size:23px;color:#17452c;margin:0 0 11px}
+.card p{
+  color:#637769;font-size:13px;
+  line-height:1.85;margin:0 0 16px;
+}
+.card ul{
+  list-style:none;padding:0;margin:0 0 20px;
+  color:#566e5d;font-size:12px;line-height:2;
+}
+.card li:before{content:"✓";color:#2b8b4a;font-weight:bold;margin-right:9px}
+.card-action{
+  margin-top:auto;border-top:1px solid var(--border);
+  padding-top:15px;display:flex;justify-content:space-between;
+  align-items:center;gap:10px;color:#207342;
+  font-size:13px;font-weight:800;
+}
+.card-action i{
+  width:34px;height:34px;border-radius:50%;
+  display:grid;place-items:center;background:#1f7540;color:white;
+}
+
+/* MANAGEMENT */
+.management-panel{
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;gap:35px;padding:26px;
+  border-radius:18px;background:white;
+  border:1px solid var(--border);box-shadow:var(--shadow);
+}
+.management-photo{
+  height:320px;overflow:hidden;border-radius:13px;
+  background:#e4eee6;
+}
+.management-panel h3{font-size:25px;margin:0 0 13px}
+.management-panel p{
+  color:#637568;font-size:14px;line-height:1.9;
+}
+.checks{list-style:none;padding:0;margin:16px 0 22px}
+.checks li{
+  padding-left:25px;position:relative;
+  font-size:13px;color:#526a59;margin:9px 0;
+}
+.checks li:before{
+  content:"✓";position:absolute;left:0;
+  color:#2d904c;font-weight:900;
+}
+
+/* FEATURE */
+.feature{
+  display:grid;grid-template-columns:1fr .9fr;
+  align-items:center;gap:20px;
+  overflow:hidden;border-radius:20px;
+  background:linear-gradient(115deg,#0b3a23,#246b40);
+  color:white;margin-top:75px;
+}
+.feature-copy{padding:40px}
+.feature h2{color:white;font-size:32px;margin:0 0 15px}
+.feature p{color:#d7e9dc;font-size:14px;margin-bottom:23px}
+.feature-photo{height:330px;background:#194f30}
+
+/* CTA */
+.cta{
+  margin:75px 0;padding:45px 25px;text-align:center;
+  background:linear-gradient(110deg,#0b3a22,#277a47);
+  color:white;border-radius:20px;
+}
+.cta h2{color:white;margin:0 0 12px;font-size:32px}
+.cta p{max-width:700px;margin:0 auto 23px;color:#dcece0;font-size:14px}
+.footer{
+  background:#082f1b;color:#d0e4d5;
+  text-align:center;padding:30px 15px;font-size:12px;
+}
+.footer a:hover{text-decoration:underline}
+
+/* IMAGE FALLBACK */
+.image-fallback{
+  display:none;width:100%;height:100%;
+  align-items:center;justify-content:center;
+  flex-direction:column;gap:10px;
+  background:linear-gradient(140deg,#dcefe1,#9bc9a6);
+  color:#174b2d;text-align:center;padding:20px;
+}
+.image-fallback i{font-size:42px}
+.image-fallback strong{font-size:19px}
+.image-fallback span{font-size:11px}
+.image-failed img{display:none}
+.image-failed .image-fallback{display:flex}
+
+@media(max-width:1050px){
+  .nav-inner{flex-wrap:wrap}
+  .facts{grid-template-columns:repeat(2,1fr)}
+  .fact:nth-child(2){border-right:0}
+  .fact:nth-child(-n+2){border-bottom:1px solid var(--border)}
+  .cards{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:760px){
+  .menu-toggle{display:block}
+  .nav-links{
+    display:none;width:100%;flex-direction:column;
+    align-items:stretch;padding:8px 0;
+  }
+  .nav-links.open{display:flex}
+  .intro,.management-panel,.feature{grid-template-columns:1fr}
+  .intro-photo,.management-photo{height:290px}
+  .feature-copy{padding:30px}
+  .feature-photo{height:280px}
+  .hero{min-height:490px}
+  .hero-inner{padding:65px 0 90px}
+  .hero p{font-size:14px}
+  .section{padding-top:60px}
+}
+@media(max-width:560px){
+  .logo{font-size:18px}
+  .hero h1{font-size:37px}
+  .hero-actions{flex-direction:column}
+  .btn{width:100%}
+  .cards{grid-template-columns:1fr}
+  .card-photo{height:245px}
+  .fact{padding:15px 11px}
+  .fact strong{font-size:15px}
+  .fact p{font-size:11px}
+  .management-panel{padding:15px}
+  .cta h2{font-size:26px}
+}
+</style>
 </head>
-
 
 <body>
 
-
-    <!-- HERO SECTION -->
-
-    <section class="poultry-hero">
-
-        <div class="poultry-hero-content">
-
-            <p class="breadcrumb">
-                Agriculture › Livestock Farming › Poultry Farming
-            </p>
-
-            <h1>🐔 Poultry Farming</h1>
-
-            <p>
-                Raising healthy birds for meat, eggs, income,
-                and a sustainable agricultural future.
-            </p>
-
-            <a href="#introduction" class="hero-button">
-                Explore Poultry Farming ↓
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- INTRODUCTION -->
-
-    <section class="poultry-introduction" id="introduction">
-
-        <div class="container">
-
-            <h2>What is Poultry Farming? 🐓</h2>
-
-            <p>
-                Poultry farming is the practice of raising domesticated birds
-                such as chickens, ducks, turkeys, geese, and guinea fowl for
-                the production of meat, eggs, and other products.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- POULTRY PRODUCTION AREAS -->
-
-    <section class="poultry-areas">
-
-        <div class="section-heading">
-
-            <h2>Explore Poultry Farming 🐔</h2>
-
-            <p>
-                Discover important poultry production areas and learn
-                practical farming principles for different bird species.
-            </p>
-
-        </div>
-
-
-        <div class="poultry-grid">
-
-
-            <!-- CHICKEN -->
-
-            <div class="poultry-card">
-
-                <div class="poultry-card-icon">
-                    🐔
-                </div>
-
-                <div class="poultry-card-content">
-
-                   <h3>Chicken Farming</h3>
-
-<p>
-    Learn about chicken production, housing,
-    feeding, health management, eggs, and meat production.
-</p>
-
-<a href="chicken-farming.html" class="explore-button">
-    Explore More →
-</a>
-
-                </div>
-
-            </div>
-
-
-            <!-- DUCK -->
-
-            <div class="poultry-card">
-
-                <div class="poultry-card-icon">
-                    🦆
-                </div>
-
-                <div class="poultry-card-content">
-
-                    <h3>Duck Farming</h3>
-
-                    <p>
-                        Explore duck production systems, nutrition,
-                        housing, breeding, health, and management.
-                    </p>
-
-                  <a href="duck-farming.html" class="explore-button">
-    Explore More →
-</a>
-
-                </div>
-
-            </div>
-
-
-            <!-- TURKEY -->
-
-            <div class="poultry-card">
-
-                <div class="poultry-card-icon">
-                    🦃
-                </div>
-
-                <div class="poultry-card-content">
-
-                    <h3>Turkey Farming</h3>
-
-                    <p>
-                        Learn about turkey production, nutrition,
-                        housing, breeding, disease prevention,
-                        welfare, and meat production.
-                    </p>
-
-                    <a href="turkey-farming.html" class="explore-button">
-                        Explore Turkey Farming →
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- GOOSE -->
-
-            <div class="poultry-card">
-
-                <div class="poultry-card-icon">
-                    🪿
-                </div>
-
-                <div class="poultry-card-content">
-
-                    <h3>Goose Farming</h3>
-
-                    <h3>Goose Farming</h3>
-
-<p>
-    Explore goose production, breeds, feeding, housing,
-    breeding, grazing, health, biosecurity, and farm management.
-</p>
-
-<a href="goose-farming.html" class="explore-button">
-    Explore More →
-</a>
-
-                </div>
-
-            </div>
-
-
-            <!-- GUINEA FOWL -->
-
-            <div class="poultry-card">
-
-                <div class="poultry-card-icon">
-                    🐦
-                </div>
-
-                <div class="poultry-card-content">
-
-               <h3>Guinea Fowl Farming</h3>
-
-<p>
-    Explore guinea fowl production, breeds, feeding, housing,
-    keet care, breeding, health, biosecurity, and farm management.
-</p>
-
-<a href="guinea-fowl-farming.html" class="explore-button">
-    Explore More →
-</a>
-
-                </div>
-
-            </div>
-
-
-            <!-- POULTRY MANAGEMENT -->
-
-            <div class="poultry-card">
-
-                <div class="poultry-card-icon">
-                    🌱
-                </div>
-
-                <div class="poultry-card-content">
-
-                    <h3>Poultry Management</h3>
-
-                    <p>
-                        Understand biosecurity, sanitation,
-                        waste management, records, and sustainable
-                        poultry production.
-                    </p>
-
-                   <a href="poultry-management.html" class="your-existing-class">
-    <i class="fa-solid fa-clipboard-check"></i>
-    <h3>Poultry Management</h3>
-    <p>Explore poultry management practices.</p>
-</a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- TURKEY FEATURE -->
-
-    <section class="turkey-feature">
-
-        <div class="turkey-feature-box">
-
-            <div class="turkey-feature-content">
-
-                <h2>🦃 Discover Turkey Farming</h2>
-
-                <p>
-                    Explore a complete guide to turkey production,
-                    including breeds, production systems, housing,
-                    nutrition, breeding, incubation, biosecurity,
-                    disease prevention, welfare, and farm management.
-                </p>
-
-                <a href="turkey-farming.html" class="turkey-button">
-                    Explore Turkey Farming →
-                </a>
-
-            </div>
-
-            <div class="turkey-icon">
-                🦃
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- FOOTER -->
-
-    <footer>
-
-        <p><strong>Africa AgroVision</strong></p>
-
+<nav class="navbar" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="dashboard.html" class="logo">
+      <span class="logo-icon"><i class="fa-solid fa-leaf"></i></span>
+      <span>Africa <em>AgroVision</em>
+        <small>Growing Agriculture. Connecting Opportunities.</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Open navigation" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a class="active" href="agriculture.html">Agriculture</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="ideas.html">Ideas & Feedback</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container hero-inner">
+    <div class="breadcrumb">
+      <a href="dashboard.html">Dashboard</a>
+      <i class="fa-solid fa-chevron-right"></i>
+      <a href="agriculture.html">Agriculture</a>
+      <i class="fa-solid fa-chevron-right"></i>
+      <span>Poultry Farming</span>
+    </div>
+
+    <span class="eyebrow">
+      <i class="fa-solid fa-feather"></i>
+      Africa AgroVision • Livestock Production
+    </span>
+
+    <h1>Healthy Poultry.<br>
+      <span>Stronger Farming Businesses.</span>
+    </h1>
+
+    <p>
+      Discover practical poultry production in Rwanda and across
+      Africa. Explore chicken, duck, turkey, goose and guinea fowl
+      farming, from housing and feeding to health management and marketing.
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn" href="#poultry-types">
+        <i class="fa-solid fa-book-open"></i> Explore Poultry Types
+      </a>
+      <a class="btn outline" href="#management">
+        <i class="fa-solid fa-list-check"></i> Farm Management
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<div class="container facts-wrap">
+  <div class="facts">
+    <div class="fact">
+      <i class="fa-solid fa-egg"></i>
+      <strong>Egg Production</strong>
+      <p>Produce eggs for household nutrition and commercial markets.</p>
+    </div>
+    <div class="fact">
+      <i class="fa-solid fa-drumstick-bite"></i>
+      <strong>Meat Production</strong>
+      <p>Raise suitable poultry species for local meat markets.</p>
+    </div>
+    <div class="fact">
+      <i class="fa-solid fa-chart-line"></i>
+      <strong>Business Growth</strong>
+      <p>Build poultry enterprises through planning and recordkeeping.</p>
+    </div>
+    <div class="fact">
+      <i class="fa-solid fa-shield-heart"></i>
+      <strong>Healthy Flocks</strong>
+      <p>Protect birds with proper housing, nutrition and biosecurity.</p>
+    </div>
+  </div>
+</div>
+
+<section class="section container" id="introduction">
+  <div class="intro">
+    <div>
+      <span class="section-label">01 / Introduction</span>
+      <h2>What Is Poultry Farming?</h2>
+
+      <p>
+        Poultry farming involves raising domesticated birds for meat,
+        eggs, breeding stock and other agricultural products.
+        Important poultry species include chickens, ducks, turkeys,
+        geese and guinea fowl.
+      </p>
+
+      <p>
+        In Rwanda, chicken production is an important opportunity for
+        household nutrition, rural employment and agribusiness.
+        Other poultry species may also offer opportunities where
+        suitable markets and production conditions exist.
+      </p>
+
+      <p>
+        Successful poultry farming requires proper housing,
+        reliable feed, clean water, health monitoring, biosecurity,
+        financial planning and market access.
+      </p>
+
+      <div class="note">
+        <strong>Remember:</strong> Different poultry species have
+        different nutritional, housing, breeding and health requirements.
+        Always follow species-specific guidance.
+      </div>
+    </div>
+
+    <div class="intro-photo">
+      <img
+        src="https://www.zurueckzumursprung.at/fileadmin/_processed_/8/5/csm_hueho951_jpg_bfe6e56a46.jpg"
+        alt="Brown chickens on a free-range poultry farm"
+        loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="section container" id="poultry-types">
+  <span class="section-label">02 / Poultry Production</span>
+  <h2>Explore Different Types of Poultry Farming</h2>
+  <p class="section-lead">
+    Choose the poultry enterprise you want to learn about.
+    Each card uses a photograph selected for the specific bird species.
+  </p>
+
+  <div class="cards">
+
+    <!-- CHICKENS -->
+    <article class="card">
+      <div class="card-photo">
+        <img
+          src="https://www.zurueckzumursprung.at/fileadmin/_processed_/8/5/csm_hueho951_jpg_bfe6e56a46.jpg"
+          alt="Brown domestic chickens on a poultry farm"
+          loading="lazy">
+        <span class="photo-label">Chickens</span>
+      </div>
+      <div class="card-content">
+        <span class="card-category">Chicken Production</span>
+        <h3>Chicken Farming</h3>
         <p>
-            Agriculture • Innovation • Knowledge • Sustainable Farming
+          Learn to raise chickens for eggs and meat, including
+          broilers, layers and local chicken production systems.
         </p>
+        <ul>
+          <li>Broiler and layer production</li>
+          <li>Housing and feeding</li>
+          <li>Chick care and disease prevention</li>
+        </ul>
+        <a class="card-action" href="chicken-farming.html">
+          Explore Chicken Farming
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </article>
 
+    <!-- DUCKS -->
+    <article class="card">
+      <div class="card-photo">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/8/83/Victoria%2CLagunajf3443_12.JPG"
+          alt="White Pekin ducks in a poultry farm enclosure"
+          loading="lazy">
+        <span class="photo-label">Ducks</span>
+      </div>
+      <div class="card-content">
+        <span class="card-category">Duck Production</span>
+        <h3>Duck Farming</h3>
         <p>
-            © 2026 Africa AgroVision. All rights reserved.
+          Discover domestic duck farming for meat and eggs,
+          with attention to housing, water access and feeding.
         </p>
+        <ul>
+          <li>Duck breeds and production systems</li>
+          <li>Water, housing and nutrition</li>
+          <li>Duckling care and flock health</li>
+        </ul>
+        <a class="card-action" href="duck-farming.html">
+          Explore Duck Farming
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </article>
 
-    </footer>
+    <!-- TURKEYS -->
+    <article class="card">
+      <div class="card-photo">
+        <img
+          src="https://static.wixstatic.com/media/779369_eed8f99a9ceb48dc859b441152da205d~mv2.jpg/v1/fill/w_854%2Ch_563%2Cal_c%2Clg_1%2Cq_85/779369_eed8f99a9ceb48dc859b441152da205d~mv2.jpg"
+          alt="Flock of white domestic turkeys on pasture"
+          loading="lazy">
+        <span class="photo-label">Turkeys</span>
+      </div>
+      <div class="card-content">
+        <span class="card-category">Turkey Production</span>
+        <h3>Turkey Farming</h3>
+        <p>
+          Explore turkey production for meat and breeding,
+          including poult care, feeding, housing and health.
+        </p>
+        <ul>
+          <li>Turkey breeds and meat production</li>
+          <li>Poult care and nutrition</li>
+          <li>Biosecurity and disease prevention</li>
+        </ul>
+        <a class="card-action" href="turkey-farming.html">
+          Explore Turkey Farming
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </article>
 
+    <!-- GEESE -->
+    <article class="card">
+      <div class="card-photo">
+        <img
+          src="https://www.farmatumovi.cz/files/responsive/980/0/husy-chelcice-m-17.jpeg"
+          alt="White domestic geese grazing on a poultry farm"
+          loading="lazy">
+        <span class="photo-label">Geese</span>
+      </div>
+      <div class="card-content">
+        <span class="card-category">Goose Production</span>
+        <h3>Goose Farming</h3>
+        <p>
+          Learn how to raise domestic geese, including
+          grazing, supplementary feeding, shelter and breeding.
+        </p>
+        <ul>
+          <li>Goose breeds and grazing</li>
+          <li>Housing and breeding</li>
+          <li>Gosling care and health</li>
+        </ul>
+        <a class="card-action" href="goose-farming.html">
+          Explore Goose Farming
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </article>
+
+    <!-- GUINEA FOWL -->
+    <article class="card">
+      <div class="card-photo">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Helmeted_guinea_fowl%2C_Sabi_Sands%2C_South_Africa.jpg/1280px-Helmeted_guinea_fowl%2C_Sabi_Sands%2C_South_Africa.jpg"
+          alt="Helmeted guinea fowl photographed in South Africa"
+          loading="lazy">
+        <span class="photo-label">Guinea Fowl</span>
+      </div>
+      <div class="card-content">
+        <span class="card-category">Guinea Fowl Production</span>
+        <h3>Guinea Fowl Farming</h3>
+        <p>
+          Explore guinea fowl production, including keet care,
+          housing, feeding and flock management.
+        </p>
+        <ul>
+          <li>Guinea fowl production systems</li>
+          <li>Keet care and feeding</li>
+          <li>Predator protection and biosecurity</li>
+        </ul>
+        <a class="card-action" href="guinea-fowl-farming.html">
+          Explore Guinea Fowl Farming
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </article>
+
+    <!-- MANAGEMENT -->
+    <article class="card">
+      <div class="card-photo">
+        <img
+          src="https://www.zurueckzumursprung.at/fileadmin/_processed_/8/5/csm_hueho951_jpg_bfe6e56a46.jpg"
+          alt="Free-range chicken flock beside a poultry house"
+          loading="lazy">
+        <span class="photo-label">Poultry Housing</span>
+      </div>
+      <div class="card-content">
+        <span class="card-category">Farm Management</span>
+        <h3>Poultry Management</h3>
+        <p>
+          Learn the principles of operating a productive
+          poultry enterprise with healthy birds and good records.
+        </p>
+        <ul>
+          <li>Housing and sanitation</li>
+          <li>Biosecurity and flock monitoring</li>
+          <li>Production and financial records</li>
+        </ul>
+        <a class="card-action" href="poultry-management.html">
+          Explore Poultry Management
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="section container" id="management">
+  <span class="section-label">03 / Good Farming Practices</span>
+  <h2>Good Management Creates Better Results</h2>
+  <p class="section-lead">
+    Healthy poultry production starts with good planning
+    and continues through every stage of flock management.
+  </p>
+
+  <div class="management-panel">
+    <div class="management-photo">
+      <img
+        src="https://www.zurueckzumursprung.at/fileadmin/_processed_/8/5/csm_hueho951_jpg_bfe6e56a46.jpg"
+        alt="Chickens outside their poultry housing"
+        loading="lazy">
+    </div>
+
+    <div>
+      <h3>Build a Healthy Poultry Enterprise</h3>
+      <p>
+        Prepare suitable housing, reliable feed and water
+        supplies, and a health-management plan before bringing
+        birds to your farm.
+      </p>
+
+      <ul class="checks">
+        <li>Provide appropriate housing and ventilation.</li>
+        <li>Ensure continuous access to clean drinking water.</li>
+        <li>Feed birds according to species and growth stage.</li>
+        <li>Apply suitable biosecurity measures.</li>
+        <li>Consult veterinary professionals about vaccination.</li>
+        <li>Keep mortality, production, expense and sales records.</li>
+      </ul>
+
+      <a class="btn" href="poultry-management.html">
+        <i class="fa-solid fa-book-open"></i>
+        Learn Poultry Management
+      </a>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>Advice for farmers in Rwanda:</strong>
+    Consult local veterinary and agricultural extension services
+    about appropriate breeds, disease prevention, vaccination
+    and locally approved veterinary products.
+  </div>
+</section>
+
+<section class="container">
+  <div class="feature">
+    <div class="feature-copy">
+      <span class="section-label" style="color:#ccead3">
+        04 / Featured Poultry Guide
+      </span>
+      <h2>Discover Turkey Farming</h2>
+      <p>
+        Explore turkey breeds, housing, nutrition,
+        poult management, breeding, incubation,
+        health and business planning.
+      </p>
+      <a class="btn" href="turkey-farming.html">
+        <i class="fa-solid fa-arrow-right"></i>
+        Explore Turkey Farming
+      </a>
+    </div>
+
+    <div class="feature-photo">
+      <img
+        src="https://static.wixstatic.com/media/779369_eed8f99a9ceb48dc859b441152da205d~mv2.jpg/v1/fill/w_854%2Ch_563%2Cal_c%2Clg_1%2Cq_85/779369_eed8f99a9ceb48dc859b441152da205d~mv2.jpg"
+        alt="White domestic turkeys raised on pasture"
+        loading="lazy">
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <section class="cta">
+    <h2>Ready to Grow Your Poultry Business?</h2>
+    <p>
+      Discover agricultural trading opportunities through
+      Africa AgroVision and connect with potential buyers and sellers.
+    </p>
+    <a class="btn" href="agro-market.html">
+      <i class="fa-solid fa-store"></i>
+      Explore Agricultural Marketplace
+    </a>
+  </section>
+</div>
+
+</main>
+
+<footer class="footer">
+  <p>
+    © 2026 <strong>Africa AgroVision</strong> —
+    Growing Agriculture. Connecting Opportunities.
+  </p>
+  <p style="margin-top:9px">
+    <a href="dashboard.html">Dashboard</a> ·
+    <a href="agriculture.html">Agriculture</a> ·
+    <a href="contact.html">Contact Us</a>
+  </p>
+</footer>
+
+<script>
+"use strict";
+
+const toggle = document.getElementById("menuToggle");
+const links = document.getElementById("navLinks");
+
+toggle.addEventListener("click", function(){
+  const open = links.classList.toggle("open");
+  toggle.setAttribute("aria-expanded", String(open));
+  toggle.innerHTML = open
+    ? '<i class="fa-solid fa-xmark"></i>'
+    : '<i class="fa-solid fa-bars"></i>';
+});
+
+links.addEventListener("click", function(event){
+  if(event.target.closest("a")){
+    links.classList.remove("open");
+    toggle.setAttribute("aria-expanded","false");
+    toggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+  }
+});
+
+/* If an external photo becomes unavailable,
+   show a labeled fallback, not the wrong animal. */
+
+document.querySelectorAll("img").forEach(function(img){
+  img.addEventListener("error", function(){
+    const parent = this.parentElement;
+    if(parent.classList.contains("image-failed")) return;
+
+    const label = this.alt || "Poultry Farming";
+    const fallback = document.createElement("div");
+
+    fallback.className = "image-fallback";
+    fallback.innerHTML =
+      '<i class="fa-solid fa-image"></i>' +
+      '<strong>Photo unavailable</strong>';
+
+    const description = document.createElement("span");
+    description.textContent = label;
+    fallback.appendChild(description);
+
+    parent.appendChild(fallback);
+    parent.classList.add("image-failed");
+  });
+});
+</script>
 
 </body>
-
 </html>

@@ -1,971 +1,1649 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#145a28">
+<title>Agro Marketplace | Africa AgroVision</title>
+<meta name="description" content="Discover agricultural products, animals, equipment, services and jobs on Africa AgroVision.">
+<link rel="stylesheet" href="style.css">
 
-    <meta charset="UTF-8">
+<style>
+:root {
+    --green: #14532d;
+    --green-dark: #073b20;
+    --green-light: #edf7ef;
+    --text: #173c25;
+    --muted: #627569;
+    --border: #e0eae2;
+    --shadow: 0 10px 30px rgba(10,55,25,.08);
+}
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: #f4f8f5;
+}
+a { text-decoration: none; }
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
 
-    <title>Agro Marketplace | Africa AgroVision</title>
+/* NAVIGATION */
 
-    <meta
-        name="description"
-        content="Buy, sell, find jobs, workers, animals, crops, equipment, and agricultural services across Africa."
-    >
+.market-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 16px 6%;
+    background: var(--green);
+    box-shadow: 0 5px 20px rgba(0,0,0,.13);
+}
+.market-logo {
+    color: white;
+    font-size: 22px;
+    font-weight: 800;
+}
+.market-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+.market-links a {
+    padding: 10px 13px;
+    border-radius: 9px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+}
+.market-links a:hover,
+.market-links a.active {
+    background: rgba(255,255,255,.16);
+}
 
-    <link rel="stylesheet" href="style.css">
+/* HERO */
 
+.market-hero {
+    padding: 85px 20px;
+    color: white;
+    text-align: center;
+    background:
+        linear-gradient(rgba(5,48,23,.82),rgba(9,75,35,.82)),
+        url("https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1800&q=85")
+        center / cover;
+}
+.market-hero-inner {
+    max-width: 1050px;
+    margin: auto;
+}
+.market-hero h1 {
+    margin: 0 0 17px;
+    font-size: clamp(34px,5vw,55px);
+    line-height: 1.15;
+}
+.market-hero p {
+    max-width: 720px;
+    margin: 0 auto 32px;
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgba(255,255,255,.93);
+}
+.market-search {
+    display: flex;
+    gap: 8px;
+    max-width: 900px;
+    margin: auto;
+    padding: 9px;
+    border-radius: 18px;
+    background: white;
+    box-shadow: 0 16px 42px rgba(0,0,0,.20);
+}
+.market-search input {
+    flex: 1;
+    min-width: 0;
+    padding: 15px;
+    border: none;
+    outline: none;
+    color: var(--text);
+    background: white;
+}
+.market-search select {
+    width: 190px;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #f8faf8;
+    color: var(--text);
+}
+.market-search button {
+    padding: 13px 25px;
+    border: none;
+    border-radius: 11px;
+    background: #17652d;
+    color: white;
+    font-weight: 700;
+}
+.market-search button:hover { background: #0d4920; }
+
+/* HEADINGS */
+
+.section-heading {
+    max-width: 850px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+.section-heading h2 {
+    margin: 13px 0;
+    color: #07542b;
+    font-size: clamp(27px,4vw,38px);
+    font-weight: 800;
+}
+.section-heading p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+/* CATEGORIES */
+
+.market-categories {
+    padding: 75px 6% 85px;
+    background: #f4f8f5;
+}
+.market-grid {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: auto;
+}
+.category-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+}
+.category-card {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 19px;
+    background: white;
+    color: var(--text);
+    box-shadow: var(--shadow);
+    transition: transform .25s, box-shadow .25s;
+}
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 45px rgba(10,55,25,.15);
+}
+.category-image {
+    position: relative;
+    height: 195px;
+    overflow: hidden;
+    background: #e6eee8;
+}
+.category-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .4s;
+}
+.category-card:hover .category-image img {
+    transform: scale(1.05);
+}
+.category-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    padding: 23px 23px 28px;
+    text-align: center;
+}
+.category-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    margin: -52px 0 15px;
+    border: 4px solid white;
+    border-radius: 17px;
+    background: #edf6ee;
+    box-shadow: 0 5px 15px rgba(0,0,0,.08);
+    font-size: 28px;
+}
+.category-card h3 {
+    margin: 0 0 11px;
+    color: #07542b;
+    font-size: 19px;
+}
+.category-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+.explore-btn {
+    display: block;
+    padding: 14px;
+    border-radius: 10px;
+    background: #1b5e20;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    font-size: 14px;
+}
+.explore-btn:hover { background: #10491d; }
+
+/* OPPORTUNITIES */
+
+.market-opportunities {
+    padding: 80px 6%;
+    background: white;
+    scroll-margin-top: 90px;
+}
+.market-badge {
+    display: inline-block;
+    padding: 9px 15px;
+    border-radius: 25px;
+    background: #e9f6ed;
+    color: #17612d;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+.opportunity-grid {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 23px;
+    max-width: 1200px;
+    margin: auto;
+}
+.opportunity-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-width: 0;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: white;
+    box-shadow: var(--shadow);
+    transition: transform .2s, box-shadow .2s;
+}
+.opportunity-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 17px 38px rgba(10,55,25,.13);
+}
+.opportunity-image-wrap {
+    position: relative;
+    height: 205px;
+    overflow: hidden;
+    background: #e8f1e9;
+}
+.opportunity-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.image-note {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    padding: 6px 9px;
+    border-radius: 7px;
+    background: rgba(255,255,255,.93);
+    color: #405d48;
+    font-size: 10px;
+    font-weight: 700;
+}
+.opportunity-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 22px;
+}
+.opportunity-top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+.opportunity-type,
+.opportunity-status {
+    padding: 6px 10px;
+    border-radius: 25px;
+    background: #e9f6ed;
+    color: #17612d;
+    font-size: 11px;
+    font-weight: 700;
+}
+.opportunity-status {
+    background: #fff3df;
+    color: #875800;
+}
+.opportunity-card h3 {
+    margin: 0 0 12px;
+    color: #104b28;
+    font-size: 19px;
+    overflow-wrap: anywhere;
+}
+.opportunity-description {
+    margin: 0 0 16px;
+    color: #68776c;
+    font-size: 14px;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+    white-space: pre-line;
+}
+.opportunity-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-bottom: 12px;
+    font-size: 13px;
+}
+.opportunity-info span {
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: #f4f8f5;
+    color: #486451;
+    overflow-wrap: anywhere;
+}
+.opportunity-posted {
+    margin: auto 0 16px;
+    padding-top: 10px;
+    color: #829186;
+    font-size: 12px;
+}
+.opportunity-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 9px;
+    background: #17652d;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+}
+.opportunity-btn:hover { background: #104b22; }
+.market-message {
+    grid-column: 1 / -1;
+    width: 100%;
+    max-width: 650px;
+    margin: auto;
+    padding: 40px 25px;
+    text-align: center;
+}
+.market-message p {
+    line-height: 1.7;
+    color: var(--muted);
+}
+.market-message .opportunity-btn {
+    margin-top: 22px;
+}
+
+/* COMMUNITY */
+
+.market-community {
+    padding: 75px 6%;
+    background: #eff7f1;
+    text-align: center;
+}
+.community-inner {
+    max-width: 1000px;
+    margin: auto;
+}
+.community-inner h2 {
+    color: #07542b;
+    font-size: clamp(25px,3vw,33px);
+}
+.community-inner > p {
+    max-width: 740px;
+    margin: 15px auto 30px;
+    color: var(--muted);
+    line-height: 1.7;
+}
+.community-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+.community-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 27px 20px;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    background: white;
+    box-shadow: var(--shadow);
+}
+.community-card strong {
+    color: var(--green);
+    font-size: 17px;
+}
+.community-card span {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* ACTION */
+
+.market-action {
+    padding: 65px 6%;
+    background: var(--green);
+    color: white;
+    text-align: center;
+}
+.market-action h2 {
+    margin: 0 0 15px;
+    font-size: clamp(24px,3vw,32px);
+}
+.market-action p {
+    max-width: 800px;
+    margin: 0 auto 25px;
+    line-height: 1.7;
+}
+.action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+.action-btn {
+    padding: 13px 22px;
+    border: 1px solid white;
+    border-radius: 30px;
+    background: white;
+    color: var(--green);
+    font-weight: 700;
+    font-size: 14px;
+}
+.action-btn.secondary {
+    background: transparent;
+    color: white;
+}
+
+/* ACCESSIBILITY AND MOBILE */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid #f9a825;
+    outline-offset: 3px;
+}
+
+@media(max-width:1000px) {
+    .market-grid,
+    .opportunity-grid {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+    }
+}
+@media(max-width:700px) {
+    .market-nav {
+        flex-direction: column;
+        padding: 15px 4%;
+    }
+    .market-links { justify-content: center; }
+    .market-links a {
+        font-size: 12px;
+        padding: 8px;
+    }
+    .market-hero { padding: 60px 5%; }
+    .market-search { flex-direction: column; }
+    .market-search input,
+    .market-search select,
+    .market-search button {
+        width: 100%;
+        min-height: 46px;
+    }
+    .market-categories,
+    .market-opportunities,
+    .market-community {
+        padding: 55px 5%;
+    }
+    .market-grid,
+    .opportunity-grid,
+    .community-grid {
+        grid-template-columns: 1fr;
+    }
+    .category-image { height: 210px; }
+}
+@media(prefers-reduced-motion:reduce) {
+    html { scroll-behavior: auto; }
+    .category-card,
+    .category-image img,
+    .opportunity-card { transition: none; }
+}
+</style>
 </head>
-
 
 <body>
 
+<!-- NAVIGATION -->
 
-    <!-- =========================
-         MARKETPLACE NAVIGATION
-    ========================== -->
+<nav class="market-nav">
+    <a href="index.html" class="market-logo">
+        🌱 Africa AgroVision
+    </a>
+    <div class="market-links">
+        <a href="index.html">Home</a>
+        <a href="agriculture.html">Agriculture</a>
+        <a href="agro-market.html" class="active">🌍 Marketplace</a>
+        <a href="login.html">Login</a>
+    </div>
+</nav>
 
-    <nav class="market-nav">
+<!-- HERO -->
 
-        <h2>🌱 Africa AgroVision</h2>
+<section class="market-hero">
+    <div class="market-hero-inner">
+        <h1>🌍 Africa Agro Marketplace</h1>
+        <p>
+            The home of agriculture — buy, sell, work,
+            connect, and grow across Africa.
+        </p>
 
-        <div>
+        <div class="market-search">
+            <input
+                type="search"
+                id="marketSearch"
+                placeholder="Search crops, animals, jobs, equipment, services..."
+                aria-label="Search marketplace"
+            >
 
-            <a href="index.html">
-                Home
-            </a>
+            <select id="marketCategory" aria-label="Marketplace category">
+                <option value="">All Categories</option>
+                <option value="crop">🌾 Crops</option>
+                <option value="animal">🐄 Animals</option>
+                <option value="poultry">🐔 Poultry</option>
+                <option value="seeds">🌱 Seeds & Breeds</option>
+                <option value="equipment">🚜 Equipment & Tools</option>
+                <option value="service">🤝 Farm Services</option>
+                <option value="worker">👨‍🌾 Farm Workers</option>
+                <option value="job">💼 Agricultural Jobs</option>
+                <option value="other">📦 Other</option>
+            </select>
 
-            <a href="agriculture.html">
-                Agriculture
-            </a>
-
-            <a href="agro-market.html" class="active">
-                🌍 Marketplace
-            </a>
-
-            <a href="login.html">
-                Login
-            </a>
-
+            <button type="button" id="searchButton">
+                🔍 Search
+            </button>
         </div>
-
-    </nav>
-
-
-
-    <!-- =========================
-         MARKETPLACE HERO
-    ========================== -->
-
-    <section class="market-hero">
-
-        <div class="market-content">
-
-            <h1>
-                🌍 Africa Agro Marketplace
-            </h1>
-
-            <p>
-                The home of agriculture — buy, sell, work, connect,
-                and grow across Africa.
-            </p>
-
-
-            <div class="market-search">
-
-                <input
-                    type="text"
-                    id="marketSearch"
-                    placeholder="Search crops, animals, jobs, equipment, services..."
-                >
-
-
-                <select id="marketCategory">
-
-                    <option value="">
-                        All Categories
-                    </option>
-
-                    <option value="crop">
-                        🌾 Crops
-                    </option>
-
-                    <option value="animal">
-                        🐄 Animals
-                    </option>
-
-                    <option value="poultry">
-                        🐔 Poultry
-                    </option>
-
-                    <option value="seeds">
-                        🌱 Seeds & Breeds
-                    </option>
-
-                    <option value="equipment">
-                        🚜 Equipment & Tools
-                    </option>
-
-                    <option value="service">
-                        🤝 Farm Services
-                    </option>
-
-                    <option value="worker">
-                        👨‍🌾 Farm Workers
-                    </option>
-
-                    <option value="job">
-                        💼 Agricultural Jobs
-                    </option>
-
-                    <option value="other">
-                        📦 Other
-                    </option>
-
-                </select>
-
-
-                <button
-                    type="button"
-                    id="searchButton"
-                >
-                    🔍 Search
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         MARKETPLACE CATEGORIES
-    ========================== -->
-
-    <section class="market-categories">
-
-        <div class="market-heading">
-
-            <h2>
-                What are you looking for?
-            </h2>
-
-            <p>
-                Find agricultural products, animals, people, equipment,
-                jobs, and services in one place.
-            </p>
-
-        </div>
-
-
-        <div class="market-grid">
-
-
-            <a
-                href="#opportunityGrid"
-                class="market-card"
-                onclick="filterCategory('crop'); return false;"
-            >
-
-                <span>🌾</span>
-
-                <h3>
-                    Buy Crops
-                </h3>
-
-                <p>
-                    Find crops and agricultural products available for sale.
-                </p>
-
-            </a>
-
-
-
-            <a
-                href="post-offer.html"
-                class="market-card"
-            >
-
-                <span>🌱</span>
-
-                <h3>
-                    Sell Crops
-                </h3>
-
-                <p>
-                    List your harvest and connect with potential buyers.
-                </p>
-
-            </a>
-
-
-
-            <a
-                href="#opportunityGrid"
-                class="market-card"
-                onclick="filterCategory('animal'); return false;"
-            >
-
-                <span>🐄</span>
-
-                <h3>
-                    Buy Animals
-                </h3>
-
-                <p>
-                    Find livestock, poultry, and other farm animals.
-                </p>
-
-            </a>
-
-
-
-            <a
-                href="post-offer.html"
-                class="market-card"
-            >
-
-                <span>🐐</span>
-
-                <h3>
-                    Sell Animals
-                </h3>
-
-                <p>
-                    Advertise animals you want to sell.
-                </p>
-
-            </a>
-
-
-
-            <a
-                href="#opportunityGrid"
-                class="market-card"
-                onclick="filterCategory('equipment'); return false;"
-            >
-
-                <span>🚜</span>
-
-                <h3>
-                    Equipment & Tools
-                </h3>
-
-                <p>
-                    Find tractors, machines, tools, and farm equipment.
-                </p>
-
-            </a>
-
-
-
-            <a
-                href="#opportunityGrid"
-                class="market-card"
-                onclick="filterCategory('service'); return false;"
-            >
-
-                <span>💊</span>
-
-                <h3>
-                    Veterinary & Health
-                </h3>
-
-                <p>
-                    Find animal health products and agricultural assistance.
-                </p>
-
-            </a>
-
-
-
-            <a
-                href="#opportunityGrid"
-                class="market-card"
-                onclick="filterCategory('worker'); return false;"
-            >
-
-                <span>👨‍🌾</span>
-
-                <h3>
-                    Farm Workers
-                </h3>
-
-                <p>
-                    Find skilled workers and people looking for farm work.
-                </p>
-
-            </a>
-
-
-
-            <a
-                href="#opportunityGrid"
-                class="market-card"
-                onclick="filterCategory('job'); return false;"
-            >
-
-                <span>💼</span>
-
-                <h3>
-                    Agricultural Jobs
-                </h3>
-
-                <p>
-                    Discover employment opportunities in agriculture.
-                </p>
-
-            </a>
-
-
-
-            <a
-                href="#opportunityGrid"
-                class="market-card"
-                onclick="filterCategory('service'); return false;"
-            >
-
-                <span>🤝</span>
-
-                <h3>
-                    Farm Services
-                </h3>
-
-                <p>
-                    Connect with people and businesses providing farm services.
-                </p>
-
-            </a>
-
-
-
-            <a
-                href="#opportunityGrid"
-                class="market-card"
-                onclick="filterCategory('seeds'); return false;"
-            >
-
-                <span>🌱</span>
-
-                <h3>
-                    Seeds & Breeds
-                </h3>
-
-                <p>
-                    Discover seeds, livestock breeds, and breeding opportunities.
-                </p>
-
-            </a>
-
-
-
-            <a
-                href="#opportunityGrid"
-                class="market-card"
-                onclick="filterCategory('crop'); return false;"
-            >
-
-                <span>📦</span>
-
-                <h3>
-                    Markets & Buyers
-                </h3>
-
-                <p>
-                    Connect agricultural producers with potential markets.
-                </p>
-
-            </a>
-
-
-
-            <a
-                href="#opportunityGrid"
-                class="market-card"
-                onclick="filterCategory('service'); return false;"
-            >
-
-                <span>🚚</span>
-
-                <h3>
-                    Transport
-                </h3>
-
-                <p>
-                    Find agricultural transportation and delivery services.
-                </p>
-
-            </a>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         LIVE OPPORTUNITIES
-    ========================== -->
-
-    <section class="market-opportunities">
-
-        <div class="market-heading">
-
-            <span class="market-badge">
-                🔥 LIVE AGRICULTURAL OPPORTUNITIES
-            </span>
-
-            <h2>
-                Latest Opportunities
-            </h2>
-
-            <p>
-                Discover the latest products, animals, services,
-                jobs, and opportunities posted on Africa AgroVision.
-            </p>
-
-        </div>
-
-
-        <div
-            class="opportunity-grid"
-            id="opportunityGrid"
-        >
-
-            <div class="opportunity-card">
-
-                <h3>
-                    Loading opportunities...
-                </h3>
-
-                <p>
-                    Please wait while we load the latest agricultural offers.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         TRUST SECTION
-    ========================== -->
-
-    <section class="market-trust">
-
-        <div class="market-trust-content">
-
-            <div class="trust-icon">
-                🤝
-            </div>
-
-            <h2>
-                Connect With the Agricultural Community
-            </h2>
-
-            <p>
-                Africa AgroVision is building a trusted agricultural network
-                where farmers, buyers, sellers, workers, experts, and businesses
-                can discover opportunities and connect with each other.
-            </p>
-
-
-            <div class="trust-points">
-
-                <div>
-
-                    <strong>
-                        🌱 Farmers
-                    </strong>
-
-                    <span>
-                        Share products and find opportunities.
-                    </span>
-
+    </div>
+</section>
+
+<!-- CATEGORY CARDS -->
+
+<section class="market-categories">
+    <div class="section-heading">
+        <h2>What are you looking for?</h2>
+        <p>
+            Find agricultural products, animals, people,
+            equipment, jobs, and services in one place.
+        </p>
+    </div>
+
+    <div class="market-grid">
+
+        <!-- BUY CROPS -->
+        <div class="category-wrap">
+            <a href="buy-crop.html" class="category-card">
+                <div class="category-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=900&q=85"
+                        alt="Real agricultural crop field"
+                        loading="lazy">
                 </div>
-
-
-                <div>
-
-                    <strong>
-                        🏢 Businesses
-                    </strong>
-
-                    <span>
-                        Reach agricultural customers and partners.
-                    </span>
-
+                <div class="category-content">
+                    <span class="category-icon">🌾</span>
+                    <h3>Buy Crops</h3>
+                    <p>Find crops and agricultural products available for sale.</p>
                 </div>
-
-
-                <div>
-
-                    <strong>
-                        🤝 Community
-                    </strong>
-
-                    <span>
-                        Build useful agricultural connections.
-                    </span>
-
-                </div>
-
-            </div>
-
+            </a>
+            <a href="buy-crop.html" class="explore-btn">🔎 Explore More →</a>
         </div>
 
-    </section>
-
-
-
-    <!-- =========================
-         POST OFFER SECTION
-    ========================== -->
-
-    <section class="market-action">
-
-        <div class="market-action-content">
-
-            <h2>
-                📢 Have something to offer or need something?
-            </h2>
-
-            <p>
-                Post what you are selling, what you are looking for,
-                a job opportunity, a service, or agricultural assistance.
-            </p>
-
-
-            <div class="market-action-buttons">
-
-                <a
-                    href="post-offer.html"
-                    class="market-action-btn"
-                >
-                    ➕ Post an Offer
-                </a>
-
-
-                <a
-                    href="#"
-                    class="market-action-btn secondary"
-                >
-                    🔎 Post a Request
-                </a>
-
-            </div>
-
+        <!-- SELL CROPS -->
+        <div class="category-wrap">
+            <a href="sell-crop.html" class="category-card">
+                <div class="category-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=900&q=85"
+                        alt="Fresh vegetables and harvested produce"
+                        loading="lazy">
+                </div>
+                <div class="category-content">
+                    <span class="category-icon">🌱</span>
+                    <h3>Sell Crops</h3>
+                    <p>List your harvest and connect with potential buyers.</p>
+                </div>
+            </a>
+            <a href="sell-crop.html" class="explore-btn">🔎 Explore More →</a>
         </div>
 
-    </section>
+        <!-- BUY ANIMALS -->
+        <div class="category-wrap">
+            <a href="buy-animal.html" class="category-card">
+                <div class="category-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=900&q=85"
+                        alt="Livestock on a farm"
+                        loading="lazy">
+                </div>
+                <div class="category-content">
+                    <span class="category-icon">🐄</span>
+                    <h3>Buy Animals</h3>
+                    <p>Find livestock, poultry, and other farm animals.</p>
+                </div>
+            </a>
+            <a href="buy-animal.html" class="explore-btn">🔎 Explore More →</a>
+        </div>
 
+        <!-- SELL ANIMALS -->
+        <div class="category-wrap">
+            <a href="sell-animal.html" class="category-card">
+                <div class="category-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=900&q=85"
+                        alt="Farm poultry available for sale"
+                        loading="lazy">
+                </div>
+                <div class="category-content">
+                    <span class="category-icon">🐐</span>
+                    <h3>Sell Animals</h3>
+                    <p>Advertise animals you want to sell and connect with buyers.</p>
+                </div>
+            </a>
+            <a href="sell-animal.html" class="explore-btn">🔎 Explore More →</a>
+        </div>
 
+        <!-- MY MARKETPLACE -->
+        <div class="category-wrap">
+            <a href="my-marketplace.html" class="category-card">
+                <div class="category-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=85"
+                        alt="Fresh produce in a marketplace"
+                        loading="lazy">
+                </div>
+                <div class="category-content">
+                    <span class="category-icon">🛒</span>
+                    <h3>My Marketplace</h3>
+                    <p>View and manage your agricultural listings and buyer requests.</p>
+                </div>
+            </a>
+            <a href="my-marketplace.html" class="explore-btn">🔎 Explore More →</a>
+        </div>
 
-    <!-- =========================
-         SUPABASE
-    ========================== -->
+        <!-- EQUIPMENT -->
+        <div class="category-wrap">
+            <a href="#opportunityGrid" class="category-card" data-filter-category="equipment">
+                <div class="category-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=900&q=85"
+                        alt="Agricultural tractor and machinery"
+                        loading="lazy">
+                </div>
+                <div class="category-content">
+                    <span class="category-icon">🚜</span>
+                    <h3>Equipment & Tools</h3>
+                    <p>Find tractors, machines, tools, and farm equipment.</p>
+                </div>
+            </a>
+            <a href="#opportunityGrid" class="explore-btn" data-filter-category="equipment">🔎 Explore More →</a>
+        </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <!-- VETERINARY -->
+        <div class="category-wrap">
+            <a href="#opportunityGrid" class="category-card" data-filter-category="service">
+                <div class="category-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=900&q=85"
+                        alt="Livestock requiring animal health services"
+                        loading="lazy">
+                </div>
+                <div class="category-content">
+                    <span class="category-icon">💊</span>
+                    <h3>Veterinary & Health</h3>
+                    <p>Find animal health products and veterinary assistance.</p>
+                </div>
+            </a>
+            <a href="#opportunityGrid" class="explore-btn" data-filter-category="service">🔎 Explore More →</a>
+        </div>
 
+        <!-- FARM WORKERS -->
+        <div class="category-wrap">
+            <a href="#opportunityGrid" class="category-card" data-filter-category="worker">
+                <div class="category-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=85"
+                        alt="Agricultural farmland where farm workers operate"
+                        loading="lazy">
+                </div>
+                <div class="category-content">
+                    <span class="category-icon">👨‍🌾</span>
+                    <h3>Farm Workers</h3>
+                    <p>Find skilled workers and people looking for farm work.</p>
+                </div>
+            </a>
+            <a href="#opportunityGrid" class="explore-btn" data-filter-category="worker">🔎 Explore More →</a>
+        </div>
 
-    <script>
+        <!-- JOBS -->
+        <div class="category-wrap">
+            <a href="#opportunityGrid" class="category-card" data-filter-category="job">
+                <div class="category-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=900&q=85"
+                        alt="Agricultural landscape representing farming jobs"
+                        loading="lazy">
+                </div>
+                <div class="category-content">
+                    <span class="category-icon">💼</span>
+                    <h3>Agricultural Jobs</h3>
+                    <p>Discover employment opportunities in agriculture.</p>
+                </div>
+            </a>
+            <a href="#opportunityGrid" class="explore-btn" data-filter-category="job">🔎 Explore More →</a>
+        </div>
 
-        const SUPABASE_URL =
-            "https://fhvyncltdliduhhfqzqq.supabase.co";
+        <!-- FARM SERVICES -->
+        <div class="category-wrap">
+            <a href="#opportunityGrid" class="category-card" data-filter-category="service">
+                <div class="category-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=85"
+                        alt="Farmland representing agricultural services"
+                        loading="lazy">
+                </div>
+                <div class="category-content">
+                    <span class="category-icon">🤝</span>
+                    <h3>Farm Services</h3>
+                    <p>Connect with people and businesses providing farm services.</p>
+                </div>
+            </a>
+            <a href="#opportunityGrid" class="explore-btn" data-filter-category="service">🔎 Explore More →</a>
+        </div>
 
+        <!-- SEEDS -->
+        <div class="category-wrap">
+            <a href="#opportunityGrid" class="category-card" data-filter-category="seeds">
+                <div class="category-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=900&q=85"
+                        alt="Young plants and seedlings growing in soil"
+                        loading="lazy">
+                </div>
+                <div class="category-content">
+                    <span class="category-icon">🌱</span>
+                    <h3>Seeds & Breeds</h3>
+                    <p>Discover seeds, livestock breeds, and breeding opportunities.</p>
+                </div>
+            </a>
+            <a href="#opportunityGrid" class="explore-btn" data-filter-category="seeds">🔎 Explore More →</a>
+        </div>
 
-        const SUPABASE_PUBLISHABLE_KEY =
-            "sb_publishable_b2M9akZhcgz5KjOZQ1mPtA_aNXZhv6J";
+        <!-- MARKETS -->
+        <div class="category-wrap">
+            <a href="#opportunityGrid" class="category-card" data-filter-category="crop">
+                <div class="category-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=85"
+                        alt="Fresh agricultural produce displayed for buyers"
+                        loading="lazy">
+                </div>
+                <div class="category-content">
+                    <span class="category-icon">📦</span>
+                    <h3>Markets & Buyers</h3>
+                    <p>Connect agricultural producers with potential markets.</p>
+                </div>
+            </a>
+            <a href="#opportunityGrid" class="explore-btn" data-filter-category="crop">🔎 Explore More →</a>
+        </div>
 
+        <!-- TRANSPORT -->
+        <div class="category-wrap">
+            <a href="#opportunityGrid" class="category-card" data-filter-category="service">
+                <div class="category-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=900&q=85"
+                        alt="Rural landscape representing agricultural transport routes"
+                        loading="lazy">
+                </div>
+                <div class="category-content">
+                    <span class="category-icon">🚚</span>
+                    <h3>Transport</h3>
+                    <p>Find agricultural transportation and delivery services.</p>
+                </div>
+            </a>
+            <a href="#opportunityGrid" class="explore-btn" data-filter-category="service">🔎 Explore More →</a>
+        </div>
 
-        const supabaseClient =
-            window.supabase.createClient(
-                SUPABASE_URL,
-                SUPABASE_PUBLISHABLE_KEY
-            );
+    </div>
+</section>
 
+<!-- LATEST OPPORTUNITIES -->
 
+<section class="market-opportunities" id="latestOpportunities">
+    <div class="section-heading">
+        <span class="market-badge">
+            🔥 LIVE AGRICULTURAL OPPORTUNITIES
+        </span>
+        <h2>Latest Opportunities</h2>
+        <p>
+            Discover the latest products, animals, services, jobs,
+            and opportunities posted on Africa AgroVision.
+        </p>
+    </div>
 
-        // ==========================================
-        // LOAD MARKETPLACE OFFERS
-        // ==========================================
+    <div class="opportunity-grid" id="opportunityGrid" aria-live="polite">
+        <div class="opportunity-card market-message">
+            <h3>Loading opportunities...</h3>
+            <p>Please wait while we load the latest agricultural listings.</p>
+        </div>
+    </div>
+</section>
 
-        async function loadMarketplaceOffers() {
+<!-- COMMUNITY -->
 
-            const opportunityGrid =
-                document.getElementById(
-                    "opportunityGrid"
-                );
+<section class="market-community">
+    <div class="community-inner">
+        <div style="font-size:38px">🤝</div>
+        <h2>Connect With the Agricultural Community</h2>
+        <p>
+            Africa AgroVision is building a trusted agricultural network
+            where farmers, buyers, sellers, workers, experts, and businesses
+            can discover opportunities and connect with each other.
+        </p>
 
+        <div class="community-grid">
+            <div class="community-card">
+                <strong>🌱 Farmers</strong>
+                <span>Share products and find opportunities.</span>
+            </div>
+            <div class="community-card">
+                <strong>🏢 Businesses</strong>
+                <span>Reach agricultural customers and partners.</span>
+            </div>
+            <div class="community-card">
+                <strong>🤝 Community</strong>
+                <span>Build useful agricultural connections.</span>
+            </div>
+        </div>
+    </div>
+</section>
 
-            const {
-                data,
-                error
-            } = await supabaseClient
+<!-- POST OFFER -->
 
-                .from("marketplace_listings")
+<section class="market-action">
+    <h2>📢 Have Something to Offer or Need Something?</h2>
+    <p>
+        Post what you are selling, what you are looking for,
+        a job opportunity, a service, or agricultural assistance.
+    </p>
+    <div class="action-buttons">
+        <a href="post-offer.html" class="action-btn">➕ Post an Offer</a>
+        <a href="buy-crop.html" class="action-btn secondary">🌾 Find Crops</a>
+        <a href="buy-animal.html" class="action-btn secondary">🐄 Find Animals</a>
+    </div>
+</section>
 
-                .select("*")
+<!-- SUPABASE -->
 
-                .eq("status", "active")
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-                .order(
-                    "created_at",
-                    {
-                        ascending: false
-                    }
-                )
+<script>
+"use strict";
 
-                .limit(12);
+const SUPABASE_URL =
+    "https://fhvyncltdliduhhfqzqq.supabase.co";
 
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_Z5hzSz2kuIJL-FwUP9IZ4Q_oXFkHn9T";
 
+let supabaseClient = null;
+let marketplaceOffers = [];
+let offersLoaded = false;
 
-            if (error) {
+const opportunityGrid = document.getElementById("opportunityGrid");
+const searchInput = document.getElementById("marketSearch");
+const searchButton = document.getElementById("searchButton");
+const categoryFilter = document.getElementById("marketCategory");
 
-                console.error(
-                    "Error loading offers:",
-                    error
-                );
+/* SAFE HTML */
 
+function escapeHTML(value) {
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
 
-                opportunityGrid.innerHTML = `
+/* DATE */
 
-                    <div class="opportunity-card">
+function formatPostedTime(createdAt) {
+    if (!createdAt) return "Recently posted";
 
-                        <h3>
-                            Unable to load opportunities
-                        </h3>
+    const date = new Date(createdAt);
+    if (Number.isNaN(date.getTime())) return "Recently posted";
 
-                        <p>
-                            Please try again later.
-                        </p>
+    const seconds = Math.max(
+        0,
+        Math.floor((Date.now() - date.getTime()) / 1000)
+    );
 
-                    </div>
+    if (seconds < 60) return "Posted just now";
 
-                `;
+    const minutes = Math.floor(seconds / 60);
+    if (minutes < 60) {
+        return `Posted ${minutes} minute${minutes === 1 ? "" : "s"} ago`;
+    }
 
+    const hours = Math.floor(minutes / 60);
+    if (hours < 24) {
+        return `Posted ${hours} hour${hours === 1 ? "" : "s"} ago`;
+    }
 
-                return;
+    const days = Math.floor(hours / 24);
+    if (days < 7) {
+        return `Posted ${days} day${days === 1 ? "" : "s"} ago`;
+    }
 
+    return date.toLocaleDateString();
+}
+
+/*
+IMAGE SYSTEM
+
+Priority:
+1. Seller's uploaded image.
+2. Specific product / animal photo from a verified mapping.
+3. Relevant category fallback.
+4. Neutral placeholder if the image cannot load.
+
+The mapping below uses Wikimedia Commons MediaWiki's
+image information API. It searches for relevant photographs
+using specific subjects rather than assigning a generic
+livestock photo to every animal.
+
+These are representative images, not proof of the item
+being sold. Search results may still require manual review.
+*/
+
+const PHOTO_RULES = [
+    { words: ["belgian malinois", "belgium malinois", "malinois"], query: "Belgian Malinois dog" },
+    { words: ["german shepherd", "alsatian"], query: "German Shepherd dog" },
+    { words: ["golden retriever"], query: "Golden Retriever dog" },
+    { words: ["labrador"], query: "Labrador Retriever dog" },
+    { words: ["rottweiler"], query: "Rottweiler dog" },
+    { words: ["boerboel"], query: "Boerboel dog" },
+
+    { words: ["duckling", "ducklings"], query: "Domestic duckling" },
+    { words: ["duck", "ducks"], query: "Domestic duck" },
+    { words: ["turkey", "turkeys"], query: "Domestic turkey bird" },
+    { words: ["goose", "geese"], query: "Domestic goose" },
+    { words: ["quail"], query: "Japanese quail bird" },
+    { words: ["guinea fowl"], query: "Helmeted guineafowl" },
+    { words: ["chick", "chicks"], query: "Domestic chicken chicks" },
+    { words: ["broiler"], query: "Broiler chicken" },
+    { words: ["layer hens", "laying hens", "layers"], query: "Laying hen chicken" },
+    { words: ["chicken", "chickens", "hen", "hens", "rooster"], query: "Domestic chicken" },
+
+    { words: ["piglet", "piglets"], query: "Domestic piglet" },
+    { words: ["pig", "pigs", "swine"], query: "Domestic pig" },
+    { words: ["goat", "goats"], query: "Domestic goat" },
+    { words: ["sheep", "lamb", "lambs"], query: "Domestic sheep" },
+    { words: ["dairy cow", "dairy cattle"], query: "Holstein Friesian dairy cow" },
+    { words: ["cow", "cows", "cattle", "heifer", "bull"], query: "Domestic cattle" },
+    { words: ["rabbit", "rabbits"], query: "Domestic rabbit" },
+    { words: ["horse", "horses"], query: "Domestic horse" },
+    { words: ["dog", "dogs", "puppy", "puppies"], query: "Domestic dog" },
+    { words: ["cat", "cats", "kitten"], query: "Domestic cat" },
+    { words: ["tilapia"], query: "Nile tilapia fish" },
+    { words: ["fish", "fingerlings"], query: "Freshwater fish" },
+
+    { words: ["maize", "corn"], query: "Maize corn cobs harvest" },
+    { words: ["rice"], query: "Rice grain harvest" },
+    { words: ["irish potato", "potatoes", "potato"], query: "Potato tubers harvest" },
+    { words: ["sweet potato"], query: "Sweet potatoes harvest" },
+    { words: ["tomato", "tomatoes"], query: "Fresh tomatoes" },
+    { words: ["banana", "bananas"], query: "Banana fruit bunch" },
+    { words: ["avocado", "avocados"], query: "Avocado fruit" },
+    { words: ["coffee"], query: "Coffee cherries harvest" },
+    { words: ["beans", "bean"], query: "Common bean seeds" },
+    { words: ["cassava"], query: "Cassava roots harvest" },
+    { words: ["cabbage"], query: "Green cabbage vegetable" },
+    { words: ["carrot", "carrots"], query: "Carrot vegetable" },
+    { words: ["onion", "onions"], query: "Onion vegetable bulbs" },
+    { words: ["chili", "chilli", "pepper"], query: "Red chili peppers" },
+    { words: ["mango"], query: "Mango fruit" },
+    { words: ["pineapple"], query: "Pineapple fruit" },
+    { words: ["sorghum"], query: "Sorghum grain" },
+    { words: ["soybean", "soya"], query: "Soybean seeds" },
+    { words: ["sunflower"], query: "Sunflower field" },
+    { words: ["seedling", "seedlings"], query: "Vegetable seedlings" },
+
+    { words: ["tractor"], query: "Agricultural tractor" },
+    { words: ["combine harvester", "harvester"], query: "Combine harvester" },
+    { words: ["irrigation", "water pump"], query: "Agricultural irrigation system" },
+    { words: ["sprayer"], query: "Agricultural crop sprayer" },
+    { words: ["plough", "plow"], query: "Agricultural plough" },
+    { words: ["motorcycle", "motorbike"], query: "Motorcycle" },
+    { words: ["truck", "lorry"], query: "Cargo truck" },
+    { words: ["wheelbarrow"], query: "Wheelbarrow" },
+    { words: ["greenhouse"], query: "Agricultural greenhouse" },
+
+    { words: ["veterinary", "veterinarian", "vet service"], query: "Veterinarian examining livestock" },
+    { words: ["farm worker", "farm labour"], query: "Farmer working field" },
+    { words: ["agricultural job", "farm job"], query: "Agricultural farm workers" }
+];
+
+const CATEGORY_SEARCHES = {
+    crop: "Agricultural crop harvest",
+    animal: "Farm livestock",
+    poultry: "Domestic chicken poultry",
+    seeds: "Seedlings growing soil",
+    equipment: "Agricultural tractor",
+    service: "Farmer working field",
+    worker: "Agricultural farm workers",
+    job: "Agricultural farm workers",
+    other: "Agricultural produce market"
+};
+
+const CATEGORY_FALLBACKS = {
+    crop: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=850&q=85",
+    animal: "https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=850&q=85",
+    poultry: "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=850&q=85",
+    seeds: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=850&q=85",
+    equipment: "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=850&q=85",
+    service: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=850&q=85",
+    worker: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=850&q=85",
+    job: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=850&q=85",
+    other: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=850&q=85"
+};
+
+const imageCache = new Map();
+
+function getPhotoSearch(offer) {
+    const text = [
+        offer.title,
+        offer.description,
+        offer.breed,
+        offer.species,
+        offer.product_name
+    ].filter(Boolean).join(" ").toLowerCase();
+
+    for (const rule of PHOTO_RULES) {
+        const matched = rule.words.some(word => {
+            const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+            return new RegExp(
+                "(^|[^a-z])" + escaped + "([^a-z]|$)",
+                "i"
+            ).test(text);
+        });
+
+        if (matched) return rule.query;
+    }
+
+    const category = String(offer.category || "other")
+        .toLowerCase()
+        .trim();
+
+    return CATEGORY_SEARCHES[category] || CATEGORY_SEARCHES.other;
+}
+
+function getUploadedImage(offer) {
+    const candidates = [
+        offer.image_url,
+        offer.image,
+        offer.photo_url
+    ];
+
+    for (const candidate of candidates) {
+        if (
+            typeof candidate === "string" &&
+            /^https:\/\//i.test(candidate.trim())
+        ) {
+            return candidate.trim();
+        }
+    }
+
+    return "";
+}
+
+/*
+Search Wikimedia Commons for an actual photograph.
+
+This is not guaranteed to find a perfect match.
+We reject SVG files and prefer common photographic formats.
+*/
+
+async function findRepresentativePhoto(query) {
+    if (imageCache.has(query)) {
+        return imageCache.get(query);
+    }
+
+    const promise = (async () => {
+        try {
+            const params = new URLSearchParams({
+                action: "query",
+                generator: "search",
+                gsrsearch: `filetype:bitmap ${query}`,
+                gsrnamespace: "6",
+                gsrlimit: "10",
+                prop: "imageinfo",
+                iiprop: "url|mime",
+                iiurlwidth: "900",
+                format: "json",
+                origin: "*"
+            });
+
+            const url =
+                "https://commons.wikimedia.org/w/api.php?" +
+                params.toString();
+
+            const response = await fetch(url);
+
+            if (!response.ok) {
+                throw new Error("Photo search unavailable");
             }
 
+            const result = await response.json();
+            const pages = Object.values(result.query?.pages || {});
 
+            const photos = pages.filter(page => {
+                const info = page.imageinfo?.[0];
+                return info &&
+                    ["image/jpeg", "image/png", "image/webp"]
+                        .includes(info.mime) &&
+                    (info.thumburl || info.url);
+            });
 
-            if (
-                !data ||
-                data.length === 0
-            ) {
+            if (photos.length === 0) return "";
 
-                opportunityGrid.innerHTML = `
+            const info = photos[0].imageinfo[0];
+            return info.thumburl || info.url;
 
-                    <div class="opportunity-card">
+        } catch (error) {
+            console.warn("Representative image search:", query, error);
+            return "";
+        }
+    })();
 
-                        <h3>
-                            No opportunities yet
-                        </h3>
+    imageCache.set(query, promise);
+    return promise;
+}
 
-                        <p>
-                            Be the first person to post an agricultural
-                            offer on Africa AgroVision.
-                        </p>
+/*
+Neutral placeholder instead of displaying
+a different animal or unrelated product.
+*/
 
-                        <a
-                            href="post-offer.html"
-                            class="opportunity-btn"
-                        >
-                            📢 Post an Offer →
-                        </a>
+function makePlaceholder(label) {
+    const safeLabel = String(label || "Agricultural listing")
+        .slice(0, 45)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
 
-                    </div>
+    const svg = `
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="900" height="550"
+             viewBox="0 0 900 550">
+            <rect width="900" height="550" fill="#e9f3eb"/>
+            <circle cx="450" cy="215" r="80" fill="#d0e7d5"/>
+            <text x="450" y="238"
+                  text-anchor="middle"
+                  font-size="72">🌱</text>
+            <text x="450" y="350"
+                  text-anchor="middle"
+                  font-family="Arial"
+                  font-size="29"
+                  font-weight="bold"
+                  fill="#14532d">${safeLabel}</text>
+            <text x="450" y="400"
+                  text-anchor="middle"
+                  font-family="Arial"
+                  font-size="20"
+                  fill="#627569">Photo not available</text>
+        </svg>
+    `;
 
-                `;
+    return "data:image/svg+xml;charset=utf-8," +
+        encodeURIComponent(svg);
+}
 
+async function applyOpportunityImage(img, offer, note) {
+    const uploaded = getUploadedImage(offer);
+    const category = String(offer.category || "other")
+        .toLowerCase()
+        .trim();
 
-                return;
+    const fallback = makePlaceholder(
+        offer.title || "Agricultural listing"
+    );
 
-            }
+    img.src = fallback;
 
+    if (uploaded) {
+        img.onerror = function() {
+            img.onerror = null;
+            img.src = fallback;
+            note.textContent = "Photo unavailable";
+        };
 
+        img.src = uploaded;
+        note.textContent = "Seller photo";
+        return;
+    }
 
-            opportunityGrid.innerHTML = "";
+    const search = getPhotoSearch(offer);
+    const representative = await findRepresentativePhoto(search);
 
+    if (!img.isConnected) return;
 
+    if (representative) {
+        img.onerror = function() {
+            img.onerror = null;
+            img.src = fallback;
+            note.textContent = "Photo unavailable";
+        };
 
-            data.forEach(
-                function(offer) {
+        img.src = representative;
+        note.textContent = "Illustrative photo";
+    } else {
+        /*
+        For precise subjects such as Malinois or ducks,
+        avoid showing an unrelated generic animal.
+        Only use category fallback for broad categories.
+        */
+        const specificMatch = PHOTO_RULES.some(
+            rule => rule.query === search
+        );
 
-                    const card =
-                        document.createElement(
-                            "div"
-                        );
+        if (!specificMatch && CATEGORY_FALLBACKS[category]) {
+            img.onerror = function() {
+                img.onerror = null;
+                img.src = fallback;
+                note.textContent = "Photo unavailable";
+            };
+            img.src = CATEGORY_FALLBACKS[category];
+            note.textContent = "Illustrative photo";
+        } else {
+            note.textContent = "Photo unavailable";
+        }
+    }
+}
 
+/* WHATSAPP CONTACT */
 
-                    card.className =
-                        "opportunity-card";
+function getWhatsAppNumber(contact) {
+    if (!contact) return "";
 
+    let phone = String(contact).trim().replace(/[^\d+]/g, "");
 
-                    card.dataset.category =
-                        String(
-                            offer.category || ""
-                        )
-                        .toLowerCase();
+    if (phone.startsWith("+")) phone = phone.slice(1);
 
+    if (phone.startsWith("250") && phone.length === 12) {
+        return phone;
+    }
 
-                    card.innerHTML = `
+    if (phone.startsWith("07") && phone.length === 10) {
+        return "250" + phone.slice(1);
+    }
 
-                        <div class="opportunity-top">
+    if (phone.startsWith("7") && phone.length === 9) {
+        return "250" + phone;
+    }
 
-                            <span class="opportunity-type">
-                                🌱 ${offer.category || "Other"}
-                            </span>
+    return "";
+}
 
-                            <span class="opportunity-status">
-                                Available
-                            </span>
+function contactMarketplaceUser(contact, title, isBuyer) {
+    const cleanContact = String(contact || "").trim();
+    const role = isBuyer ? "Buyer" : "Seller";
 
-                        </div>
+    if (!cleanContact) {
+        alert("No contact information was provided.");
+        return;
+    }
 
+    const number = getWhatsAppNumber(cleanContact);
 
-                        <h3>
-                            ${offer.title || "Untitled Offer"}
-                        </h3>
+    if (number) {
+        const message =
+            "Hello, I found your listing on Africa AgroVision Marketplace: " +
+            title +
+            ". I would like to know more about it.";
 
-
-                        <p>
-                            ${offer.description || ""}
-                        </p>
-
-
-                        <div class="opportunity-info">
-
-                            <span>
-                                📍 ${offer.location || "Location not provided"}
-                            </span>
-
-                            <span>
-                                📦 ${offer.quantity || "Available"}
-                            </span>
-
-                        </div>
-
-
-                        <div class="opportunity-info">
-
-                            <span>
-                                💰 ${offer.price || "Contact seller"}
-                            </span>
-
-                        </div>
-
-
-                        <a
-                            href="#"
-                            class="opportunity-btn"
-                            onclick="event.preventDefault(); alert('Contact: ${offer.contact || "Contact seller"}')"
-                        >
-                            Contact Seller →
-                        </a>
-
-                    `;
-
-
-                    opportunityGrid.appendChild(
-                        card
-                    );
-
-                }
+        if (confirm(
+            `Contact ${role} via WhatsApp?\n\n` +
+            `Listing: ${title}\nContact: ${cleanContact}`
+        )) {
+            window.open(
+                "https://wa.me/" +
+                number +
+                "?text=" +
+                encodeURIComponent(message),
+                "_blank",
+                "noopener,noreferrer"
             );
+        }
+        return;
+    }
 
+    alert(`Contact ${role}:\n\n${cleanContact}`);
+}
+
+/* STATUS MESSAGE */
+
+function showMarketplaceMessage(title, description, retry = false) {
+    opportunityGrid.innerHTML = "";
+
+    const card = document.createElement("div");
+    card.className = "opportunity-card market-message";
+
+    const heading = document.createElement("h3");
+    heading.textContent = title;
+
+    const paragraph = document.createElement("p");
+    paragraph.textContent = description;
+
+    card.append(heading, paragraph);
+
+    if (retry) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "opportunity-btn";
+        button.textContent = "🔄 Try Again";
+        button.addEventListener("click", loadMarketplaceOffers);
+        card.appendChild(button);
+    }
+
+    opportunityGrid.appendChild(card);
+}
+
+/* RENDER REAL LISTINGS */
+
+function renderMarketplaceOffers() {
+    const term = searchInput.value.trim().toLowerCase();
+    const selectedCategory = categoryFilter.value.toLowerCase();
+
+    const filtered = marketplaceOffers.filter(offer => {
+        const category = String(
+            offer.category || "other"
+        ).toLowerCase().trim();
+
+        const text = [
+            offer.title,
+            offer.description,
+            offer.location,
+            offer.quantity,
+            offer.price,
+            category
+        ].map(value => String(value ?? ""))
+         .join(" ")
+         .toLowerCase();
+
+        return (
+            (!term || text.includes(term)) &&
+            (!selectedCategory || category === selectedCategory)
+        );
+    });
+
+    if (filtered.length === 0) {
+        showMarketplaceMessage(
+            "No matching opportunities found",
+            "Try another search term or select a different category."
+        );
+        return;
+    }
+
+    opportunityGrid.innerHTML = "";
+
+    filtered.forEach(offer => {
+        const title = String(offer.title || "Untitled Offer");
+        const description = String(offer.description || "");
+        const location = String(
+            offer.location || "Location not provided"
+        );
+        const quantity = String(offer.quantity ?? "Available");
+        const price = String(
+            offer.price ?? "Contact for price"
+        );
+        const contact = String(offer.contact || "");
+        const category = String(
+            offer.category || "other"
+        ).toLowerCase().trim();
+
+        const buyerRequest =
+            title.toLowerCase().startsWith("buyer request:");
+
+        const card = document.createElement("article");
+        card.className = "opportunity-card";
+
+        const imageWrap = document.createElement("div");
+        imageWrap.className = "opportunity-image-wrap";
+
+        const image = document.createElement("img");
+        image.className = "opportunity-image";
+        image.alt = `Photo for listing: ${title}`;
+        image.loading = "lazy";
+
+        const imageNote = document.createElement("span");
+        imageNote.className = "image-note";
+        imageNote.textContent = "Loading photo";
+
+        imageWrap.append(image, imageNote);
+
+        const body = document.createElement("div");
+        body.className = "opportunity-body";
+
+        const categoryLabel =
+            category.charAt(0).toUpperCase() +
+            category.slice(1);
+
+        body.innerHTML = `
+            <div class="opportunity-top">
+                <span class="opportunity-type">
+                    ${escapeHTML(categoryLabel)}
+                </span>
+                <span class="opportunity-status">
+                    ${buyerRequest
+                        ? "🔎 Buyer Request"
+                        : "🌱 Available for Sale"}
+                </span>
+            </div>
+
+            <h3>${escapeHTML(title)}</h3>
+
+            <p class="opportunity-description">
+                ${escapeHTML(description)}
+            </p>
+
+            <div class="opportunity-info">
+                <span>📍 ${escapeHTML(location)}</span>
+                <span>📦 ${escapeHTML(quantity)}</span>
+            </div>
+
+            <div class="opportunity-info">
+                <span>💰 ${escapeHTML(price)}</span>
+            </div>
+
+            <div class="opportunity-posted">
+                🕒 ${escapeHTML(formatPostedTime(offer.created_at))}
+            </div>
+        `;
+
+        const contactButton = document.createElement("button");
+        contactButton.type = "button";
+        contactButton.className = "opportunity-btn";
+        contactButton.textContent = buyerRequest
+            ? "Contact Buyer →"
+            : "Contact Seller →";
+
+        contactButton.addEventListener("click", () => {
+            contactMarketplaceUser(contact, title, buyerRequest);
+        });
+
+        body.appendChild(contactButton);
+        card.append(imageWrap, body);
+        opportunityGrid.appendChild(card);
+
+        applyOpportunityImage(image, offer, imageNote);
+    });
+}
+
+/* SUPABASE LISTINGS */
+
+async function loadMarketplaceOffers() {
+    showMarketplaceMessage(
+        "Loading opportunities...",
+        "Please wait while we retrieve the latest agricultural listings."
+    );
+
+    offersLoaded = false;
+
+    try {
+        if (!supabaseClient) {
+            throw new Error("Supabase client is not initialized.");
         }
 
+        const { data, error } = await supabaseClient
+            .from("marketplace_listings")
+            .select("*")
+            .eq("status", "active")
+            .order("created_at", { ascending: false })
+            .limit(50);
 
+        if (error) throw error;
 
-        // ==========================================
-        // SEARCH + CATEGORY FILTER
-        // ==========================================
+        marketplaceOffers = data || [];
+        offersLoaded = true;
 
-        const searchInput =
-            document.getElementById(
-                "marketSearch"
+        if (marketplaceOffers.length === 0) {
+            showMarketplaceMessage(
+                "No opportunities yet",
+                "Be the first to post an agricultural opportunity."
             );
 
+            const link = document.createElement("a");
+            link.href = "post-offer.html";
+            link.className = "opportunity-btn";
+            link.textContent = "📢 Post an Offer →";
 
-        const searchButton =
-            document.getElementById(
-                "searchButton"
-            );
+            opportunityGrid
+                .querySelector(".market-message")
+                .appendChild(link);
 
+            return;
+        }
 
-        const categoryFilter =
-            document.getElementById(
-                "marketCategory"
-            );
+        renderMarketplaceOffers();
 
+    } catch (error) {
+        console.error("Marketplace Supabase error:", error);
 
+        showMarketplaceMessage(
+            "Unable to load opportunities",
+            "The marketplace could not retrieve listings. Please check your connection and Supabase configuration.",
+            true
+        );
+    }
+}
 
-        function filterCategory(category) {
+/* SEARCH */
 
-            categoryFilter.value = category;
+function searchMarketplace(scroll = true) {
+    if (offersLoaded) {
+        renderMarketplaceOffers();
+    }
+
+    if (scroll) {
+        document.getElementById("latestOpportunities")
+            .scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+    }
+}
+
+searchButton.addEventListener("click", () => {
+    searchMarketplace();
+});
+
+searchInput.addEventListener("keydown", event => {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        searchMarketplace();
+    }
+});
+
+categoryFilter.addEventListener("change", () => {
+    searchMarketplace();
+});
+
+document.querySelectorAll("[data-filter-category]")
+    .forEach(link => {
+        link.addEventListener("click", event => {
+            event.preventDefault();
+
+            categoryFilter.value =
+                link.dataset.filterCategory;
 
             searchInput.value = "";
-
             searchMarketplace();
+        });
+    });
 
-        }
+/* INITIALIZE */
 
+function initializeMarketplace() {
+    if (!window.supabase?.createClient) {
+        console.error("Supabase library failed to load.");
 
-        function searchMarketplace() {
-
-            const searchTerm =
-                searchInput.value
-                    .trim()
-                    .toLowerCase();
-
-
-            const selectedCategory =
-                categoryFilter.value
-                    .trim()
-                    .toLowerCase();
-
-
-            const cards =
-                document.querySelectorAll(
-                    "#opportunityGrid .opportunity-card"
-                );
-
-
-            let visibleCount = 0;
-
-
-            cards.forEach(
-                function(card) {
-
-                    const cardText =
-                        card.textContent
-                            .toLowerCase();
-
-
-                    const cardCategory =
-                        card.dataset.category || "";
-
-
-                    const matchesSearch =
-                        searchTerm === "" ||
-                        cardText.includes(
-                            searchTerm
-                        );
-
-
-                    const matchesCategory =
-                        selectedCategory === "" ||
-                        cardCategory === selectedCategory;
-
-
-                    if (
-                        matchesSearch &&
-                        matchesCategory
-                    ) {
-
-                        card.style.display =
-                            "";
-
-                        visibleCount++;
-
-                    } else {
-
-                        card.style.display =
-                            "none";
-
-                    }
-
-                }
-            );
-
-
-            const resultsSection =
-                document.querySelector(
-                    ".market-opportunities"
-                );
-
-
-            if (resultsSection) {
-
-                resultsSection.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-
-            }
-
-
-            if (
-                visibleCount === 0 &&
-                cards.length > 0
-            ) {
-
-                alert(
-                    "No matching opportunities found."
-                );
-
-            }
-
-        }
-
-
-
-        // Search button
-
-        searchButton.addEventListener(
-            "click",
-            searchMarketplace
+        showMarketplaceMessage(
+            "Connection unavailable",
+            "The marketplace service could not start. Check your internet connection and refresh the page.",
+            true
         );
+        return;
+    }
 
+    supabaseClient = window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+    );
 
+    loadMarketplaceOffers();
+}
 
-        // Category filter
+initializeMarketplace();
 
-        categoryFilter.addEventListener(
-            "change",
-            searchMarketplace
-        );
-
-
-
-        // Enter key
-
-        searchInput.addEventListener(
-            "keyup",
-            function(event) {
-
-                if (
-                    event.key === "Enter"
-                ) {
-
-                    searchMarketplace();
-
-                }
-
-            }
-        );
-
-
-
-        // ==========================================
-        // START MARKETPLACE
-        // ==========================================
-
-        loadMarketplaceOffers();
-
-    </script>
-
-
+</script>
 </body>
-
 </html>
