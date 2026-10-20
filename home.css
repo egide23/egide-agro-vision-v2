@@ -1,0 +1,485 @@
+
+/* ==========================================
+   AFRICA AGROVISION
+   PREMIUM HOMEPAGE DESIGN
+   ========================================== */
+
+/* HOMEPAGE NAVIGATION */
+
+body:has(.homepage-marketplace) nav {
+    background: #0b4827;
+    padding: 16px 8%;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.12);
+}
+
+body:has(.homepage-marketplace) .logo {
+    font-size: clamp(20px, 2vw, 29px);
+    color: #ffffff;
+    letter-spacing: -0.5px;
+}
+
+body:has(.homepage-marketplace) .menu {
+    gap: 8px;
+}
+
+body:has(.homepage-marketplace) .menu a {
+    margin-left: 12px;
+    padding: 10px 15px;
+    border-radius: 30px;
+    transition: background 0.3s, color 0.3s;
+}
+
+body:has(.homepage-marketplace) .menu a:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #c9efad;
+}
+
+/* HERO SECTION */
+
+body:has(.homepage-marketplace) .hero {
+    position: relative;
+
+    min-height: 100svh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    padding: 165px 8% 95px;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(4, 31, 18, 0.88) 0%,
+            rgba(5, 38, 23, 0.70) 43%,
+            rgba(5, 38, 23, 0.20) 100%
+        ),
+        url("images/home-hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: #ffffff;
+}
+
+/* HERO HEADING */
+
+body:has(.homepage-marketplace) .hero h1 {
+    max-width: 850px;
+
+    font-size: clamp(42px, 5.2vw, 76px);
+    font-weight: 700;
+    line-height: 1.13;
+    letter-spacing: -0.035em;
+
+    margin: 0 0 25px;
+
+    color: #ffffff;
+
+    text-shadow: 0 4px 25px rgba(0, 0, 0, 0.20);
+}
+
+/* HERO DESCRIPTION */
+
+body:has(.homepage-marketplace) .hero > p {
+    max-width: 700px;
+
+    font-size: clamp(16px, 1.3vw, 19px);
+    line-height: 1.85;
+
+    margin-bottom: 32px;
+
+    color: #f0f7ed;
+}
+
+/* MAIN BUTTON */
+
+body:has(.homepage-marketplace) .hero > .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 16px 36px;
+
+    background: #58b84e;
+    color: #ffffff;
+
+    border-radius: 50px;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+body:has(.homepage-marketplace) .hero > .btn:hover {
+    background: #72c75c;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+}
+
+/* ==========================================
+   MARKETPLACE FEATURE
+   ========================================== */
+
+body:has(.homepage-marketplace) .homepage-marketplace {
+    width: 100%;
+    max-width: 920px;
+
+    margin: 65px auto 0;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    border-radius: 24px;
+
+    padding: 45px 40px;
+
+    text-align: center;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.20);
+
+    border: 1px solid rgba(255, 255, 255, 0.65);
+}
+
+body:has(.homepage-marketplace) .homepage-market-content {
+    max-width: 760px;
+    margin: auto;
+}
+
+body:has(.homepage-marketplace) .market-badge {
+    display: inline-block;
+
+    background: #e9f7ed;
+    color: #116236;
+
+    padding: 9px 17px;
+    border-radius: 30px;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+
+    margin-bottom: 22px;
+}
+
+body:has(.homepage-marketplace) .homepage-marketplace h2 {
+    color: #105633;
+
+    font-size: clamp(25px, 3vw, 38px);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+
+    margin-bottom: 18px;
+}
+
+body:has(.homepage-marketplace) .homepage-marketplace p {
+    max-width: 650px;
+
+    margin: 0 auto 28px;
+
+    color: #526258;
+
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+body:has(.homepage-marketplace) .marketplace-home-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 15px 30px;
+
+    background: #105633;
+    color: #ffffff;
+
+    border-radius: 50px;
+
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+body:has(.homepage-marketplace) .marketplace-home-btn:hover {
+    background: #23854b;
+    transform: translateY(-3px);
+}
+
+/* ==========================================
+   AGRICULTURAL RESOURCES
+   ========================================== */
+
+body:has(.homepage-marketplace) .agro-focus {
+    padding: 90px 8%;
+    background: #f5faf5;
+    text-align: center;
+}
+
+body:has(.homepage-marketplace) .agro-focus h2 {
+    color: #105633;
+    font-size: clamp(28px, 3.5vw, 43px);
+    line-height: 1.25;
+    margin-bottom: 20px;
+}
+
+body:has(.homepage-marketplace) .agro-focus > p {
+    max-width: 800px;
+    margin: 0 auto 45px;
+    color: #59675d;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+body:has(.homepage-marketplace) .agro-focus-links {
+    max-width: 1200px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+body:has(.homepage-marketplace) .agro-focus-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 135px;
+    padding: 25px;
+
+    background: #ffffff;
+    color: #165c36;
+
+    border-radius: 18px;
+
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+    text-align: center;
+
+    border: 1px solid #e3eee4;
+
+    box-shadow: 0 8px 25px rgba(10, 65, 31, 0.06);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+body:has(.homepage-marketplace) .agro-focus-links a:hover {
+    transform: translateY(-6px);
+    border-color: #8fc79c;
+    box-shadow: 0 15px 35px rgba(10, 65, 31, 0.12);
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+body:has(.homepage-marketplace) .agro-footer {
+    background: #0b4027;
+    color: #ffffff;
+
+    margin-top: 0;
+    padding: 65px 8% 35px;
+}
+
+body:has(.homepage-marketplace) .agro-footer h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+body:has(.homepage-marketplace) .agro-footer > p {
+    max-width: 850px;
+    line-height: 1.85;
+    color: #e0eee4;
+}
+
+body:has(.homepage-marketplace) .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 20px;
+    margin: 30px 0;
+}
+
+body:has(.homepage-marketplace) .footer-links a {
+    margin: 0;
+    color: #ffffff;
+    font-size: 15px;
+}
+
+body:has(.homepage-marketplace) .footer-links a:hover {
+    color: #a9e4b0;
+}
+
+/* ==========================================
+   TABLETS
+   ========================================== */
+
+@media (max-width: 900px) {
+
+    body:has(.homepage-marketplace) nav {
+        position: relative;
+        padding: 16px 5%;
+    }
+
+    body:has(.homepage-marketplace) .hero {
+        padding: 90px 6% 70px;
+    }
+
+    body:has(.homepage-marketplace) .hero h1 {
+        font-size: clamp(38px, 6vw, 58px);
+    }
+
+    body:has(.homepage-marketplace) .agro-focus-links {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+/* ==========================================
+   MOBILE PHONES
+   ========================================== */
+
+@media (max-width: 600px) {
+
+    body:has(.homepage-marketplace) nav {
+        padding: 15px 5%;
+    }
+
+    body:has(.homepage-marketplace) .logo {
+        font-size: 22px;
+    }
+
+    body:has(.homepage-marketplace) .menu {
+        justify-content: center;
+        gap: 4px;
+    }
+
+    body:has(.homepage-marketplace) .menu a {
+        font-size: 13px;
+        margin: 3px;
+        padding: 8px 10px;
+    }
+
+    body:has(.homepage-marketplace) .hero {
+        min-height: 100svh;
+
+        padding: 75px 6% 60px;
+
+        background-image:
+            linear-gradient(
+                rgba(4, 31, 18, 0.85),
+                rgba(4, 31, 18, 0.65)
+            ),
+            url("images/home-hero.jpg");
+
+        background-position: 60% center;
+
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    body:has(.homepage-marketplace) .hero h1 {
+        font-size: clamp(34px, 9vw, 46px);
+        line-height: 1.16;
+        margin-bottom: 22px;
+    }
+
+    body:has(.homepage-marketplace) .hero > p {
+        font-size: 15px;
+        line-height: 1.75;
+        margin-bottom: 28px;
+    }
+
+    body:has(.homepage-marketplace) .hero > .btn {
+        padding: 14px 28px;
+        font-size: 15px;
+    }
+
+    body:has(.homepage-marketplace) .homepage-marketplace {
+        margin-top: 50px;
+        padding: 35px 22px;
+        border-radius: 20px;
+    }
+
+    body:has(.homepage-marketplace) .market-badge {
+        font-size: 10px;
+        line-height: 1.5;
+    }
+
+    body:has(.homepage-marketplace) .homepage-marketplace h2 {
+        font-size: 26px;
+    }
+
+    body:has(.homepage-marketplace) .homepage-marketplace p {
+        font-size: 14px;
+        line-height: 1.75;
+    }
+
+    body:has(.homepage-marketplace) .marketplace-home-btn {
+        padding: 14px 22px;
+        font-size: 13px;
+    }
+
+    body:has(.homepage-marketplace) .agro-focus {
+        padding: 65px 6%;
+    }
+
+    body:has(.homepage-marketplace) .agro-focus > p {
+        font-size: 15px;
+    }
+
+    body:has(.homepage-marketplace) .agro-focus-links {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    body:has(.homepage-marketplace) .agro-focus-links a {
+        min-height: 100px;
+        font-size: 16px;
+    }
+
+    body:has(.homepage-marketplace) .agro-footer {
+        padding: 50px 6% 30px;
+    }
+
+    body:has(.homepage-marketplace) .agro-footer h2 {
+        font-size: 25px;
+    }
+
+    body:has(.homepage-marketplace) .agro-footer p {
+        font-size: 14px;
+    }
+}
+
+/* ==========================================
+   ACCESSIBILITY
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    body:has(.homepage-marketplace) *,
+    body:has(.homepage-marketplace) *::before,
+    body:has(.homepage-marketplace) *::after {
+        scroll-behavior: auto;
+        transition-duration: 0.01ms;
+        animation-duration: 0.01ms;
+    }
+
+}
