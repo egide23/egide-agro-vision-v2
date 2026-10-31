@@ -772,6 +772,428 @@
 
     </footer>
 
+<!-- AFRICA AGROVISION: PHOTOGRAPHS AND TRANSLATION -->
+<script>
+(function () {
+    "use strict";
+
+    const LANGUAGE_KEY = "agrovision-language";
+
+    /* ==========================================
+       1. PROFESSIONAL ONLINE FARM PHOTOGRAPHS
+       ========================================== */
+
+    const photos = {
+        background:
+            "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1800&q=85",
+
+        cattle:
+            "https://images.pexels.com/photos/422218/pexels-photo-422218.jpeg?auto=compress&cs=tinysrgb&w=1100",
+
+        goats:
+            "https://images.unsplash.com/photo-1524024973431-2ad916746881?auto=format&fit=crop&w=1100&q=85",
+
+        sheep:
+            "https://images.unsplash.com/photo-1484557985045-edf25e08da73?auto=format&fit=crop&w=1100&q=85"
+    };
+
+    const hero = document.querySelector(".ruminant-hero");
+
+    if (hero) {
+        hero.style.backgroundImage =
+            "linear-gradient(rgba(5,38,17,.78), rgba(10,70,32,.78)), url('" +
+            photos.background + "')";
+        hero.style.backgroundPosition = "center";
+        hero.style.backgroundSize = "cover";
+        hero.style.backgroundRepeat = "no-repeat";
+    }
+
+    const cardImages = document.querySelectorAll(
+        ".ruminant-card-image img"
+    );
+
+    const animalPhotos = [
+        photos.cattle,
+        photos.goats,
+        photos.sheep
+    ];
+
+    const animalNames = [
+        "Cattle farming",
+        "Goat farming",
+        "Sheep farming"
+    ];
+
+    cardImages.forEach(function (img, index) {
+        if (index < animalPhotos.length) {
+            img.src = animalPhotos[index];
+            img.alt = animalNames[index];
+            img.loading = "lazy";
+            img.decoding = "async";
+            img.referrerPolicy = "no-referrer";
+        }
+    });
+
+
+    /* ==========================================
+       2. ENGLISH / KINYARWANDA TRANSLATIONS
+       ========================================== */
+
+    const translations = [
+        [
+            ".ruminant-nav a:nth-child(1)",
+            "Dashboard",
+            "Imbonerahamwe"
+        ],
+        [
+            ".ruminant-nav a:nth-child(2)",
+            "Agriculture",
+            "Ubuhinzi"
+        ],
+        [
+            ".ruminant-nav a:nth-child(3)",
+            "Livestock",
+            "Ubworozi"
+        ],
+        [
+            ".ruminant-nav a:nth-child(4)",
+            "Poultry",
+            "Ubworozi bw'Inkoko"
+        ],
+        [
+            ".ruminant-hero h1",
+            "Ruminant Farming",
+            "Ubworozi bw'Inka, Ihene n'Intama"
+        ],
+        [
+            ".ruminant-hero-content > p",
+            "Explore practical knowledge and modern farming guidance for cattle, goats, and sheep — three important livestock systems supporting food production, livelihoods, and sustainable agriculture across Africa.",
+            "Menya ubumenyi ngiro n'uburyo bugezweho bwo korora inka, ihene n'intama. Ubu bworozi bugira uruhare mu gutanga ibiribwa, guteza imbere imibereho y'abaturage no kubaka ubuhinzi burambye muri Afurika."
+        ],
+        [
+            ".ruminant-breadcrumb a:nth-of-type(1)",
+            "Agriculture",
+            "Ubuhinzi"
+        ],
+        [
+            ".ruminant-breadcrumb a:nth-of-type(2)",
+            "Livestock Farming",
+            "Ubworozi"
+        ],
+        [
+            ".ruminant-breadcrumb span:last-child",
+            " › Ruminant Farming",
+            " › Ubworozi bw'Inka, Ihene n'Intama"
+        ],
+        [
+            ".ruminant-intro .eyebrow",
+            "Explore Livestock Knowledge",
+            "Menya Ubumenyi ku Bworozi"
+        ],
+        [
+            ".ruminant-intro h2",
+            "Choose Your Ruminant Farming System",
+            "Hitamo Ubwoko bw'Ubworozi"
+        ],
+        [
+            ".ruminant-intro p",
+            "Select a livestock category below to explore dedicated farming information, management practices, feeding, health, breeding, housing, and production guidance.",
+            "Hitamo ubwoko bw'amatungo hasi kugira ngo umenye uburyo bwo korora, gucunga ubworozi, kugaburira, kwita ku buzima bw'amatungo, kororoka, kubaka ibiraro no kongera umusaruro."
+        ],
+
+        /* CATTLE FARMING */
+
+        [
+            ".ruminant-card:nth-child(1) h3",
+            "Cattle Farming",
+            "Ubworozi bw'Inka"
+        ],
+        [
+            ".ruminant-card:nth-child(1) p",
+            "Learn about cattle breeds, housing, feeding, breeding, health management, dairy production, beef production, and sustainable cattle farming.",
+            "Menya amoko y'inka, ibiraro, kugaburira, kororoka, kwita ku buzima bwazo, umusaruro w'amata n'inyama ndetse n'uburyo bwo guteza imbere ubworozi bw'inka burambye."
+        ],
+        [
+            ".ruminant-card:nth-child(1) .ruminant-explore",
+            "Explore More",
+            "Menya Byinshi"
+        ],
+
+        /* GOAT FARMING */
+
+        [
+            ".ruminant-card:nth-child(2) h3",
+            "Goat Farming",
+            "Ubworozi bw'Ihene"
+        ],
+        [
+            ".ruminant-card:nth-child(2) p",
+            "Discover practical goat farming knowledge covering breeds, housing, nutrition, breeding, health, kid management, and productive herd management.",
+            "Menya uburyo bwo korora ihene, amoko yazo, ibiraro, imirire, kororoka, ubuzima, kwita ku byana by'ihene no gucunga neza umukumbi kugira ngo utange umusaruro."
+        ],
+        [
+            ".ruminant-card:nth-child(2) .ruminant-explore",
+            "Explore More",
+            "Menya Byinshi"
+        ],
+
+        /* SHEEP FARMING */
+
+        [
+            ".ruminant-card:nth-child(3) h3",
+            "Sheep Farming",
+            "Ubworozi bw'Intama"
+        ],
+        [
+            ".ruminant-card:nth-child(3) p",
+            "Explore sheep production, breeds, housing, feeding, breeding, lamb care, disease prevention, wool, meat production, and flock management.",
+            "Menya ubworozi bw'intama, amoko yazo, ibiraro, kugaburira, kororoka, kwita ku byana, gukumira indwara, umusaruro w'ubwoya n'inyama ndetse no gucunga neza umukumbi."
+        ],
+        [
+            ".ruminant-card:nth-child(3) .ruminant-explore",
+            "Explore More",
+            "Menya Byinshi"
+        ],
+
+        /* INFORMATION SECTION */
+
+        [
+            ".ruminant-info h2",
+            "Why Ruminant Farming Matters",
+            "Akamaro k'Ubworozi bw'Inka, Ihene n'Intama"
+        ],
+        [
+            ".ruminant-info > p",
+            "Ruminant livestock can contribute to food production, household income, manure resources, employment, and agricultural resilience. Good management helps farmers improve animal welfare, productivity, and resource use.",
+            "Ubworozi bw'inka, ihene n'intama bufasha mu kubona ibiribwa, kongera amafaranga y'ingo, kubona ifumbire, guhanga imirimo no guteza imbere ubuhinzi. Imicungire myiza ifasha aborozi kwita ku matungo, kongera umusaruro no gukoresha neza umutungo."
+        ],
+        [
+            ".ruminant-point:nth-child(1) strong",
+            "Sustainable Production",
+            "Umusaruro Urambye"
+        ],
+        [
+            ".ruminant-point:nth-child(1) span",
+            "Promote responsible use of land, feed, water, and other farm resources.",
+            "Koresha neza ubutaka, ibiryo, amazi n'undi mutungo ukenerwa mu bworozi."
+        ],
+        [
+            ".ruminant-point:nth-child(2) strong",
+            "Animal Health",
+            "Ubuzima bw'Amatungo"
+        ],
+        [
+            ".ruminant-point:nth-child(2) span",
+            "Strong health and preventive management support productive and healthy herds and flocks.",
+            "Kwita ku buzima bw'amatungo no gukumira indwara bifasha kugira ubushyo buzima kandi butanga umusaruro."
+        ],
+        [
+            ".ruminant-point:nth-child(3) strong",
+            "Farm Productivity",
+            "Kongera Umusaruro"
+        ],
+        [
+            ".ruminant-point:nth-child(3) span",
+            "Good records and management can help farmers understand production and improve efficiency.",
+            "Kubika inyandiko nziza no gucunga neza ubworozi bifasha aborozi kumenya uko umusaruro uhagaze no kuwongera."
+        ],
+
+        /* BACK BUTTON AND FOOTER */
+
+        [
+            ".ruminant-back a",
+            "Back to Livestock Farming",
+            "Subira ku Bworozi"
+        ],
+        [
+            ".ruminant-footer > p:first-of-type",
+            "Agriculture • Innovation • Knowledge • Sustainable Farming",
+            "Ubuhinzi • Udushya • Ubumenyi • Ubuhinzi Burambye"
+        ]
+    ];
+
+
+    /* ==========================================
+       3. CREATE LANGUAGE SELECTOR IN HEADER
+       ========================================== */
+
+    const header = document.querySelector(".ruminant-header");
+
+    let languageBox = document.getElementById(
+        "ruminantLanguageBox"
+    );
+
+    if (!languageBox && header) {
+        languageBox = document.createElement("div");
+        languageBox.id = "ruminantLanguageBox";
+
+        languageBox.style.cssText = [
+            "display:flex",
+            "align-items:center",
+            "gap:8px",
+            "flex-wrap:wrap"
+        ].join(";");
+
+        const label = document.createElement("label");
+        label.htmlFor = "ruminantLanguage";
+        label.id = "ruminantLanguageLabel";
+        label.textContent = "🌐 Language";
+        label.style.cssText =
+            "color:white;font-size:13px;font-weight:700;";
+
+        const select = document.createElement("select");
+        select.id = "ruminantLanguage";
+        select.setAttribute(
+            "aria-label",
+            "Choose language"
+        );
+
+        select.style.cssText = [
+            "padding:10px 12px",
+            "border-radius:9px",
+            "background:#ffffff",
+            "color:#145a2a",
+            "border:1px solid #d9e9dc",
+            "font-size:13px",
+            "font-weight:700",
+            "cursor:pointer",
+            "max-width:145px"
+        ].join(";");
+
+        const englishOption = document.createElement("option");
+        englishOption.value = "en";
+        englishOption.textContent = "English";
+
+        const rwOption = document.createElement("option");
+        rwOption.value = "rw";
+        rwOption.textContent = "Kinyarwanda";
+
+        select.append(englishOption, rwOption);
+        languageBox.append(label, select);
+        header.appendChild(languageBox);
+    }
+
+
+    /* ==========================================
+       4. APPLY TRANSLATION
+       ========================================== */
+
+    const selector = document.getElementById(
+        "ruminantLanguage"
+    );
+
+    // Preserve existing icons and links.
+    // Translate text without replacing HTML elements.
+
+    const entries = translations.map(function (item) {
+        return {
+            element: document.querySelector(item[0]),
+            en: item[1],
+            rw: item[2]
+        };
+    });
+
+    function setTextPreservingIcons(element, value) {
+        if (!element) return;
+
+        const textNodes = Array.from(element.childNodes)
+            .filter(function (node) {
+                return node.nodeType === Node.TEXT_NODE;
+            });
+
+        if (textNodes.length > 0) {
+            textNodes[0].nodeValue = " " + value + " ";
+
+            textNodes.slice(1).forEach(function (node) {
+                node.nodeValue = "";
+            });
+        } else {
+            const textNode = document.createTextNode(
+                " " + value + " "
+            );
+
+            element.insertBefore(
+                textNode,
+                element.firstChild
+            );
+        }
+    }
+
+    function savedLanguage() {
+        try {
+            return localStorage.getItem(LANGUAGE_KEY) === "rw"
+                ? "rw"
+                : "en";
+        } catch (error) {
+            return "en";
+        }
+    }
+
+    function translatePage(language) {
+        const lang = language === "rw" ? "rw" : "en";
+
+        entries.forEach(function (entry) {
+            if (!entry.element) return;
+
+            const translatedText =
+                lang === "rw" ? entry.rw : entry.en;
+
+            setTextPreservingIcons(
+                entry.element,
+                translatedText
+            );
+        });
+
+        const label = document.getElementById(
+            "ruminantLanguageLabel"
+        );
+
+        if (label) {
+            label.textContent =
+                lang === "rw"
+                    ? "🌐 Ururimi"
+                    : "🌐 Language";
+        }
+
+        if (selector) {
+            selector.value = lang;
+        }
+
+        document.documentElement.lang = lang;
+
+        document.title = lang === "rw"
+            ? "Ubworozi bw'Inka, Ihene n'Intama | Africa AgroVision"
+            : "Ruminant Farming | Africa AgroVision";
+    }
+
+    if (selector) {
+        selector.addEventListener("change", function () {
+            const language = this.value;
+
+            try {
+                localStorage.setItem(
+                    LANGUAGE_KEY,
+                    language
+                );
+            } catch (error) {
+                // Translation works even without storage.
+            }
+
+            translatePage(language);
+        });
+    }
+
+    window.addEventListener("storage", function (event) {
+        if (event.key === LANGUAGE_KEY) {
+            translatePage(savedLanguage());
+        }
+    });
+
+    translatePage(savedLanguage());
+
+})();
+</script>
+
 </body>
 </html>
 ```

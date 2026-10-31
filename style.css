@@ -9540,3 +9540,27 @@ nav .menu a[href="agro-market.html"]:hover {
     }
 }
 ```
+/* MAIZE FARMING EXPLORE MORE BUTTON */
+
+.maize-explore-btn {
+  display: inline-block;
+  align-self: center;
+  width: auto;
+  margin: 18px auto 0;
+  padding: 10px 25px;
+  background: #2e8035;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: none;
+  transition: background 0.3s ease;
+}
+
+.maize-explore-btn:hover {
+  background: #399a44;
+  color: white;
+}

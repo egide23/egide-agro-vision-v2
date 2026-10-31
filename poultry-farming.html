@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
-:root{
+:root {
   --green:#14532d;
   --dark:#092f1c;
   --light:#e8f5eb;
@@ -24,438 +24,910 @@
   --shadow:0 12px 32px rgba(11,55,27,.09);
 }
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
   color:var(--text);
   background:var(--bg);
   line-height:1.7;
 }
-a{text-decoration:none;color:inherit}
-button{cursor:pointer;font:inherit}
-img{display:block;width:100%;height:100%;object-fit:cover}
-.container{width:92%;max-width:1240px;margin:auto}
+
+a { text-decoration:none; color:inherit; }
+button { cursor:pointer; font:inherit; }
+img { display:block; width:100%; height:100%; object-fit:cover; }
+.container { width:92%; max-width:1240px; margin:auto; }
 
 /* NAVIGATION */
-.navbar{
-  position:sticky;top:0;z-index:100;
+
+.navbar {
+  position:sticky;
+  top:0;
+  z-index:100;
   background:var(--dark);
   box-shadow:0 4px 18px #0002;
 }
-.nav-inner{
-  max-width:1400px;margin:auto;padding:12px 24px;
-  min-height:76px;display:flex;align-items:center;
-  justify-content:space-between;gap:20px;
+
+.nav-inner {
+  max-width:1400px;
+  margin:auto;
+  padding:12px 24px;
+  min-height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
 }
-.logo{
-  display:flex;align-items:center;gap:12px;
-  color:#fff;font-size:21px;font-weight:800;
+
+.logo {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:#fff;
+  font-size:21px;
+  font-weight:800;
+  flex-shrink:0;
 }
-.logo-icon{
-  width:43px;height:43px;display:grid;place-items:center;
-  background:#287e45;border-radius:11px;color:#d5f5dc;
+
+.logo-icon {
+  width:43px;
+  height:43px;
+  display:grid;
+  place-items:center;
+  background:#287e45;
+  border-radius:11px;
+  color:#d5f5dc;
 }
-.logo em{font-style:normal;color:#abe7b7}
-.logo small{
-  display:block;font-size:10px;font-weight:400;
-  color:#cfe6d4;line-height:1.4;
+
+.logo em { font-style:normal; color:#abe7b7; }
+
+.logo small {
+  display:block;
+  font-size:10px;
+  font-weight:400;
+  color:#cfe6d4;
+  line-height:1.4;
 }
-.nav-links{
-  display:flex;flex-wrap:wrap;gap:5px;
-  list-style:none;margin:0;padding:0;
+
+.nav-links {
+  display:flex;
+  flex-wrap:wrap;
+  gap:5px;
+  list-style:none;
+  margin:0;
+  padding:0;
 }
-.nav-links a{
-  display:block;padding:10px 12px;
-  color:#e7f1e9;border-radius:8px;
-  font-size:12px;font-weight:700;
+
+.nav-links a {
+  display:block;
+  padding:10px 12px;
+  color:#e7f1e9;
+  border-radius:8px;
+  font-size:12px;
+  font-weight:700;
 }
-.nav-links a:hover,.nav-links .active{background:#ffffff22}
-.menu-toggle{
-  display:none;width:44px;height:44px;
-  border:1px solid #ffffff70;border-radius:9px;
-  background:transparent;color:white;font-size:20px;
+
+.nav-links a:hover,
+.nav-links .active {
+  background:#ffffff22;
+}
+
+.menu-toggle {
+  display:none;
+  width:44px;
+  height:44px;
+  border:1px solid #ffffff70;
+  border-radius:9px;
+  background:transparent;
+  color:white;
+  font-size:20px;
+}
+
+/* LANGUAGE SELECTOR */
+
+.poultry-language {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-shrink:0;
+}
+
+.poultry-language label {
+  color:white;
+  font-size:13px;
+  font-weight:700;
+}
+
+.poultry-language select {
+  padding:9px 12px;
+  background:#ffffff;
+  color:#14532d;
+  border:1px solid #dce8df;
+  border-radius:9px;
+  font-size:13px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.poultry-language select:focus-visible {
+  outline:3px solid #a5d6a7;
+  outline-offset:2px;
 }
 
 /* HERO */
-.hero{
-  position:relative;min-height:520px;
-  display:flex;align-items:center;
+
+.hero {
+  position:relative;
+  min-height:520px;
+  display:flex;
+  align-items:center;
   background:
     linear-gradient(90deg,rgba(7,43,23,.96) 0%,rgba(7,43,23,.78) 47%,rgba(7,43,23,.3) 100%),
     url("https://www.zurueckzumursprung.at/fileadmin/_processed_/8/5/csm_hueho951_jpg_bfe6e56a46.jpg")
     center/cover;
-  background-color:#174a2d;color:white;
+  background-color:#174a2d;
+  color:white;
 }
-.hero-inner{padding:80px 0 95px}
-.breadcrumb{
-  display:flex;flex-wrap:wrap;align-items:center;
-  gap:9px;margin-bottom:25px;
-  font-size:12px;color:#d8e8dc;
+
+.hero-inner { padding:80px 0 95px; }
+
+.breadcrumb {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:9px;
+  margin-bottom:25px;
+  font-size:12px;
+  color:#d8e8dc;
 }
-.eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  border:1px solid #ffffff65;background:#ffffff18;
-  border-radius:30px;padding:8px 14px;
-  color:#d6edbf;font-size:11px;font-weight:800;
-  letter-spacing:1px;text-transform:uppercase;
+
+.eyebrow {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  border:1px solid #ffffff65;
+  background:#ffffff18;
+  border-radius:30px;
+  padding:8px 14px;
+  color:#d6edbf;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:1px;
+  text-transform:uppercase;
 }
-.hero h1{
-  max-width:810px;margin:20px 0;
+
+.hero h1 {
+  max-width:810px;
+  margin:20px 0;
   font-size:clamp(37px,5.1vw,64px);
-  line-height:1.12;letter-spacing:-1.3px;
+  line-height:1.12;
+  letter-spacing:-1.3px;
 }
-.hero h1 span{color:var(--gold)}
-.hero p{
-  max-width:660px;font-size:16px;
-  color:#e4efe6;line-height:1.9;
+
+.hero h1 span { color:var(--gold); }
+
+.hero p {
+  max-width:660px;
+  font-size:16px;
+  color:#e4efe6;
+  line-height:1.9;
 }
-.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:29px}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  gap:10px;padding:14px 22px;border-radius:10px;
-  background:var(--gold);color:#273617;
-  font-size:13px;font-weight:800;transition:.2s;
+
+.hero-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:29px;
 }
-.btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
-.btn.outline{background:#ffffff18;color:white;border:1px solid #ffffff80}
+
+.btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:14px 22px;
+  border-radius:10px;
+  background:var(--gold);
+  color:#273617;
+  font-size:13px;
+  font-weight:800;
+  transition:.2s;
+}
+
+.btn:hover {
+  transform:translateY(-2px);
+  filter:brightness(1.06);
+}
+
+.btn.outline {
+  background:#ffffff18;
+  color:white;
+  border:1px solid #ffffff80;
+}
 
 /* FACTS */
-.facts-wrap{position:relative;z-index:2;margin-top:-48px}
-.facts{
-  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
-  background:white;padding:13px;border-radius:17px;
-  border:1px solid var(--border);box-shadow:var(--shadow);
+
+.facts-wrap {
+  position:relative;
+  z-index:2;
+  margin-top:-48px;
 }
-.fact{padding:23px;border-right:1px solid var(--border)}
-.fact:last-child{border-right:0}
-.fact i{
-  display:grid;place-items:center;width:44px;height:44px;
-  background:var(--light);color:#287c44;
-  border-radius:12px;font-size:19px;margin-bottom:12px;
+
+.facts {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  background:white;
+  padding:13px;
+  border-radius:17px;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
 }
-.fact strong{display:block;color:#17462c;font-size:17px}
-.fact p{margin:5px 0 0;color:var(--muted);font-size:12px}
+
+.fact {
+  padding:23px;
+  border-right:1px solid var(--border);
+}
+
+.fact:last-child { border-right:0; }
+
+.fact i {
+  display:grid;
+  place-items:center;
+  width:44px;
+  height:44px;
+  background:var(--light);
+  color:#287c44;
+  border-radius:12px;
+  font-size:19px;
+  margin-bottom:12px;
+}
+
+.fact strong {
+  display:block;
+  color:#17462c;
+  font-size:17px;
+}
+
+.fact p {
+  margin:5px 0 0;
+  color:var(--muted);
+  font-size:12px;
+}
 
 /* SECTIONS */
-.section{padding:75px 0 0}
-.section-label{
-  display:block;margin-bottom:10px;color:#2d854a;
-  font-size:11px;font-weight:800;
-  letter-spacing:1.3px;text-transform:uppercase;
+
+.section { padding:75px 0 0; }
+
+.section-label {
+  display:block;
+  margin-bottom:10px;
+  color:#2d854a;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:1.3px;
+  text-transform:uppercase;
 }
-.section h2{
-  margin:0 0 15px;color:#123d26;
-  font-size:clamp(27px,3.4vw,38px);line-height:1.25;
+
+.section h2 {
+  margin:0 0 15px;
+  color:#123d26;
+  font-size:clamp(27px,3.4vw,38px);
+  line-height:1.25;
 }
-.section-lead{
-  max-width:850px;color:var(--muted);
-  font-size:15px;line-height:1.9;margin:0 0 30px;
+
+.section-lead {
+  max-width:850px;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.9;
+  margin:0 0 30px;
 }
-.intro{
-  display:grid;grid-template-columns:1.05fr .95fr;
-  align-items:center;gap:38px;
+
+.intro {
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  align-items:center;
+  gap:38px;
 }
-.intro p{color:#5d7163;font-size:14px;line-height:1.95}
-.intro-photo{
-  height:350px;overflow:hidden;border-radius:17px;
-  background:#e4eee6;box-shadow:var(--shadow);
+
+.intro p {
+  color:#5d7163;
+  font-size:14px;
+  line-height:1.95;
 }
-.note{
-  padding:18px 20px;margin-top:22px;
+
+.intro-photo {
+  height:350px;
+  overflow:hidden;
+  border-radius:17px;
+  background:#e4eee6;
+  box-shadow:var(--shadow);
+}
+
+.note {
+  padding:18px 20px;
+  margin-top:22px;
   border-left:4px solid #308d4d;
-  background:#e7f4e9;border-radius:0 10px 10px 0;
-  color:#2a603d;font-size:13px;
+  background:#e7f4e9;
+  border-radius:0 10px 10px 0;
+  color:#2a603d;
+  font-size:13px;
 }
 
 /* CARDS */
-.cards{
-  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+
+.cards {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
   gap:23px;
 }
-.card{
-  display:flex;flex-direction:column;overflow:hidden;
-  background:white;border:1px solid var(--border);
-  border-radius:17px;box-shadow:var(--shadow);
+
+.card {
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  background:white;
+  border:1px solid var(--border);
+  border-radius:17px;
+  box-shadow:var(--shadow);
   transition:transform .25s,box-shadow .25s;
 }
-.card:hover{
+
+.card:hover {
   transform:translateY(-5px);
   box-shadow:0 18px 36px rgba(11,55,27,.15);
 }
-.card-photo{
-  position:relative;height:230px;
-  overflow:hidden;background:#e4eee6;
+
+.card-photo {
+  position:relative;
+  height:230px;
+  overflow:hidden;
+  background:#e4eee6;
 }
-.card-photo img{transition:transform .35s}
-.card:hover .card-photo img{transform:scale(1.05)}
-.card-photo:after{
-  content:"";position:absolute;inset:55% 0 0;
+
+.card-photo img { transition:transform .35s; }
+.card:hover .card-photo img { transform:scale(1.05); }
+
+.card-photo:after {
+  content:"";
+  position:absolute;
+  inset:55% 0 0;
   background:linear-gradient(transparent,#0006);
   pointer-events:none;
 }
-.photo-label{
-  position:absolute;z-index:1;left:17px;bottom:16px;
-  padding:7px 12px;border-radius:7px;
-  background:#ffffffeb;color:#17442a;
-  font-size:11px;font-weight:800;
+
+.photo-label {
+  position:absolute;
+  z-index:1;
+  left:17px;
+  bottom:16px;
+  padding:7px 12px;
+  border-radius:7px;
+  background:#ffffffeb;
+  color:#17442a;
+  font-size:11px;
+  font-weight:800;
 }
-.card-content{
-  display:flex;flex-direction:column;
-  flex:1;padding:23px;
+
+.card-content {
+  display:flex;
+  flex-direction:column;
+  flex:1;
+  padding:23px;
 }
-.card-category{
-  font-size:10px;letter-spacing:1px;text-transform:uppercase;
-  color:#348650;font-weight:800;margin-bottom:9px;
+
+.card-category {
+  font-size:10px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:#348650;
+  font-weight:800;
+  margin-bottom:9px;
 }
-.card h3{font-size:23px;color:#17452c;margin:0 0 11px}
-.card p{
-  color:#637769;font-size:13px;
-  line-height:1.85;margin:0 0 16px;
+
+.card h3 {
+  font-size:23px;
+  color:#17452c;
+  margin:0 0 11px;
 }
-.card ul{
-  list-style:none;padding:0;margin:0 0 20px;
-  color:#566e5d;font-size:12px;line-height:2;
+
+.card p {
+  color:#637769;
+  font-size:13px;
+  line-height:1.85;
+  margin:0 0 16px;
 }
-.card li:before{content:"✓";color:#2b8b4a;font-weight:bold;margin-right:9px}
-.card-action{
-  margin-top:auto;border-top:1px solid var(--border);
-  padding-top:15px;display:flex;justify-content:space-between;
-  align-items:center;gap:10px;color:#207342;
-  font-size:13px;font-weight:800;
+
+.card ul {
+  list-style:none;
+  padding:0;
+  margin:0 0 20px;
+  color:#566e5d;
+  font-size:12px;
+  line-height:2;
 }
-.card-action i{
-  width:34px;height:34px;border-radius:50%;
-  display:grid;place-items:center;background:#1f7540;color:white;
+
+.card li:before {
+  content:"✓";
+  color:#2b8b4a;
+  font-weight:bold;
+  margin-right:9px;
+}
+
+.card-action {
+  margin-top:auto;
+  border-top:1px solid var(--border);
+  padding-top:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  color:#207342;
+  font-size:13px;
+  font-weight:800;
+}
+
+.card-action i {
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#1f7540;
+  color:white;
+  flex-shrink:0;
 }
 
 /* MANAGEMENT */
-.management-panel{
-  display:grid;grid-template-columns:1fr 1fr;
-  align-items:center;gap:35px;padding:26px;
-  border-radius:18px;background:white;
-  border:1px solid var(--border);box-shadow:var(--shadow);
+
+.management-panel {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:35px;
+  padding:26px;
+  border-radius:18px;
+  background:white;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
 }
-.management-photo{
-  height:320px;overflow:hidden;border-radius:13px;
+
+.management-photo {
+  height:320px;
+  overflow:hidden;
+  border-radius:13px;
   background:#e4eee6;
 }
-.management-panel h3{font-size:25px;margin:0 0 13px}
-.management-panel p{
-  color:#637568;font-size:14px;line-height:1.9;
+
+.management-panel h3 {
+  font-size:25px;
+  margin:0 0 13px;
 }
-.checks{list-style:none;padding:0;margin:16px 0 22px}
-.checks li{
-  padding-left:25px;position:relative;
-  font-size:13px;color:#526a59;margin:9px 0;
+
+.management-panel p {
+  color:#637568;
+  font-size:14px;
+  line-height:1.9;
 }
-.checks li:before{
-  content:"✓";position:absolute;left:0;
-  color:#2d904c;font-weight:900;
+
+.checks {
+  list-style:none;
+  padding:0;
+  margin:16px 0 22px;
+}
+
+.checks li {
+  padding-left:25px;
+  position:relative;
+  font-size:13px;
+  color:#526a59;
+  margin:9px 0;
+}
+
+.checks li:before {
+  content:"✓";
+  position:absolute;
+  left:0;
+  color:#2d904c;
+  font-weight:900;
 }
 
 /* FEATURE */
-.feature{
-  display:grid;grid-template-columns:1fr .9fr;
-  align-items:center;gap:20px;
-  overflow:hidden;border-radius:20px;
+
+.feature {
+  display:grid;
+  grid-template-columns:1fr .9fr;
+  align-items:center;
+  gap:20px;
+  overflow:hidden;
+  border-radius:20px;
   background:linear-gradient(115deg,#0b3a23,#246b40);
-  color:white;margin-top:75px;
+  color:white;
+  margin-top:75px;
 }
-.feature-copy{padding:40px}
-.feature h2{color:white;font-size:32px;margin:0 0 15px}
-.feature p{color:#d7e9dc;font-size:14px;margin-bottom:23px}
-.feature-photo{height:330px;background:#194f30}
+
+.feature-copy { padding:40px; }
+
+.feature h2 {
+  color:white;
+  font-size:32px;
+  margin:0 0 15px;
+}
+
+.feature p {
+  color:#d7e9dc;
+  font-size:14px;
+  margin-bottom:23px;
+}
+
+.feature-photo {
+  height:330px;
+  background:#194f30;
+}
 
 /* CTA */
-.cta{
-  margin:75px 0;padding:45px 25px;text-align:center;
+
+.cta {
+  margin:75px 0;
+  padding:45px 25px;
+  text-align:center;
   background:linear-gradient(110deg,#0b3a22,#277a47);
-  color:white;border-radius:20px;
+  color:white;
+  border-radius:20px;
 }
-.cta h2{color:white;margin:0 0 12px;font-size:32px}
-.cta p{max-width:700px;margin:0 auto 23px;color:#dcece0;font-size:14px}
-.footer{
-  background:#082f1b;color:#d0e4d5;
-  text-align:center;padding:30px 15px;font-size:12px;
+
+.cta h2 {
+  color:white;
+  margin:0 0 12px;
+  font-size:32px;
 }
-.footer a:hover{text-decoration:underline}
+
+.cta p {
+  max-width:700px;
+  margin:0 auto 23px;
+  color:#dcece0;
+  font-size:14px;
+}
+
+.footer {
+  background:#082f1b;
+  color:#d0e4d5;
+  text-align:center;
+  padding:30px 15px;
+  font-size:12px;
+}
+
+.footer a:hover { text-decoration:underline; }
 
 /* IMAGE FALLBACK */
-.image-fallback{
-  display:none;width:100%;height:100%;
-  align-items:center;justify-content:center;
-  flex-direction:column;gap:10px;
-  background:linear-gradient(140deg,#dcefe1,#9bc9a6);
-  color:#174b2d;text-align:center;padding:20px;
-}
-.image-fallback i{font-size:42px}
-.image-fallback strong{font-size:19px}
-.image-fallback span{font-size:11px}
-.image-failed img{display:none}
-.image-failed .image-fallback{display:flex}
 
-@media(max-width:1050px){
-  .nav-inner{flex-wrap:wrap}
-  .facts{grid-template-columns:repeat(2,1fr)}
-  .fact:nth-child(2){border-right:0}
-  .fact:nth-child(-n+2){border-bottom:1px solid var(--border)}
-  .cards{grid-template-columns:repeat(2,1fr)}
+.image-fallback {
+  display:none;
+  width:100%;
+  height:100%;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:10px;
+  background:linear-gradient(140deg,#dcefe1,#9bc9a6);
+  color:#174b2d;
+  text-align:center;
+  padding:20px;
 }
-@media(max-width:760px){
-  .menu-toggle{display:block}
-  .nav-links{
-    display:none;width:100%;flex-direction:column;
-    align-items:stretch;padding:8px 0;
+
+.image-fallback i { font-size:42px; }
+.image-fallback strong { font-size:19px; }
+.image-fallback span { font-size:11px; }
+.image-failed img { display:none; }
+.image-failed .image-fallback { display:flex; }
+
+@media(max-width:1150px) {
+  .nav-inner { flex-wrap:wrap; }
+  .nav-links { order:3; width:100%; justify-content:center; }
+}
+
+@media(max-width:1050px) {
+  .facts { grid-template-columns:repeat(2,1fr); }
+  .fact:nth-child(2) { border-right:0; }
+  .fact:nth-child(-n+2) { border-bottom:1px solid var(--border); }
+  .cards { grid-template-columns:repeat(2,1fr); }
+}
+
+@media(max-width:760px) {
+  .menu-toggle { display:block; margin-left:auto; }
+
+  .nav-links {
+    display:none;
+    width:100%;
+    flex-direction:column;
+    align-items:stretch;
+    padding:8px 0;
   }
-  .nav-links.open{display:flex}
-  .intro,.management-panel,.feature{grid-template-columns:1fr}
-  .intro-photo,.management-photo{height:290px}
-  .feature-copy{padding:30px}
-  .feature-photo{height:280px}
-  .hero{min-height:490px}
-  .hero-inner{padding:65px 0 90px}
-  .hero p{font-size:14px}
-  .section{padding-top:60px}
+
+  .nav-links.open { display:flex; }
+
+  .poultry-language { margin-left:0; }
+
+  .intro,.management-panel,.feature {
+    grid-template-columns:1fr;
+  }
+
+  .intro-photo,.management-photo { height:290px; }
+  .feature-copy { padding:30px; }
+  .feature-photo { height:280px; }
+  .hero { min-height:490px; }
+  .hero-inner { padding:65px 0 90px; }
+  .hero p { font-size:14px; }
+  .section { padding-top:60px; }
 }
-@media(max-width:560px){
-  .logo{font-size:18px}
-  .hero h1{font-size:37px}
-  .hero-actions{flex-direction:column}
-  .btn{width:100%}
-  .cards{grid-template-columns:1fr}
-  .card-photo{height:245px}
-  .fact{padding:15px 11px}
-  .fact strong{font-size:15px}
-  .fact p{font-size:11px}
-  .management-panel{padding:15px}
-  .cta h2{font-size:26px}
+
+@media(max-width:560px) {
+  .nav-inner { padding:12px 14px; gap:10px; }
+  .logo { font-size:17px; }
+  .logo small { font-size:9px; }
+  .logo-icon { width:37px; height:37px; }
+  .poultry-language select { padding:8px; font-size:12px; }
+  .hero h1 { font-size:37px; }
+  .hero-actions { flex-direction:column; }
+  .btn { width:100%; }
+  .cards { grid-template-columns:1fr; }
+  .card-photo { height:245px; }
+  .fact { padding:15px 11px; }
+  .fact strong { font-size:15px; }
+  .fact p { font-size:11px; }
+  .management-panel { padding:15px; }
+  .cta h2 { font-size:26px; }
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAVIGATION -->
+
 <nav class="navbar" aria-label="Main navigation">
   <div class="nav-inner">
+
     <a href="dashboard.html" class="logo">
-      <span class="logo-icon"><i class="fa-solid fa-leaf"></i></span>
-      <span>Africa <em>AgroVision</em>
-        <small>Growing Agriculture. Connecting Opportunities.</small>
+      <span class="logo-icon">
+        <i class="fa-solid fa-leaf"></i>
+      </span>
+      <span>
+        Africa <em>AgroVision</em>
+        <small data-en="Growing Agriculture. Connecting Opportunities."
+               data-rw="Duteza imbere ubuhinzi. Duhuza amahirwe.">
+          Growing Agriculture. Connecting Opportunities.
+        </small>
       </span>
     </a>
 
     <button class="menu-toggle" id="menuToggle"
-      aria-label="Open navigation" aria-expanded="false">
+            aria-label="Open navigation"
+            aria-expanded="false"
+            aria-controls="navLinks">
       <i class="fa-solid fa-bars"></i>
     </button>
 
     <ul class="nav-links" id="navLinks">
-      <li><a href="dashboard.html">Dashboard</a></li>
-      <li><a class="active" href="agriculture.html">Agriculture</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="ideas.html">Ideas & Feedback</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li>
+        <a href="dashboard.html" data-en="Dashboard" data-rw="Imbonerahamwe">
+          Dashboard
+        </a>
+      </li>
+      <li>
+        <a class="active" href="agriculture.html"
+           data-en="Agriculture" data-rw="Ubuhinzi">
+          Agriculture
+        </a>
+      </li>
+      <li>
+        <a href="projects.html" data-en="Projects" data-rw="Imishinga">
+          Projects
+        </a>
+      </li>
+      <li>
+        <a href="gallery.html" data-en="Gallery" data-rw="Amafoto">
+          Gallery
+        </a>
+      </li>
+      <li>
+        <a href="ideas.html" data-en="Ideas & Feedback"
+           data-rw="Ibitekerezo n'Inama">
+          Ideas & Feedback
+        </a>
+      </li>
+      <li>
+        <a href="contact.html" data-en="Contact" data-rw="Twandikire">
+          Contact
+        </a>
+      </li>
     </ul>
+
+    <div class="poultry-language">
+      <label for="poultryLanguage">🌐</label>
+      <select id="poultryLanguage"
+              aria-label="Choose language / Hitamo ururimi">
+        <option value="en">English</option>
+        <option value="rw">Kinyarwanda</option>
+      </select>
+    </div>
+
   </div>
 </nav>
 
+<!-- HERO -->
+
 <header class="hero">
   <div class="container hero-inner">
+
     <div class="breadcrumb">
-      <a href="dashboard.html">Dashboard</a>
+      <a href="dashboard.html" data-en="Dashboard" data-rw="Imbonerahamwe">
+        Dashboard
+      </a>
       <i class="fa-solid fa-chevron-right"></i>
-      <a href="agriculture.html">Agriculture</a>
+      <a href="agriculture.html" data-en="Agriculture" data-rw="Ubuhinzi">
+        Agriculture
+      </a>
       <i class="fa-solid fa-chevron-right"></i>
-      <span>Poultry Farming</span>
+      <span data-en="Poultry Farming" data-rw="Ubworozi bw'Inkoko n'Izindi Nyoni">
+        Poultry Farming
+      </span>
     </div>
 
     <span class="eyebrow">
       <i class="fa-solid fa-feather"></i>
-      Africa AgroVision • Livestock Production
+      <span data-en="Africa AgroVision • Livestock Production"
+            data-rw="Africa AgroVision • Umusaruro w'Ubworozi">
+        Africa AgroVision • Livestock Production
+      </span>
     </span>
 
-    <h1>Healthy Poultry.<br>
-      <span>Stronger Farming Businesses.</span>
+    <h1>
+      <span style="color:white"
+            data-en="Healthy Poultry."
+            data-rw="Inyoni Zororwa Zifite Ubuzima Bwiza.">
+        Healthy Poultry.
+      </span>
+      <br>
+      <span data-en="Stronger Farming Businesses."
+            data-rw="Ubucuruzi bw'Ubworozi Butera Imbere.">
+        Stronger Farming Businesses.
+      </span>
     </h1>
 
-    <p>
-      Discover practical poultry production in Rwanda and across
-      Africa. Explore chicken, duck, turkey, goose and guinea fowl
-      farming, from housing and feeding to health management and marketing.
+    <p data-en="Discover practical poultry production in Rwanda and across Africa. Explore chicken, duck, turkey, goose and guinea fowl farming, from housing and feeding to health management and marketing."
+       data-rw="Menya uburyo ngiro bwo korora inkoko n'izindi nyoni mu Rwanda no muri Afurika. Sobanukirwa ubworozi bw'inkoko, imbata, dendo, ingagi zo mu rugo n'inkanga, kuva ku biraro no kugaburira kugeza ku buzima no gushaka amasoko.">
+      Discover practical poultry production in Rwanda and across Africa.
+      Explore chicken, duck, turkey, goose and guinea fowl farming,
+      from housing and feeding to health management and marketing.
     </p>
 
     <div class="hero-actions">
       <a class="btn" href="#poultry-types">
-        <i class="fa-solid fa-book-open"></i> Explore Poultry Types
+        <i class="fa-solid fa-book-open"></i>
+        <span data-en="Explore Poultry Types"
+              data-rw="Menya Ubwoko bw'Inyoni Zororwa">
+          Explore Poultry Types
+        </span>
       </a>
+
       <a class="btn outline" href="#management">
-        <i class="fa-solid fa-list-check"></i> Farm Management
+        <i class="fa-solid fa-list-check"></i>
+        <span data-en="Farm Management" data-rw="Imicungire y'Ubworozi">
+          Farm Management
+        </span>
       </a>
     </div>
+
   </div>
 </header>
 
 <main>
 
+<!-- FACTS -->
+
 <div class="container facts-wrap">
   <div class="facts">
+
     <div class="fact">
       <i class="fa-solid fa-egg"></i>
-      <strong>Egg Production</strong>
-      <p>Produce eggs for household nutrition and commercial markets.</p>
+      <strong data-en="Egg Production" data-rw="Umusaruro w'Amagi">
+        Egg Production
+      </strong>
+      <p data-en="Produce eggs for household nutrition and commercial markets."
+         data-rw="Tanga amagi yo gufasha imirire y'umuryango no kugurisha ku masoko.">
+        Produce eggs for household nutrition and commercial markets.
+      </p>
     </div>
+
     <div class="fact">
       <i class="fa-solid fa-drumstick-bite"></i>
-      <strong>Meat Production</strong>
-      <p>Raise suitable poultry species for local meat markets.</p>
+      <strong data-en="Meat Production" data-rw="Umusaruro w'Inyama">
+        Meat Production
+      </strong>
+      <p data-en="Raise suitable poultry species for local meat markets."
+         data-rw="Rora ubwoko bw'inyoni bukwiye kugira ngo utange inyama ku masoko yo hafi.">
+        Raise suitable poultry species for local meat markets.
+      </p>
     </div>
+
     <div class="fact">
       <i class="fa-solid fa-chart-line"></i>
-      <strong>Business Growth</strong>
-      <p>Build poultry enterprises through planning and recordkeeping.</p>
+      <strong data-en="Business Growth" data-rw="Iterambere ry'Ubucuruzi">
+        Business Growth
+      </strong>
+      <p data-en="Build poultry enterprises through planning and recordkeeping."
+         data-rw="Teza imbere ubucuruzi bw'ubworozi binyuze mu igenamigambi no kubika inyandiko.">
+        Build poultry enterprises through planning and recordkeeping.
+      </p>
     </div>
+
     <div class="fact">
       <i class="fa-solid fa-shield-heart"></i>
-      <strong>Healthy Flocks</strong>
-      <p>Protect birds with proper housing, nutrition and biosecurity.</p>
+      <strong data-en="Healthy Flocks" data-rw="Ubushyo Bufite Ubuzima Bwiza">
+        Healthy Flocks
+      </strong>
+      <p data-en="Protect birds with proper housing, nutrition and biosecurity."
+         data-rw="Rinda inyoni zororwa uzubakira ibiraro bikwiye, uzigaburira neza kandi ukurikiza ingamba zo gukumira indwara.">
+        Protect birds with proper housing, nutrition and biosecurity.
+      </p>
     </div>
+
   </div>
 </div>
+
+<!-- INTRODUCTION -->
 
 <section class="section container" id="introduction">
   <div class="intro">
     <div>
-      <span class="section-label">01 / Introduction</span>
-      <h2>What Is Poultry Farming?</h2>
 
-      <p>
+      <span class="section-label"
+            data-en="01 / Introduction"
+            data-rw="01 / Intangiriro">
+        01 / Introduction
+      </span>
+
+      <h2 data-en="What Is Poultry Farming?"
+          data-rw="Ubworozi bw'Inkoko n'Izindi Nyoni ni Iki?">
+        What Is Poultry Farming?
+      </h2>
+
+      <p data-en="Poultry farming involves raising domesticated birds for meat, eggs, breeding stock and other agricultural products. Important poultry species include chickens, ducks, turkeys, geese and guinea fowl."
+         data-rw="Ubworozi bw'inkoko n'izindi nyoni ni ukurora inyoni zororerwa mu rugo kugira ngo zitange inyama, amagi, izo kororoka n'ibindi bikomoka ku bworozi. Harimo inkoko, imbata, dendo, ingagi zo mu rugo n'inkanga.">
         Poultry farming involves raising domesticated birds for meat,
         eggs, breeding stock and other agricultural products.
         Important poultry species include chickens, ducks, turkeys,
         geese and guinea fowl.
       </p>
 
-      <p>
+      <p data-en="In Rwanda, chicken production is an important opportunity for household nutrition, rural employment and agribusiness. Other poultry species may also offer opportunities where suitable markets and production conditions exist."
+         data-rw="Mu Rwanda, ubworozi bw'inkoko ni amahirwe akomeye yo guteza imbere imirire y'imiryango, guhanga imirimo mu cyaro no guteza imbere ubucuruzi bw'ubuhinzi. Ubworozi bw'izindi nyoni na bwo bushobora gutanga amahirwe ahari amasoko n'uburyo bukwiye bwo kuzorora.">
         In Rwanda, chicken production is an important opportunity for
         household nutrition, rural employment and agribusiness.
         Other poultry species may also offer opportunities where
         suitable markets and production conditions exist.
       </p>
 
-      <p>
+      <p data-en="Successful poultry farming requires proper housing, reliable feed, clean water, health monitoring, biosecurity, financial planning and market access."
+         data-rw="Ubworozi bwiza busaba ibiraro bibereye amatungo, ibiryo bihagije, amazi meza, kugenzura ubuzima, gukumira indwara, igenamigambi ry'imari no kubona amasoko.">
         Successful poultry farming requires proper housing,
         reliable feed, clean water, health monitoring, biosecurity,
         financial planning and market access.
       </p>
 
       <div class="note">
-        <strong>Remember:</strong> Different poultry species have
-        different nutritional, housing, breeding and health requirements.
-        Always follow species-specific guidance.
+        <strong data-en="Remember:" data-rw="Ibuka:">Remember:</strong>
+        <span data-en="Different poultry species have different nutritional, housing, breeding and health requirements. Always follow species-specific guidance."
+              data-rw="Ubwoko butandukanye bw'inyoni zororwa bukenera ibiryo, ibiraro, uburyo bwo kororoka n'ubuvuzi bitandukanye. Buri gihe kurikiza amabwiriza ajyanye n'ubwoko worora.">
+          Different poultry species have different nutritional,
+          housing, breeding and health requirements.
+          Always follow species-specific guidance.
+        </span>
       </div>
+
     </div>
 
     <div class="intro-photo">
@@ -467,10 +939,24 @@ img{display:block;width:100%;height:100%;object-fit:cover}
   </div>
 </section>
 
+<!-- POULTRY TYPES -->
+
 <section class="section container" id="poultry-types">
-  <span class="section-label">02 / Poultry Production</span>
-  <h2>Explore Different Types of Poultry Farming</h2>
-  <p class="section-lead">
+
+  <span class="section-label"
+        data-en="02 / Poultry Production"
+        data-rw="02 / Umusaruro w'Ubworozi">
+    02 / Poultry Production
+  </span>
+
+  <h2 data-en="Explore Different Types of Poultry Farming"
+      data-rw="Menya Ubwoko Butandukanye bw'Ubworozi bw'Inyoni">
+    Explore Different Types of Poultry Farming
+  </h2>
+
+  <p class="section-lead"
+     data-en="Choose the poultry enterprise you want to learn about. Each card uses a photograph selected for the specific bird species."
+     data-rw="Hitamo ubwoko bw'ubworozi wifuza kwigaho. Buri karita ifite ifoto ijyanye n'ubwoko bw'inyoni ivugwaho.">
     Choose the poultry enterprise you want to learn about.
     Each card uses a photograph selected for the specific bird species.
   </p>
@@ -478,168 +964,343 @@ img{display:block;width:100%;height:100%;object-fit:cover}
   <div class="cards">
 
     <!-- CHICKENS -->
+
     <article class="card">
       <div class="card-photo">
         <img
           src="https://www.zurueckzumursprung.at/fileadmin/_processed_/8/5/csm_hueho951_jpg_bfe6e56a46.jpg"
           alt="Brown domestic chickens on a poultry farm"
           loading="lazy">
-        <span class="photo-label">Chickens</span>
+        <span class="photo-label"
+              data-en="Chickens" data-rw="Inkoko">
+          Chickens
+        </span>
       </div>
+
       <div class="card-content">
-        <span class="card-category">Chicken Production</span>
-        <h3>Chicken Farming</h3>
-        <p>
+        <span class="card-category"
+              data-en="Chicken Production"
+              data-rw="Umusaruro w'Inkoko">
+          Chicken Production
+        </span>
+
+        <h3 data-en="Chicken Farming"
+            data-rw="Ubworozi bw'Inkoko">
+          Chicken Farming
+        </h3>
+
+        <p data-en="Learn to raise chickens for eggs and meat, including broilers, layers and local chicken production systems."
+           data-rw="Menya korora inkoko zitanga amagi n'inyama, harimo inkoko z'inyama, iz'amagi n'inkoko gakondo.">
           Learn to raise chickens for eggs and meat, including
           broilers, layers and local chicken production systems.
         </p>
+
         <ul>
-          <li>Broiler and layer production</li>
-          <li>Housing and feeding</li>
-          <li>Chick care and disease prevention</li>
+          <li data-en="Broiler and layer production"
+              data-rw="Ubworozi bw'inkoko z'inyama n'iz'amagi">
+            Broiler and layer production
+          </li>
+          <li data-en="Housing and feeding"
+              data-rw="Ibiraro no kugaburira">
+            Housing and feeding
+          </li>
+          <li data-en="Chick care and disease prevention"
+              data-rw="Kwita ku mishwi no gukumira indwara">
+            Chick care and disease prevention
+          </li>
         </ul>
+
         <a class="card-action" href="chicken-farming.html">
-          Explore Chicken Farming
+          <span data-en="Explore Chicken Farming"
+                data-rw="Menya Ubworozi bw'Inkoko">
+            Explore Chicken Farming
+          </span>
           <i class="fa-solid fa-arrow-right"></i>
         </a>
       </div>
     </article>
 
     <!-- DUCKS -->
+
     <article class="card">
       <div class="card-photo">
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/8/83/Victoria%2CLagunajf3443_12.JPG"
           alt="White Pekin ducks in a poultry farm enclosure"
           loading="lazy">
-        <span class="photo-label">Ducks</span>
+        <span class="photo-label"
+              data-en="Ducks" data-rw="Imbata">
+          Ducks
+        </span>
       </div>
+
       <div class="card-content">
-        <span class="card-category">Duck Production</span>
-        <h3>Duck Farming</h3>
-        <p>
+        <span class="card-category"
+              data-en="Duck Production"
+              data-rw="Umusaruro w'Imbata">
+          Duck Production
+        </span>
+
+        <h3 data-en="Duck Farming"
+            data-rw="Ubworozi bw'Imbata">
+          Duck Farming
+        </h3>
+
+        <p data-en="Discover domestic duck farming for meat and eggs, with attention to housing, water access and feeding."
+           data-rw="Menya ubworozi bw'imbata zitanga inyama n'amagi, witaye ku biraro, amazi no kugaburira.">
           Discover domestic duck farming for meat and eggs,
           with attention to housing, water access and feeding.
         </p>
+
         <ul>
-          <li>Duck breeds and production systems</li>
-          <li>Water, housing and nutrition</li>
-          <li>Duckling care and flock health</li>
+          <li data-en="Duck breeds and production systems"
+              data-rw="Ubwoko bw'imbata n'uburyo bwo kuzorora">
+            Duck breeds and production systems
+          </li>
+          <li data-en="Water, housing and nutrition"
+              data-rw="Amazi, ibiraro n'imirire">
+            Water, housing and nutrition
+          </li>
+          <li data-en="Duckling care and flock health"
+              data-rw="Kwita ku bana b'imbata n'ubuzima bwazo">
+            Duckling care and flock health
+          </li>
         </ul>
+
         <a class="card-action" href="duck-farming.html">
-          Explore Duck Farming
+          <span data-en="Explore Duck Farming"
+                data-rw="Menya Ubworozi bw'Imbata">
+            Explore Duck Farming
+          </span>
           <i class="fa-solid fa-arrow-right"></i>
         </a>
       </div>
     </article>
 
     <!-- TURKEYS -->
+
     <article class="card">
       <div class="card-photo">
         <img
           src="https://static.wixstatic.com/media/779369_eed8f99a9ceb48dc859b441152da205d~mv2.jpg/v1/fill/w_854%2Ch_563%2Cal_c%2Clg_1%2Cq_85/779369_eed8f99a9ceb48dc859b441152da205d~mv2.jpg"
           alt="Flock of white domestic turkeys on pasture"
           loading="lazy">
-        <span class="photo-label">Turkeys</span>
+        <span class="photo-label"
+              data-en="Turkeys" data-rw="Dendo">
+          Turkeys
+        </span>
       </div>
+
       <div class="card-content">
-        <span class="card-category">Turkey Production</span>
-        <h3>Turkey Farming</h3>
-        <p>
+        <span class="card-category"
+              data-en="Turkey Production"
+              data-rw="Umusaruro wa Dendo">
+          Turkey Production
+        </span>
+
+        <h3 data-en="Turkey Farming"
+            data-rw="Ubworozi bwa Dendo">
+          Turkey Farming
+        </h3>
+
+        <p data-en="Explore turkey production for meat and breeding, including poult care, feeding, housing and health."
+           data-rw="Menya ubworozi bwa dendo zitanga inyama n'izororoka, harimo kwita ku bana bazo, kugaburira, ibiraro n'ubuzima.">
           Explore turkey production for meat and breeding,
           including poult care, feeding, housing and health.
         </p>
+
         <ul>
-          <li>Turkey breeds and meat production</li>
-          <li>Poult care and nutrition</li>
-          <li>Biosecurity and disease prevention</li>
+          <li data-en="Turkey breeds and meat production"
+              data-rw="Ubwoko bwa dendo n'umusaruro w'inyama">
+            Turkey breeds and meat production
+          </li>
+          <li data-en="Poult care and nutrition"
+              data-rw="Kwita ku bana ba dendo no kubagaburira">
+            Poult care and nutrition
+          </li>
+          <li data-en="Biosecurity and disease prevention"
+              data-rw="Isuku n'ingamba zo gukumira indwara">
+            Biosecurity and disease prevention
+          </li>
         </ul>
+
         <a class="card-action" href="turkey-farming.html">
-          Explore Turkey Farming
+          <span data-en="Explore Turkey Farming"
+                data-rw="Menya Ubworozi bwa Dendo">
+            Explore Turkey Farming
+          </span>
           <i class="fa-solid fa-arrow-right"></i>
         </a>
       </div>
     </article>
 
     <!-- GEESE -->
+
     <article class="card">
       <div class="card-photo">
         <img
           src="https://www.farmatumovi.cz/files/responsive/980/0/husy-chelcice-m-17.jpeg"
           alt="White domestic geese grazing on a poultry farm"
           loading="lazy">
-        <span class="photo-label">Geese</span>
+        <span class="photo-label"
+              data-en="Geese" data-rw="Ingagi zo mu Rugo">
+          Geese
+        </span>
       </div>
+
       <div class="card-content">
-        <span class="card-category">Goose Production</span>
-        <h3>Goose Farming</h3>
-        <p>
+        <span class="card-category"
+              data-en="Goose Production"
+              data-rw="Umusaruro w'Ingagi zo mu Rugo">
+          Goose Production
+        </span>
+
+        <h3 data-en="Goose Farming"
+            data-rw="Ubworozi bw'Ingagi zo mu Rugo">
+          Goose Farming
+        </h3>
+
+        <p data-en="Learn how to raise domestic geese, including grazing, supplementary feeding, shelter and breeding."
+           data-rw="Menya uko worora ingagi zo mu rugo, harimo kuziragira, kuzongerera ibiryo, kuzubakira aho kuba no kuzororoka.">
           Learn how to raise domestic geese, including
           grazing, supplementary feeding, shelter and breeding.
         </p>
+
         <ul>
-          <li>Goose breeds and grazing</li>
-          <li>Housing and breeding</li>
-          <li>Gosling care and health</li>
+          <li data-en="Goose breeds and grazing"
+              data-rw="Ubwoko bw'ingagi no kuziragira">
+            Goose breeds and grazing
+          </li>
+          <li data-en="Housing and breeding"
+              data-rw="Ibiraro no kororoka">
+            Housing and breeding
+          </li>
+          <li data-en="Gosling care and health"
+              data-rw="Kwita ku bana b'ingagi n'ubuzima bwabo">
+            Gosling care and health
+          </li>
         </ul>
+
         <a class="card-action" href="goose-farming.html">
-          Explore Goose Farming
+          <span data-en="Explore Goose Farming"
+                data-rw="Menya Ubworozi bw'Ingagi">
+            Explore Goose Farming
+          </span>
           <i class="fa-solid fa-arrow-right"></i>
         </a>
       </div>
     </article>
 
     <!-- GUINEA FOWL -->
+
     <article class="card">
       <div class="card-photo">
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Helmeted_guinea_fowl%2C_Sabi_Sands%2C_South_Africa.jpg/1280px-Helmeted_guinea_fowl%2C_Sabi_Sands%2C_South_Africa.jpg"
           alt="Helmeted guinea fowl photographed in South Africa"
           loading="lazy">
-        <span class="photo-label">Guinea Fowl</span>
+        <span class="photo-label"
+              data-en="Guinea Fowl" data-rw="Inkanga">
+          Guinea Fowl
+        </span>
       </div>
+
       <div class="card-content">
-        <span class="card-category">Guinea Fowl Production</span>
-        <h3>Guinea Fowl Farming</h3>
-        <p>
+        <span class="card-category"
+              data-en="Guinea Fowl Production"
+              data-rw="Umusaruro w'Inkanga">
+          Guinea Fowl Production
+        </span>
+
+        <h3 data-en="Guinea Fowl Farming"
+            data-rw="Ubworozi bw'Inkanga">
+          Guinea Fowl Farming
+        </h3>
+
+        <p data-en="Explore guinea fowl production, including keet care, housing, feeding and flock management."
+           data-rw="Menya ubworozi bw'inkanga, harimo kwita ku bana bazo, ibiraro, kugaburira no gucunga ubushyo.">
           Explore guinea fowl production, including keet care,
           housing, feeding and flock management.
         </p>
+
         <ul>
-          <li>Guinea fowl production systems</li>
-          <li>Keet care and feeding</li>
-          <li>Predator protection and biosecurity</li>
+          <li data-en="Guinea fowl production systems"
+              data-rw="Uburyo bwo korora inkanga">
+            Guinea fowl production systems
+          </li>
+          <li data-en="Keet care and feeding"
+              data-rw="Kwita ku bana b'inkanga no kubagaburira">
+            Keet care and feeding
+          </li>
+          <li data-en="Predator protection and biosecurity"
+              data-rw="Kurinda inyoni inyamaswa zishobora kuzirya no gukumira indwara">
+            Predator protection and biosecurity
+          </li>
         </ul>
+
         <a class="card-action" href="guinea-fowl-farming.html">
-          Explore Guinea Fowl Farming
+          <span data-en="Explore Guinea Fowl Farming"
+                data-rw="Menya Ubworozi bw'Inkanga">
+            Explore Guinea Fowl Farming
+          </span>
           <i class="fa-solid fa-arrow-right"></i>
         </a>
       </div>
     </article>
 
-    <!-- MANAGEMENT -->
+    <!-- POULTRY MANAGEMENT -->
+
     <article class="card">
       <div class="card-photo">
         <img
           src="https://www.zurueckzumursprung.at/fileadmin/_processed_/8/5/csm_hueho951_jpg_bfe6e56a46.jpg"
           alt="Free-range chicken flock beside a poultry house"
           loading="lazy">
-        <span class="photo-label">Poultry Housing</span>
+        <span class="photo-label"
+              data-en="Poultry Housing"
+              data-rw="Ibiraro by'Inkoko n'Izindi Nyoni">
+          Poultry Housing
+        </span>
       </div>
+
       <div class="card-content">
-        <span class="card-category">Farm Management</span>
-        <h3>Poultry Management</h3>
-        <p>
+        <span class="card-category"
+              data-en="Farm Management"
+              data-rw="Imicungire y'Ubworozi">
+          Farm Management
+        </span>
+
+        <h3 data-en="Poultry Management"
+            data-rw="Imicungire y'Ubworozi bw'Inyoni">
+          Poultry Management
+        </h3>
+
+        <p data-en="Learn the principles of operating a productive poultry enterprise with healthy birds and good records."
+           data-rw="Menya amahame yo gucunga ubworozi butanga umusaruro, bufite inyoni zifite ubuzima bwiza n'inyandiko zibitswe neza.">
           Learn the principles of operating a productive
           poultry enterprise with healthy birds and good records.
         </p>
+
         <ul>
-          <li>Housing and sanitation</li>
-          <li>Biosecurity and flock monitoring</li>
-          <li>Production and financial records</li>
+          <li data-en="Housing and sanitation"
+              data-rw="Ibiraro n'isuku">
+            Housing and sanitation
+          </li>
+          <li data-en="Biosecurity and flock monitoring"
+              data-rw="Gukumira indwara no kugenzura ubushyo">
+            Biosecurity and flock monitoring
+          </li>
+          <li data-en="Production and financial records"
+              data-rw="Inyandiko z'umusaruro n'imari">
+            Production and financial records
+          </li>
         </ul>
+
         <a class="card-action" href="poultry-management.html">
-          Explore Poultry Management
+          <span data-en="Explore Poultry Management"
+                data-rw="Menya Imicungire y'Ubworozi">
+            Explore Poultry Management
+          </span>
           <i class="fa-solid fa-arrow-right"></i>
         </a>
       </div>
@@ -648,15 +1309,30 @@ img{display:block;width:100%;height:100%;object-fit:cover}
   </div>
 </section>
 
+<!-- MANAGEMENT -->
+
 <section class="section container" id="management">
-  <span class="section-label">03 / Good Farming Practices</span>
-  <h2>Good Management Creates Better Results</h2>
-  <p class="section-lead">
+
+  <span class="section-label"
+        data-en="03 / Good Farming Practices"
+        data-rw="03 / Uburyo Bwiza bwo Korora">
+    03 / Good Farming Practices
+  </span>
+
+  <h2 data-en="Good Management Creates Better Results"
+      data-rw="Imicungire Myiza Yongera Umusaruro">
+    Good Management Creates Better Results
+  </h2>
+
+  <p class="section-lead"
+     data-en="Healthy poultry production starts with good planning and continues through every stage of flock management."
+     data-rw="Ubworozi bwiza butangirana n'igenamigambi ryiza kandi bugakomeza mu byiciro byose byo kwita ku nyoni zororwa.">
     Healthy poultry production starts with good planning
     and continues through every stage of flock management.
   </p>
 
   <div class="management-panel">
+
     <div class="management-photo">
       <img
         src="https://www.zurueckzumursprung.at/fileadmin/_processed_/8/5/csm_hueho951_jpg_bfe6e56a46.jpg"
@@ -665,53 +1341,104 @@ img{display:block;width:100%;height:100%;object-fit:cover}
     </div>
 
     <div>
-      <h3>Build a Healthy Poultry Enterprise</h3>
-      <p>
+      <h3 data-en="Build a Healthy Poultry Enterprise"
+          data-rw="Shinga Ubworozi Bufite Ubuzima Bwiza">
+        Build a Healthy Poultry Enterprise
+      </h3>
+
+      <p data-en="Prepare suitable housing, reliable feed and water supplies, and a health-management plan before bringing birds to your farm."
+         data-rw="Tegura ibiraro bibereye amatungo, ibiryo n'amazi bihagije hamwe na gahunda yo kubungabunga ubuzima mbere yo kuzana inyoni mu bworozi bwawe.">
         Prepare suitable housing, reliable feed and water
         supplies, and a health-management plan before bringing
         birds to your farm.
       </p>
 
       <ul class="checks">
-        <li>Provide appropriate housing and ventilation.</li>
-        <li>Ensure continuous access to clean drinking water.</li>
-        <li>Feed birds according to species and growth stage.</li>
-        <li>Apply suitable biosecurity measures.</li>
-        <li>Consult veterinary professionals about vaccination.</li>
-        <li>Keep mortality, production, expense and sales records.</li>
+        <li data-en="Provide appropriate housing and ventilation."
+            data-rw="Tegura ibiraro bibereye amatungo kandi byinjiramo umwuka uhagije.">
+          Provide appropriate housing and ventilation.
+        </li>
+        <li data-en="Ensure continuous access to clean drinking water."
+            data-rw="Tanga amazi meza yo kunywa igihe cyose.">
+          Ensure continuous access to clean drinking water.
+        </li>
+        <li data-en="Feed birds according to species and growth stage."
+            data-rw="Gaburira inyoni ukurikije ubwoko bwazo n'icyiciro cy'imikurire.">
+          Feed birds according to species and growth stage.
+        </li>
+        <li data-en="Apply suitable biosecurity measures."
+            data-rw="Kurikiza ingamba zikwiye zo gukumira indwara.">
+          Apply suitable biosecurity measures.
+        </li>
+        <li data-en="Consult veterinary professionals about vaccination."
+            data-rw="Gisha inama abaganga b'amatungo ku bijyanye n'inkingo.">
+          Consult veterinary professionals about vaccination.
+        </li>
+        <li data-en="Keep mortality, production, expense and sales records."
+            data-rw="Bika inyandiko z'amatungo yapfuye, umusaruro, amafaranga yakoreshejwe n'ayavuye mu kugurisha.">
+          Keep mortality, production, expense and sales records.
+        </li>
       </ul>
 
       <a class="btn" href="poultry-management.html">
         <i class="fa-solid fa-book-open"></i>
-        Learn Poultry Management
+        <span data-en="Learn Poultry Management"
+              data-rw="Menya Imicungire y'Ubworozi">
+          Learn Poultry Management
+        </span>
       </a>
     </div>
+
   </div>
 
   <div class="note">
-    <strong>Advice for farmers in Rwanda:</strong>
-    Consult local veterinary and agricultural extension services
-    about appropriate breeds, disease prevention, vaccination
-    and locally approved veterinary products.
+    <strong data-en="Advice for farmers in Rwanda:"
+            data-rw="Inama ku borozi bo mu Rwanda:">
+      Advice for farmers in Rwanda:
+    </strong>
+    <span data-en="Consult local veterinary and agricultural extension services about appropriate breeds, disease prevention, vaccination and locally approved veterinary products."
+          data-rw="Gisha inama abaganga b'amatungo n'abajyanama b'ubuhinzi bo mu gace utuyemo ku bwoko bukwiye kororwa, gukumira indwara, inkingo n'imiti y'amatungo yemewe mu Rwanda.">
+      Consult local veterinary and agricultural extension services
+      about appropriate breeds, disease prevention, vaccination
+      and locally approved veterinary products.
+    </span>
   </div>
+
 </section>
+
+<!-- FEATURED GUIDE -->
 
 <section class="container">
   <div class="feature">
+
     <div class="feature-copy">
-      <span class="section-label" style="color:#ccead3">
+
+      <span class="section-label" style="color:#ccead3"
+            data-en="04 / Featured Poultry Guide"
+            data-rw="04 / Amabwiriza Yihariye ku Bworozi">
         04 / Featured Poultry Guide
       </span>
-      <h2>Discover Turkey Farming</h2>
-      <p>
+
+      <h2 data-en="Discover Turkey Farming"
+          data-rw="Menya Ubworozi bwa Dendo">
+        Discover Turkey Farming
+      </h2>
+
+      <p data-en="Explore turkey breeds, housing, nutrition, poult management, breeding, incubation, health and business planning."
+         data-rw="Menya ubwoko bwa dendo, ibiraro, imirire, kwita ku bana bazo, kororoka, guturaga amagi, ubuzima n'igenamigambi ry'ubucuruzi.">
         Explore turkey breeds, housing, nutrition,
         poult management, breeding, incubation,
         health and business planning.
       </p>
+
       <a class="btn" href="turkey-farming.html">
         <i class="fa-solid fa-arrow-right"></i>
-        Explore Turkey Farming
+        <span data-en="Explore Turkey Farming"
+              data-rw="Menya Ubworozi bwa Dendo">
+          Explore Turkey Farming
+        </span>
       </a>
+
     </div>
 
     <div class="feature-photo">
@@ -720,83 +1447,214 @@ img{display:block;width:100%;height:100%;object-fit:cover}
         alt="White domestic turkeys raised on pasture"
         loading="lazy">
     </div>
+
   </div>
 </section>
 
+<!-- MARKETPLACE CTA -->
+
 <div class="container">
   <section class="cta">
-    <h2>Ready to Grow Your Poultry Business?</h2>
-    <p>
+
+    <h2 data-en="Ready to Grow Your Poultry Business?"
+        data-rw="Witeguye Guteza Imbere Ubworozi Bwawe?">
+      Ready to Grow Your Poultry Business?
+    </h2>
+
+    <p data-en="Discover agricultural trading opportunities through Africa AgroVision and connect with potential buyers and sellers."
+       data-rw="Menya amahirwe y'ubucuruzi bw'ubuhinzi binyuze muri Africa AgroVision kandi uhure n'abaguzi n'abagurisha.">
       Discover agricultural trading opportunities through
       Africa AgroVision and connect with potential buyers and sellers.
     </p>
+
     <a class="btn" href="agro-market.html">
       <i class="fa-solid fa-store"></i>
-      Explore Agricultural Marketplace
+      <span data-en="Explore Agricultural Marketplace"
+            data-rw="Sura Isoko ry'Ubuhinzi">
+        Explore Agricultural Marketplace
+      </span>
     </a>
+
   </section>
 </div>
 
 </main>
 
+<!-- FOOTER -->
+
 <footer class="footer">
   <p>
     © 2026 <strong>Africa AgroVision</strong> —
-    Growing Agriculture. Connecting Opportunities.
+    <span data-en="Growing Agriculture. Connecting Opportunities."
+          data-rw="Duteza imbere ubuhinzi. Duhuza amahirwe.">
+      Growing Agriculture. Connecting Opportunities.
+    </span>
   </p>
+
   <p style="margin-top:9px">
-    <a href="dashboard.html">Dashboard</a> ·
-    <a href="agriculture.html">Agriculture</a> ·
-    <a href="contact.html">Contact Us</a>
+    <a href="dashboard.html" data-en="Dashboard" data-rw="Imbonerahamwe">
+      Dashboard
+    </a> ·
+    <a href="agriculture.html" data-en="Agriculture" data-rw="Ubuhinzi">
+      Agriculture
+    </a> ·
+    <a href="contact.html" data-en="Contact Us" data-rw="Twandikire">
+      Contact Us
+    </a>
   </p>
 </footer>
 
 <script>
-"use strict";
+(function () {
+  "use strict";
 
-const toggle = document.getElementById("menuToggle");
-const links = document.getElementById("navLinks");
+  /* MOBILE NAVIGATION */
 
-toggle.addEventListener("click", function(){
-  const open = links.classList.toggle("open");
-  toggle.setAttribute("aria-expanded", String(open));
-  toggle.innerHTML = open
-    ? '<i class="fa-solid fa-xmark"></i>'
-    : '<i class="fa-solid fa-bars"></i>';
-});
+  const toggle = document.getElementById("menuToggle");
+  const links = document.getElementById("navLinks");
 
-links.addEventListener("click", function(event){
-  if(event.target.closest("a")){
-    links.classList.remove("open");
-    toggle.setAttribute("aria-expanded","false");
-    toggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+  if (toggle && links) {
+    toggle.addEventListener("click", function () {
+      const open = links.classList.toggle("open");
+
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute(
+        "aria-label",
+        open ? "Close navigation" : "Open navigation"
+      );
+
+      toggle.innerHTML = open
+        ? '<i class="fa-solid fa-xmark"></i>'
+        : '<i class="fa-solid fa-bars"></i>';
+    });
+
+    links.addEventListener("click", function (event) {
+      if (event.target.closest("a")) {
+        links.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Open navigation");
+        toggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+      }
+    });
   }
-});
 
-/* If an external photo becomes unavailable,
-   show a labeled fallback, not the wrong animal. */
+  /* IMAGE FALLBACK */
 
-document.querySelectorAll("img").forEach(function(img){
-  img.addEventListener("error", function(){
-    const parent = this.parentElement;
-    if(parent.classList.contains("image-failed")) return;
+  function handleImageError(img) {
+    const parent = img.parentElement;
 
-    const label = this.alt || "Poultry Farming";
+    if (!parent || parent.classList.contains("image-failed")) {
+      return;
+    }
+
     const fallback = document.createElement("div");
-
     fallback.className = "image-fallback";
-    fallback.innerHTML =
-      '<i class="fa-solid fa-image"></i>' +
-      '<strong>Photo unavailable</strong>';
+
+    const icon = document.createElement("i");
+    icon.className = "fa-solid fa-image";
+
+    const heading = document.createElement("strong");
+    heading.dataset.en = "Photo unavailable";
+    heading.dataset.rw = "Ifoto ntiboneka";
 
     const description = document.createElement("span");
-    description.textContent = label;
+    description.textContent = img.alt || "Poultry Farming";
+
+    fallback.appendChild(icon);
+    fallback.appendChild(heading);
     fallback.appendChild(description);
 
     parent.appendChild(fallback);
     parent.classList.add("image-failed");
+
+    if (typeof window.translatePoultryPage === "function") {
+      window.translatePoultryPage(
+        document.documentElement.lang
+      );
+    }
+  }
+
+  document.querySelectorAll("img").forEach(function (img) {
+    img.addEventListener("error", function () {
+      handleImageError(this);
+    });
+
+    if (img.complete && img.naturalWidth === 0) {
+      handleImageError(img);
+    }
   });
-});
+
+  /* ENGLISH / KINYARWANDA TRANSLATION */
+
+  const LANGUAGE_KEY = "agrovision-language";
+  const languageSelect = document.getElementById("poultryLanguage");
+
+  function getSavedLanguage() {
+    try {
+      return localStorage.getItem(LANGUAGE_KEY) === "rw"
+        ? "rw"
+        : "en";
+    } catch (error) {
+      return "en";
+    }
+  }
+
+  function saveLanguage(language) {
+    try {
+      localStorage.setItem(LANGUAGE_KEY, language);
+    } catch (error) {
+      // Translation remains available without localStorage.
+    }
+  }
+
+  function translatePage(language) {
+    const lang = language === "rw" ? "rw" : "en";
+
+    document.querySelectorAll("[data-en][data-rw]")
+      .forEach(function (element) {
+        element.textContent = element.getAttribute("data-" + lang);
+      });
+
+    if (languageSelect) {
+      languageSelect.value = lang;
+    }
+
+    document.documentElement.lang = lang;
+
+    document.title = lang === "rw"
+      ? "Ubworozi bw'Inkoko n'Izindi Nyoni | Africa AgroVision"
+      : "Poultry Farming | Africa AgroVision";
+
+    if (toggle) {
+      const isOpen = links && links.classList.contains("open");
+
+      toggle.setAttribute(
+        "aria-label",
+        lang === "rw"
+          ? (isOpen ? "Funga menu" : "Fungura menu")
+          : (isOpen ? "Close navigation" : "Open navigation")
+      );
+    }
+  }
+
+  window.translatePoultryPage = translatePage;
+
+  if (languageSelect) {
+    languageSelect.addEventListener("change", function () {
+      saveLanguage(this.value);
+      translatePage(this.value);
+    });
+  }
+
+  window.addEventListener("storage", function (event) {
+    if (event.key === LANGUAGE_KEY) {
+      translatePage(getSavedLanguage());
+    }
+  });
+
+  translatePage(getSavedLanguage());
+
+})();
 </script>
 
 </body>

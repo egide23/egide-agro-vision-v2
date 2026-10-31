@@ -1280,5 +1280,353 @@ async function(event){
 
 </script>
 
+<!-- AFRICA AGROVISION - REGISTRATION TRANSLATION -->
+<script>
+(function () {
+  "use strict";
+
+  const STORAGE_KEY = "agrovision-language";
+
+  const translations = {
+    "Agriculture • Innovation • Opportunities":
+      "Ubuhinzi • Udushya • Amahirwe",
+
+    "Join the Future of":
+      "Injira mu hazaza h'",
+    "African Agriculture.":
+      "Ubuhinzi muri Afurika.",
+
+    "Create your Africa AgroVision account and become part of a growing agricultural community focused on knowledge, innovation and opportunities.":
+      "Fungura konti ya Africa AgroVision maze winjire mu muryango w'abakora ubuhinzi uharanira ubumenyi, udushya n'amahirwe.",
+
+    "Explore practical agricultural knowledge":
+      "Menya ubumenyi ngiro mu buhinzi",
+
+    "Discover livestock and crop farming guides":
+      "Menya uburyo bwo korora no guhinga",
+
+    "Access agricultural marketplace opportunities":
+      "Bona amahirwe yo kugura no kugurisha umusaruro",
+
+    "Connect with the Africa AgroVision community":
+      "Ihuze n'umuryango wa Africa AgroVision",
+
+    "Growing Agriculture. Connecting Opportunities.":
+      "Duteza imbere ubuhinzi. Duhuza amahirwe.",
+
+    "← Back to Home": "← Subira ahabanza",
+    "Join Our Community": "Injira mu muryango wacu",
+
+    "Create Your Account": "Fungura konti yawe",
+
+    "Start your journey with Africa AgroVision. Register to explore agricultural knowledge, farming opportunities and innovation.":
+      "Tangira urugendo rwawe na Africa AgroVision. Iyandikishe kugira ngo ubone ubumenyi mu buhinzi, amahirwe y'ubuhinzi n'udushya.",
+
+    "Full Name": "Amazina yose",
+    "Email Address": "Aderesi ya imeyili",
+    "Create Password": "Shyiraho ijambo ry'ibanga",
+    "Confirm Password": "Emeza ijambo ry'ibanga",
+
+    "Enter your full name": "Andika amazina yawe yose",
+    "Enter your email address": "Andika aderesi ya imeyili",
+    "Create a secure password":
+      "Shyiraho ijambo ry'ibanga rikomeye",
+    "Enter your password again":
+      "Ongera wandike ijambo ry'ibanga",
+
+    "Show": "Erekana",
+    "Hide": "Hisha",
+
+    "Password strength": "Imbaraga z'ijambo ry'ibanga",
+    "Weak password": "Ijambo ry'ibanga rifite intege nke",
+    "Fair password": "Ijambo ry'ibanga riringaniye",
+    "Good password": "Ijambo ry'ibanga ryiza",
+    "Strong password": "Ijambo ry'ibanga rikomeye",
+
+    "Use at least 8 characters. A mixture of letters, numbers and symbols is recommended.":
+      "Koresha nibura inyuguti n'ibimenyetso 8. Ni byiza kuvanga inyuguti, imibare n'ibimenyetso byihariye.",
+
+    "Create My Account →": "Fungura konti yanjye →",
+    "Creating Your Account...": "Turimo gufungura konti yawe...",
+    "Registration Submitted": "Ubusabe bwo kwiyandikisha bwoherejwe",
+
+    "Already have an account?": "Usanzwe ufite konti?",
+    "Sign In": "Injira",
+
+    "Secure account registration powered by Supabase":
+      "Kwiyandikisha mu buryo bwizewe hakoreshejwe Supabase",
+
+    "Please enter your full name.":
+      "Andika amazina yawe yose.",
+
+    "Your password must contain at least 8 characters.":
+      "Ijambo ry'ibanga rigomba kugira nibura inyuguti n'ibimenyetso 8.",
+
+    "The passwords do not match. Please try again.":
+      "Amagambo y'ibanga ntiyahuye. Ongera ugerageze.",
+
+    "Your registration request was received. If email confirmation is required, please check your inbox and spam folder, then follow the verification link before signing in.":
+      "Ubusabe bwawe bwo kwiyandikisha bwakiriwe. Niba bisaba kwemeza imeyili, reba ubutumwa bwawe, harimo n'ububiko bwa spam, ukurikize umurongo wo kwemeza konti mbere yo kwinjira.",
+
+    "Your account has been created successfully! Opening your dashboard...":
+      "Konti yawe yafunguwe neza! Turimo gufungura imbonerahamwe yawe...",
+
+    "Registration completed. Please check your email for any required verification instructions.":
+      "Kwiyandikisha byarangiye. Reba imeyili yawe kugira ngo ukurikize amabwiriza yo kwemeza konti niba akenewe.",
+
+    "Unable to create your account. Please try again.":
+      "Ntitwashoboye gufungura konti yawe. Ongera ugerageze.",
+
+    "Authentication is temporarily unavailable. Check your internet connection and Supabase configuration.":
+      "Serivisi yo kwiyandikisha ntiboneka by'igihe gito. Reba interineti yawe n'imiterere ya Supabase."
+  };
+
+  const originalText = new WeakMap();
+  const originalPlaceholders = new WeakMap();
+
+  function getLanguage() {
+    return localStorage.getItem(STORAGE_KEY) === "rw"
+      ? "rw"
+      : "en";
+  }
+
+  function normalize(text) {
+    return String(text).trim().replace(/\s+/g, " ");
+  }
+
+  function translateText(element, lang) {
+    const walker = document.createTreeWalker(
+      element,
+      NodeFilter.SHOW_TEXT
+    );
+
+    const nodes = [];
+
+    while (walker.nextNode()) {
+      nodes.push(walker.currentNode);
+    }
+
+    nodes.forEach(node => {
+      if (!node.nodeValue.trim()) return;
+
+      if (!originalText.has(node)) {
+        originalText.set(node, node.nodeValue);
+      }
+
+      const original = originalText.get(node);
+      const clean = normalize(original);
+      const translated = lang === "rw"
+        ? translations[clean] || clean
+        : clean;
+
+      node.nodeValue =
+        original.match(/^\s*/)[0] +
+        translated +
+        original.match(/\s*$/)[0];
+    });
+  }
+
+  function translateCombined(element, lang) {
+    if (!element) return;
+
+    const original = element.dataset.translationOriginal ||
+      normalize(element.textContent);
+
+    if (!element.dataset.translationOriginal) {
+      element.dataset.translationOriginal = original;
+    }
+
+    const translated = lang === "rw"
+      ? translations[original] || original
+      : original;
+
+    if (element.textContent.trim() !== translated) {
+      element.textContent = translated;
+    }
+  }
+
+  function translateMessage(element, lang) {
+    if (!element || !element.textContent.trim()) return;
+
+    const current = normalize(element.textContent);
+
+    if (lang === "rw" && translations[current]) {
+      element.textContent = translations[current];
+    }
+
+    if (lang === "en") {
+      const match = Object.entries(translations)
+        .find(([, rw]) => rw === current);
+
+      if (match) element.textContent = match[0];
+    }
+  }
+
+  function applyTranslation() {
+    const lang = getLanguage();
+
+    const combinedSelectors = [
+      ".visual-content > p",
+      ".intro",
+      ".password-hint"
+    ];
+
+    combinedSelectors.forEach(selector => {
+      document.querySelectorAll(selector)
+        .forEach(element => translateCombined(element, lang));
+    });
+
+    const selectors = [
+      ".eyebrow",
+      ".visual h1",
+      ".visual-features li",
+      ".visual-footer",
+      ".back-link",
+      ".form-badge",
+      ".form-card h2",
+      ".field label",
+      ".show-password",
+      "#strengthLabel",
+      "#registerButton",
+      ".login-link",
+      ".trust"
+    ];
+
+    document.querySelectorAll(selectors.join(","))
+      .forEach(element => translateText(element, lang));
+
+    document.querySelectorAll("input[placeholder]")
+      .forEach(input => {
+        if (!originalPlaceholders.has(input)) {
+          originalPlaceholders.set(input, input.placeholder);
+        }
+
+        const english = originalPlaceholders.get(input);
+
+        input.placeholder = lang === "rw"
+          ? translations[english] || english
+          : english;
+      });
+
+    translateMessage(document.getElementById("message"), lang);
+
+    const selector = document.getElementById("registerLanguage");
+    if (selector) selector.value = lang;
+
+    document.documentElement.lang = lang;
+  }
+
+  function setupLanguageSelector() {
+    const top = document.querySelector(".form-top");
+
+    if (!top || document.getElementById("registerLanguage")) {
+      return;
+    }
+
+    const selector = document.createElement("select");
+
+    selector.id = "registerLanguage";
+    selector.setAttribute("aria-label", "Choose language");
+
+    selector.style.cssText = [
+      "width:auto",
+      "min-width:125px",
+      "padding:8px 10px",
+      "border:1px solid #cfe3d3",
+      "border-radius:9px",
+      "background:white",
+      "color:#14532d",
+      "font-size:12px",
+      "font-weight:700",
+      "cursor:pointer"
+    ].join(";");
+
+    selector.innerHTML = `
+      <option value="en">🌐 English</option>
+      <option value="rw">🌐 Kinyarwanda</option>
+    `;
+
+    top.appendChild(selector);
+
+    selector.value = getLanguage();
+
+    selector.addEventListener("change", function () {
+      localStorage.setItem(STORAGE_KEY, this.value);
+      applyTranslation();
+    });
+  }
+
+  function initializeTranslation() {
+    setupLanguageSelector();
+    applyTranslation();
+
+    const dynamicElements = [
+      document.getElementById("strengthLabel"),
+      document.getElementById("registerButton"),
+      document.getElementById("message"),
+      document.getElementById("showPassword"),
+      document.getElementById("showConfirmPassword")
+    ].filter(Boolean);
+
+    const observer = new MutationObserver(() => {
+      observer.disconnect();
+
+      // Dynamic messages are generated by the existing code.
+      // Re-read them so translation remains synchronized.
+      dynamicElements.forEach(element => {
+        if (element.id !== "message") {
+          const walker = document.createTreeWalker(
+            element,
+            NodeFilter.SHOW_TEXT
+          );
+
+          while (walker.nextNode()) {
+            const node = walker.currentNode;
+            if (node.nodeValue.trim()) {
+              const current = normalize(node.nodeValue);
+              const english = Object.entries(translations)
+                .find(([, rw]) => rw === current);
+
+              originalText.set(
+                node,
+                english ? english[0] : node.nodeValue
+              );
+            }
+          }
+        }
+      });
+
+      applyTranslation();
+
+      dynamicElements.forEach(element => {
+        observer.observe(element, {
+          childList: true,
+          subtree: true,
+          characterData: true
+        });
+      });
+    });
+
+    dynamicElements.forEach(element => {
+      observer.observe(element, {
+        childList: true,
+        subtree: true,
+        characterData: true
+      });
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      initializeTranslation
+    );
+  } else {
+    initializeTranslation();
+  }
+})();
+</script>
+<!-- END REGISTRATION TRANSLATION -->
+
 </body>
 </html>

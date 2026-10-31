@@ -204,6 +204,188 @@
 </section>
 ```
 
+<!-- AFRICA AGROVISION - AGRICULTURE TRANSLATION -->
+<script>
+(function () {
+  "use strict";
+
+  const STORAGE_KEY = "agrovision-language";
+
+  const translations = {
+    "Home": "Ahabanza",
+    "Agriculture": "Ubuhinzi",
+    "Crop Production": "Ubuhinzi bw'ibihingwa",
+
+    "🌍 Agriculture Knowledge Centre":
+      "🌍 Ikigo cy'ubumenyi mu buhinzi",
+
+    "Africa AgroVision provides modern agricultural knowledge, smart farming solutions, and practical information to help farmers improve productivity, increase income, and build sustainable agriculture across Africa.":
+      "Africa AgroVision itanga ubumenyi bugezweho mu buhinzi, ibisubizo bishingiye ku ikoranabuhanga n'amakuru ngiro afasha abahinzi kongera umusaruro, kuzamura amafaranga binjiza no guteza imbere ubuhinzi burambye muri Afurika.",
+
+    "Explore complete crop farming guides including beans, coffee, rice, tomato production, soil management, and harvesting.":
+      "Menya uburyo bwo guhinga ibihingwa bitandukanye birimo ibishyimbo, ikawa, umuceri n'inyanya, gutunganya ubutaka no gusarura neza.",
+
+    "Livestock Farming": "Ubworozi bw'amatungo",
+
+    "Discover animal production, feeding, breeding, animal health, and modern livestock management practices.":
+      "Menya uburyo bwo korora amatungo, kuyagaburira, kuyabangurira, kwita ku buzima bwayo no kuyacunga mu buryo bugezweho.",
+
+    "Climate & Weather": "Ikirere n'iteganyagihe",
+
+    "Understand climate-smart agriculture, weather planning, drought adaptation, and climate change solutions.":
+      "Sobanukirwa ubuhinzi buhangana n'imihindagurikire y'ikirere, gukoresha iteganyagihe mu igenamigambi, guhangana n'amapfa n'ibisubizo ku mihindagurikire y'ikirere.",
+
+    "Soil Health": "Ubuzima bw'ubutaka",
+
+    "Learn about soil fertility, organic matter, soil testing, and methods to improve farm productivity.":
+      "Menya uburumbuke bw'ubutaka, ifumbire mborera, gupima ubutaka n'uburyo bwo kongera umusaruro w'ubuhinzi.",
+
+    "Irrigation & Water Management":
+      "Kuhira no gucunga amazi",
+
+    "Discover efficient irrigation systems, water conservation, and sustainable water management practices.":
+      "Menya uburyo bunoze bwo kuhira, kubungabunga amazi no kuyakoresha mu buryo burambye mu buhinzi.",
+
+    "Pest & Disease Control":
+      "Kurwanya udukoko n'indwara z'ibihingwa",
+
+    "Learn pest identification, disease prevention, and safe crop protection methods.":
+      "Menya uburyo bwo gutahura udukoko twangiza ibihingwa, gukumira indwara no kurinda ibihingwa mu buryo butekanye.",
+
+    "Smart Agriculture": "Ubuhinzi bugezweho",
+
+    "Explore agricultural technology, digital farming tools, innovation, and future farming solutions.":
+      "Menya ikoranabuhanga mu buhinzi, ibikoresho by'ikoranabuhanga bifasha abahinzi, udushya n'ibisubizo by'ubuhinzi bw'ejo hazaza.",
+
+    "Explore More": "Menya byinshi",
+    "Coming Soon": "Biraza vuba",
+
+    "Building Africa's agricultural future through innovation, sustainability, and accessible farming knowledge.":
+      "Twubaka ejo hazaza h'ubuhinzi muri Afurika binyuze mu dushya, iterambere rirambye n'ubumenyi mu buhinzi bugera kuri bose."
+  };
+
+  const originalText = new WeakMap();
+
+  function getLanguage() {
+    return localStorage.getItem(STORAGE_KEY) === "rw"
+      ? "rw"
+      : "en";
+  }
+
+  function normalize(value) {
+    return String(value).trim().replace(/\s+/g, " ");
+  }
+
+  function translateText(element, lang) {
+    if (!element) return;
+
+    if (!originalText.has(element)) {
+      originalText.set(element, element.textContent);
+    }
+
+    const original = originalText.get(element);
+    const english = normalize(original);
+
+    const translated = lang === "rw"
+      ? translations[english] || english
+      : english;
+
+    element.textContent = translated;
+  }
+
+  function applyTranslation() {
+    const lang = getLanguage();
+
+    const selectors = [
+      ".dashboard-nav ul a",
+      ".crop-page > h1",
+      ".crop-page > p",
+      ".agriculture-box h2",
+      ".agriculture-box p",
+      ".agriculture-box .crop-btn",
+      ".agrovision-message p"
+    ];
+
+    document.querySelectorAll(selectors.join(","))
+      .forEach(element => translateText(element, lang));
+
+    const selector = document.getElementById(
+      "agricultureLanguage"
+    );
+
+    if (selector) selector.value = lang;
+
+    document.documentElement.lang = lang;
+
+    document.title = lang === "rw"
+      ? "Ikigo cy'Ubumenyi mu Buhinzi | Africa AgroVision"
+      : "Agriculture Knowledge Centre | Africa AgroVision";
+  }
+
+  function setupLanguageSelector() {
+    const nav = document.querySelector(".dashboard-nav ul");
+
+    if (!nav || document.getElementById("agricultureLanguage")) {
+      return;
+    }
+
+    const item = document.createElement("li");
+
+    const selector = document.createElement("select");
+
+    selector.id = "agricultureLanguage";
+    selector.setAttribute(
+      "aria-label",
+      "Choose language / Hitamo ururimi"
+    );
+
+    selector.style.cssText = [
+      "width:auto",
+      "min-width:145px",
+      "padding:10px 12px",
+      "border:1px solid #d6e8da",
+      "border-radius:9px",
+      "background:#ffffff",
+      "color:#14532d",
+      "font-size:13px",
+      "font-weight:700",
+      "cursor:pointer",
+      "max-width:100%"
+    ].join(";");
+
+    selector.innerHTML = `
+      <option value="en">🌐 English</option>
+      <option value="rw">🌐 Kinyarwanda</option>
+    `;
+
+    item.appendChild(selector);
+    nav.appendChild(item);
+
+    selector.value = getLanguage();
+
+    selector.addEventListener("change", function () {
+      localStorage.setItem(STORAGE_KEY, this.value);
+      applyTranslation();
+    });
+  }
+
+  function initializeTranslation() {
+    setupLanguageSelector();
+    applyTranslation();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      initializeTranslation
+    );
+  } else {
+    initializeTranslation();
+  }
+})();
+</script>
+<!-- END AGRICULTURE TRANSLATION -->
+
 </body>
 
 </html>

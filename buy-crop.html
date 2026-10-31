@@ -1135,5 +1135,322 @@ startBuyCropPage();
 
 </script>
 
+<!-- AFRICA AGROVISION - BUY CROPS TRANSLATION -->
+<script>
+(function () {
+  "use strict";
+
+  const STORAGE_KEY = "agrovision-language";
+
+  const translations = {
+    "Home": "Ahabanza",
+    "Marketplace": "Isoko",
+    "Dashboard": "Imbonerahamwe",
+    "Buy Crops": "Gura umusaruro w'ubuhinzi",
+
+    "Tell us what agricultural products you are looking for. Provide your quantity, quality preference, location and contact information, and make your request clear to potential suppliers.":
+      "Tubwire umusaruro w'ubuhinzi ushaka kugura. Garagaza ingano ukeneye, ubwiza bwawo, aho uherereye n'uburyo bwo kukuvugisha kugira ngo abawugurisha basobanukirwe neza ibyo ushaka.",
+
+    "🔐 Login Required": "🔐 Ugomba kwinjira muri konti",
+
+    "You need an Africa AgroVision account to submit a crop request. If you already have an account, log in. If you are new, create your account first.":
+      "Ukeneye konti ya Africa AgroVision kugira ngo utange ubusabe bwo kugura umusaruro. Niba usanzwe ufite konti, injira. Niba uri mushya, banza wiyandikishe.",
+
+    "Log In": "Injira",
+    "Create Account": "Fungura konti",
+
+    "Submit Your Crop Request": "Tanga ubusabe bwo kugura umusaruro",
+
+    "Give us enough information to understand exactly what you need. A clear request makes it easier to connect you with the right agricultural supplier.":
+      "Tanga amakuru ahagije asobanura neza ibyo ukeneye. Ubusabe busobanutse bufasha kubona abaguzi cyangwa abagurisha babikwiriye.",
+
+    "Crop Information": "Amakuru y'umusaruro",
+    "Tell us about the agricultural product you want.":
+      "Tubwire umusaruro w'ubuhinzi ukeneye.",
+
+    "Crop / Product": "Igihingwa cyangwa umusaruro",
+    "Quantity": "Ingano",
+    "Quality / Grade": "Ubwiza bw'umusaruro",
+    "Expected Price / Budget": "Igiciro wifuza cyangwa ingengo y'imari",
+
+    "Leave blank if you want suppliers to provide offers.":
+      "Reka aha hatuzuye niba ushaka ko abagurisha bakugezaho ibiciro byabo.",
+
+    "Delivery / Collection Location": "Aho umusaruro uzagezwa cyangwa uzafatirwa",
+
+    "Tell suppliers where the crop is needed or where you can collect it.":
+      "Menyesha abagurisha aho ukeneye umusaruro cyangwa aho ushobora kuwufatira.",
+
+    "Location": "Ahantu",
+    "Delivery Preference": "Uburyo wifuza kwakiramo umusaruro",
+
+    "Your Contact Information": "Amakuru yo kukuvugisha",
+
+    "Provide a reliable way for suppliers to contact you.":
+      "Tanga uburyo bwizewe abagurisha bashobora kugukoresha bakuvugisha.",
+
+    "Full Name": "Amazina yawe yose",
+    "Phone / WhatsApp": "Telefone cyangwa WhatsApp",
+    "Email Address": "Aderesi ya imeyili",
+    "Preferred Contact Method": "Uburyo wifuza kuvugishwamo",
+
+    "Tell Suppliers Exactly What You Need":
+      "Sobanurira abagurisha neza ibyo ukeneye",
+
+    "Add any important requirements or questions.":
+      "Ongeraho ibisabwa by'ingenzi cyangwa ibibazo ufite.",
+
+    "Your Request": "Ubusabe bwawe",
+
+    "Checking Login...": "Turimo kugenzura konti...",
+    "Submit Crop Request": "Ohereza ubusabe",
+    "Publishing Request...": "Turimo gutangaza ubusabe...",
+    "Login Required": "Ugomba kwinjira",
+
+    "Crop request published successfully!":
+      "Ubusabe bwawe bwatangajwe neza!",
+
+    "Your request has been saved to Africa AgroVision Marketplace. Suppliers can now discover your request in Latest Opportunities.":
+      "Ubusabe bwawe bwabitswe ku Isoko rya Africa AgroVision. Abagurisha bashobora kububona mu matangazo mashya.",
+
+    "View Marketplace": "Reba isoko",
+    "My Marketplace": "Isoko ryanjye",
+
+    "Clear information. Better connections.":
+      "Amakuru asobanutse. Imikoranire myiza.",
+
+    "Africa AgroVision is designed to make agricultural connections easier by helping buyers clearly communicate what they need, where they need it, and how they can be contacted.":
+      "Africa AgroVision yorohereza abaguzi n'abagurisha guhura, ifasha abaguzi gusobanura ibyo bakeneye, aho babikeneye n'uburyo bashobora kuvugishwamo.",
+
+    "© 2026 Africa AgroVision — Connecting agriculture with opportunity.":
+      "© 2026 Africa AgroVision — Duhuza ubuhinzi n'amahirwe.",
+
+    "Select a crop": "Hitamo igihingwa",
+    "Maize": "Ibigori",
+    "Beans": "Ibishyimbo",
+    "Rice": "Umuceri",
+    "Coffee": "Ikawa",
+    "Tomatoes": "Inyanya",
+    "Potatoes": "Ibirayi",
+    "Sweet Potatoes": "Ibijumba",
+    "Cassava": "Imyumbati",
+    "Sorghum": "Amasaka",
+    "Wheat": "Ingano",
+    "Other": "Ibindi",
+
+    "Select preference": "Hitamo ubwiza wifuza",
+    "Premium quality": "Ubwiza bwo ku rwego rwo hejuru",
+    "Standard quality": "Ubwiza busanzwe",
+    "Any good quality": "Ubwiza bwose bwemewe",
+    "Organic preferred": "Ibihingwa byahinzwe hakoreshejwe uburyo kamere",
+    "Not specified": "Ntibyagaragajwe",
+
+    "Supplier delivery preferred": "Umugurisha abe ari we uzana umusaruro",
+    "I will collect the product": "Nzajya kwifatira umusaruro",
+    "Either option": "Uburyo ubwo ari bwo bwose",
+
+    "Phone call": "Guhamagara kuri telefone",
+
+    "Example: 500 kg": "Urugero: kg 500",
+    "Example: 700 RWF per kg": "Urugero: 700 RWF kuri kg",
+    "Example: Kigali, Gasabo": "Urugero: Kigali, Gasabo",
+    "Your full name": "Amazina yawe yose",
+
+    "Example: I am looking for 500 kg of good-quality beans. I prefer clean, dry beans and would like delivery to Kigali. Please include your price and delivery cost.":
+      "Urugero: Ndashaka kugura kg 500 z'ibishyimbo byiza, bisukuye kandi byumye. Ndifuza ko bigezwa i Kigali. Mumenyeshe igiciro cyabyo n'icyo kubitwara."
+  };
+
+  const reverse = {};
+
+  Object.entries(translations).forEach(([en, rw]) => {
+    reverse[rw] = en;
+  });
+
+  function getLanguage() {
+    return localStorage.getItem(STORAGE_KEY) === "rw"
+      ? "rw"
+      : "en";
+  }
+
+  function translate(value, lang) {
+    const normalized = String(value)
+      .trim()
+      .replace(/\s+/g, " ");
+
+    const english = reverse[normalized] || normalized;
+
+    return lang === "rw"
+      ? translations[english] || english
+      : english;
+  }
+
+  function translateTextNode(node, lang) {
+    const original = node.nodeValue;
+    const trimmed = original.trim();
+
+    if (!trimmed) return;
+
+    const translated = translate(trimmed, lang);
+
+    if (translated === trimmed) return;
+
+    const leading = original.match(/^\s*/)[0];
+    const trailing = original.match(/\s*$/)[0];
+
+    node.nodeValue = leading + translated + trailing;
+  }
+
+  function translateElement(element, lang) {
+    if (element.closest("#buyCropLanguage")) return;
+
+    const walker = document.createTreeWalker(
+      element,
+      NodeFilter.SHOW_TEXT
+    );
+
+    const nodes = [];
+
+    while (walker.nextNode()) {
+      nodes.push(walker.currentNode);
+    }
+
+    nodes.forEach(node => translateTextNode(node, lang));
+  }
+
+  function applyTranslation() {
+    const lang = getLanguage();
+
+    const selectors = [
+      ".nav-links a",
+      ".page-intro h1",
+      ".page-intro p",
+      ".login-box h3",
+      ".login-box p",
+      ".login-box a",
+      ".card-heading h2",
+      ".card-heading p",
+      ".form-section h3",
+      ".form-section p",
+      ".form-group label",
+      ".form-group .hint",
+      ".form-group select option",
+      ".submit-btn",
+      "#successMessage strong",
+      "#successMessage p",
+      "#successMessage a",
+      ".trust-box strong",
+      ".trust-box p",
+      "footer"
+    ];
+
+    document
+      .querySelectorAll(selectors.join(","))
+      .forEach(element => translateElement(element, lang));
+
+    document
+      .querySelectorAll("input[placeholder], textarea[placeholder]")
+      .forEach(element => {
+        element.placeholder = translate(
+          element.placeholder,
+          lang
+        );
+      });
+
+    const selector = document.getElementById(
+      "buyCropLanguage"
+    );
+
+    if (selector) selector.value = lang;
+
+    document.documentElement.lang = lang;
+  }
+
+  function addLanguageSelector() {
+    const nav = document.querySelector(".nav-links");
+
+    if (!nav || document.getElementById("buyCropLanguage")) {
+      return;
+    }
+
+    const select = document.createElement("select");
+
+    select.id = "buyCropLanguage";
+    select.setAttribute("aria-label", "Choose language");
+
+    select.style.cssText = [
+      "width:auto",
+      "min-width:135px",
+      "padding:9px 12px",
+      "border-radius:9px",
+      "background:white",
+      "color:#14532d",
+      "font-weight:700",
+      "border:0",
+      "cursor:pointer"
+    ].join(";");
+
+    select.innerHTML = `
+      <option value="en">🌐 English</option>
+      <option value="rw">🌐 Kinyarwanda</option>
+    `;
+
+    select.value = getLanguage();
+
+    nav.appendChild(select);
+
+    select.addEventListener("change", () => {
+      localStorage.setItem(
+        STORAGE_KEY,
+        select.value
+      );
+
+      applyTranslation();
+    });
+  }
+
+  function initializeTranslation() {
+    addLanguageSelector();
+    applyTranslation();
+
+    /*
+      The existing Supabase script changes the
+      submit button after checking authentication.
+      Observe that button so its translated label
+      stays in the selected language.
+    */
+
+    const submit = document.getElementById("submitButton");
+
+    if (submit) {
+      let translating = false;
+
+      const observer = new MutationObserver(() => {
+        if (translating) return;
+
+        translating = true;
+        applyTranslation();
+        translating = false;
+      });
+
+      observer.observe(submit, {
+        childList: true,
+        subtree: true,
+        characterData: true
+      });
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      initializeTranslation
+    );
+  } else {
+    initializeTranslation();
+  }
+})();
+</script>
+<!-- END BUY CROPS TRANSLATION -->
+
 </body>
 </html>

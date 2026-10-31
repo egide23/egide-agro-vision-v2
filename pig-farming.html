@@ -1599,6 +1599,620 @@
     </footer>
 
 
+<script>
+(function () {
+  "use strict";
+
+  const LANGUAGE_KEY = "agrovision-language";
+
+  const translations = [
+    // Navigation
+    ["Dashboard", "Imbonerahamwe"],
+    ["Agriculture", "Ubuhinzi"],
+    ["Livestock", "Ubworozi"],
+    ["Poultry", "Inkoko n'Izindi Nyoni"],
+    ["Livestock Farming", "Ubworozi"],
+    ["Pig Farming", "Ubworozi bw'Ingurube"],
+
+    // Hero
+    ["Livestock Farming Knowledge", "Ubumenyi ku Bworozi"],
+    ["A practical guide to raising healthy pigs, improving farm productivity, managing costs, protecting animal health, and building a sustainable pig production system.",
+     "Amabwiriza ngiro yo korora ingurube zifite ubuzima bwiza, kongera umusaruro, gucunga ibiciro, kurinda ubuzima bw'amatungo no guteza imbere ubworozi burambye."],
+    ["Feeding", "Kugaburira"],
+    ["Housing", "Ibiraro"],
+    ["Health", "Ubuzima"],
+    ["Breeding", "Kororoka"],
+    ["Farm Management", "Imicungire y'Ubworozi"],
+
+    // 01 Introduction
+    ["What Is Pig Farming?", "Ubworozi bw'Ingurube ni Iki?"],
+    ["Pig farming is the organized raising and management of pigs for purposes such as meat production, breeding, and income generation. Successful pig farming combines good genetics, proper housing, balanced nutrition, clean water, disease prevention, careful breeding, and accurate farm records.",
+     "Ubworozi bw'ingurube ni ukurora no gucunga ingurube hagamijwe kubona inyama, kororoka no kwinjiza amafaranga. Ubworozi bwiza bushingira ku bwoko bwiza, ibiraro bikwiye, indyo yuzuye, amazi meza, gukumira indwara, kororoka neza no kubika inyandiko z'ubworozi."],
+    ["A productive pig farm is not simply a place where pigs are kept. It is a managed production system where every stage of the animal's life is monitored from birth to market.",
+     "Ubworozi butanga umusaruro si ukugira aho ingurube ziba gusa. Ni uburyo bwo gucunga no gukurikirana ingurube kuva zivutse kugeza zigejejwe ku isoko."],
+    ["Key principle:", "Ihame ry'ingenzi:"],
+    ["Healthy pigs + good nutrition + clean housing + strong biosecurity + good records = a more efficient pig farm.",
+     "Ingurube zifite ubuzima bwiza + imirire myiza + ibiraro bisukuye + gukumira indwara + inyandiko nziza = ubworozi butanga umusaruro mwiza."],
+
+    // 02 Production types
+    ["Types of Pig Production", "Ubwoko bw'Umusaruro mu Bworozi bw'Ingurube"],
+    ["Pig farms can be organized according to the production objective and the stage of production.",
+     "Ubworozi bw'ingurube bushobora gutegurwa hakurikijwe intego y'umusaruro n'icyiciro cy'ubworozi."],
+    ["Breeding Production", "Korora Ingurube zo Kororoka"],
+    ["Focuses on producing healthy breeding animals, piglets, sows, and boars.",
+     "Bwibanda ku kubona ingurube nzima zo kororoka, ibibwana, ingurube z'ingore n'iz'ingabo."],
+    ["Piglet Production", "Umusaruro w'Ibibwana by'Ingurube"],
+    ["Focuses on farrowing, early piglet care, survival, and healthy growth.",
+     "Bwibanda ku kubyaza ingurube, kwita ku bibwana, kubirinda gupfa no gutuma bikura neza."],
+    ["Grower Production", "Kurera Ingurube Zikiri Gukura"],
+    ["Raises young pigs efficiently from weaning toward market weight.",
+     "Kurera ingurube zikiri nto kuva zicukijwe kugeza zigeze ku biro bikenewe ku isoko."],
+    ["Meat Production", "Umusaruro w'Inyama"],
+    ["Focuses on efficient growth, feed use, animal health, and quality meat production.",
+     "Bwibanda ku mikurire myiza, gukoresha neza ibiryo, ubuzima bw'amatungo no kubona inyama nziza."],
+
+    // 03 Breeds
+    ["Common Pig Breeds", "Ubwoko bw'Ingurube Bukunze Kororwa"],
+    ["Breed selection should consider the local climate, feed availability, disease pressure, production objective, management capacity, and market demand.",
+     "Guhitamo ubwoko bw'ingurube bigomba gushingira ku kirere cy'aho uzororera, ibiryo bihari, indwara zikunze kuhagaragara, intego y'umusaruro, ubushobozi bwo gucunga ubworozi n'ibikenewe ku isoko."],
+    ["Widely used for commercial production and known for good growth and reproductive performance.",
+     "Bukoreshwa cyane mu bworozi bw'ubucuruzi kandi buzwiho gukura neza no kororoka neza."],
+    ["Commonly used in breeding programs and known for maternal characteristics and long body structure.",
+     "Bukoreshwa mu gahunda zo kororoka kandi buzwiho kugira ubushobozi bwiza bwo kwita ku bibwana n'umubiri muremure."],
+    ["Often valued for growth performance and meat characteristics.",
+     "Bukunze gushimirwa imikurire myiza n'imiterere y'inyama."],
+    ["Recognized by its characteristic color pattern and used in some meat-production systems.",
+     "Bumenyekana ku mabara yabwo yihariye kandi bukoreshwa mu bworozi bw'inyama."],
+    ["Crossbreeds", "Ingurube z'Ubwoko Buvanze"],
+    ["Crossbreeding can combine useful characteristics from different breeds when planned carefully.",
+     "Kuvanga amoko y'ingurube bishobora guhuza imiterere myiza y'amoko atandukanye iyo bikozwe neza."],
+    ["Locally Adapted Pigs", "Ingurube Zimenyereye Imiterere y'Aho Zororerwa"],
+    ["Locally adapted animals may provide useful characteristics where environmental conditions and management resources are challenging.",
+     "Ingurube zimenyereye imiterere y'aho zororerwa zishobora kugira ibyiza mu duce dufite ibibazo by'ikirere cyangwa ubushobozi buke bwo gucunga ubworozi."],
+    ["Remember:", "Ibuka:"],
+    ["The most suitable breed is not necessarily the breed with the highest theoretical production. It should be a breed or cross that performs well under your actual farm conditions.",
+     "Ubwoko bukwiye si buri gihe ubuvugwaho kugira umusaruro mwinshi kurusha ubundi. Ni ubwoko bushobora gutanga umusaruro mwiza mu miterere nyakuri y'ubworozi bwawe."],
+
+    // 04 Housing
+    ["Pig Housing and Pen Design", "Ibiraro by'Ingurube n'Uko Bitegurwa"],
+    ["Good housing protects pigs from extreme weather, injuries, contamination, predators, and unnecessary stress while allowing farmers to clean, feed, observe, and manage animals efficiently.",
+     "Ibiraro byiza birinda ingurube ubushyuhe cyangwa ubukonje bukabije, ibikomere, umwanda, inyamaswa zishobora kuzigirira nabi n'ihungabana. Binafasha umworozi gukora isuku, kugaburira no gukurikirana amatungo neza."],
+    ["Strong Structure", "Inyubako Ikomeye"],
+    ["Buildings should be durable, safe, and easy to maintain.",
+     "Ibiraro bigomba gukomera, kuba bitekanye kandi byoroshye kubungabunga."],
+    ["Ventilation", "Uburyo bwo Kwinjiza Umwuka"],
+    ["Good airflow helps remove heat, moisture, dust, and unpleasant gases.",
+     "Umwuka uhagije ufasha kugabanya ubushyuhe, ubuhehere, ivumbi n'imyuka mibi."],
+    ["Drainage", "Imiyoboro y'Amazi"],
+    ["Floors and drainage systems should help keep pens reasonably dry and clean.",
+     "Hasi mu biraro n'imiyoboro y'amazi bigomba gufasha ibiraro kuguma byumutse kandi bisukuye."],
+    ["Easy Access", "Kugeramo mu Buryo Bworoshye"],
+    ["Farmers should be able to inspect, feed, clean, and move pigs safely.",
+     "Aborozi bagomba gushobora kugenzura, kugaburira, gusukura no kwimura ingurube mu mutekano."],
+    ["Important Housing Areas", "Ibice by'Ingenzi by'Ibiraro"],
+    ["Breeding and boar areas", "Aho kororera n'aho ingurube z'ingabo ziba"],
+    ["Farrowing areas for sows and piglets", "Aho ingurube z'ingore zibyara n'aho ibibwana biba"],
+    ["Weaner and nursery areas", "Aho ibibwana bicukijwe birererwa"],
+    ["Grower and finisher pens", "Ibiraro by'ingurube zikura n'izitegurwa kugurishwa"],
+    ["Isolation or quarantine area", "Aho gushyira ingurube mu kato"],
+    ["Feed storage area", "Ububiko bw'ibiryo"],
+    ["Equipment cleaning area", "Aho gusukurira ibikoresho"],
+    ["Manure and waste management area", "Aho gucungira ifumbire n'imyanda"],
+
+    // 05 Environment
+    ["Temperature and Farm Environment", "Ubushyuhe n'Imiterere y'Ubworozi"],
+    ["Pigs are sensitive to environmental conditions, especially temperature. Young piglets require warmer conditions than larger pigs, while mature pigs can experience serious heat stress in hot environments.",
+     "Ingurube zigirwaho ingaruka n'imiterere y'ikirere, cyane cyane ubushyuhe. Ibibwana bikenera ahantu hashyushye kurusha ingurube nkuru, mu gihe ingurube zikuze zishobora kubangamirwa cyane n'ubushyuhe bukabije."],
+    ["Young Piglets", "Ibibwana Bikiri Bito"],
+    ["Need a warm, dry, draft-free environment with appropriate protection from chilling.",
+     "Bikenera ahantu hashyushye, humutse kandi hatarimo umuyaga ukonje."],
+    ["Growing Pigs", "Ingurube Zikura"],
+    ["Need good ventilation, clean flooring, shade, and protection from excessive heat.",
+     "Zikenera umwuka uhagije, hasi hasukuye, igicucu no kurindwa ubushyuhe bukabije."],
+    ["Adult Pigs", "Ingurube Zikuze"],
+    ["Require comfortable housing with adequate airflow, water, space, and shade.",
+     "Zikenera ibiraro byiza bifite umwuka, amazi, umwanya n'igicucu bihagije."],
+    ["Heat-stress warning:", "Iburira ku Bushyuhe Bukabije:"],
+    ["Heavy panting, increased water consumption, lethargy, crowding around water, and reduced feeding can indicate heat stress. Immediate environmental management is important.",
+     "Guhumeka cyane, kunywa amazi menshi, gucika intege, kwirundanyiriza hafi y'amazi no kugabanya kurya bishobora kugaragaza ikibazo cy'ubushyuhe bukabije. Ni ngombwa guhita ufata ingamba."],
+
+    // 06 Feeding
+    ["Feeding and Nutrition", "Kugaburira n'Imirire"],
+    ["Feed is one of the largest costs in pig production. Efficient feeding requires diets that provide appropriate energy, protein, amino acids, minerals, vitamins, fiber, and other necessary nutrients.",
+     "Ibiryo ni kimwe mu bitwara amafaranga menshi mu bworozi bw'ingurube. Kugaburira neza bisaba indyo irimo ingufu, poroteyine, aside amine, imyunyu ngugu, vitamine, fibre n'izindi ntungamubiri zikenewe."],
+    ["Energy", "Ingufu"],
+    ["Supports maintenance, growth, reproduction, and body functions.",
+     "Zifasha umubiri gukora neza, gukura no kororoka."],
+    ["Protein & Amino Acids", "Poroteyine na Aside Amine"],
+    ["Important for muscle development, growth, tissue repair, and production.",
+     "Ni ingenzi mu gukura kw'imikaya, gukura k'umubiri, gusana ingirangingo no gutanga umusaruro."],
+    ["Vitamins & Minerals", "Vitamine n'Imyunyu Ngugu"],
+    ["Support bones, immunity, reproduction, metabolism, and general health.",
+     "Bifasha amagufa, ubudahangarwa, kororoka, imikorere y'umubiri n'ubuzima muri rusange."],
+    ["Water", "Amazi"],
+    ["Clean water must be continuously available and accessible.",
+     "Amazi meza agomba kuboneka igihe cyose kandi ingurube zikayageraho."],
+    ["Feeding According to Production Stage", "Kugaburira Hakurikijwe Icyiciro cy'Ubworozi"],
+    ["Stage", "Icyiciro"],
+    ["Main Objective", "Intego Nyamukuru"],
+    ["Important Management Focus", "Iby'Ingenzi byo Kwitaho"],
+    ["Piglets", "Ibibwana"],
+    ["Survival and early development", "Kubaho no gukura mu ntangiriro"],
+    ["Colostrum, warmth, clean water and suitable starter feed", "Amashereka ya mbere, ubushyuhe, amazi meza n'ibiryo bibereye ibibwana"],
+    ["Weaners", "Ibibwana Bicukijwe"],
+    ["Healthy transition and growth", "Gucuka neza no gukura"],
+    ["Digestible feed, gradual transition and close monitoring", "Ibiryo byoroshye kugogora, guhindura indyo buhoro no gukurikirana neza"],
+    ["Growers", "Ingurube Zikura"],
+    ["Efficient growth", "Gukura neza"],
+    ["Balanced diet, clean water and feed intake monitoring", "Indyo yuzuye, amazi meza no kugenzura ingano y'ibiryo zirya"],
+    ["Finishers", "Ingurube Zitegurwa Kugurishwa"],
+    ["Efficient market-weight production", "Kugera ku biro bikenewe ku isoko"],
+    ["Feed efficiency, health and market planning", "Gukoresha neza ibiryo, ubuzima no gutegura isoko"],
+    ["Sows", "Ingurube z'Ingore"],
+    ["Reproduction and milk production", "Kororoka no gutanga amashereka"],
+    ["Body condition, pregnancy and lactation nutrition", "Imiterere y'umubiri n'imirire mu gihe zitwite cyangwa zonsa"],
+    ["Boars", "Ingurube z'Ingabo"],
+    ["Breeding performance", "Ubushobozi bwo Kororoka"],
+    ["Body condition, fertility and appropriate nutrition", "Imiterere y'umubiri, uburumbuke n'imirire ikwiye"],
+
+    // 07 Water
+    ["Water Management", "Imicungire y'Amazi"],
+    ["Water is essential for digestion, temperature regulation, growth, reproduction, and overall health. Water availability should never be treated as an afterthought.",
+     "Amazi ni ingenzi mu igogora, kugenzura ubushyuhe bw'umubiri, gukura, kororoka n'ubuzima muri rusange. Gutanga amazi ahagije bigomba guhabwa agaciro."],
+    ["Clean Water", "Amazi Meza"],
+    ["Water should be clean and suitable for animal consumption.",
+     "Amazi agomba kuba asukuye kandi akwiriye kunyobwa n'amatungo."],
+    ["Check Drinkers", "Genzura Ibikoresho byo Kunyweramo"],
+    ["Inspect drinkers regularly for blockage, leakage, contamination, and poor flow.",
+     "Genzura kenshi ibikoresho byo kunyweramo kugira ngo umenye niba bidafunze, bitameneka cyangwa bitanduye."],
+    ["Hot Weather", "Igihe cy'Ubushyuhe"],
+    ["Monitor water access carefully during periods of high temperature.",
+     "Genzura neza ko ingurube zibona amazi ahagije mu gihe cy'ubushyuhe bwinshi."],
+
+    // 08 Piglets
+    ["Piglet Care", "Kwita ku Bibwana by'Ingurube"],
+    ["The first days and weeks of a piglet's life are extremely important. Good early management improves survival and supports future growth.",
+     "Iminsi n'ibyumweru bya mbere by'ubuzima bw'ikibwana cy'ingurube ni ingenzi cyane. Kwita ku bibwana hakiri kare bigabanya impfu kandi bigafasha imikurire yabyo."],
+    ["Colostrum", "Amashereka ya Mbere"],
+    ["Make sure newborn piglets receive adequate colostrum as soon as possible after birth.",
+     "Menya neza ko ibibwana byavutse bibona amashereka ya mbere ahagije vuba bishoboka."],
+    ["Warmth", "Ubushyuhe"],
+    ["Protect piglets from chilling and provide an appropriate warm area.",
+     "Rinda ibibwana ubukonje kandi ubihe ahantu hashyushye hakwiye."],
+    ["Observation", "Gukurikirana"],
+    ["Check newborn piglets frequently for weakness, injury, starvation, or illness.",
+     "Genzura ibibwana kenshi kugira ngo umenye ibifite intege nke, ibikomere, inzara cyangwa indwara."],
+    ["Hygiene", "Isuku"],
+    ["Keep farrowing areas clean and dry while protecting piglets from contamination.",
+     "Aho ingurube zibyara hagomba guhora hasukuye kandi humutse kugira ngo ibibwana bitandura."],
+
+    // 09 Breeding
+    ["Breeding and Reproduction", "Kororoka no Kubyaza"],
+    ["Good reproductive management helps maintain a productive herd and reduces unnecessary costs.",
+     "Imicungire myiza yo kororoka ifasha kugira ubushyo butanga umusaruro kandi ikagabanya amafaranga adakenewe."],
+    ["Select breeding animals based on health, structure, performance, and appropriate breeding records.",
+     "Hitamo ingurube zo kororoka ukurikije ubuzima, imiterere, umusaruro n'inyandiko z'ubworozi."],
+    ["Monitor females for signs of heat and record breeding dates.",
+     "Genzura ibimenyetso by'ubushake bwo kubangurirwa ku ngore kandi wandike amatariki yo kubangurira."],
+    ["Use appropriate breeding or artificial insemination procedures where suitable.",
+     "Koresha uburyo bukwiye bwo kubangurira cyangwa gutera intanga mu buryo bw'ikoranabuhanga aho bishoboka."],
+    ["Monitor pregnant sows carefully and maintain appropriate nutrition.",
+     "Kurikirana neza ingurube zitwite kandi uzihe indyo ikwiye."],
+    ["Prepare clean farrowing facilities before birth.",
+     "Tegura ibiraro bisukuye mbere y'uko ingurube zibyara."],
+    ["Keep accurate records for each breeding animal.",
+     "Bika inyandiko zuzuye za buri ngurube ikoreshwa mu kororoka."],
+    ["Breeding goal:", "Intego yo Kororoka:"],
+    ["Build a healthy, productive herd rather than simply increasing the number of pigs.",
+     "Gira ubushyo bufite ubuzima bwiza kandi butanga umusaruro aho kongera gusa umubare w'ingurube."],
+
+    // 10 Health
+    ["Pig Health and Disease Prevention", "Ubuzima bw'Ingurube no Gukumira Indwara"],
+    ["Prevention is a major part of successful pig production. Farmers should monitor animals every day and seek veterinary assistance when disease is suspected.",
+     "Gukumira indwara ni ingenzi mu bworozi bw'ingurube. Aborozi bagomba kugenzura amatungo buri munsi no kwitabaza muganga w'amatungo igihe bakeka indwara."],
+    ["Daily Observation", "Kugenzura Buri Munsi"],
+    ["Watch appetite, activity, breathing, stool, skin, walking, and general behavior.",
+     "Genzura uko ingurube zirya, zigenda, zihumeka, uko umwanda wazo umeze, uruhu n'imyitwarire yazo."],
+    ["Vaccination", "Gukingira"],
+    ["Follow a vaccination program appropriate for local disease risks and veterinary advice.",
+     "Kurikiza gahunda y'inkingo ijyanye n'indwara zikunze kuboneka mu gace n'inama z'umuganga w'amatungo."],
+    ["Veterinary Care", "Ubuvuzi bw'Amatungo"],
+    ["Seek professional veterinary guidance when pigs show signs of illness.",
+     "Gisha inama umuganga w'amatungo igihe ingurube zigaragaje ibimenyetso by'indwara."],
+    ["Maintain appropriate cleaning, disinfection, and sanitation procedures.",
+     "Kurikiza uburyo bukwiye bwo gusukura, kwica udukoko no kubungabunga isuku."],
+
+    // 11 Biosecurity
+    ["Biosecurity", "Ingamba zo Gukumira Indwara"],
+    ["Biosecurity reduces the chance of diseases entering the farm and spreading between animals.",
+     "Ingamba zo gukumira indwara zigabanya ibyago byo kwinjiza indwara mu bworozi no kuzikwirakwiza mu matungo."],
+    ["Control Visitors", "Genzura Abasura Ubworozi"],
+    ["Limit unnecessary access to animal areas and follow farm hygiene procedures.",
+     "Gabanya abantu binjira aho amatungo aba bitari ngombwa kandi ukurikize amabwiriza y'isuku."],
+    ["Quarantine New Animals", "Shyira Amatungo Mashya mu Kato"],
+    ["New animals should be managed according to appropriate quarantine and health procedures.",
+     "Amatungo mashya agomba gushyirwa mu kato no gukurikiranwa hakurikijwe amabwiriza y'ubuzima."],
+    ["Clean Equipment", "Sukura Ibikoresho"],
+    ["Avoid transferring contamination between pens, farms, or animal groups.",
+     "Irinde kwimura umwanda cyangwa indwara hagati y'ibiraro, ubworozi cyangwa amatsinda y'amatungo."],
+    ["Control Rodents and Pests", "Rwanya Imbeba n'Udusimba"],
+    ["Rodents, insects, and other pests can contribute to contamination and disease spread.",
+     "Imbeba, udukoko n'ibindi byonnyi bishobora gukwirakwiza umwanda n'indwara."],
+
+    // 12 Vaccination
+    ["Vaccination and Veterinary Management", "Inkingo n'Imicungire y'Ubuvuzi bw'Amatungo"],
+    ["Vaccination programs should be designed according to local disease risks, farm conditions, animal age, production system, and veterinary recommendations.",
+     "Gahunda z'inkingo zigomba gutegurwa hakurikijwe indwara ziboneka mu gace, imiterere y'ubworozi, imyaka y'amatungo, uburyo bwo korora n'inama z'abaganga b'amatungo."],
+    ["Important:", "Icyitonderwa:"],
+    ["Do not create a vaccination schedule by guessing. Work with a qualified veterinarian or animal-health professional to establish an appropriate program for your farm.",
+     "Ntugategure gahunda y'inkingo uko wishakiye. Korana n'umuganga w'amatungo ubifitiye ubumenyi kugira ngo ategure gahunda ibereye ubworozi bwawe."],
+
+    // 13 Waste
+    ["Cleaning and Waste Management", "Isuku n'Imicungire y'Imyanda"],
+    ["Proper waste management protects animal health, farm workers, neighboring communities, and the environment.",
+     "Gucunga imyanda neza birinda ubuzima bw'amatungo, abakozi, abaturage baturanye n'ubworozi n'ibidukikije."],
+    ["Manure Management", "Imicungire y'Ifumbire"],
+    ["Collect and manage manure in a way that reduces contamination and unpleasant odors.",
+     "Kusanya kandi ucunge ifumbire ku buryo bugabanya umwanda n'impumuro mbi."],
+    ["Prevent standing wastewater around animal housing.",
+     "Irinde amazi yanduye areka hafi y'ibiraro."],
+    ["Composting", "Gukora Ifumbire y'Imborera"],
+    ["Where appropriate, properly managed organic waste can be converted into useful soil amendments.",
+     "Aho bishoboka, imyanda ibora ishobora gutunganywa igahinduka ifumbire yongera uburumbuke bw'ubutaka."],
+    ["Environmental Protection", "Kurengera Ibidukikije"],
+    ["Prevent untreated waste from entering water sources.",
+     "Irinde ko imyanda idatunganyijwe igera mu masoko y'amazi."],
+
+    // 14 Monitoring
+    ["Growth and Weight Monitoring", "Gukurikirana Imikurire n'Ibiro"],
+    ["Monitoring growth helps farmers identify problems early and understand whether feed, health, genetics, and management are producing the expected results.",
+     "Gukurikirana imikurire bifasha aborozi kumenya ibibazo hakiri kare no gusuzuma niba ibiryo, ubuzima, ubwoko bw'amatungo n'imicungire bitanga umusaruro witezwe."],
+    ["Record", "Andika"],
+    ["Animal identification, dates, weights, treatments, breeding events, and observations.",
+     "Ibiranga amatungo, amatariki, ibiro, ubuvuzi, ibikorwa byo kororoka n'ibyagaragaye."],
+    ["Compare", "Gereranya"],
+    ["Compare growth between groups and production periods.",
+     "Gereranya imikurire y'amatsinda y'amatungo no mu bihe bitandukanye."],
+    ["Investigate", "Shakisha Impamvu"],
+    ["Investigate sudden reductions in appetite, growth, or performance.",
+     "Shakisha impamvu zo kugabanuka gutunguranye k'ibiryo ingurube zirya, imikurire cyangwa umusaruro."],
+
+    // 15 Meat
+    ["Efficient meat production depends on healthy animals, appropriate genetics, good nutrition, housing, disease prevention, and careful market planning.",
+     "Umusaruro mwiza w'inyama ushingira ku matungo mazima, ubwoko bukwiye, imirire myiza, ibiraro, gukumira indwara no gutegura amasoko."],
+    ["Monitor growth and body condition.", "Genzura imikurire n'imiterere y'umubiri."],
+    ["Minimize unnecessary stress.", "Gabanya ibitera amatungo ihungabana."],
+    ["Maintain clean water availability.", "Tanga amazi meza igihe cyose."],
+    ["Prevent disease and injuries.", "Kumira indwara n'ibikomere."],
+    ["Keep feed and treatment records.", "Bika inyandiko z'ibiryo n'ubuvuzi."],
+    ["Plan marketing according to local demand.", "Tegura kugurisha ukurikije ibikenewe ku isoko."],
+    ["Follow applicable animal welfare and food-safety requirements.",
+     "Kurikiza amabwiriza ajyanye n'imibereho myiza y'amatungo n'umutekano w'ibiribwa."],
+
+    // 16 Sustainability
+    ["Sustainable Pig Farming", "Ubworozi bw'Ingurube Burambye"],
+    ["Sustainable production aims to use resources efficiently while maintaining animal health, protecting the environment, and supporting the long-term viability of the farm.",
+     "Ubworozi burambye bugamije gukoresha neza umutungo, kubungabunga ubuzima bw'amatungo, kurengera ibidukikije no gutuma ubworozi bukomeza gutanga umusaruro mu gihe kirekire."],
+    ["Waste Recycling", "Kubyaza Umusaruro Imyanda"],
+    ["Explore safe and appropriate ways to manage manure and organic waste.",
+     "Shakisha uburyo butekanye bwo gucunga ifumbire n'imyanda ibora."],
+    ["Water Efficiency", "Gukoresha Neza Amazi"],
+    ["Reduce unnecessary water losses while maintaining adequate animal access.",
+     "Gabanya amazi apfa ubusa kandi amatungo akomeze kubona ahagije."],
+    ["Resource Efficiency", "Gukoresha Neza Umutungo"],
+    ["Improve feed utilization and reduce avoidable production losses.",
+     "Koresha neza ibiryo kandi ugabanye igihombo gishobora kwirindwa."],
+    ["Smart Energy Use", "Gukoresha Neza Ingufu"],
+    ["Where practical, explore efficient energy solutions for farm operations.",
+     "Aho bishoboka, shakisha uburyo bwo gukoresha ingufu neza mu bikorwa by'ubworozi."],
+
+    // 17 Records
+    ["Farm Records and Management", "Inyandiko n'Imicungire y'Ubworozi"],
+    ["Good records turn a pig farm from a guessing system into a measurable production business.",
+     "Inyandiko nziza zifasha guhindura ubworozi bw'ingurube ubucuruzi bufatirwamo ibyemezo bishingiye ku makuru aho gukekeranya."],
+    ["Animal Records", "Inyandiko z'Amatungo"],
+    ["Identification, breed, birth date, health events, breeding history, and performance.",
+     "Ibiranga itungo, ubwoko, itariki y'amavuko, ubuzima, amateka yo kororoka n'umusaruro."],
+    ["Feed Records", "Inyandiko z'Ibiryo"],
+    ["Feed purchased, feed used, feed type, wastage, and cost.",
+     "Ibiryo byaguzwe, ibyatanzwe, ubwoko bwabyo, ibyapfuye ubusa n'ikiguzi."],
+    ["Health Records", "Inyandiko z'Ubuzima"],
+    ["Treatments, vaccinations, disease observations, deaths, and veterinary visits.",
+     "Ubuvuzi, inkingo, indwara zagaragaye, impfu n'ingendo z'abaganga b'amatungo."],
+    ["Financial Records", "Inyandiko z'Imari"],
+    ["Purchases, labor, veterinary costs, feed costs, sales, and other farm expenses.",
+     "Ibyaguzwe, imishahara, ubuvuzi, ibiryo, ibyagurishijwe n'andi mafaranga yakoreshejwe."],
+
+    // 18 Daily checklist
+    ["Daily Pig Farm Checklist", "Ibyo Kugenzura Buri Munsi mu Bworozi bw'Ingurube"],
+    ["Check every group of pigs for unusual behavior.",
+     "Genzura buri tsinda ry'ingurube urebe niba hari izitwara mu buryo budasanzwe."],
+    ["Confirm clean and adequate water supply.",
+     "Menya neza ko hari amazi meza kandi ahagije."],
+    ["Check feed availability and feeding behavior.",
+     "Genzura ibiryo bihari n'uko ingurube zirya."],
+    ["Inspect pens, floors, gates, and equipment.",
+     "Genzura ibiraro, hasi, inzugi n'ibikoresho."],
+    ["Check ventilation and environmental conditions.",
+     "Genzura umwuka n'imiterere y'ikirere mu biraro."],
+    ["Look for sick, injured, weak, or isolated pigs.",
+     "Shakisha ingurube zirwaye, zakomeretse, zifite intege nke cyangwa zitandukanyije n'izindi."],
+    ["Remove hazards and address hygiene problems.",
+     "Kuraho ibishobora guteza impanuka kandi ukemure ibibazo by'isuku."],
+    ["Record important health, production, and farm events.",
+     "Andika iby'ingenzi byabaye ku buzima, umusaruro n'ubworozi."],
+
+    // 19 Warnings
+    ["Warning Signs That Require Attention", "Ibimenyetso by'Ibibazo Bisaba Kwitabwaho"],
+    ["Loss of Appetite", "Kubura Icyifuzo cyo Kurya"],
+    ["A sudden reduction in feed intake may indicate health, environmental, or management problems.",
+     "Kugabanuka gutunguranye k'ibiryo ingurube zirya bishobora kugaragaza indwara cyangwa ibibazo by'ikirere n'imicungire."],
+    ["Abnormal Breathing", "Guhumeka mu Buryo Budasanzwe"],
+    ["Coughing, difficult breathing, or unusual respiratory signs should be investigated.",
+     "Gukorora, guhumeka bigoranye cyangwa ibindi bimenyetso bidasanzwe bigomba gusuzumwa."],
+    ["Diarrhea", "Impiswi"],
+    ["Persistent or severe diarrhea requires prompt attention.",
+     "Impiswi ikabije cyangwa idakira isaba kwitabwaho vuba."],
+    ["Sudden Deaths", "Impfu Zitunguranye"],
+    ["Unexpected deaths should be treated seriously and investigated with professional guidance.",
+     "Impfu zitunguranye zigomba gufatanwa uburemere no gusuzumwa n'ababifitiye ubumenyi."],
+    ["Severe Weakness", "Intege Nke Zikabije"],
+    ["Pigs that become unusually weak or isolated require assessment.",
+     "Ingurube zicika intege cyane cyangwa zitandukanya n'izindi zigomba gusuzumwa."],
+    ["Rapid Disease Spread", "Gukwirakwira Kwihuse kw'Indwara"],
+    ["Multiple animals showing similar signs require immediate attention and appropriate biosecurity.",
+     "Iyo amatungo menshi agaragaza ibimenyetso bisa, bisaba guhita ufata ingamba zo gukumira indwara."],
+
+    // 20 Planning
+    ["Pig Farm Planning", "Igenamigambi ry'Ubworozi bw'Ingurube"],
+    ["Before expanding a pig farm, farmers should consider production goals, land, housing, feed supply, water availability, veterinary support, labor, capital, market access, and environmental management.",
+     "Mbere yo kwagura ubworozi, aborozi bagomba gusuzuma intego z'umusaruro, ubutaka, ibiraro, ibiryo, amazi, ubuvuzi, abakozi, igishoro, amasoko n'imicungire y'ibidukikije."],
+    ["Define Your Goal", "Sobanura Intego Yawe"],
+    ["Decide whether the farm focuses on breeding, piglets, growers, finishers, or an integrated production system.",
+     "Hitamo niba ubworozi buzibanda ku kororoka, ibibwana, ingurube zikura, izitegurwa kugurishwa cyangwa ibyo byose hamwe."],
+    ["Plan Resources", "Tegura Umutungo Ukenewe"],
+    ["Calculate housing, feed, water, labor, veterinary, and equipment requirements.",
+     "Bara ibiraro, ibiryo, amazi, abakozi, ubuvuzi n'ibikoresho bizakenerwa."],
+    ["Know the Market", "Menya Isoko"],
+    ["Understand local buyers, demand, timing, transport, and expected production costs.",
+     "Menya abaguzi, ibikenewe ku isoko, igihe cyo kugurisha, ubwikorezi n'ikiguzi cy'umusaruro."],
+    ["Measure Performance", "Pima Umusaruro"],
+    ["Use records to identify what is working and where the farm needs improvement.",
+     "Koresha inyandiko kugira ngo umenye ibikora neza n'ibikeneye kunozwa."],
+
+    // 21 Golden rules
+    ["Golden Rules of Pig Farming", "Amategeko y'Ingenzi mu Bworozi bw'Ingurube"],
+    ["Provide clean and safe water every day.", "Tanga amazi meza kandi atunganye buri munsi."],
+    ["Feed pigs according to their production stage.", "Gaburira ingurube ukurikije icyiciro zirimo."],
+    ["Keep housing clean, dry, safe, and well ventilated.", "Gira ibiraro bisukuye, byumutse, bitekanye kandi byinjiramo umwuka uhagije."],
+    ["Monitor animals every day.", "Genzura amatungo buri munsi."],
+    ["Protect the farm through strong biosecurity.", "Rinda ubworozi ukoresheje ingamba zikomeye zo gukumira indwara."],
+    ["Keep accurate production and financial records.", "Bika inyandiko zuzuye z'umusaruro n'imari."],
+    ["Seek veterinary advice when disease is suspected.", "Gisha inama umuganga w'amatungo igihe uketse indwara."],
+    ["Manage manure and farm waste responsibly.", "Cunga neza ifumbire n'imyanda yo mu bworozi."],
+    ["Select breeding animals carefully.", "Hitamo neza amatungo yo kororoka."],
+    ["Make decisions using farm records rather than guesses.", "Fata ibyemezo ushingiye ku nyandiko z'ubworozi aho gukekeranya."],
+
+    // Summary
+    ["Healthy Pigs. Better Management. Stronger Farms.",
+     "Ingurube Nzima. Imicungire Myiza. Ubworozi Butera Imbere."],
+    ["Successful pig farming is built through consistent care, good nutrition, strong biosecurity, responsible breeding, accurate records, and continuous learning.",
+     "Ubworozi bw'ingurube butanga umusaruro bushingira ku kwita ku matungo buri gihe, imirire myiza, gukumira indwara, kororoka neza, kubika inyandiko no guhora wiga."],
+    ["🐖 Healthy Animals", "🐖 Amatungo Mazima"],
+    ["🌾 Good Nutrition", "🌾 Imirire Myiza"],
+    ["💧 Clean Water", "💧 Amazi Meza"],
+    ["🩺 Better Health", "🩺 Ubuzima Bwiza"],
+    ["📊 Smart Records", "📊 Inyandiko Nziza"],
+    ["🌱 Sustainability", "🌱 Ubworozi Burambye"],
+    ["Back to Livestock Farming", "Subira ku Bworozi"],
+    ["Agriculture, livestock, innovation, knowledge, and sustainable farming for Africa's future.",
+     "Ubuhinzi, ubworozi, udushya, ubumenyi n'ubuhinzi burambye bigamije ejo hazaza heza h'Afurika."]
+  ];
+
+  const dictionary = new Map(
+    translations.map(function (entry) {
+      return [entry[0].replace(/\s+/g, " ").trim(), entry[1]];
+    })
+  );
+
+  // Add the selector automatically without changing the existing CSS.
+  let selector = document.getElementById("pigLanguage");
+
+  if (!selector) {
+    const header = document.querySelector(".pig-farming-header");
+
+    if (header) {
+      const bar = document.createElement("div");
+      bar.className = "pig-language-bar";
+
+      const label = document.createElement("label");
+      label.htmlFor = "pigLanguage";
+      label.textContent = "🌐 Language / Ururimi: ";
+
+      selector = document.createElement("select");
+      selector.id = "pigLanguage";
+      selector.setAttribute("aria-label", "Choose language");
+
+      const english = document.createElement("option");
+      english.value = "en";
+      english.textContent = "English";
+
+      const kinyarwanda = document.createElement("option");
+      kinyarwanda.value = "rw";
+      kinyarwanda.textContent = "Kinyarwanda";
+
+      selector.append(english, kinyarwanda);
+      bar.append(label, selector);
+      header.appendChild(bar);
+    }
+  }
+
+  const textNodes = [];
+  const walker = document.createTreeWalker(
+    document.body,
+    NodeFilter.SHOW_TEXT,
+    {
+      acceptNode(node) {
+        if (!node.parentElement) {
+          return NodeFilter.FILTER_REJECT;
+        }
+
+        if (["SCRIPT", "STYLE", "OPTION"].includes(node.parentElement.tagName)) {
+          return NodeFilter.FILTER_REJECT;
+        }
+
+        return node.nodeValue.trim()
+          ? NodeFilter.FILTER_ACCEPT
+          : NodeFilter.FILTER_REJECT;
+      }
+    }
+  );
+
+  while (walker.nextNode()) {
+    const node = walker.currentNode;
+    const original = node.nodeValue;
+    const normalized = original.replace(/\s+/g, " ").trim();
+
+    textNodes.push({
+      node: node,
+      en: original,
+      rw: dictionary.get(normalized) || null
+    });
+  }
+
+  // Some paragraphs have text split across line breaks.
+  // The walker translates each element with a complete text-only content.
+  const fullElements = [];
+
+  document.querySelectorAll(
+    ".pig-farming-page p, " +
+    ".pig-farming-page h1, " +
+    ".pig-farming-page h2, " +
+    ".pig-farming-page h3, " +
+    ".pig-farming-page li, " +
+    ".pig-farming-page th, " +
+    ".pig-farming-page td, " +
+    ".pig-farming-page .pig-farming-highlight, " +
+    ".pig-farming-page .pig-farming-warning, " +
+    ".pig-farming-page .pig-daily-checklist > div, " +
+    ".pig-farming-page .pig-golden-rules span"
+  ).forEach(function (element) {
+    if (element.children.length > 0) return;
+
+    const normalized = element.textContent.replace(/\s+/g, " ").trim();
+    const translated = dictionary.get(normalized);
+
+    if (translated) {
+      fullElements.push({
+        element: element,
+        en: element.textContent,
+        rw: translated
+      });
+    }
+  });
+
+  function getSavedLanguage() {
+    try {
+      return localStorage.getItem(LANGUAGE_KEY) === "rw" ? "rw" : "en";
+    } catch (error) {
+      return "en";
+    }
+  }
+
+  function saveLanguage(lang) {
+    try {
+      localStorage.setItem(LANGUAGE_KEY, lang);
+    } catch (error) {
+      // The page still translates if storage is unavailable.
+    }
+  }
+
+  function translatePage(language) {
+    const lang = language === "rw" ? "rw" : "en";
+
+    textNodes.forEach(function (item) {
+      if (!item.rw) return;
+
+      if (lang === "en") {
+        item.node.nodeValue = item.en;
+      } else {
+        const leading = item.en.match(/^\s*/)[0];
+        const trailing = item.en.match(/\s*$/)[0];
+
+        item.node.nodeValue = leading + item.rw + trailing;
+      }
+    });
+
+    fullElements.forEach(function (item) {
+      item.element.textContent = lang === "rw" ? item.rw : item.en;
+    });
+
+    if (selector) selector.value = lang;
+
+    document.documentElement.lang = lang;
+
+    document.title = lang === "rw"
+      ? "Ubworozi bw'Ingurube | Africa AgroVision"
+      : "Pig Farming | Africa AgroVision";
+  }
+
+  if (selector) {
+    selector.addEventListener("change", function () {
+      saveLanguage(this.value);
+      translatePage(this.value);
+    });
+  }
+
+  window.addEventListener("storage", function (event) {
+    if (event.key === LANGUAGE_KEY) {
+      translatePage(getSavedLanguage());
+    }
+  });
+
+  translatePage(getSavedLanguage());
+})();
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Avoid creating a duplicate language selector
+    if (document.getElementById("pigLanguage")) return;
+
+    const nav = document.querySelector(".main-nav");
+
+    if (!nav) return;
+
+    const languageBox = document.createElement("div");
+
+    languageBox.innerHTML = `
+        <label for="pigLanguage" style="color:white;font-weight:600;">
+            🌐 Language
+        </label>
+        <select id="pigLanguage"
+                style="padding:9px 12px;border-radius:8px;
+                       border:none;margin-left:8px;
+                       color:#14532d;font-weight:700;">
+            <option value="en">English</option>
+            <option value="rw">Kinyarwanda</option>
+        </select>
+    `;
+
+    nav.appendChild(languageBox);
+
+    const selector = document.getElementById("pigLanguage");
+
+    const savedLanguage =
+        localStorage.getItem("agrovision-language") || "en";
+
+    selector.value = savedLanguage;
+
+    selector.addEventListener("change", function () {
+        localStorage.setItem("agrovision-language", this.value);
+        location.reload();
+    });
+});
+</script>
+
 </body>
 </html>
 ```

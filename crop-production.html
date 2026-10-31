@@ -38,10 +38,21 @@
 
 <section class="dashboard-cards">
 
-   <a href="maize-farming.html" class="card">
-    <h3>🌽 Maize Farming</h3>
-    <p>Complete guide from land preparation to harvesting and storage.</p>
+   <div class="card maize-card">
+  <h3>🌽 Maize Farming</h3>
+
+  <p>
+    Complete professional guide to maize production,
+    from land preparation and seed selection to
+    planting, crop management, harvesting and storage.
+  </p>
+
+  <a href="maize-farming.html" class="maize-explore-btn">
+  <span data-en="Explore More" data-rw="Menya byinshi">
+    Explore More
+  </span>
 </a>
+</div>
 
     <div class="card">
         <h3>🥔 Potato Farming</h3>
@@ -92,6 +103,171 @@ View Coffee Guide
 </div>
 
 </section>
+
+<!-- AFRICA AGROVISION - CROP PRODUCTION TRANSLATION -->
+<script>
+(function () {
+  "use strict";
+
+  const STORAGE_KEY = "agrovision-language";
+
+  const translations = {
+    "Dashboard": "Imbonerahamwe",
+    "Agriculture": "Ubuhinzi",
+    "Projects": "Imishinga",
+    "Gallery": "Amafoto",
+    "Ideas & Feedback": "Ibitekerezo n'ibyifuzo",
+    "Contact": "Twandikire",
+
+    "🌾 Crop Production Library":
+      "🌾 Isomero ry'ubumenyi ku bihingwa",
+
+    "Explore professional farming guides for major crops grown across Africa.":
+      "Menya amabwiriza n'ubumenyi ngiro ku guhinga ibihingwa by'ingenzi bihingwa muri Afurika.",
+
+    "🌽 Maize Farming": "🌽 Guhinga ibigori",
+    "Complete guide from land preparation to harvesting and storage.":
+      "Amabwiriza yuzuye kuva ku gutegura ubutaka kugeza ku gusarura no guhunika umusaruro.",
+
+    "🥔 Potato Farming": "🥔 Guhinga ibirayi",
+    "Coming Soon": "Biraza vuba",
+
+    "🌾 Rice Farming": "🌾 Guhinga umuceri",
+    "Learn rice production practices, land preparation, water management, harvesting, and storage techniques.":
+      "Menya uburyo bwo guhinga umuceri, gutegura ubutaka, gucunga amazi, gusarura no guhunika umusaruro.",
+
+    "View Rice Guide": "Reba amabwiriza yo guhinga umuceri",
+
+    "🫘 Bean Farming": "🫘 Guhinga ibishyimbo",
+    "Complete guide from land preparation to harvesting and safe storage.":
+      "Amabwiriza yuzuye kuva ku gutegura ubutaka kugeza ku gusarura no guhunika umusaruro neza.",
+
+    "☕ Coffee Farming": "☕ Guhinga ikawa",
+    "Learn coffee production practices, climate requirements, planting, harvesting, and quality management.":
+      "Menya uburyo bwo guhinga ikawa, ikirere ikenera, kuyitera, kuyisarura no kubungabunga ubwiza bwayo.",
+
+    "View Coffee Guide": "Reba amabwiriza yo guhinga ikawa"
+  };
+
+  // Store original English text so switching remains reliable.
+  const originals = new WeakMap();
+
+  function getLanguage() {
+    return localStorage.getItem(STORAGE_KEY) === "rw"
+      ? "rw"
+      : "en";
+  }
+
+  function normalize(text) {
+    return String(text).trim().replace(/\s+/g, " ");
+  }
+
+  function translateElement(element, lang) {
+    if (!originals.has(element)) {
+      originals.set(element, element.textContent);
+    }
+
+    const english = normalize(originals.get(element));
+
+    const translated = lang === "rw"
+      ? translations[english] || english
+      : english;
+
+    // Only update text when necessary.
+    if (normalize(element.textContent) !== translated) {
+      element.textContent = translated;
+    }
+  }
+
+  function applyTranslation() {
+    const lang = getLanguage();
+
+    const selectors = [
+      ".dashboard-nav ul a",
+      ".dashboard-hero h1",
+      ".dashboard-hero p",
+      ".dashboard-cards .card h3",
+      ".dashboard-cards .card p",
+      ".dashboard-cards .crop-card h3",
+      ".dashboard-cards .crop-card p",
+      ".dashboard-cards .crop-btn"
+    ];
+
+    document.querySelectorAll(selectors.join(","))
+      .forEach(element => translateElement(element, lang));
+
+    const selector = document.getElementById("cropLanguage");
+    if (selector) selector.value = lang;
+
+    document.documentElement.lang = lang;
+
+    document.title = lang === "rw"
+      ? "Ubuhinzi bw'Ibihingwa | Africa AgroVision"
+      : "Crop Production | Africa AgroVision";
+  }
+
+  function setupLanguageSelector() {
+    const nav = document.querySelector(".dashboard-nav ul");
+
+    if (!nav || document.getElementById("cropLanguage")) {
+      return;
+    }
+
+    const item = document.createElement("li");
+    const selector = document.createElement("select");
+
+    selector.id = "cropLanguage";
+    selector.setAttribute(
+      "aria-label",
+      "Choose language / Hitamo ururimi"
+    );
+
+    selector.style.cssText = [
+      "width:auto",
+      "min-width:145px",
+      "max-width:100%",
+      "padding:10px 12px",
+      "border:1px solid #d6e8da",
+      "border-radius:9px",
+      "background:white",
+      "color:#14532d",
+      "font-size:13px",
+      "font-weight:700",
+      "cursor:pointer"
+    ].join(";");
+
+    selector.innerHTML = `
+      <option value="en">🌐 English</option>
+      <option value="rw">🌐 Kinyarwanda</option>
+    `;
+
+    item.appendChild(selector);
+    nav.appendChild(item);
+
+    selector.value = getLanguage();
+
+    selector.addEventListener("change", function () {
+      localStorage.setItem(STORAGE_KEY, this.value);
+      applyTranslation();
+    });
+  }
+
+  function initializeTranslation() {
+    setupLanguageSelector();
+    applyTranslation();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      initializeTranslation
+    );
+  } else {
+    initializeTranslation();
+  }
+})();
+</script>
+<!-- END CROP PRODUCTION TRANSLATION -->
 
 </body>
 </html>

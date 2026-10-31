@@ -6,14 +6,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#103e27">
 <meta name="description" content="Learn maize farming in Rwanda and Africa, from land preparation and planting to pest control, harvesting and grain storage.">
-
 <title>Maize Farming Guide | Africa AgroVision</title>
 
 <link rel="preconnect" href="https://images.unsplash.com">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
-:root{
+:root {
   --green:#124c2c;
   --dark:#092f1c;
   --light:#eaf5ed;
@@ -25,32 +24,33 @@
   --white:#fff;
   --shadow:0 12px 35px rgba(10,49,25,.09);
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
+
+* {box-sizing:border-box}
+html {scroll-behavior:smooth;scroll-padding-top:100px}
+body {
   margin:0;
   background:var(--bg);
   color:var(--text);
   font-family:Arial,Helvetica,sans-serif;
   line-height:1.75;
 }
-a{text-decoration:none;color:inherit}
-button{font:inherit;cursor:pointer}
-img{display:block;width:100%;height:100%;object-fit:cover}
-a:focus-visible,button:focus-visible{
+a {text-decoration:none;color:inherit}
+button {font:inherit;cursor:pointer}
+img {display:block;width:100%;height:100%;object-fit:cover}
+a:focus-visible,button:focus-visible,select:focus-visible {
   outline:3px solid #8ed19d;
   outline-offset:3px;
 }
 
 /* NAVIGATION */
-.navbar{
+.navbar {
   position:sticky;
   top:0;
   z-index:100;
   background:var(--dark);
   box-shadow:0 4px 20px #0002;
 }
-.nav-inner{
+.nav-inner {
   max-width:1400px;
   margin:auto;
   min-height:76px;
@@ -60,7 +60,7 @@ a:focus-visible,button:focus-visible{
   justify-content:space-between;
   gap:20px;
 }
-.brand{
+.brand {
   display:flex;
   align-items:center;
   gap:12px;
@@ -69,7 +69,7 @@ a:focus-visible,button:focus-visible{
   font-weight:800;
   white-space:nowrap;
 }
-.brand i{
+.brand i {
   display:grid;
   place-items:center;
   width:43px;
@@ -78,15 +78,15 @@ a:focus-visible,button:focus-visible{
   border-radius:11px;
   color:#c5efca;
 }
-.brand em{color:#a6e3b2;font-style:normal}
-.brand small{
+.brand em {color:#a6e3b2;font-style:normal}
+.brand small {
   display:block;
   color:#cfe5d4;
   font-size:10px;
   font-weight:400;
   line-height:1.5;
 }
-.nav-links{
+.nav-links {
   display:flex;
   align-items:center;
   flex-wrap:wrap;
@@ -95,7 +95,7 @@ a:focus-visible,button:focus-visible{
   padding:0;
   margin:0;
 }
-.nav-links a{
+.nav-links a {
   display:block;
   padding:10px 13px;
   border-radius:8px;
@@ -103,8 +103,10 @@ a:focus-visible,button:focus-visible{
   font-size:12px;
   font-weight:700;
 }
-.nav-links a:hover,.nav-links a.active{background:#ffffff22}
-.menu-toggle{
+.nav-links a:hover,.nav-links a.active {
+  background:#ffffff22;
+}
+.menu-toggle {
   display:none;
   width:44px;
   height:44px;
@@ -114,9 +116,21 @@ a:focus-visible,button:focus-visible{
   color:white;
   font-size:20px;
 }
+.language-select {
+  min-width:145px;
+  max-width:100%;
+  padding:10px 12px;
+  border:1px solid #cce4d1;
+  border-radius:9px;
+  background:#fff;
+  color:#14532d;
+  font-size:12px;
+  font-weight:800;
+  cursor:pointer;
+}
 
 /* HERO */
-.hero{
+.hero {
   position:relative;
   min-height:510px;
   display:flex;
@@ -127,13 +141,13 @@ a:focus-visible,button:focus-visible{
     center/cover;
   color:white;
 }
-.hero-inner{
+.hero-inner {
   width:92%;
   max-width:1260px;
   margin:auto;
   padding:75px 0 95px;
 }
-.eyebrow{
+.eyebrow {
   display:inline-flex;
   align-items:center;
   gap:9px;
@@ -147,27 +161,27 @@ a:focus-visible,button:focus-visible{
   letter-spacing:1.2px;
   text-transform:uppercase;
 }
-.hero h1{
+.hero h1 {
   max-width:790px;
   margin:22px 0 18px;
   font-size:clamp(37px,5.2vw,65px);
   line-height:1.1;
   letter-spacing:-1.5px;
 }
-.hero h1 span{color:#f2c76c}
-.hero p{
+.hero h1 span {color:#f2c76c}
+.hero p {
   max-width:690px;
   color:#e4eee6;
   font-size:16px;
   line-height:1.9;
 }
-.hero-actions{
+.hero-actions {
   display:flex;
   flex-wrap:wrap;
   gap:12px;
   margin-top:30px;
 }
-.btn{
+.btn {
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -180,40 +194,42 @@ a:focus-visible,button:focus-visible{
   font-weight:800;
   transition:.2s;
 }
-.btn:hover{transform:translateY(-2px);background:#ffcd69}
-.btn.secondary{
+.btn:hover {
+  transform:translateY(-2px);
+  background:#ffcd69;
+}
+.btn.secondary {
   background:#ffffff18;
   border:1px solid #ffffff80;
   color:white;
 }
 
 /* PAGE */
-.container{
+.container {
   width:92%;
   max-width:1260px;
   margin:auto;
 }
-.facts-wrap{
+.facts-wrap {
   position:relative;
   z-index:2;
   margin-top:-55px;
 }
-.facts{
+.facts {
   display:grid;
   grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:0;
   padding:16px;
   background:white;
   border:1px solid var(--border);
   border-radius:17px;
   box-shadow:var(--shadow);
 }
-.fact{
+.fact {
   padding:22px 24px;
   border-right:1px solid var(--border);
 }
-.fact:last-child{border-right:0}
-.fact-icon{
+.fact:last-child {border-right:0}
+.fact-icon {
   display:grid;
   place-items:center;
   width:43px;
@@ -224,20 +240,18 @@ a:focus-visible,button:focus-visible{
   font-size:19px;
   margin-bottom:12px;
 }
-.fact strong{
+.fact strong {
   display:block;
   font-size:19px;
   color:#174b2e;
   margin-bottom:3px;
 }
-.fact span{
+.fact span {
   color:var(--muted);
   font-size:12px;
 }
-.section{
-  padding:75px 0 0;
-}
-.section-label{
+.section {padding:75px 0 0}
+.section-label {
   display:inline-block;
   margin-bottom:10px;
   color:#2c8749;
@@ -246,45 +260,45 @@ a:focus-visible,button:focus-visible{
   letter-spacing:1.4px;
   text-transform:uppercase;
 }
-.section h2{
+.section h2 {
   margin:0 0 16px;
   color:#123d26;
   font-size:clamp(27px,3.3vw,37px);
   line-height:1.25;
 }
-.section-lead{
+.section-lead {
   max-width:850px;
   margin:0 0 30px;
   color:var(--muted);
   font-size:15px;
 }
-.intro-panel{
+.intro-panel {
   display:grid;
   grid-template-columns:1.05fr .95fr;
   gap:35px;
   align-items:center;
 }
-.intro-panel p,.article-copy p{
+.intro-panel p {
   color:#586d60;
   font-size:14px;
   line-height:1.95;
   margin:0 0 17px;
 }
-.image-frame{
+.image-frame {
   overflow:hidden;
   border-radius:17px;
   height:345px;
   background:#e2eee5;
   box-shadow:var(--shadow);
 }
-.image-frame img{transition:transform .4s}
-.image-frame:hover img{transform:scale(1.04)}
-.image-caption{
+.image-frame img {transition:transform .4s}
+.image-frame:hover img {transform:scale(1.04)}
+.image-caption {
   margin-top:10px;
   color:#849187;
   font-size:11px;
 }
-.highlight{
+.highlight {
   margin-top:22px;
   padding:18px 21px;
   background:#e7f4ea;
@@ -295,25 +309,32 @@ a:focus-visible,button:focus-visible{
   line-height:1.8;
 }
 
-/* STAGES */
-.stage-grid{
+/* FARMING STAGES */
+.stage-grid {
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
   gap:22px;
 }
-.stage-card{
+.stage-card {
+  display:flex;
+  flex-direction:column;
   overflow:hidden;
   border:1px solid var(--border);
   border-radius:16px;
   background:white;
   box-shadow:var(--shadow);
+  transition:transform .25s,box-shadow .25s;
 }
-.stage-image{
+.stage-card:hover {
+  transform:translateY(-4px);
+  box-shadow:0 18px 40px rgba(10,49,25,.14);
+}
+.stage-image {
   position:relative;
   height:205px;
   background:#e5efe7;
 }
-.stage-number{
+.stage-number {
   position:absolute;
   left:17px;
   bottom:-18px;
@@ -328,29 +349,63 @@ a:focus-visible,button:focus-visible{
   font-size:14px;
   font-weight:800;
 }
-.stage-body{padding:32px 22px 24px}
-.stage-body h3{
+.stage-body {
+  display:flex;
+  flex:1;
+  flex-direction:column;
+  padding:32px 22px 24px;
+}
+.stage-body h3 {
   margin:0 0 11px;
   color:#18432b;
   font-size:20px;
 }
-.stage-body p{
+.stage-body p {
   margin:0 0 14px;
   color:#65776a;
   font-size:13px;
   line-height:1.85;
 }
-.stage-body ul{
+.stage-body ul {
   padding-left:18px;
   margin:0;
   color:#526a5b;
   font-size:12px;
   line-height:1.95;
 }
-.stage-body li{padding-left:3px}
+.stage-body li {padding-left:3px}
 
-/* ARTICLE PANELS */
-.detail-panel{
+/* NEW EXPLORE MORE BUTTON */
+.maize-explore-btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  align-self:flex-start;
+  margin-top:auto;
+  padding:12px 19px;
+  border-radius:10px;
+  background:linear-gradient(135deg,#166534,#27864b);
+  color:#fff;
+  font-size:13px;
+  font-weight:800;
+  box-shadow:0 7px 18px rgba(22,101,52,.18);
+  transition:transform .25s,box-shadow .25s;
+}
+.stage-body ul + .maize-explore-btn {
+  margin-top:22px;
+}
+.maize-explore-btn:hover {
+  transform:translateY(-3px);
+  box-shadow:0 12px 24px rgba(22,101,52,.3);
+  color:#fff;
+}
+.maize-explore-btn .fa-arrow-up-right-from-square {
+  font-size:11px;
+}
+
+/* DETAIL PANELS */
+.detail-panel {
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:36px;
@@ -362,25 +417,25 @@ a:focus-visible,button:focus-visible{
   border-radius:18px;
   box-shadow:var(--shadow);
 }
-.detail-panel.reverse .image-frame{order:2}
-.detail-panel .image-frame{height:315px}
-.detail-panel h3{
+.detail-panel.reverse .image-frame {order:2}
+.detail-panel .image-frame {height:315px}
+.detail-panel h3 {
   margin:0 0 14px;
   font-size:24px;
   color:#17472d;
 }
-.detail-panel p{
+.detail-panel p {
   margin:0 0 14px;
   color:#607367;
   font-size:13px;
   line-height:1.9;
 }
-.check-list{
+.check-list {
   list-style:none;
   padding:0;
   margin:14px 0 0;
 }
-.check-list li{
+.check-list li {
   position:relative;
   padding-left:27px;
   margin-bottom:10px;
@@ -388,7 +443,7 @@ a:focus-visible,button:focus-visible{
   font-size:13px;
   line-height:1.7;
 }
-.check-list li:before{
+.check-list li:before {
   content:"✓";
   position:absolute;
   left:0;
@@ -398,19 +453,18 @@ a:focus-visible,button:focus-visible{
 }
 
 /* TIMELINE */
-.timeline{
+.timeline {
   display:grid;
   grid-template-columns:repeat(5,minmax(0,1fr));
   gap:15px;
 }
-.timeline-item{
-  position:relative;
+.timeline-item {
   padding:24px 18px;
   border:1px solid #dbe9df;
   border-radius:14px;
   background:white;
 }
-.timeline-item .step{
+.timeline-item .step {
   display:grid;
   place-items:center;
   width:36px;
@@ -422,20 +476,20 @@ a:focus-visible,button:focus-visible{
   font-size:14px;
   font-weight:800;
 }
-.timeline-item h3{
+.timeline-item h3 {
   margin:0 0 9px;
   font-size:15px;
   color:#17462c;
 }
-.timeline-item p{
+.timeline-item p {
   margin:0;
   color:#65796a;
   font-size:12px;
   line-height:1.8;
 }
 
-/* WARNING AND CTA */
-.warning{
+/* WARNING AND MARKETPLACE */
+.warning {
   display:flex;
   align-items:flex-start;
   gap:16px;
@@ -445,18 +499,18 @@ a:focus-visible,button:focus-visible{
   border-radius:13px;
   background:#fff8e9;
 }
-.warning i{
+.warning i {
   color:#bf821a;
   font-size:23px;
   margin-top:3px;
 }
-.warning h3{margin:0 0 5px;font-size:16px}
-.warning p{
+.warning h3 {margin:0 0 5px;font-size:16px}
+.warning p {
   margin:0;
   color:#795e35;
   font-size:13px;
 }
-.cta{
+.cta {
   margin:75px 0 80px;
   padding:45px;
   border-radius:20px;
@@ -464,75 +518,80 @@ a:focus-visible,button:focus-visible{
   color:white;
   text-align:center;
 }
-.cta h2{
+.cta h2 {
   margin:0 0 12px;
   font-size:clamp(25px,3vw,35px);
 }
-.cta p{
+.cta p {
   max-width:700px;
   margin:0 auto 24px;
   color:#d7e9db;
   font-size:14px;
 }
-.cta .btn{background:#f0b846}
-.footer{
+.cta .btn {background:#f0b846}
+.footer {
   padding:28px 15px;
   background:#082f1b;
   color:#d1e3d6;
   text-align:center;
   font-size:12px;
 }
-.footer a{color:#c2eac8}
-.footer a:hover{text-decoration:underline}
+.footer a {color:#c2eac8}
+.footer a:hover {text-decoration:underline}
 
 /* RESPONSIVE */
-@media(max-width:1050px){
-  .nav-inner{flex-wrap:wrap}
-  .nav-links{justify-content:center}
-  .facts{grid-template-columns:repeat(2,1fr)}
-  .fact:nth-child(2){border-right:0}
-  .fact:nth-child(-n+2){border-bottom:1px solid var(--border)}
-  .stage-grid{grid-template-columns:repeat(2,1fr)}
-  .timeline{grid-template-columns:repeat(3,1fr)}
+@media(max-width:1050px) {
+  .nav-inner {flex-wrap:wrap}
+  .nav-links {justify-content:center}
+  .facts {grid-template-columns:repeat(2,1fr)}
+  .fact:nth-child(2) {border-right:0}
+  .fact:nth-child(-n+2) {border-bottom:1px solid var(--border)}
+  .stage-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+  .timeline {grid-template-columns:repeat(3,1fr)}
 }
-@media(max-width:750px){
-  .nav-inner{min-height:70px}
-  .brand{font-size:18px}
-  .menu-toggle{display:block}
-  .nav-links{
+@media(max-width:750px) {
+  .nav-inner {min-height:70px}
+  .brand {font-size:18px}
+  .menu-toggle {display:block}
+  .nav-links {
     display:none;
     width:100%;
     flex-direction:column;
     align-items:stretch;
     padding:10px 0;
   }
-  .nav-links.open{display:flex}
-  .nav-links li{width:100%}
-  .nav-links a{padding:12px}
-  .hero{min-height:470px}
-  .hero-inner{padding:65px 0 85px}
-  .hero h1{font-size:38px}
-  .hero p{font-size:14px}
-  .intro-panel,.detail-panel{grid-template-columns:1fr}
-  .detail-panel.reverse .image-frame{order:0}
-  .image-frame,.detail-panel .image-frame{height:290px}
-  .section{padding-top:60px}
-  .timeline{grid-template-columns:repeat(2,1fr)}
+  .nav-links.open {display:flex}
+  .nav-links li {width:100%}
+  .nav-links a {padding:12px}
+  .language-select {width:100%}
+  .hero {min-height:470px}
+  .hero-inner {padding:65px 0 85px}
+  .hero h1 {font-size:38px}
+  .hero p {font-size:14px}
+  .intro-panel,.detail-panel {grid-template-columns:1fr}
+  .detail-panel.reverse .image-frame {order:0}
+  .image-frame,.detail-panel .image-frame {height:290px}
+  .section {padding-top:60px}
+  .timeline {grid-template-columns:repeat(2,1fr)}
 }
-@media(max-width:550px){
-  .facts{padding:8px}
-  .fact{padding:18px 12px}
-  .fact strong{font-size:16px}
-  .fact span{font-size:11px}
-  .hero-actions{flex-direction:column}
-  .btn{width:100%}
-  .stage-grid,.timeline{grid-template-columns:1fr}
-  .stage-image{height:230px}
-  .detail-panel{padding:17px}
-  .cta{padding:32px 22px}
+@media(max-width:550px) {
+  .facts {padding:8px}
+  .fact {padding:18px 12px}
+  .fact strong {font-size:16px}
+  .fact span {font-size:11px}
+  .hero-actions {flex-direction:column}
+  .hero-actions .btn {width:100%}
+  .stage-grid,.timeline {grid-template-columns:1fr}
+  .stage-image {height:230px}
+  .maize-explore-btn {width:100%}
+  .detail-panel {padding:17px}
+  .cta {padding:32px 22px}
 }
-@media(prefers-reduced-motion:reduce){
-  *,*:before,*:after{scroll-behavior:auto!important;transition:none!important}
+@media(prefers-reduced-motion:reduce) {
+  *,*:before,*:after {
+    scroll-behavior:auto!important;
+    transition:none!important;
+  }
 }
 </style>
 </head>
@@ -546,23 +605,35 @@ a:focus-visible,button:focus-visible{
       <i class="fa-solid fa-leaf"></i>
       <span>
         Africa <em>AgroVision</em>
-        <small>Growing Agriculture. Connecting Opportunities.</small>
+        <small data-en="Growing Agriculture. Connecting Opportunities."
+               data-rw="Duteza imbere ubuhinzi. Duhuza abantu n'amahirwe.">
+          Growing Agriculture. Connecting Opportunities.
+        </small>
       </span>
     </a>
 
     <button type="button" class="menu-toggle"
-      id="menuToggle" aria-expanded="false"
-      aria-controls="navLinks" aria-label="Open navigation">
+      id="menuToggle"
+      aria-expanded="false"
+      aria-controls="navLinks"
+      aria-label="Open navigation">
       <i class="fa-solid fa-bars"></i>
     </button>
 
     <ul class="nav-links" id="navLinks">
-      <li><a href="dashboard.html">Dashboard</a></li>
-      <li><a class="active" href="agriculture.html">Agriculture</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="ideas.html">Ideas & Feedback</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="dashboard.html" data-en="Dashboard" data-rw="Imbonerahamwe">Dashboard</a></li>
+      <li><a class="active" href="agriculture.html" data-en="Agriculture" data-rw="Ubuhinzi">Agriculture</a></li>
+      <li><a href="projects.html" data-en="Projects" data-rw="Imishinga">Projects</a></li>
+      <li><a href="gallery.html" data-en="Gallery" data-rw="Amafoto">Gallery</a></li>
+      <li><a href="ideas.html" data-en="Ideas &amp; Feedback" data-rw="Ibitekerezo n'ibyifuzo">Ideas &amp; Feedback</a></li>
+      <li><a href="contact.html" data-en="Contact" data-rw="Twandikire">Contact</a></li>
+      <li>
+        <select id="maizeLanguage" class="language-select"
+                aria-label="Choose language / Hitamo ururimi">
+          <option value="en">🌐 English</option>
+          <option value="rw">🌐 Kinyarwanda</option>
+        </select>
+      </li>
     </ul>
   </div>
 </nav>
@@ -572,12 +643,25 @@ a:focus-visible,button:focus-visible{
   <div class="hero-inner">
     <span class="eyebrow">
       <i class="fa-solid fa-wheat-awn"></i>
-      Africa AgroVision • Crop Production Guide
+      <span data-en="Africa AgroVision • Crop Production Guide"
+            data-rw="Africa AgroVision • Amabwiriza yo guhinga ibihingwa">
+        Africa AgroVision • Crop Production Guide
+      </span>
     </span>
 
-    <h1>Grow Better Maize.<br><span>Harvest Greater Opportunities.</span></h1>
+    <h1>
+      <span style="color:white"
+            data-en="Grow Better Maize."
+            data-rw="Hinga ibigori neza.">Grow Better Maize.</span>
+      <br>
+      <span data-en="Harvest Greater Opportunities."
+            data-rw="Sarura umusaruro n'amahirwe menshi.">
+        Harvest Greater Opportunities.
+      </span>
+    </h1>
 
-    <p>
+    <p data-en="A practical guide to maize farming in Rwanda and across Africa. Learn how to select suitable land, choose quality seed, plant correctly, manage your crop and protect grain quality after harvest."
+       data-rw="Amabwiriza ngiro yo guhinga ibigori mu Rwanda no muri Afurika. Menya guhitamo ubutaka bukwiye, imbuto nziza, gutera neza, kwita ku gihingwa no kubungabunga umusaruro nyuma yo gusarura.">
       A practical guide to maize farming in Rwanda and across Africa.
       Learn how to select suitable land, choose quality seed, plant correctly,
       manage your crop and protect grain quality after harvest.
@@ -585,10 +669,12 @@ a:focus-visible,button:focus-visible{
 
     <div class="hero-actions">
       <a href="#introduction" class="btn">
-        <i class="fa-solid fa-book-open"></i> Start Learning
+        <i class="fa-solid fa-book-open"></i>
+        <span data-en="Start Learning" data-rw="Tangira kwiga">Start Learning</span>
       </a>
       <a href="#farming-stages" class="btn secondary">
-        <i class="fa-solid fa-list-check"></i> Explore Farming Steps
+        <i class="fa-solid fa-list-check"></i>
+        <span data-en="Explore Farming Steps" data-rw="Menya intambwe zo guhinga">Explore Farming Steps</span>
       </a>
     </div>
   </div>
@@ -602,25 +688,37 @@ a:focus-visible,button:focus-visible{
     <div class="fact">
       <div class="fact-icon"><i class="fa-solid fa-cloud-sun-rain"></i></div>
       <strong>500–1,200 mm</strong>
-      <span>Approximate seasonal rainfall requirement, depending on variety and conditions</span>
+      <span data-en="Approximate seasonal rainfall requirement, depending on variety and conditions"
+            data-rw="Ingano y'imvura ikenerwa mu gihembwe bitewe n'ubwoko bw'imbuto n'imiterere y'ikirere">
+        Approximate seasonal rainfall requirement, depending on variety and conditions
+      </span>
     </div>
 
     <div class="fact">
       <div class="fact-icon"><i class="fa-solid fa-temperature-half"></i></div>
       <strong>18–30°C</strong>
-      <span>Broad favorable temperature range for maize growth</span>
+      <span data-en="Broad favorable temperature range for maize growth"
+            data-rw="Urugero rw'ubushyuhe bubereye imikurire y'ibigori">
+        Broad favorable temperature range for maize growth
+      </span>
     </div>
 
     <div class="fact">
       <div class="fact-icon"><i class="fa-solid fa-ruler-combined"></i></div>
       <strong>75 × 25–30 cm</strong>
-      <span>Example spacing; confirm the recommended spacing for your seed variety</span>
+      <span data-en="Example spacing; confirm the recommended spacing for your seed variety"
+            data-rw="Urugero rw'intera; genzura intera ibereye ubwoko bw'imbuto ukoresha">
+        Example spacing; confirm the recommended spacing for your seed variety
+      </span>
     </div>
 
     <div class="fact">
       <div class="fact-icon"><i class="fa-solid fa-flask"></i></div>
       <strong>pH 5.5–7.0</strong>
-      <span>General soil pH range; soil testing guides corrective action</span>
+      <span data-en="General soil pH range; soil testing guides corrective action"
+            data-rw="Urugero rusange rwa pH y'ubutaka; gupima ubutaka bifasha kumenya ibikenewe">
+        General soil pH range; soil testing guides corrective action
+      </span>
     </div>
   </section>
 </div>
@@ -629,53 +727,67 @@ a:focus-visible,button:focus-visible{
 <section class="section container" id="introduction">
   <div class="intro-panel">
     <div>
-      <span class="section-label">01 / Introduction</span>
-      <h2>Why Maize Farming Matters</h2>
+      <span class="section-label" data-en="01 / Introduction" data-rw="01 / Intangiriro">01 / Introduction</span>
+      <h2 data-en="Why Maize Farming Matters" data-rw="Akamaro ko guhinga ibigori">Why Maize Farming Matters</h2>
 
-      <p>
+      <p data-en="Maize is one of Africa's most important food and cash crops. It supports household food security, livestock feed production, agricultural trade and rural employment."
+         data-rw="Ibigori ni kimwe mu bihingwa by'ingenzi mu biribwa no mu bucuruzi muri Afurika. Bifasha mu kwihaza mu biribwa, kugaburira amatungo, ubucuruzi bw'ubuhinzi no guhanga imirimo mu cyaro.">
         Maize is one of Africa's most important food and cash crops.
         It supports household food security, livestock feed production,
         agricultural trade and rural employment.
       </p>
 
-      <p>
+      <p data-en="In Rwanda, maize is grown in different agroecological conditions. Successful production depends on selecting varieties suited to the location, planting at the right time and maintaining healthy soil."
+         data-rw="Mu Rwanda, ibigori bihingwa ahantu hafite imiterere itandukanye y'ikirere n'ubutaka. Umusaruro mwiza ushingira ku guhitamo imbuto zibereye aho uhinga, gutera ku gihe no kubungabunga ubutaka.">
         In Rwanda, maize is grown in different agroecological conditions.
         Successful production depends on selecting varieties suited to
         the location, planting at the right time and maintaining healthy soil.
       </p>
 
-      <p>
+      <p data-en="High yields result from a combination of quality seed, suitable field preparation, balanced nutrition, timely weed management, pest monitoring and proper post-harvest handling."
+         data-rw="Umusaruro mwinshi uva ku mbuto nziza, gutegura umurima, gufumbira neza, kubagara ku gihe, kugenzura udukoko no gufata neza umusaruro nyuma yo gusarura.">
         High yields result from a combination of quality seed, suitable
         field preparation, balanced nutrition, timely weed management,
         pest monitoring and proper post-harvest handling.
       </p>
 
       <div class="highlight">
-        <strong><i class="fa-solid fa-lightbulb"></i> Key principle:</strong>
-        Plan the whole season before planting. Seed choice, input costs,
-        labor, rainfall expectations and market opportunities all matter.
+        <strong>
+          <i class="fa-solid fa-lightbulb"></i>
+          <span data-en="Key principle:" data-rw="Ihame ry'ingenzi:">Key principle:</span>
+        </strong>
+        <span data-en="Plan the whole season before planting. Seed choice, input costs, labor, rainfall expectations and market opportunities all matter."
+              data-rw="Tegura igihembwe cyose mbere yo gutera. Guhitamo imbuto, ikiguzi cy'inyongeramusaruro, abakozi, imvura iteganyijwe n'amahirwe y'isoko byose ni ingenzi.">
+          Plan the whole season before planting. Seed choice, input costs,
+          labor, rainfall expectations and market opportunities all matter.
+        </span>
       </div>
     </div>
 
     <div>
       <div class="image-frame">
-        <img
-          src="https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=1100&q=85"
-          alt="Fresh maize cobs showing developed kernels"
-          loading="lazy">
+        <img src="https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=1100&q=85"
+             alt="Fresh maize cobs showing developed kernels" loading="lazy">
       </div>
-      <div class="image-caption">
+      <div class="image-caption"
+           data-en="Maize production connects farming, food security and agribusiness."
+           data-rw="Ubuhinzi bw'ibigori buhuza umusaruro, kwihaza mu biribwa n'ubucuruzi bw'ubuhinzi.">
         Maize production connects farming, food security and agribusiness.
       </div>
     </div>
   </div>
 </section>
 
-<!-- MAIN STAGES -->
+<!-- SIX FARMING STAGES -->
 <section class="section container" id="farming-stages">
-  <span class="section-label">02 / Production Process</span>
-  <h2>Six Essential Stages of Maize Farming</h2>
-  <p class="section-lead">
+  <span class="section-label" data-en="02 / Production Process" data-rw="02 / Uburyo bwo guhinga">02 / Production Process</span>
+  <h2 data-en="Six Essential Stages of Maize Farming"
+      data-rw="Intambwe esheshatu z'ingenzi zo guhinga ibigori">
+    Six Essential Stages of Maize Farming
+  </h2>
+  <p class="section-lead"
+     data-en="Follow these stages to establish a healthy crop and improve your chances of a successful harvest. Recommendations should be adapted to local conditions and the selected maize variety."
+     data-rw="Kurikiza izi ntambwe kugira ngo ibigori bikure neza kandi wongere amahirwe yo kubona umusaruro mwiza. Huza inama n'imiterere y'aho uhinga n'ubwoko bw'imbuto wahisemo.">
     Follow these stages to establish a healthy crop and improve your
     chances of a successful harvest. Recommendations should be adapted
     to local conditions and the selected maize variety.
@@ -683,209 +795,230 @@ a:focus-visible,button:focus-visible{
 
   <div class="stage-grid">
 
+    <!-- STAGE 1 -->
     <article class="stage-card">
       <div class="stage-image">
-        <img
-          src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=85"
-          alt="Agricultural field suitable for crop production"
-          loading="lazy">
+        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=85"
+             alt="Agricultural field suitable for crop production" loading="lazy">
         <span class="stage-number">01</span>
       </div>
       <div class="stage-body">
-        <h3>Choose Suitable Land</h3>
-        <p>
-          Select fertile, well-drained soil with adequate sunlight
-          and good moisture availability.
+        <h3 data-en="Choose Suitable Land" data-rw="Hitamo ubutaka bukwiye">Choose Suitable Land</h3>
+        <p data-en="Select fertile, well-drained soil with adequate sunlight and good moisture availability."
+           data-rw="Hitamo ubutaka burumbuka, budaheramo amazi, bubona izuba rihagije kandi bufite ubuhehere bukwiye.">
+          Select fertile, well-drained soil with adequate sunlight and good moisture availability.
         </p>
         <ul>
-          <li>Avoid fields prone to prolonged waterlogging.</li>
-          <li>Check soil depth, slope and drainage.</li>
-          <li>Use soil tests to guide amendments.</li>
+          <li data-en="Avoid fields prone to prolonged waterlogging." data-rw="Irinde imirima imaramo amazi igihe kirekire.">Avoid fields prone to prolonged waterlogging.</li>
+          <li data-en="Check soil depth, slope and drainage." data-rw="Suzuma ubujyakuzimu bw'ubutaka, ubuhaname n'uko amazi atembera.">Check soil depth, slope and drainage.</li>
+          <li data-en="Use soil tests to guide amendments." data-rw="Koresha ipimwa ry'ubutaka mu kumenya ibikenewe.">Use soil tests to guide amendments.</li>
         </ul>
+        <a href="#land" class="maize-explore-btn">
+          <i class="fa-solid fa-book-open"></i>
+          <span data-en="Explore More" data-rw="Menya byinshi">Explore More</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
       </div>
     </article>
 
+    <!-- STAGE 2 -->
     <article class="stage-card">
       <div class="stage-image">
-        <img
-          src="https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=900&q=85"
-          alt="Maize kernels on mature maize cobs"
-          loading="lazy">
+        <img src="https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=900&q=85"
+             alt="Maize kernels on mature maize cobs" loading="lazy">
         <span class="stage-number">02</span>
       </div>
       <div class="stage-body">
-        <h3>Select Quality Seed</h3>
-        <p>
-          Choose certified seed appropriate for local rainfall,
-          altitude, disease pressure and market requirements.
+        <h3 data-en="Select Quality Seed" data-rw="Hitamo imbuto nziza">Select Quality Seed</h3>
+        <p data-en="Choose certified seed appropriate for local rainfall, altitude, disease pressure and market requirements."
+           data-rw="Hitamo imbuto zemewe zibereye imvura, ubutumburuke, indwara n'ibisabwa n'isoko.">
+          Choose certified seed appropriate for local rainfall, altitude, disease pressure and market requirements.
         </p>
         <ul>
-          <li>Buy from recognized seed suppliers.</li>
-          <li>Check the label and expiry date.</li>
-          <li>Follow the variety's planting instructions.</li>
+          <li data-en="Buy from recognized seed suppliers." data-rw="Gura imbuto ku bacuruzi bemewe.">Buy from recognized seed suppliers.</li>
+          <li data-en="Check the label and expiry date." data-rw="Reba amakuru n'itariki ntarengwa ku gapaki k'imbuto.">Check the label and expiry date.</li>
+          <li data-en="Follow the variety's planting instructions." data-rw="Kurikiza amabwiriza yo gutera ubwoko bw'imbuto wahisemo.">Follow the variety's planting instructions.</li>
         </ul>
+        <a href="#seed" class="maize-explore-btn">
+          <i class="fa-solid fa-book-open"></i>
+          <span data-en="Explore More" data-rw="Menya byinshi">Explore More</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
       </div>
     </article>
 
+    <!-- STAGE 3 -->
     <article class="stage-card">
       <div class="stage-image">
-        <img
-          src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=900&q=85"
-          alt="Farm field and agricultural cultivation"
-          loading="lazy">
+        <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=900&q=85"
+             alt="Farm field and agricultural cultivation" loading="lazy">
         <span class="stage-number">03</span>
       </div>
       <div class="stage-body">
-        <h3>Prepare the Field</h3>
-        <p>
-          Prepare a suitable seedbed while protecting soil
-          structure, organic matter and moisture.
+        <h3 data-en="Prepare the Field" data-rw="Tegura umurima">Prepare the Field</h3>
+        <p data-en="Prepare a suitable seedbed while protecting soil structure, organic matter and moisture."
+           data-rw="Tegura umurima mu buryo bukwiye, urinde imiterere y'ubutaka, ifumbire mborera n'ubuhehere.">
+          Prepare a suitable seedbed while protecting soil structure, organic matter and moisture.
         </p>
         <ul>
-          <li>Control existing weeds before planting.</li>
-          <li>Reduce compaction where necessary.</li>
-          <li>Consider erosion-control measures on slopes.</li>
+          <li data-en="Control existing weeds before planting." data-rw="Rwanya ibyatsi bibi mbere yo gutera.">Control existing weeds before planting.</li>
+          <li data-en="Reduce compaction where necessary." data-rw="Gabanya ubutaka bwitsindagiye aho bikenewe.">Reduce compaction where necessary.</li>
+          <li data-en="Consider erosion-control measures on slopes." data-rw="Koresha uburyo bwo kurwanya isuri ku butaka buhanamye.">Consider erosion-control measures on slopes.</li>
         </ul>
+        <a href="#land" class="maize-explore-btn">
+          <i class="fa-solid fa-book-open"></i>
+          <span data-en="Explore More" data-rw="Menya byinshi">Explore More</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
       </div>
     </article>
 
+    <!-- STAGE 4 -->
     <article class="stage-card">
       <div class="stage-image">
-        <img
-          src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=900&q=85"
-          alt="Young green plants during early growth"
-          loading="lazy">
+        <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=900&q=85"
+             alt="Young green plants during early growth" loading="lazy">
         <span class="stage-number">04</span>
       </div>
       <div class="stage-body">
-        <h3>Plant at the Right Time</h3>
-        <p>
-          Plant after effective rainfall has established adequate
-          soil moisture, or when irrigation is available.
+        <h3 data-en="Plant at the Right Time" data-rw="Tera ku gihe gikwiye">Plant at the Right Time</h3>
+        <p data-en="Plant after effective rainfall has established adequate soil moisture, or when irrigation is available."
+           data-rw="Tera nyuma y'imvura ihagije itumye ubutaka bugira ubuhehere bukwiye, cyangwa igihe ufite uburyo bwo kuhira.">
+          Plant after effective rainfall has established adequate soil moisture, or when irrigation is available.
         </p>
         <ul>
-          <li>Use recommended spacing and depth.</li>
-          <li>Maintain a uniform plant population.</li>
-          <li>Check germination and fill gaps promptly if appropriate.</li>
+          <li data-en="Use recommended spacing and depth." data-rw="Koresha intera n'ubujyakuzimu byemewe.">Use recommended spacing and depth.</li>
+          <li data-en="Maintain a uniform plant population." data-rw="Tera ku buryo ibigori bigira ubucucike bungana.">Maintain a uniform plant population.</li>
+          <li data-en="Check germination and fill gaps promptly if appropriate." data-rw="Suzuma imimero kandi wongere utere ahatameze igihe bikwiye.">Check germination and fill gaps promptly if appropriate.</li>
         </ul>
+        <a href="#seed" class="maize-explore-btn">
+          <i class="fa-solid fa-book-open"></i>
+          <span data-en="Explore More" data-rw="Menya byinshi">Explore More</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
       </div>
     </article>
 
+    <!-- STAGE 5 -->
     <article class="stage-card">
       <div class="stage-image">
-        <img
-          src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=900&q=85"
-          alt="Green cultivated plants requiring regular field management"
-          loading="lazy">
+        <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=900&q=85"
+             alt="Green cultivated plants requiring regular field management" loading="lazy">
         <span class="stage-number">05</span>
       </div>
       <div class="stage-body">
-        <h3>Manage Crop Health</h3>
-        <p>
-          Monitor crop growth, soil nutrition, weeds and pest
-          damage throughout the season.
+        <h3 data-en="Manage Crop Health" data-rw="Ita ku buzima bw'ibigori">Manage Crop Health</h3>
+        <p data-en="Monitor crop growth, soil nutrition, weeds and pest damage throughout the season."
+           data-rw="Kurikirana imikurire y'ibigori, intungagihingwa, ibyatsi bibi n'udukoko mu gihembwe cyose.">
+          Monitor crop growth, soil nutrition, weeds and pest damage throughout the season.
         </p>
         <ul>
-          <li>Weed early to reduce competition.</li>
-          <li>Apply nutrients based on local guidance.</li>
-          <li>Scout regularly for fall armyworm and diseases.</li>
+          <li data-en="Weed early to reduce competition." data-rw="Rwanya ibyatsi bibi hakiri kare.">Weed early to reduce competition.</li>
+          <li data-en="Apply nutrients based on local guidance." data-rw="Fumbira ukurikije inama z'abagoronome bo mu gace kawe.">Apply nutrients based on local guidance.</li>
+          <li data-en="Scout regularly for fall armyworm and diseases." data-rw="Genzura umurima kenshi kugira ngo utahure nkongwa n'indwara.">Scout regularly for fall armyworm and diseases.</li>
         </ul>
+        <a href="#management" class="maize-explore-btn">
+          <i class="fa-solid fa-book-open"></i>
+          <span data-en="Explore More" data-rw="Menya byinshi">Explore More</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
       </div>
     </article>
 
+    <!-- STAGE 6 -->
     <article class="stage-card">
       <div class="stage-image">
-        <img
-          src="https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=900&q=85"
-          alt="Mature maize cobs ready for grain handling"
-          loading="lazy">
+        <img src="https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=900&q=85"
+             alt="Mature maize cobs ready for grain handling" loading="lazy">
         <span class="stage-number">06</span>
       </div>
       <div class="stage-body">
-        <h3>Harvest & Store</h3>
-        <p>
-          Harvest mature maize, dry it safely and protect
-          grain from moisture, insects and contamination.
+        <h3 data-en="Harvest &amp; Store" data-rw="Sarura kandi uhunike">Harvest &amp; Store</h3>
+        <p data-en="Harvest mature maize, dry it safely and protect grain from moisture, insects and contamination."
+           data-rw="Sarura ibigori byeze, byumishe neza kandi urinde umusaruro ubuhehere, udukoko n'umwanda.">
+          Harvest mature maize, dry it safely and protect grain from moisture, insects and contamination.
         </p>
         <ul>
-          <li>Harvest at the correct maturity stage.</li>
-          <li>Dry grain to the required storage moisture.</li>
-          <li>Use clean, dry and pest-resistant storage.</li>
+          <li data-en="Harvest at the correct maturity stage." data-rw="Sarura ibigori bigeze igihe cyo kwera.">Harvest at the correct maturity stage.</li>
+          <li data-en="Dry grain to the required storage moisture." data-rw="Umisha ibigori kugeza ku rugero rw'ubuhehere rukwiye.">Dry grain to the required storage moisture.</li>
+          <li data-en="Use clean, dry and pest-resistant storage." data-rw="Hunika ahantu hasukuye, humutse kandi harinzwe udukoko.">Use clean, dry and pest-resistant storage.</li>
         </ul>
+        <a href="#harvest" class="maize-explore-btn">
+          <i class="fa-solid fa-book-open"></i>
+          <span data-en="Explore More" data-rw="Menya byinshi">Explore More</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
       </div>
     </article>
 
   </div>
 </section>
 
-<!-- LAND -->
+<!-- LAND AND SOIL -->
 <section class="section container" id="land">
-  <span class="section-label">03 / Field Establishment</span>
-  <h2>Land Selection & Soil Preparation</h2>
+  <span class="section-label" data-en="03 / Field Establishment" data-rw="03 / Gutegura umurima">03 / Field Establishment</span>
+  <h2 data-en="Land Selection &amp; Soil Preparation"
+      data-rw="Guhitamo no gutegura ubutaka">Land Selection &amp; Soil Preparation</h2>
 
   <div class="detail-panel">
     <div class="image-frame">
-      <img
-        src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1100&q=85"
-        alt="Open agricultural fields with growing crops"
-        loading="lazy">
+      <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1100&q=85"
+           alt="Open agricultural fields with growing crops" loading="lazy">
     </div>
-
     <div>
-      <h3>Build the Foundation for Healthy Roots</h3>
-      <p>
-        Maize needs soil that allows roots to develop and absorb
-        water and nutrients efficiently. Poor drainage, severe
-        compaction and low fertility can reduce crop performance.
+      <h3 data-en="Build the Foundation for Healthy Roots"
+          data-rw="Tegura ubutaka bufasha imizi gukura neza">Build the Foundation for Healthy Roots</h3>
+      <p data-en="Maize needs soil that allows roots to develop and absorb water and nutrients efficiently. Poor drainage, severe compaction and low fertility can reduce crop performance."
+         data-rw="Ibigori bikenera ubutaka butuma imizi ikura neza kandi ikinjiza amazi n'intungagihingwa. Amazi adashira, ubutaka bwitsindagiye n'uburumbuke buke bishobora kugabanya umusaruro.">
+        Maize needs soil that allows roots to develop and absorb water and nutrients efficiently.
+        Poor drainage, severe compaction and low fertility can reduce crop performance.
       </p>
-      <p>
-        Where possible, test the soil before planting. This helps
-        determine whether lime, organic matter or fertilizer is needed.
-        On sloping land, protect the field from erosion.
+      <p data-en="Where possible, test the soil before planting. This helps determine whether lime, organic matter or fertilizer is needed. On sloping land, protect the field from erosion."
+         data-rw="Aho bishoboka, pima ubutaka mbere yo gutera. Ibi bifasha kumenya niba hakenewe ishwagara, ifumbire mborera cyangwa ifumbire mvaruganda. Ku butaka buhanamye, rinda umurima isuri.">
+        Where possible, test the soil before planting. This helps determine whether lime,
+        organic matter or fertilizer is needed. On sloping land, protect the field from erosion.
       </p>
-
       <ul class="check-list">
-        <li>Select deep, fertile and well-drained soil.</li>
-        <li>Manage previous crop residues responsibly.</li>
-        <li>Use contour farming or other erosion-control practices where appropriate.</li>
-        <li>Avoid unnecessary tillage that damages soil structure.</li>
+        <li data-en="Select deep, fertile and well-drained soil." data-rw="Hitamo ubutaka bwimbitse, burumbuka kandi budaheramo amazi.">Select deep, fertile and well-drained soil.</li>
+        <li data-en="Manage previous crop residues responsibly." data-rw="Cunga neza ibisigazwa by'ibihingwa byahinzwe mbere.">Manage previous crop residues responsibly.</li>
+        <li data-en="Use contour farming or other erosion-control practices where appropriate." data-rw="Koresha guhinga ukurikije imirongo y'ubutumburuke cyangwa ubundi buryo bwo kurwanya isuri.">Use contour farming or other erosion-control practices where appropriate.</li>
+        <li data-en="Avoid unnecessary tillage that damages soil structure." data-rw="Irinde guhinga ubutaka kenshi bitari ngombwa kuko byangiza imiterere yabwo.">Avoid unnecessary tillage that damages soil structure.</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- SEED -->
+<!-- SEED AND PLANTING -->
 <section class="section container" id="seed">
-  <span class="section-label">04 / Seed & Planting</span>
-  <h2>Choose the Right Variety and Plant Correctly</h2>
+  <span class="section-label" data-en="04 / Seed &amp; Planting" data-rw="04 / Imbuto no gutera">04 / Seed &amp; Planting</span>
+  <h2 data-en="Choose the Right Variety and Plant Correctly"
+      data-rw="Hitamo imbuto zibereye aho uhinga kandi utere neza">
+    Choose the Right Variety and Plant Correctly
+  </h2>
 
   <div class="detail-panel reverse">
     <div class="image-frame">
-      <img
-        src="https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=1100&q=85"
-        alt="Maize cobs with healthy kernels"
-        loading="lazy">
+      <img src="https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=1100&q=85"
+           alt="Maize cobs with healthy kernels" loading="lazy">
     </div>
-
     <div>
-      <h3>Quality Seed Is an Investment</h3>
-      <p>
-        Choose certified maize seed suited to your growing
-        environment. Compare maturity period, yield potential,
-        tolerance to local stresses and intended market.
+      <h3 data-en="Quality Seed Is an Investment" data-rw="Imbuto nziza ni ishoramari">Quality Seed Is an Investment</h3>
+      <p data-en="Choose certified maize seed suited to your growing environment. Compare maturity period, yield potential, tolerance to local stresses and intended market."
+         data-rw="Hitamo imbuto z'ibigori zemewe kandi zibereye aho uhinga. Gereranya igihe zera, umusaruro zishobora gutanga, uko zihanganira ibibazo by'aho uhinga n'isoko ugamije.">
+        Choose certified maize seed suited to your growing environment.
+        Compare maturity period, yield potential, tolerance to local stresses and intended market.
       </p>
-      <p>
-        A commonly used example is 75 cm between rows and
-        25–30 cm between planting positions, with planting
-        depth around 3–5 cm. Actual recommendations depend
-        on the variety, number of plants per position and local conditions.
+      <p data-en="A commonly used example is 75 cm between rows and 25–30 cm between planting positions, with planting depth around 3–5 cm. Actual recommendations depend on the variety, number of plants per position and local conditions."
+         data-rw="Urugero rusanzwe ni santimetero 75 hagati y'imirongo na 25–30 hagati y'ahaterwa, ku bujyakuzimu bwa santimetero 3–5. Intera nyayo iterwa n'ubwoko bw'imbuto, umubare w'ibiti kuri buri mwobo n'imiterere y'aho uhinga.">
+        A commonly used example is 75 cm between rows and 25–30 cm between planting positions,
+        with planting depth around 3–5 cm. Actual recommendations depend on the variety,
+        number of plants per position and local conditions.
       </p>
-
       <ul class="check-list">
-        <li>Plant when adequate soil moisture is available.</li>
-        <li>Follow the seed supplier's population and spacing guidance.</li>
-        <li>Use consistent planting depth for even emergence.</li>
-        <li>Inspect germination shortly after planting.</li>
+        <li data-en="Plant when adequate soil moisture is available." data-rw="Tera igihe ubutaka bufite ubuhehere buhagije.">Plant when adequate soil moisture is available.</li>
+        <li data-en="Follow the seed supplier's population and spacing guidance." data-rw="Kurikiza amabwiriza y'uwaguhaye imbuto ku bucucike n'intera.">Follow the seed supplier's population and spacing guidance.</li>
+        <li data-en="Use consistent planting depth for even emergence." data-rw="Tera ku bujyakuzimu bungana kugira ngo imbuto zimere kimwe.">Use consistent planting depth for even emergence.</li>
+        <li data-en="Inspect germination shortly after planting." data-rw="Suzuma imimero nyuma gato yo gutera.">Inspect germination shortly after planting.</li>
       </ul>
     </div>
   </div>
@@ -893,41 +1026,41 @@ a:focus-visible,button:focus-visible{
 
 <!-- CROP MANAGEMENT -->
 <section class="section container" id="management">
-  <span class="section-label">05 / Crop Management</span>
-  <h2>Nutrition, Weeding & Pest Protection</h2>
-  <p class="section-lead">
+  <span class="section-label" data-en="05 / Crop Management" data-rw="05 / Kwita ku bihingwa">05 / Crop Management</span>
+  <h2 data-en="Nutrition, Weeding &amp; Pest Protection"
+      data-rw="Gufumbira, kubagara no kurwanya udukoko">Nutrition, Weeding &amp; Pest Protection</h2>
+  <p class="section-lead"
+     data-en="Once the maize has emerged, consistent management is essential. Small problems can become expensive when they are not detected early."
+     data-rw="Ibigori bimaze kumera, kubyitaho neza ni ingenzi. Ibibazo bito bishobora guteza igihombo kinini iyo bitamenyekanye hakiri kare.">
     Once the maize has emerged, consistent management is essential.
     Small problems can become expensive when they are not detected early.
   </p>
 
   <div class="detail-panel">
     <div class="image-frame">
-      <img
-        src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=1100&q=85"
-        alt="Healthy green crop foliage"
-        loading="lazy">
+      <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=1100&q=85"
+           alt="Healthy green crop foliage" loading="lazy">
     </div>
-
     <div>
-      <h3>Keep the Crop Healthy</h3>
-      <p>
-        Fertilizer recommendations should be based on soil tests,
-        crop needs, expected yield and locally approved advice.
-        Excessive or poorly timed fertilizer can waste money and
-        harm the environment.
+      <h3 data-en="Keep the Crop Healthy" data-rw="Rinda ubuzima bw'ibigori">Keep the Crop Healthy</h3>
+      <p data-en="Fertilizer recommendations should be based on soil tests, crop needs, expected yield and locally approved advice. Excessive or poorly timed fertilizer can waste money and harm the environment."
+         data-rw="Inama ku ifumbire zigomba gushingira ku ipimwa ry'ubutaka, ibyo ibigori bikenera, umusaruro uteganyijwe n'inama zemewe mu gace kawe. Ifumbire nyinshi cyangwa ikoreshwa ku gihe kitari cyo ishobora guteza igihombo no kwangiza ibidukikije.">
+        Fertilizer recommendations should be based on soil tests, crop needs,
+        expected yield and locally approved advice. Excessive or poorly timed
+        fertilizer can waste money and harm the environment.
       </p>
-      <p>
-        Early weed competition can substantially reduce maize
-        growth. Regular field scouting also helps farmers detect
-        fall armyworm, stem borers, leaf diseases and other problems.
+      <p data-en="Early weed competition can substantially reduce maize growth. Regular field scouting also helps farmers detect fall armyworm, stem borers, leaf diseases and other problems."
+         data-rw="Ibyatsi bibi bishobora kubangamira imikurire y'ibigori cyane mu ntangiriro. Gusura umurima kenshi bifasha gutahura nkongwa, udukoko twangiza ibiti n'indwara z'amababi.">
+        Early weed competition can substantially reduce maize growth.
+        Regular field scouting also helps farmers detect fall armyworm,
+        stem borers, leaf diseases and other problems.
       </p>
-
       <ul class="check-list">
-        <li>Inspect the field regularly, especially during early growth.</li>
-        <li>Control weeds before they compete strongly with maize.</li>
-        <li>Use integrated pest management and identify pests before treatment.</li>
-        <li>Only use locally registered pesticides according to their labels.</li>
-        <li>Keep records of field activities and input costs.</li>
+        <li data-en="Inspect the field regularly, especially during early growth." data-rw="Genzura umurima kenshi, cyane cyane mu ntangiriro z'imikurire.">Inspect the field regularly, especially during early growth.</li>
+        <li data-en="Control weeds before they compete strongly with maize." data-rw="Rwanya ibyatsi bibi mbere y'uko bibangamira ibigori.">Control weeds before they compete strongly with maize.</li>
+        <li data-en="Use integrated pest management and identify pests before treatment." data-rw="Koresha uburyo bukomatanyije bwo kurwanya udukoko kandi ubanze utahure udukoko mbere yo kuvura.">Use integrated pest management and identify pests before treatment.</li>
+        <li data-en="Only use locally registered pesticides according to their labels." data-rw="Koresha gusa imiti yemewe mu gihugu ukurikije amabwiriza yayo.">Only use locally registered pesticides according to their labels.</li>
+        <li data-en="Keep records of field activities and input costs." data-rw="Bika inyandiko z'ibikorwa byo mu murima n'ikiguzi cy'inyongeramusaruro.">Keep records of field activities and input costs.</li>
       </ul>
     </div>
   </div>
@@ -935,13 +1068,14 @@ a:focus-visible,button:focus-visible{
   <div class="warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
     <div>
-      <h3>Important for Rwanda-based farmers</h3>
-      <p>
-        Planting dates, suitable varieties, fertilizer rates and
-        pest-control recommendations vary by district, altitude,
-        season and soil condition. Consult local agricultural
-        extension services and Rwanda Agriculture and Animal
-        Resources Development Board (RAB) guidance before making
+      <h3 data-en="Important for Rwanda-based farmers"
+          data-rw="Icyitonderwa ku bahinzi bo mu Rwanda">Important for Rwanda-based farmers</h3>
+      <p data-en="Planting dates, suitable varieties, fertilizer rates and pest-control recommendations vary by district, altitude, season and soil condition. Consult local agricultural extension services and Rwanda Agriculture and Animal Resources Development Board (RAB) guidance before making major production decisions."
+         data-rw="Igihe cyo gutera, ubwoko bw'imbuto, ingano y'ifumbire n'uburyo bwo kurwanya udukoko bitandukana bitewe n'akarere, ubutumburuke, igihembwe n'ubutaka. Baza abajyanama b'ubuhinzi cyangwa ukurikize amabwiriza ya RAB mbere yo gufata ibyemezo bikomeye.">
+        Planting dates, suitable varieties, fertilizer rates and pest-control
+        recommendations vary by district, altitude, season and soil condition.
+        Consult local agricultural extension services and Rwanda Agriculture
+        and Animal Resources Development Board (RAB) guidance before making
         major production decisions.
       </p>
     </div>
@@ -950,151 +1084,216 @@ a:focus-visible,button:focus-visible{
 
 <!-- HARVEST -->
 <section class="section container" id="harvest">
-  <span class="section-label">06 / Harvest & Post-Harvest</span>
-  <h2>Protect the Value of Your Harvest</h2>
+  <span class="section-label" data-en="06 / Harvest &amp; Post-Harvest"
+        data-rw="06 / Gusarura no gufata neza umusaruro">06 / Harvest &amp; Post-Harvest</span>
+  <h2 data-en="Protect the Value of Your Harvest"
+      data-rw="Rinda agaciro k'umusaruro wawe">Protect the Value of Your Harvest</h2>
 
   <div class="detail-panel reverse">
     <div class="image-frame">
-      <img
-        src="https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=1100&q=85"
-        alt="Mature maize cobs showing grain quality"
-        loading="lazy">
+      <img src="https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=1100&q=85"
+           alt="Mature maize cobs showing grain quality" loading="lazy">
     </div>
-
     <div>
-      <h3>Harvest Carefully. Store Safely.</h3>
-      <p>
-        Harvest when the crop reaches maturity and conditions
-        allow safe handling. Avoid leaving mature grain exposed
-        unnecessarily to rain, pests and field losses.
+      <h3 data-en="Harvest Carefully. Store Safely."
+          data-rw="Sarura neza. Hunika neza.">Harvest Carefully. Store Safely.</h3>
+      <p data-en="Harvest when the crop reaches maturity and conditions allow safe handling. Avoid leaving mature grain exposed unnecessarily to rain, pests and field losses."
+         data-rw="Sarura igihe ibigori byeze kandi bishobora gufatwa neza. Irinde gusiga ibigori byeze mu murima igihe kirekire kuko bishobora kwangizwa n'imvura, udukoko n'ibindi.">
+        Harvest when the crop reaches maturity and conditions allow safe handling.
+        Avoid leaving mature grain exposed unnecessarily to rain, pests and field losses.
       </p>
-      <p>
-        After harvest, dry grain on clean surfaces or suitable
-        drying equipment. Grain intended for storage should
-        generally reach around 13–14% moisture or the limit
-        required by the buyer and storage system.
+      <p data-en="After harvest, dry grain on clean surfaces or suitable drying equipment. Grain intended for storage should generally reach around 13–14% moisture or the limit required by the buyer and storage system."
+         data-rw="Nyuma yo gusarura, umisha ibigori ahantu hasukuye cyangwa ukoreshe ibikoresho bibigenewe. Ibigori bigenewe guhunika bigomba kugira ubuhehere buri hafi ya 13–14% cyangwa urugero rusabwa n'umuguzi n'ubuhunikiro.">
+        After harvest, dry grain on clean surfaces or suitable drying equipment.
+        Grain intended for storage should generally reach around 13–14% moisture
+        or the limit required by the buyer and storage system.
       </p>
-
       <ul class="check-list">
-        <li>Separate visibly moldy or damaged grain.</li>
-        <li>Do not dry maize directly on bare soil.</li>
-        <li>Use clean bags and dry, ventilated storage facilities.</li>
-        <li>Check moisture and inspect stored grain regularly.</li>
-        <li>Prevent aflatoxin risks through good drying and storage practices.</li>
+        <li data-en="Separate visibly moldy or damaged grain." data-rw="Tandukanya ibigori byafashwe n'uruhumbu cyangwa byangiritse.">Separate visibly moldy or damaged grain.</li>
+        <li data-en="Do not dry maize directly on bare soil." data-rw="Ntukumishirize ibigori ku butaka butatwikiriye.">Do not dry maize directly on bare soil.</li>
+        <li data-en="Use clean bags and dry, ventilated storage facilities." data-rw="Koresha imifuka isukuye n'ubuhunikiro bwumutse kandi buhumeka.">Use clean bags and dry, ventilated storage facilities.</li>
+        <li data-en="Check moisture and inspect stored grain regularly." data-rw="Pima ubuhehere kandi ugenzure ibigori bihunitse kenshi.">Check moisture and inspect stored grain regularly.</li>
+        <li data-en="Prevent aflatoxin risks through good drying and storage practices." data-rw="Irinde uburozi bwa aflatoxine ukoresheje uburyo bwiza bwo kumisha no guhunika.">Prevent aflatoxin risks through good drying and storage practices.</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- TIMELINE -->
+<!-- SEASONAL TIMELINE -->
 <section class="section container" id="timeline">
-  <span class="section-label">07 / Seasonal Planning</span>
-  <h2>Your Maize Farming Timeline</h2>
-  <p class="section-lead">
-    This is a practical sequence of activities rather than a fixed
-    calendar. The timing depends on rainfall, location and variety.
+  <span class="section-label" data-en="07 / Seasonal Planning"
+        data-rw="07 / Igenamigambi ry'igihembwe">07 / Seasonal Planning</span>
+  <h2 data-en="Your Maize Farming Timeline"
+      data-rw="Gahunda y'igihembwe cy'ubuhinzi bw'ibigori">Your Maize Farming Timeline</h2>
+  <p class="section-lead"
+     data-en="This is a practical sequence of activities rather than a fixed calendar. The timing depends on rainfall, location and variety."
+     data-rw="Iyi ni gahunda y'ibikorwa ikurikirana, si kalendari idahinduka. Igihe cy'ibikorwa giterwa n'imvura, aho uhinga n'ubwoko bw'imbuto.">
+    This is a practical sequence of activities rather than a fixed calendar.
+    The timing depends on rainfall, location and variety.
   </p>
 
   <div class="timeline">
-
     <div class="timeline-item">
       <span class="step">1</span>
-      <h3>Before Planting</h3>
-      <p>Assess land, test soil, choose seed, prepare a budget and plan inputs.</p>
+      <h3 data-en="Before Planting" data-rw="Mbere yo gutera">Before Planting</h3>
+      <p data-en="Assess land, test soil, choose seed, prepare a budget and plan inputs."
+         data-rw="Suzuma umurima, pima ubutaka, hitamo imbuto, tegura ingengo y'imari n'inyongeramusaruro.">
+        Assess land, test soil, choose seed, prepare a budget and plan inputs.
+      </p>
     </div>
 
     <div class="timeline-item">
       <span class="step">2</span>
-      <h3>Planting Period</h3>
-      <p>Plant with adequate moisture, correct spacing and suitable nutrient management.</p>
+      <h3 data-en="Planting Period" data-rw="Igihe cyo gutera">Planting Period</h3>
+      <p data-en="Plant with adequate moisture, correct spacing and suitable nutrient management."
+         data-rw="Tera igihe ubutaka bufite ubuhehere buhagije, ukoreshe intera ikwiye kandi ufumbire neza.">
+        Plant with adequate moisture, correct spacing and suitable nutrient management.
+      </p>
     </div>
 
     <div class="timeline-item">
       <span class="step">3</span>
-      <h3>Early Growth</h3>
-      <p>Check emergence, manage weeds and scout for early pest damage.</p>
+      <h3 data-en="Early Growth" data-rw="Imikurire ya mbere">Early Growth</h3>
+      <p data-en="Check emergence, manage weeds and scout for early pest damage."
+         data-rw="Suzuma imimero, rwana n'ibyatsi bibi kandi ugenzure udukoko hakiri kare.">
+        Check emergence, manage weeds and scout for early pest damage.
+      </p>
     </div>
 
     <div class="timeline-item">
       <span class="step">4</span>
-      <h3>Flowering & Grain Fill</h3>
-      <p>Monitor crop health and moisture stress during sensitive growth stages.</p>
+      <h3 data-en="Flowering &amp; Grain Fill"
+          data-rw="Kuzana uburabyo no kuzura kw'intete">Flowering &amp; Grain Fill</h3>
+      <p data-en="Monitor crop health and moisture stress during sensitive growth stages."
+         data-rw="Kurikirana ubuzima bw'ibigori n'ibura ry'amazi mu bihe by'ingenzi by'imikurire.">
+        Monitor crop health and moisture stress during sensitive growth stages.
+      </p>
     </div>
 
     <div class="timeline-item">
       <span class="step">5</span>
-      <h3>Harvest & Marketing</h3>
-      <p>Harvest mature maize, dry it, grade it, store it safely and identify buyers.</p>
+      <h3 data-en="Harvest &amp; Marketing"
+          data-rw="Gusarura no gushaka isoko">Harvest &amp; Marketing</h3>
+      <p data-en="Harvest mature maize, dry it, grade it, store it safely and identify buyers."
+         data-rw="Sarura ibigori byeze, byumishe, bitondeke hakurikijwe ubwiza, ubihunike neza kandi ushake abaguzi.">
+        Harvest mature maize, dry it, grade it, store it safely and identify buyers.
+      </p>
     </div>
-
   </div>
 </section>
 
-<!-- CALL TO ACTION -->
+<!-- MARKETPLACE -->
 <div class="container">
   <section class="cta">
-    <h2>Turn Your Maize Harvest into a Business Opportunity</h2>
-    <p>
-      Explore Africa AgroVision's agricultural marketplace to
-      connect with potential maize buyers and sellers, discover
-      trading opportunities and grow your agribusiness.
+    <h2 data-en="Turn Your Maize Harvest into a Business Opportunity"
+        data-rw="Hindura umusaruro w'ibigori amahirwe y'ubucuruzi">
+      Turn Your Maize Harvest into a Business Opportunity
+    </h2>
+    <p data-en="Explore Africa AgroVision's agricultural marketplace to connect with potential maize buyers and sellers, discover trading opportunities and grow your agribusiness."
+       data-rw="Sura isoko ry'ubuhinzi rya Africa AgroVision kugira ngo uhuze n'abaguzi n'abagurisha ibigori, ubone amahirwe y'ubucuruzi kandi uteze imbere ubucuruzi bwawe.">
+      Explore Africa AgroVision's agricultural marketplace to connect with
+      potential maize buyers and sellers, discover trading opportunities
+      and grow your agribusiness.
     </p>
-
     <a href="agro-market.html" class="btn">
       <i class="fa-solid fa-store"></i>
-      Visit Agricultural Marketplace
+      <span data-en="Visit Agricultural Marketplace"
+            data-rw="Sura isoko ry'ubuhinzi">Visit Agricultural Marketplace</span>
     </a>
   </section>
 </div>
 
 </main>
 
+<!-- FOOTER -->
 <footer class="footer">
   <p>
     © 2026 <strong>Africa AgroVision</strong> —
-    Growing Agriculture. Connecting Opportunities.
+    <span data-en="Growing Agriculture. Connecting Opportunities."
+          data-rw="Duteza imbere ubuhinzi. Duhuza abantu n'amahirwe.">
+      Growing Agriculture. Connecting Opportunities.
+    </span>
   </p>
   <p>
-    <a href="dashboard.html">Dashboard</a> ·
-    <a href="agriculture.html">Agriculture</a> ·
-    <a href="contact.html">Contact Us</a>
+    <a href="dashboard.html" data-en="Dashboard" data-rw="Imbonerahamwe">Dashboard</a> ·
+    <a href="agriculture.html" data-en="Agriculture" data-rw="Ubuhinzi">Agriculture</a> ·
+    <a href="contact.html" data-en="Contact Us" data-rw="Tuvugishe">Contact Us</a>
   </p>
 </footer>
 
 <script>
 "use strict";
 
+/* MOBILE NAVIGATION */
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 
-menuToggle.addEventListener("click", () => {
-  const isOpen = navLinks.classList.toggle("open");
+function updateMenuLabel() {
+  const isOpen = navLinks.classList.contains("open");
+  const lang = localStorage.getItem("agrovision-language") === "rw" ? "rw" : "en";
 
   menuToggle.setAttribute("aria-expanded", String(isOpen));
   menuToggle.setAttribute(
     "aria-label",
-    isOpen ? "Close navigation" : "Open navigation"
+    lang === "rw"
+      ? (isOpen ? "Funga menu" : "Fungura menu")
+      : (isOpen ? "Close navigation" : "Open navigation")
   );
 
   menuToggle.innerHTML = isOpen
     ? '<i class="fa-solid fa-xmark"></i>'
     : '<i class="fa-solid fa-bars"></i>';
+}
+
+menuToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
+  updateMenuLabel();
 });
 
 navLinks.addEventListener("click", event => {
   if (event.target.closest("a") && window.innerWidth <= 750) {
     navLinks.classList.remove("open");
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", "Open navigation");
-    menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+    updateMenuLabel();
   }
 });
 
-/* A branded placeholder is shown if an external image fails. */
+/* ENGLISH - KINYARWANDA TRANSLATION */
+const LANGUAGE_KEY = "agrovision-language";
+const languageSelect = document.getElementById("maizeLanguage");
+
+function getLanguage() {
+  return localStorage.getItem(LANGUAGE_KEY) === "rw" ? "rw" : "en";
+}
+
+function applyLanguage() {
+  const lang = getLanguage();
+
+  document.querySelectorAll("[data-en][data-rw]").forEach(element => {
+    element.textContent = element.dataset[lang];
+  });
+
+  document.documentElement.lang = lang;
+  languageSelect.value = lang;
+
+  document.title = lang === "rw"
+    ? "Amabwiriza yo Guhinga Ibigori | Africa AgroVision"
+    : "Maize Farming Guide | Africa AgroVision";
+
+  updateMenuLabel();
+}
+
+languageSelect.addEventListener("change", function () {
+  localStorage.setItem(LANGUAGE_KEY, this.value);
+  applyLanguage();
+});
+
+applyLanguage();
+
+/* IMAGE FALLBACK */
 function createImagePlaceholder(label) {
   const title = String(label)
     .replace(/[<>&"']/g, "")
-    .slice(0, 45);
+    .slice(0,45);
 
   const svg = `
     <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="650">
@@ -1116,7 +1315,7 @@ function createImagePlaceholder(label) {
 }
 
 document.querySelectorAll("img").forEach(image => {
-  image.addEventListener("error", function() {
+  image.addEventListener("error", function () {
     this.onerror = null;
     this.src = createImagePlaceholder(this.alt || "Maize Farming");
   });

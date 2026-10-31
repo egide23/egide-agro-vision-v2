@@ -992,5 +992,505 @@ function initializeDashboard() {
 initializeDashboard();
 </script>
 
+<!-- AFRICA AGROVISION - DASHBOARD TRANSLATION -->
+<script>
+(function () {
+  "use strict";
+
+  const STORAGE_KEY = "agrovision-language";
+
+  const translations = {
+    "Growing Agriculture. Connecting Opportunities.":
+      "Duteza imbere ubuhinzi. Duhuza abantu n'amahirwe.",
+
+    "Dashboard": "Imbonerahamwe",
+    "Profile": "Umwirondoro",
+    "About": "Abo turi bo",
+    "Services": "Serivisi",
+    "Projects": "Imishinga",
+    "Gallery": "Amafoto",
+    "Ideas": "Ibitekerezo",
+    "Marketplace": "Isoko",
+    "Contact": "Twandikire",
+    "Logout": "Sohoka",
+
+    "Rwanda • Agriculture • Innovation":
+      "Rwanda • Ubuhinzi • Udushya",
+
+    "Welcome to Africa AgroVision!":
+      "Murakaza neza kuri Africa AgroVision!",
+
+    "Explore agricultural knowledge, practical farming projects, marketplace opportunities and innovation in Rwanda and across Africa. Connect with farmers, buyers and entrepreneurs.":
+      "Menya ubumenyi mu buhinzi, imishinga y'ubuhinzi n'ubworozi, amahirwe y'isoko n'udushya mu Rwanda no muri Afurika. Ihuze n'abahinzi, aborozi, abaguzi na ba rwiyemezamirimo.",
+
+    "Explore Marketplace": "Sura isoko",
+    "Explore Agriculture": "Menya iby'ubuhinzi",
+
+    "Search": "Shakisha",
+    "Search agriculture, projects, marketplace...":
+      "Shakisha ubuhinzi, imishinga, isoko...",
+
+    "Explore Your Dashboard":
+      "Sura imbonerahamwe yawe",
+
+    "Discover farming knowledge, business opportunities and agricultural services.":
+      "Menya ubumenyi mu buhinzi, amahirwe y'ubucuruzi na serivisi z'ubuhinzi.",
+
+    "7 sections available": "Hari ibyiciro 7",
+
+    "Knowledge & Farming": "Ubumenyi n'ubuhinzi",
+    "Agriculture": "Ubuhinzi",
+
+    "Learn about crop production, livestock, poultry, climate-smart farming and modern agricultural practices relevant to Rwanda.":
+      "Menya guhinga ibihingwa bitandukanye, korora amatungo n'inkoko, ubuhinzi buhangana n'imihindagurikire y'ikirere n'uburyo bugezweho bwo guhinga mu Rwanda.",
+
+    "Innovation & Investment": "Udushya n'ishoramari",
+
+    "Explore pig farming, poultry, livestock and crop production projects, with business planning, budgeting and investment opportunities.":
+      "Sura imishinga y'ubworozi bw'ingurube, inkoko n'andi matungo, ndetse n'ubuhinzi, harimo igenamigambi ry'ubucuruzi, ingengo y'imari n'amahirwe y'ishoramari.",
+
+    "Explore Projects": "Sura imishinga",
+
+    "Photos & Inspiration": "Amafoto n'ibitekerezo byubaka",
+
+    "Explore agricultural photographs, landscapes, farm animals, crops, technologies and stories of rural development.":
+      "Reba amafoto y'ubuhinzi, ibyiza nyaburanga, amatungo, ibihingwa, ikoranabuhanga n'inkuru z'iterambere ry'icyaro.",
+
+    "View Gallery": "Reba amafoto",
+
+    "Trade & Opportunities": "Ubucuruzi n'amahirwe",
+
+    "Buy and sell maize, dry beans, rice, wheat, groundnuts, livestock and other agricultural products. Connect with farmers and buyers.":
+      "Gura cyangwa ugurishe ibigori, ibishyimbo, umuceri, ingano, ubunyobwa, amatungo n'indi musaruro w'ubuhinzi. Ihuze n'abahinzi n'abaguzi.",
+
+    "My Listings & Requests": "Amatangazo n'ubusabe byanjye",
+    "My Marketplace": "Isoko ryanjye",
+
+    "Manage your crop and animal listings, update your products, review buying requests and organize your marketplace activity.":
+      "Cunga amatangazo y'umusaruro n'amatungo byawe, hindura amakuru y'ibicuruzwa, reba ubusabe bw'abaguzi kandi utegure ibikorwa byawe ku isoko.",
+
+    "Manage My Listings": "Cunga amatangazo yanjye",
+
+    "Partnerships & Support": "Ubufatanye n'ubufasha",
+    "Contact Us": "Tuvugishe",
+
+    "Connect with Africa AgroVision to discuss agricultural business opportunities, partnerships, collaboration and support.":
+      "Vugana na Africa AgroVision ku mahirwe y'ubucuruzi bw'ubuhinzi, ubufatanye n'ubufasha.",
+
+    "Get in Touch": "Tuvugishe",
+
+    "Ideas & Community": "Ibitekerezo n'umuryango",
+    "Ideas & Feedback": "Ibitekerezo n'ibitekerezo ngiro",
+
+    "Share agricultural innovations, propose new projects and contribute ideas for improving Africa AgroVision.":
+      "Sangiza abandi udushya mu buhinzi, tanga ibitekerezo by'imishinga mishya kandi ugire uruhare mu guteza imbere Africa AgroVision.",
+
+    "Share Your Ideas": "Tanga ibitekerezo byawe",
+
+    "Quick Marketplace Access": "Injira ku isoko byihuse",
+
+    "Go directly to the agricultural marketplace service you need.":
+      "Jya ako kanya kuri serivisi y'isoko ry'ubuhinzi ukeneye.",
+
+    "Buy Crops": "Gura umusaruro",
+    "Sell Crops": "Gurisha umusaruro",
+    "Buy Animals": "Gura amatungo",
+    "Sell Animals": "Gurisha amatungo",
+    "My Listings": "Amatangazo yanjye",
+
+    "Please enter a section to search.":
+      "Andika icyo ushaka gushakisha.",
+
+    "No matching section found. Try Agriculture, Projects, Marketplace or Contact.":
+      "Nta cyiciro gihuye n'ibyo washakishije. Gerageza Ubuhinzi, Imishinga, Isoko cyangwa Twandikire.",
+
+    "Are you sure you want to log out?":
+      "Uremeza ko ushaka gusohoka muri konti?",
+
+    "Account service is unavailable.":
+      "Serivisi ya konti ntiboneka.",
+
+    "Unable to log out. Please try again.":
+      "Gusohoka ntibyashobotse. Ongera ugerageze.",
+
+    "Open navigation": "Fungura menu",
+    "Close navigation": "Funga menu"
+  };
+
+  const reverse = new Map(
+    Object.entries(translations).map(([en, rw]) => [rw, en])
+  );
+
+  const originalText = new WeakMap();
+  const originalPlaceholders = new WeakMap();
+
+  function language() {
+    return localStorage.getItem(STORAGE_KEY) === "rw"
+      ? "rw"
+      : "en";
+  }
+
+  function normalize(value) {
+    return String(value).trim().replace(/\s+/g, " ");
+  }
+
+  function translate(value, lang) {
+    const clean = normalize(value);
+    const english = reverse.get(clean) || clean;
+
+    return lang === "rw"
+      ? translations[english] || english
+      : english;
+  }
+
+  function translateText(element, lang) {
+    const walker = document.createTreeWalker(
+      element,
+      NodeFilter.SHOW_TEXT
+    );
+
+    const nodes = [];
+
+    while (walker.nextNode()) {
+      nodes.push(walker.currentNode);
+    }
+
+    nodes.forEach(node => {
+      if (!node.nodeValue.trim()) return;
+
+      if (!originalText.has(node)) {
+        originalText.set(node, node.nodeValue);
+      }
+
+      const original = originalText.get(node);
+      const english = normalize(original);
+
+      const translated = lang === "rw"
+        ? translations[english] || english
+        : english;
+
+      node.nodeValue =
+        original.match(/^\s*/)[0] +
+        translated +
+        original.match(/\s*$/)[0];
+    });
+  }
+
+  function translateParagraph(element, lang) {
+    if (!element) return;
+
+    const current = normalize(element.textContent);
+
+    if (!element.dataset.englishText) {
+      element.dataset.englishText =
+        reverse.get(current) || current;
+    }
+
+    const english = element.dataset.englishText;
+
+    element.textContent = lang === "rw"
+      ? translations[english] || english
+      : english;
+  }
+
+  function translateWelcome(lang) {
+    const welcome = document.getElementById("welcomeMessage");
+    if (!welcome) return;
+
+    const current = welcome.textContent.trim();
+
+    if (current.startsWith("Welcome, ")) {
+      const name = current.slice(9).replace(/!$/, "");
+
+      welcome.textContent = lang === "rw"
+        ? "Murakaza neza, " + name + "!"
+        : current;
+
+      return;
+    }
+
+    if (current.startsWith("Murakaza neza, ")) {
+      const name = current
+        .slice("Murakaza neza, ".length)
+        .replace(/!$/, "");
+
+      welcome.textContent = lang === "en"
+        ? "Welcome, " + name + "!"
+        : current;
+
+      return;
+    }
+
+    welcome.textContent = translate(current, lang);
+  }
+
+  function translateDynamic(element, lang) {
+    if (!element) return;
+
+    const current = normalize(element.textContent);
+    if (!current) return;
+
+    element.textContent = translate(current, lang);
+  }
+
+  function applyTranslation() {
+    const lang = language();
+
+    // Navigation and short interface text.
+    [
+      ".logo small",
+      ".nav-menu a",
+      ".hero-label",
+      ".hero-actions a",
+      ".search-box button",
+      ".section-head h2",
+      ".section-count",
+      ".card-label",
+      ".card h3",
+      ".card-action",
+      ".quick-access h2",
+      ".quick-buttons a",
+      ".footer"
+    ].forEach(selector => {
+      document.querySelectorAll(selector)
+        .forEach(element => translateText(element, lang));
+    });
+
+    // Full paragraphs are translated as complete sentences.
+    [
+      ".hero-inner > p",
+      ".section-head p",
+      ".card-body > p",
+      ".quick-access p"
+    ].forEach(selector => {
+      document.querySelectorAll(selector)
+        .forEach(element => translateParagraph(element, lang));
+    });
+
+    translateWelcome(lang);
+    translateDynamic(
+      document.getElementById("searchFeedback"),
+      lang
+    );
+
+    // Search placeholder.
+    document.querySelectorAll("input[placeholder]")
+      .forEach(input => {
+        if (!originalPlaceholders.has(input)) {
+          originalPlaceholders.set(input, input.placeholder);
+        }
+
+        const english = originalPlaceholders.get(input);
+
+        input.placeholder = lang === "rw"
+          ? translations[english] || english
+          : english;
+      });
+
+    // Mobile menu accessibility.
+    const toggle = document.getElementById("menuToggle");
+
+    if (toggle) {
+      const open =
+        toggle.getAttribute("aria-expanded") === "true";
+
+      toggle.setAttribute(
+        "aria-label",
+        translate(
+          open ? "Close navigation" : "Open navigation",
+          lang
+        )
+      );
+    }
+
+    const selector = document.getElementById("dashboardLanguage");
+    if (selector) selector.value = lang;
+
+    document.documentElement.lang = lang;
+  }
+
+  function setupLanguageSelector() {
+    const nav = document.getElementById("navMenu");
+
+    if (!nav || document.getElementById("dashboardLanguage")) {
+      return;
+    }
+
+    const item = document.createElement("li");
+
+    const selector = document.createElement("select");
+
+    selector.id = "dashboardLanguage";
+    selector.setAttribute("aria-label", "Choose language");
+
+    selector.style.cssText = [
+      "width:auto",
+      "min-width:135px",
+      "padding:9px 11px",
+      "margin:5px",
+      "border-radius:8px",
+      "background:white",
+      "color:#14532d",
+      "border:0",
+      "font-weight:700",
+      "cursor:pointer"
+    ].join(";");
+
+    selector.innerHTML = `
+      <option value="en">🌐 English</option>
+      <option value="rw">🌐 Kinyarwanda</option>
+    `;
+
+    selector.value = language();
+
+    item.appendChild(selector);
+
+    // Keep language selector before Logout.
+    const logoutItem =
+      document.getElementById("logout")?.closest("li");
+
+    if (logoutItem) {
+      nav.insertBefore(item, logoutItem);
+    } else {
+      nav.appendChild(item);
+    }
+
+    selector.addEventListener("change", function () {
+      localStorage.setItem(STORAGE_KEY, this.value);
+      applyTranslation();
+    });
+  }
+
+  function setupDynamicTranslation() {
+    const dynamicElements = [
+      document.getElementById("welcomeMessage"),
+      document.getElementById("searchFeedback")
+    ].filter(Boolean);
+
+    const observer = new MutationObserver(() => {
+      observer.disconnect();
+      applyTranslation();
+
+      dynamicElements.forEach(element => {
+        observer.observe(element, {
+          childList: true,
+          subtree: true,
+          characterData: true
+        });
+      });
+    });
+
+    dynamicElements.forEach(element => {
+      observer.observe(element, {
+        childList: true,
+        subtree: true,
+        characterData: true
+      });
+    });
+  }
+
+  function initializeTranslation() {
+    setupLanguageSelector();
+    applyTranslation();
+    setupDynamicTranslation();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      initializeTranslation
+    );
+  } else {
+    initializeTranslation();
+  }
+
+  /*
+    Translate logout confirmation and alerts without
+    changing the existing Supabase logout logic.
+  */
+  const originalConfirm = window.confirm;
+  const originalAlert = window.alert;
+
+  window.confirm = function (message) {
+    return originalConfirm.call(
+      window,
+      translate(message, language())
+    );
+  };
+
+  window.alert = function (message) {
+    return originalAlert.call(
+      window,
+      translate(message, language())
+    );
+  };
+
+  /*
+    Keep English search keywords working, and allow
+    common Kinyarwanda search terms as well.
+  */
+  const originalSearchRoutes = window.searchRoutes;
+
+  if (typeof searchRoutes !== "undefined") {
+    const extraWords = {
+      "my-marketplace.html": [
+        "isoko ryanjye",
+        "amatangazo yanjye"
+      ],
+      "buy-crop.html": [
+        "gura umusaruro"
+      ],
+      "sell-crop.html": [
+        "gurisha umusaruro"
+      ],
+      "buy-animal.html": [
+        "gura amatungo"
+      ],
+      "sell-animal.html": [
+        "gurisha amatungo"
+      ],
+      "projects.html": [
+        "imishinga",
+        "umushinga"
+      ],
+      "agro-market.html": [
+        "isoko",
+        "ubucuruzi"
+      ],
+      "agriculture.html": [
+        "ubuhinzi",
+        "ubworozi"
+      ],
+      "gallery.html": [
+        "amafoto"
+      ],
+      "contact.html": [
+        "twandikire",
+        "tuvugishe"
+      ],
+      "ideas.html": [
+        "ibitekerezo"
+      ],
+      "profile.html": [
+        "umwirondoro"
+      ],
+      "dashboard.html": [
+        "imbonerahamwe",
+        "ahabanza"
+      ]
+    };
+
+    searchRoutes.forEach(route => {
+      const words = extraWords[route.url];
+
+      if (words) {
+        route.words.push(...words);
+      }
+    });
+  }
+})();
+</script>
+<!-- END DASHBOARD TRANSLATION -->
+
 </body>
 </html>

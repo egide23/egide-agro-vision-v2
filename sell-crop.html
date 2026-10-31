@@ -1259,5 +1259,370 @@ startPage();
 
 </script>
 
+<!-- AFRICA AGROVISION - SELL CROPS TRANSLATION -->
+<script>
+(function () {
+  "use strict";
+
+  const STORAGE_KEY = "agrovision-language";
+
+  const translations = {
+    "Home": "Ahabanza",
+    "Marketplace": "Isoko",
+    "Dashboard": "Imbonerahamwe",
+
+    "Sell Your Crops": "Gurisha umusaruro wawe",
+
+    "List your agricultural products on Africa AgroVision and connect with potential buyers.":
+      "Tangaza umusaruro wawe kuri Africa AgroVision maze uhure n'abashobora kuwugura.",
+
+    "🔐 Login Required": "🔐 Ugomba kwinjira muri konti",
+
+    "You need an Africa AgroVision account to publish a crop listing. If you already have an account, log in. If you are new, create your account first.":
+      "Ukeneye konti ya Africa AgroVision kugira ngo utangaze umusaruro ugurisha. Niba ufite konti, injira. Niba uri mushya, banza wiyandikishe.",
+
+    "Log In": "Injira",
+    "Create Account": "Fungura konti",
+
+    "🌾 Crop Information": "🌾 Amakuru y'umusaruro",
+    "Crop *": "Igihingwa *",
+    "Specify Crop *": "Garagaza igihingwa *",
+    "Available Quantity *": "Ingano y'umusaruro uhari *",
+    "Quality / Grade *": "Ubwiza bw'umusaruro *",
+    "Product Condition *": "Imiterere y'umusaruro *",
+
+    "📷 Automatic Product Picture":
+      "📷 Ifoto y'umusaruro yihitirwamo",
+
+    "Africa AgroVision selects an illustrative picture based on the crop you choose. This helps buyers recognize the product. The picture is not a photograph of your actual stock.":
+      "Africa AgroVision ihitamo ifoto y'icyitegererezo ijyanye n'igihingwa wahisemo. Ifasha abaguzi kumenya umusaruro. Iyi foto si iy'umusaruro wawe nyirizina.",
+
+    "Select a crop to preview its picture.":
+      "Hitamo igihingwa kugira ngo urebe ifoto yacyo.",
+
+    "💰 Price & Availability": "💰 Igiciro n'igihe umusaruro ubonekera",
+    "Asking Price *": "Igiciro ugurishaho *",
+    "Price Flexibility": "Uburyo igiciro gishobora kumvikanwaho",
+    "Negotiable": "Igiciro cyumvikanwaho",
+    "Fixed": "Igiciro kidahinduka",
+    "Availability": "Igihe umusaruro ubonekera",
+    "Available now": "Umusaruro urahari ubu",
+    "Available soon": "Umusaruro uzaboneka vuba",
+
+    "📍 Location & Delivery": "📍 Ahantu n'uburyo bwo kugeza umusaruro",
+    "Location *": "Ahantu *",
+    "Delivery Option *": "Uburyo bwo kugeza umusaruro *",
+
+    "👤 Seller Contact Information":
+      "👤 Amakuru yo kuvugisha umugurisha",
+
+    "Full Name *": "Amazina yose *",
+    "Phone / WhatsApp *": "Telefone / WhatsApp *",
+    "Email *": "Imeyili *",
+    "Preferred Contact *": "Uburyo wifuza kuvugishwamo *",
+
+    "📝 Describe Your Crop": "📝 Sobanura umusaruro wawe",
+    "Product Description *": "Ibisobanuro by'umusaruro *",
+
+    "Your crop listing has been published successfully!":
+      "Itangazo ry'umusaruro wawe ryatangajwe neza!",
+
+    "View Marketplace": "Reba isoko",
+    "My Marketplace": "Isoko ryanjye",
+
+    "Checking Login...": "Turimo kugenzura konti...",
+    "Publishing Listing...": "Turimo gutangaza itangazo...",
+    "Login Required": "Ugomba kwinjira",
+    "Publish Crop Listing": "Tangaza umusaruro ugurisha",
+
+    "🌍 Africa AgroVision Marketplace":
+      "🌍 Isoko rya Africa AgroVision",
+
+    "Helping farmers connect with buyers and grow stronger agricultural businesses.":
+      "Dufasha abahinzi guhura n'abaguzi no guteza imbere ubucuruzi bw'ubuhinzi.",
+
+    "© 2026 Africa AgroVision — Connecting Agriculture, People & Opportunity":
+      "© 2026 Africa AgroVision — Duhuza ubuhinzi, abantu n'amahirwe.",
+
+    "Select crop": "Hitamo igihingwa",
+    "Maize": "Ibigori",
+    "Beans": "Ibishyimbo",
+    "Rice": "Umuceri",
+    "Coffee": "Ikawa",
+    "Tomatoes": "Inyanya",
+    "Potatoes": "Ibirayi",
+    "Wheat": "Ingano",
+    "Cassava": "Imyumbati",
+    "Sweet Potatoes": "Ibijumba",
+    "Sorghum": "Amasaka",
+    "Bananas": "Ibitoki",
+    "Avocados": "Avoka",
+    "Onions": "Ibitunguru",
+    "Cabbage": "Amashu",
+    "Carrots": "Karoti",
+    "Chili": "Urusenda",
+    "Other": "Ibindi",
+
+    "Select quality": "Hitamo ubwiza",
+    "Premium": "Ubwiza bwo ku rwego rwo hejuru",
+    "Grade A": "Icyiciro A",
+    "Grade B": "Icyiciro B",
+    "Standard": "Ubwiza busanzwe",
+
+    "Select condition": "Hitamo imiterere",
+    "Fresh": "Bikiri bishya",
+    "Dry": "Byumye",
+    "Processed": "Byatunganyijwe",
+    "Stored": "Byabitswe",
+
+    "Select option": "Hitamo uburyo",
+    "Buyer collects": "Umuguzi aza kwifatira umusaruro",
+    "Seller delivers": "Umugurisha ageza umusaruro ku muguzi",
+    "Delivery negotiable": "Uburyo bwo kugeza umusaruro bwumvikanwaho",
+
+    "Select contact method": "Hitamo uburyo bwo kuvugana",
+    "Phone": "Telefone",
+    "WhatsApp": "WhatsApp",
+    "Email": "Imeyili",
+
+    "e.g. Groundnuts": "Urugero: Ubunyobwa",
+    "e.g. 500 kg": "Urugero: kg 500",
+    "e.g. 500 RWF per kg": "Urugero: 500 RWF kuri kg",
+    "e.g. Kigali": "Urugero: Kigali",
+    "Your full name": "Amazina yawe yose",
+
+    "Describe your crop, quality, quantity, packaging, harvest date, and any other useful information...":
+      "Sobanura igihingwa, ubwiza bw'umusaruro, ingano, uburyo wapakiwemo, igihe wasaruriwe n'andi makuru y'ingenzi...",
+
+    "The selected crop picture is missing. Please add the matching image to your images/crops folder.":
+      "Ifoto y'igihingwa wahisemo ntiboneka. Shyira ifoto yabyo mu bubiko bwa images/crops.",
+
+    "Please specify the crop you are selling.":
+      "Garagaza igihingwa ushaka kugurisha.",
+
+    "Please enter a valid phone number.":
+      "Andika nimero ya telefone yemewe.",
+
+    "Marketplace service is unavailable. Refresh and try again.":
+      "Serivisi y'isoko ntiboneka. Ongera ufungure uru rupapuro ugerageze.",
+
+    "Your session has expired. Please log in again.":
+      "Igihe cya konti yawe cyarangiye. Ongera winjire.",
+
+    "We could not confirm publication.":
+      "Ntitwashoboye kwemeza ko itangazo ryatangajwe."
+  };
+
+  const reverse = Object.fromEntries(
+    Object.entries(translations).map(([en, rw]) => [rw, en])
+  );
+
+  function language() {
+    return localStorage.getItem(STORAGE_KEY) === "rw"
+      ? "rw"
+      : "en";
+  }
+
+  function translate(value, lang) {
+    const normalized = String(value)
+      .trim()
+      .replace(/\s+/g, " ");
+
+    const original = reverse[normalized] || normalized;
+
+    return lang === "rw"
+      ? translations[original] || original
+      : original;
+  }
+
+  function translateNode(node, lang) {
+    const original = node.nodeValue;
+    const value = original.trim();
+
+    if (!value) return;
+
+    const result = translate(value, lang);
+
+    if (result !== value) {
+      node.nodeValue =
+        original.match(/^\s*/)[0] +
+        result +
+        original.match(/\s*$/)[0];
+    }
+  }
+
+  function translateElement(element, lang) {
+    const walker = document.createTreeWalker(
+      element,
+      NodeFilter.SHOW_TEXT
+    );
+
+    const nodes = [];
+
+    while (walker.nextNode()) {
+      nodes.push(walker.currentNode);
+    }
+
+    nodes.forEach(node => translateNode(node, lang));
+  }
+
+  function translatePhotoCaption(lang) {
+    const caption = document.getElementById("photoCaption");
+
+    if (!caption) return;
+
+    const text = caption.textContent.trim();
+
+    const selected = text.match(/^Selected crop: (.+)$/);
+    const selectedRW = text.match(/^Igihingwa wahisemo: (.+)$/);
+
+    if (selected || selectedRW) {
+      const crop = selected ? selected[1] : selectedRW[1];
+      const englishCrop = reverse[crop] || crop;
+
+      caption.textContent = lang === "rw"
+        ? "Igihingwa wahisemo: " + translate(englishCrop, "rw")
+        : "Selected crop: " + englishCrop;
+
+      return;
+    }
+
+    const noPhoto = text.match(
+      /^No specific picture available for (.+)\. A general farm picture will be used\.$/
+    );
+
+    if (noPhoto && lang === "rw") {
+      caption.textContent =
+        "Nta foto yihariye ya " +
+        translate(noPhoto[1], "rw") +
+        " iboneka. Hazakoreshwa ifoto rusange y'ubuhinzi.";
+    }
+  }
+
+  function applyTranslation() {
+    const lang = language();
+
+    const selectors = [
+      "nav a:not(.logo)",
+      ".hero h1",
+      ".hero p",
+      ".login-box h3",
+      ".login-box p",
+      ".login-box a",
+      ".section-title",
+      ".field label",
+      ".field select option",
+      ".photo-preview h3",
+      ".photo-preview p",
+      "#photoCaption",
+      "#submitButton",
+      "#successMessage",
+      ".trust-box strong",
+      ".trust-box p",
+      "footer"
+    ];
+
+    document
+      .querySelectorAll(selectors.join(","))
+      .forEach(element => translateElement(element, lang));
+
+    document
+      .querySelectorAll("input[placeholder], textarea[placeholder]")
+      .forEach(element => {
+        element.placeholder = translate(
+          element.placeholder,
+          lang
+        );
+      });
+
+    translatePhotoCaption(lang);
+
+    const selector = document.getElementById("sellCropLanguage");
+
+    if (selector) selector.value = lang;
+
+    document.documentElement.lang = lang;
+  }
+
+  function setupSelector() {
+    const nav = document.querySelector("nav > div");
+
+    if (!nav || document.getElementById("sellCropLanguage")) {
+      return;
+    }
+
+    const selector = document.createElement("select");
+
+    selector.id = "sellCropLanguage";
+    selector.setAttribute("aria-label", "Choose language");
+
+    selector.style.cssText = [
+      "width:auto",
+      "min-width:135px",
+      "padding:9px 12px",
+      "margin-left:15px",
+      "border-radius:9px",
+      "background:white",
+      "color:#14532d",
+      "border:0",
+      "font-weight:700",
+      "cursor:pointer"
+    ].join(";");
+
+    selector.innerHTML = `
+      <option value="en">🌐 English</option>
+      <option value="rw">🌐 Kinyarwanda</option>
+    `;
+
+    selector.value = language();
+
+    nav.appendChild(selector);
+
+    selector.addEventListener("change", () => {
+      localStorage.setItem(STORAGE_KEY, selector.value);
+      applyTranslation();
+    });
+  }
+
+  function initializeTranslation() {
+    setupSelector();
+    applyTranslation();
+
+    const dynamicElements = [
+      document.getElementById("submitButton"),
+      document.getElementById("photoCaption")
+    ].filter(Boolean);
+
+    let updating = false;
+
+    const observer = new MutationObserver(() => {
+      if (updating) return;
+
+      updating = true;
+      applyTranslation();
+      updating = false;
+    });
+
+    dynamicElements.forEach(element => {
+      observer.observe(element, {
+        childList: true,
+        subtree: true,
+        characterData: true
+      });
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      initializeTranslation
+    );
+  } else {
+    initializeTranslation();
+  }
+})();
+</script>
+<!-- END SELL CROPS TRANSLATION -->
+
 </body>
 </html>

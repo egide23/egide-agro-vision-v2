@@ -1,259 +1,467 @@
-<section class="crop-page">
 
-<h1>🌾 Complete Rice Production Guide</h1>
+<section class="crop-page" id="rice-farming">
 
+<!-- LANGUAGE SELECTOR -->
+<div class="rice-language-bar">
+  <label for="riceLanguage">
+    <i class="fa-solid fa-language"></i>
+    <span data-en="Language" data-rw="Ururimi">Language</span>
+  </label>
 
-<h2>🌍 Introduction</h2>
+  <select id="riceLanguage" aria-label="Choose language / Hitamo ururimi">
+    <option value="en">🌐 English</option>
+    <option value="rw">🌐 Kinyarwanda</option>
+  </select>
+</div>
 
-<p>
-Rice is one of the world's most important staple food crops and plays a vital role
-in food security across Africa.
+<style>
+/* Rice page translation selector only */
+#rice-farming .rice-language-bar {
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  flex-wrap:wrap;
+  gap:12px;
+  margin:0 0 25px;
+}
+
+#rice-farming .rice-language-bar label {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:#195b32;
+  font-size:14px;
+  font-weight:700;
+}
+
+#rice-farming .rice-language-bar select {
+  padding:11px 16px;
+  border:1px solid #cbded0;
+  border-radius:10px;
+  background:#ffffff;
+  color:#16552f;
+  font-size:14px;
+  font-weight:700;
+  cursor:pointer;
+  outline:none;
+}
+
+#rice-farming .rice-language-bar select:focus {
+  border-color:#25864a;
+  box-shadow:0 0 0 3px rgba(37,134,74,.13);
+}
+
+@media(max-width:600px) {
+  #rice-farming .rice-language-bar {
+    justify-content:center;
+  }
+}
+</style>
+
+<h1 data-en="🌾 Complete Rice Production Guide"
+    data-rw="🌾 Amabwiriza Arambuye yo Guhinga Umuceri">
+  🌾 Complete Rice Production Guide
+</h1>
+
+<h2 data-en="🌍 Introduction" data-rw="🌍 Intangiriro">
+  🌍 Introduction
+</h2>
+
+<p data-en="Rice is one of the world's most important staple food crops and plays a vital role in food security across Africa."
+   data-rw="Umuceri ni kimwe mu bihingwa by'ibiribwa by'ingenzi ku isi kandi ugira uruhare rukomeye mu kwihaza mu biribwa muri Afurika.">
+  Rice is one of the world's most important staple food crops and plays a vital role
+  in food security across Africa.
 </p>
 
-<p>
-With proper land preparation, quality seed, good water management, balanced
-fertilization, and effective pest control, farmers can achieve high yields and
-produce quality grain for local consumption and commercial markets.
+<p data-en="With proper land preparation, quality seed, good water management, balanced fertilization, and effective pest control, farmers can achieve high yields and produce quality grain for local consumption and commercial markets."
+   data-rw="Iyo abahinzi bateguye neza ubutaka, bagakoresha imbuto nziza, bagacunga amazi neza, bagafumbira mu buryo bukwiye kandi bakarwanya udukoko twangiza imyaka, bashobora kubona umusaruro mwinshi n'umuceri mwiza wo kurya no kugurisha ku masoko.">
+  With proper land preparation, quality seed, good water management, balanced
+  fertilization, and effective pest control, farmers can achieve high yields and
+  produce quality grain for local consumption and commercial markets.
 </p>
 
-
-
-<h2>🌾 Rice Production Information</h2>
+<h2 data-en="🌾 Rice Production Information"
+    data-rw="🌾 Amakuru y'Ingenzi ku Buhinzi bw'Umuceri">
+  🌾 Rice Production Information
+</h2>
 
 <table class="farming-table">
-
 <tr>
-<th>Production Factor</th>
-<th>Recommendation</th>
+  <th data-en="Production Factor" data-rw="Ikigenderwaho mu buhinzi">
+    Production Factor
+  </th>
+  <th data-en="Recommendation" data-rw="Inama">
+    Recommendation
+  </th>
 </tr>
 
-
 <tr>
-<td>🌡️ Suitable Climate</td>
-<td>Warm tropical and subtropical climate with temperatures between 20–35°C.</td>
+  <td data-en="🌡️ Suitable Climate" data-rw="🌡️ Ikirere kibereye umuceri">
+    🌡️ Suitable Climate
+  </td>
+  <td data-en="Warm tropical and subtropical climate with temperatures between 20–35°C."
+      data-rw="Ikirere gishyushye cyo mu turere dushyuha, gifite ubushyuhe buri hagati ya 20–35°C.">
+    Warm tropical and subtropical climate with temperatures between 20–35°C.
+  </td>
 </tr>
 
-
 <tr>
-<td>🌱 Soil Type</td>
-<td>Fertile clay or loam soils with good water-holding capacity.</td>
+  <td data-en="🌱 Soil Type" data-rw="🌱 Ubwoko bw'ubutaka">🌱 Soil Type</td>
+  <td data-en="Fertile clay or loam soils with good water-holding capacity."
+      data-rw="Ubutaka burumbuka bw'ibumba cyangwa ubutaka buvanze bubika amazi neza.">
+    Fertile clay or loam soils with good water-holding capacity.
+  </td>
 </tr>
 
-
 <tr>
-<td>⚖️ Soil pH</td>
-<td>5.5–7.0</td>
+  <td data-en="⚖️ Soil pH" data-rw="⚖️ pH y'ubutaka">⚖️ Soil pH</td>
+  <td>5.5–7.0</td>
 </tr>
 
-
 <tr>
-<td>🌧️ Rainfall Requirement</td>
-<td>1,000–2,000 mm per growing season or reliable irrigation.</td>
+  <td data-en="🌧️ Rainfall Requirement" data-rw="🌧️ Imvura ikenewe">
+    🌧️ Rainfall Requirement
+  </td>
+  <td data-en="1,000–2,000 mm per growing season or reliable irrigation."
+      data-rw="Imvura ya milimetero 1,000–2,000 mu gihembwe cy'ihinga cyangwa uburyo bwizewe bwo kuhira.">
+    1,000–2,000 mm per growing season or reliable irrigation.
+  </td>
 </tr>
 
-
 <tr>
-<td>📅 Planting Season</td>
-<td>Beginning of rainy season or according to irrigation schedule.</td>
+  <td data-en="📅 Planting Season" data-rw="📅 Igihe cyo gutera">
+    📅 Planting Season
+  </td>
+  <td data-en="Beginning of rainy season or according to irrigation schedule."
+      data-rw="Mu ntangiriro z'igihe cy'imvura cyangwa hakurikijwe gahunda yo kuhira.">
+    Beginning of rainy season or according to irrigation schedule.
+  </td>
 </tr>
 
-
 <tr>
-<td>🌾 Seed Rate</td>
-<td>40–80 kg/ha for transplanted rice and 80–120 kg/ha for direct seeding.</td>
+  <td data-en="🌾 Seed Rate" data-rw="🌾 Ingano y'imbuto">
+    🌾 Seed Rate
+  </td>
+  <td data-en="40–80 kg/ha for transplanted rice and 80–120 kg/ha for direct seeding."
+      data-rw="Kilogramo 40–80 kuri hegitari ku muceri uterwa wimuwe mu buhumbikiro, na kilogramo 80–120 kuri hegitari ku muceri uterwa mu murima ako kanya.">
+    40–80 kg/ha for transplanted rice and 80–120 kg/ha for direct seeding.
+  </td>
 </tr>
 
-
 <tr>
-<td>📏 Plant Spacing</td>
-<td>20 cm × 20 cm for transplanted rice.</td>
+  <td data-en="📏 Plant Spacing" data-rw="📏 Intera hagati y'ibihingwa">
+    📏 Plant Spacing
+  </td>
+  <td data-en="20 cm × 20 cm for transplanted rice."
+      data-rw="Santimetero 20 × 20 ku muceri uterwa wimuwe mu buhumbikiro.">
+    20 cm × 20 cm for transplanted rice.
+  </td>
 </tr>
 
-
 <tr>
-<td>🌱 Germination</td>
-<td>5–10 days after planting.</td>
+  <td data-en="🌱 Germination" data-rw="🌱 Kumera">
+    🌱 Germination
+  </td>
+  <td data-en="5–10 days after planting."
+      data-rw="Iminsi 5–10 nyuma yo gutera.">
+    5–10 days after planting.
+  </td>
 </tr>
 
-
 <tr>
-<td>⏳ Days to Maturity</td>
-<td>90–150 days depending on variety.</td>
+  <td data-en="⏳ Days to Maturity" data-rw="⏳ Iminsi yo kwera">
+    ⏳ Days to Maturity
+  </td>
+  <td data-en="90–150 days depending on variety."
+      data-rw="Iminsi 90–150 bitewe n'ubwoko bw'umuceri.">
+    90–150 days depending on variety.
+  </td>
 </tr>
 
-
 <tr>
-<td>💧 Water Management</td>
-<td>Maintain suitable water levels and drain fields before harvest.</td>
+  <td data-en="💧 Water Management" data-rw="💧 Gucunga amazi">
+    💧 Water Management
+  </td>
+  <td data-en="Maintain suitable water levels and drain fields before harvest."
+      data-rw="Gumana amazi ku rugero rukwiye kandi uyakure mu murima mbere yo gusarura.">
+    Maintain suitable water levels and drain fields before harvest.
+  </td>
 </tr>
 
-
 <tr>
-<td>🪴 Fertilizer</td>
-<td>Apply manure and balanced fertilizers based on soil test recommendations.</td>
+  <td data-en="🪴 Fertilizer" data-rw="🪴 Ifumbire">
+    🪴 Fertilizer
+  </td>
+  <td data-en="Apply manure and balanced fertilizers based on soil test recommendations."
+      data-rw="Koresha ifumbire mborera n'imvaruganda ku rugero rukwiye ukurikije ibyavuye mu ipimwa ry'ubutaka.">
+    Apply manure and balanced fertilizers based on soil test recommendations.
+  </td>
 </tr>
 
-
 <tr>
-<td>🌿 Weed Management</td>
-<td>Control weeds during the first 30–45 days after planting.</td>
+  <td data-en="🌿 Weed Management" data-rw="🌿 Kurwanya ibyatsi bibi">
+    🌿 Weed Management
+  </td>
+  <td data-en="Control weeds during the first 30–45 days after planting."
+      data-rw="Rwanya ibyatsi bibi mu minsi 30–45 ya mbere nyuma yo gutera.">
+    Control weeds during the first 30–45 days after planting.
+  </td>
 </tr>
 
-
 <tr>
-<td>🐛 Common Pests</td>
-<td>Stem borers, rice bugs, leaf folders, and armyworms.</td>
+  <td data-en="🐛 Common Pests" data-rw="🐛 Udukoko dukunze kwangiza umuceri">
+    🐛 Common Pests
+  </td>
+  <td data-en="Stem borers, rice bugs, leaf folders, and armyworms."
+      data-rw="Udukoko ducukura mu biti by'umuceri, udukoko tunyunyuza intete, udukoko tuzingazinga amababi n'ibinyabwoya byangiza imyaka.">
+    Stem borers, rice bugs, leaf folders, and armyworms.
+  </td>
 </tr>
 
-
 <tr>
-<td>🍂 Common Diseases</td>
-<td>Rice blast, bacterial leaf blight, sheath blight, and brown spot.</td>
+  <td data-en="🍂 Common Diseases" data-rw="🍂 Indwara zikunze kwibasira umuceri">
+    🍂 Common Diseases
+  </td>
+  <td data-en="Rice blast, bacterial leaf blight, sheath blight, and brown spot."
+      data-rw="Indwara ya rice blast, indwara ya bagiteri yangiza amababi, sheath blight n'indwara itera utubara tw'ikigina ku mababi.">
+    Rice blast, bacterial leaf blight, sheath blight, and brown spot.
+  </td>
 </tr>
 
-
 <tr>
-<td>🚜 Harvesting</td>
-<td>Harvest when 80–85% of grains are golden and mature.</td>
+  <td data-en="🚜 Harvesting" data-rw="🚜 Gusarura">
+    🚜 Harvesting
+  </td>
+  <td data-en="Harvest when 80–85% of grains are golden and mature."
+      data-rw="Sarura igihe 80–85% by'intete byahinduye ibara ry'umuhondo kandi byeze.">
+    Harvest when 80–85% of grains are golden and mature.
+  </td>
 </tr>
 
-
 <tr>
-<td>📦 Drying</td>
-<td>Dry grain to 12–14% moisture before storage.</td>
+  <td data-en="📦 Drying" data-rw="📦 Kumisha">
+    📦 Drying
+  </td>
+  <td data-en="Dry grain to 12–14% moisture before storage."
+      data-rw="Umisha umuceri kugeza ku buhehere bwa 12–14% mbere yo kuwuhunika.">
+    Dry grain to 12–14% moisture before storage.
+  </td>
 </tr>
 
-
 <tr>
-<td>📈 Expected Yield</td>
-<td>3–8 tonnes per hectare under good management.</td>
+  <td data-en="📈 Expected Yield" data-rw="📈 Umusaruro uteganyijwe">
+    📈 Expected Yield
+  </td>
+  <td data-en="3–8 tonnes per hectare under good management."
+      data-rw="Toni 3–8 kuri hegitari iyo umurima witaweho neza.">
+    3–8 tonnes per hectare under good management.
+  </td>
 </tr>
-
-
 </table>
 
-
-
-<h2>🌍 Why Rice Is Important</h2>
-
-
-<div class="importance-grid">
-
-
-<div class="importance-card">
-<h3>🍚 Food Security</h3>
-<p>
-Rice provides energy and supports food security for millions of people.
-</p>
-</div>
-
-
-<div class="importance-card">
-<h3>💰 Farmer Income</h3>
-<p>
-Rice production creates income opportunities for farming communities.
-</p>
-</div>
-
-
-<div class="importance-card">
-<h3>👨‍🌾 Employment</h3>
-<p>
-Supports jobs in farming, processing, transport, and marketing.
-</p>
-</div>
-
-
-<div class="importance-card">
-<h3>🌍 Market Growth</h3>
-<p>
-Improved rice production strengthens local and commercial markets.
-</p>
-</div>
-
-
-</div>
-
-
-
-<h2>🚀 Tips for Higher Rice Yields</h2>
-
+<h2 data-en="🌍 Why Rice Is Important"
+    data-rw="🌍 Akamaro k'Umuceri">
+  🌍 Why Rice Is Important
+</h2>
 
 <div class="importance-grid">
 
+  <div class="importance-card">
+    <h3 data-en="🍚 Food Security" data-rw="🍚 Kwihaza mu biribwa">
+      🍚 Food Security
+    </h3>
+    <p data-en="Rice provides energy and supports food security for millions of people."
+       data-rw="Umuceri utanga ingufu kandi ufasha abantu babarirwa muri za miliyoni kwihaza mu biribwa.">
+      Rice provides energy and supports food security for millions of people.
+    </p>
+  </div>
 
-<div class="importance-card">
-<h3>🌱 Quality Seeds</h3>
-<p>
-Use certified high-yielding varieties suitable for your area.
-</p>
+  <div class="importance-card">
+    <h3 data-en="💰 Farmer Income" data-rw="💰 Amafaranga y'abahinzi">
+      💰 Farmer Income
+    </h3>
+    <p data-en="Rice production creates income opportunities for farming communities."
+       data-rw="Ubuhinzi bw'umuceri butanga amahirwe yo kubona amafaranga ku miryango y'abahinzi.">
+      Rice production creates income opportunities for farming communities.
+    </p>
+  </div>
+
+  <div class="importance-card">
+    <h3 data-en="👨‍🌾 Employment" data-rw="👨‍🌾 Guhanga imirimo">
+      👨‍🌾 Employment
+    </h3>
+    <p data-en="Supports jobs in farming, processing, transport, and marketing."
+       data-rw="Butanga imirimo mu buhinzi, gutunganya umusaruro, gutwara ibicuruzwa no kubishakira amasoko.">
+      Supports jobs in farming, processing, transport, and marketing.
+    </p>
+  </div>
+
+  <div class="importance-card">
+    <h3 data-en="🌍 Market Growth" data-rw="🌍 Iterambere ry'amasoko">
+      🌍 Market Growth
+    </h3>
+    <p data-en="Improved rice production strengthens local and commercial markets."
+       data-rw="Kongera umusaruro w'umuceri biteza imbere amasoko yo mu gihugu n'ubucuruzi.">
+      Improved rice production strengthens local and commercial markets.
+    </p>
+  </div>
+
 </div>
 
+<h2 data-en="🚀 Tips for Higher Rice Yields"
+    data-rw="🚀 Inama zo Kongera Umusaruro w'Umuceri">
+  🚀 Tips for Higher Rice Yields
+</h2>
 
-<div class="importance-card">
-<h3>💧 Water Control</h3>
-<p>
-Manage irrigation and water levels throughout crop growth.
-</p>
+<div class="importance-grid">
+
+  <div class="importance-card">
+    <h3 data-en="🌱 Quality Seeds" data-rw="🌱 Imbuto nziza">
+      🌱 Quality Seeds
+    </h3>
+    <p data-en="Use certified high-yielding varieties suitable for your area."
+       data-rw="Koresha imbuto zemewe, zitanga umusaruro mwinshi kandi zibereye aho uhinga.">
+      Use certified high-yielding varieties suitable for your area.
+    </p>
+  </div>
+
+  <div class="importance-card">
+    <h3 data-en="💧 Water Control" data-rw="💧 Gucunga amazi">
+      💧 Water Control
+    </h3>
+    <p data-en="Manage irrigation and water levels throughout crop growth."
+       data-rw="Cunga neza kuhira n'ingano y'amazi mu gihe cyose umuceri ukura.">
+      Manage irrigation and water levels throughout crop growth.
+    </p>
+  </div>
+
+  <div class="importance-card">
+    <h3 data-en="🌿 Crop Protection" data-rw="🌿 Kurinda ibihingwa">
+      🌿 Crop Protection
+    </h3>
+    <p data-en="Control weeds, pests, and diseases early to reduce losses."
+       data-rw="Rwanya ibyatsi bibi, udukoko n'indwara hakiri kare kugira ngo ugabanye igihombo.">
+      Control weeds, pests, and diseases early to reduce losses.
+    </p>
+  </div>
+
+  <div class="importance-card">
+    <h3 data-en="📦 Proper Storage" data-rw="📦 Guhunika neza">
+      📦 Proper Storage
+    </h3>
+    <p data-en="Dry and store rice correctly to protect grain quality."
+       data-rw="Umisha kandi uhunike umuceri neza kugira ngo ubungabunge ubwiza bw'intete.">
+      Dry and store rice correctly to protect grain quality.
+    </p>
+  </div>
+
 </div>
 
-
-<div class="importance-card">
-<h3>🌿 Crop Protection</h3>
-<p>
-Control weeds, pests, and diseases early to reduce losses.
-</p>
-</div>
-
-
-<div class="importance-card">
-<h3>📦 Proper Storage</h3>
-<p>
-Dry and store rice correctly to protect grain quality.
-</p>
-</div>
-
-
-</div>
-
-
-
-<h2>🧑‍🌾 Farmer's Decision Guide</h2>
-
+<h2 data-en="🧑‍🌾 Farmer's Decision Guide"
+    data-rw="🧑‍🌾 Ibibazo Umuhinzi Akwiriye Kwibaza">
+  🧑‍🌾 Farmer's Decision Guide
+</h2>
 
 <div class="decision-box">
+  <ul>
+    <li data-en="Do I have enough rainfall or irrigation water?"
+        data-rw="Mfite imvura cyangwa amazi yo kuhira bihagije?">
+      Do I have enough rainfall or irrigation water?
+    </li>
 
-<ul>
+    <li data-en="Is my field suitable for rice production?"
+        data-rw="Umurima wanjye ubereye guhingwamo umuceri?">
+      Is my field suitable for rice production?
+    </li>
 
-<li>Do I have enough rainfall or irrigation water?</li>
+    <li data-en="Which rice variety fits my climate and market?"
+        data-rw="Ni ubuhe bwoko bw'umuceri bubereye ikirere cy'aho ndi n'isoko ngurishaho?">
+      Which rice variety fits my climate and market?
+    </li>
 
-<li>Is my field suitable for rice production?</li>
+    <li data-en="Can I access quality seed and farm inputs?"
+        data-rw="Nshobora kubona imbuto nziza n'inyongeramusaruro?">
+      Can I access quality seed and farm inputs?
+    </li>
 
-<li>Which rice variety fits my climate and market?</li>
+    <li data-en="What market price can I expect at harvest?"
+        data-rw="Ni ikihe giciro nshobora kwitega ku isoko igihe cyo gusarura?">
+      What market price can I expect at harvest?
+    </li>
 
-<li>Can I access quality seed and farm inputs?</li>
-
-<li>What market price can I expect at harvest?</li>
-
-<li>How will I manage weeds, pests, and diseases?</li>
-
-</ul>
-
+    <li data-en="How will I manage weeds, pests, and diseases?"
+        data-rw="Nzarwanya nte ibyatsi bibi, udukoko n'indwara?">
+      How will I manage weeds, pests, and diseases?
+    </li>
+  </ul>
 </div>
-
-
 
 <div class="agrovision-message">
+  <h2>🌍 Africa AgroVision</h2>
 
-<h2>🌍 Africa AgroVision</h2>
-
-<p>
-Africa AgroVision provides practical, reliable, and up-to-date agricultural
-information that helps farmers improve productivity, strengthen food security,
-and build sustainable agricultural businesses across Africa.
-</p>
-
+  <p data-en="Africa AgroVision provides practical, reliable, and up-to-date agricultural information that helps farmers improve productivity, strengthen food security, and build sustainable agricultural businesses across Africa."
+     data-rw="Africa AgroVision itanga amakuru ngiro, yizewe kandi agezweho ku buhinzi, afasha abahinzi kongera umusaruro, guteza imbere kwihaza mu biribwa no kubaka ubucuruzi bw'ubuhinzi burambye muri Afurika.">
+    Africa AgroVision provides practical, reliable, and up-to-date agricultural
+    information that helps farmers improve productivity, strengthen food security,
+    and build sustainable agricultural businesses across Africa.
+  </p>
 </div>
 
-
 </section>
+
+<script>
+/* RICE FARMING TRANSLATION */
+(function () {
+  "use strict";
+
+  const STORAGE_KEY = "agrovision-language";
+  const ricePage = document.getElementById("rice-farming");
+  const languageSelect = document.getElementById("riceLanguage");
+
+  if (!ricePage || !languageSelect) return;
+
+  function getLanguage() {
+    try {
+      return localStorage.getItem(STORAGE_KEY) === "rw" ? "rw" : "en";
+    } catch (error) {
+      return "en";
+    }
+  }
+
+  function saveLanguage(language) {
+    try {
+      localStorage.setItem(STORAGE_KEY, language);
+    } catch (error) {
+      // Translation still works if browser storage is unavailable.
+    }
+  }
+
+  function applyRiceLanguage(language) {
+    const lang = language === "rw" ? "rw" : "en";
+
+    ricePage.querySelectorAll("[data-en][data-rw]").forEach(function (element) {
+      element.textContent = element.getAttribute("data-" + lang);
+    });
+
+    languageSelect.value = lang;
+    document.documentElement.lang = lang;
+
+    document.title = lang === "rw"
+      ? "Amabwiriza yo Guhinga Umuceri | Africa AgroVision"
+      : "Rice Farming Guide | Africa AgroVision";
+  }
+
+  languageSelect.addEventListener("change", function () {
+    saveLanguage(this.value);
+    applyRiceLanguage(this.value);
+  });
+
+  applyRiceLanguage(getLanguage());
+
+  window.addEventListener("storage", function (event) {
+    if (event.key === STORAGE_KEY) {
+      applyRiceLanguage(getLanguage());
+    }
+  });
+})();
+</script>

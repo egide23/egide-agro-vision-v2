@@ -1645,5 +1645,440 @@ function initializeMarketplace() {
 initializeMarketplace();
 
 </script>
+
+<!-- AFRICA AGROVISION MARKETPLACE TRANSLATION -->
+<script>
+(function () {
+  "use strict";
+
+  const STORAGE_KEY = "agrovision-language";
+
+  const marketplaceTranslations = {
+    en: {
+      "Home": "Home",
+      "Agriculture": "Agriculture",
+      "🌍 Marketplace": "🌍 Marketplace",
+      "Login": "Login",
+      "🌍 Africa Agro Marketplace": "🌍 Africa Agro Marketplace",
+      "The home of agriculture — buy, sell, work, connect, and grow across Africa.":
+        "The home of agriculture — buy, sell, work, connect, and grow across Africa.",
+      "All Categories": "All Categories",
+      "🌾 Crops": "🌾 Crops",
+      "🐄 Animals": "🐄 Animals",
+      "🐔 Poultry": "🐔 Poultry",
+      "🌱 Seeds & Breeds": "🌱 Seeds & Breeds",
+      "🚜 Equipment & Tools": "🚜 Equipment & Tools",
+      "🤝 Farm Services": "🤝 Farm Services",
+      "👨‍🌾 Farm Workers": "👨‍🌾 Farm Workers",
+      "💼 Agricultural Jobs": "💼 Agricultural Jobs",
+      "📦 Other": "📦 Other",
+      "🔍 Search": "🔍 Search",
+      "What are you looking for?": "What are you looking for?",
+      "Find agricultural products, animals, people, equipment, jobs, and services in one place.":
+        "Find agricultural products, animals, people, equipment, jobs, and services in one place.",
+      "Buy Crops": "Buy Crops",
+      "Find crops and agricultural products available for sale.":
+        "Find crops and agricultural products available for sale.",
+      "Sell Crops": "Sell Crops",
+      "List your harvest and connect with potential buyers.":
+        "List your harvest and connect with potential buyers.",
+      "Buy Animals": "Buy Animals",
+      "Find livestock, poultry, and other farm animals.":
+        "Find livestock, poultry, and other farm animals.",
+      "Sell Animals": "Sell Animals",
+      "Advertise animals you want to sell and connect with buyers.":
+        "Advertise animals you want to sell and connect with buyers.",
+      "My Marketplace": "My Marketplace",
+      "View and manage your agricultural listings and buyer requests.":
+        "View and manage your agricultural listings and buyer requests.",
+      "Equipment & Tools": "Equipment & Tools",
+      "Find tractors, machines, tools, and farm equipment.":
+        "Find tractors, machines, tools, and farm equipment.",
+      "Veterinary & Health": "Veterinary & Health",
+      "Find animal health products and veterinary assistance.":
+        "Find animal health products and veterinary assistance.",
+      "Farm Workers": "Farm Workers",
+      "Find skilled workers and people looking for farm work.":
+        "Find skilled workers and people looking for farm work.",
+      "Agricultural Jobs": "Agricultural Jobs",
+      "Discover employment opportunities in agriculture.":
+        "Discover employment opportunities in agriculture.",
+      "Farm Services": "Farm Services",
+      "Connect with people and businesses providing farm services.":
+        "Connect with people and businesses providing farm services.",
+      "Seeds & Breeds": "Seeds & Breeds",
+      "Discover seeds, livestock breeds, and breeding opportunities.":
+        "Discover seeds, livestock breeds, and breeding opportunities.",
+      "Markets & Buyers": "Markets & Buyers",
+      "Connect agricultural producers with potential markets.":
+        "Connect agricultural producers with potential markets.",
+      "Transport": "Transport",
+      "Find agricultural transportation and delivery services.":
+        "Find agricultural transportation and delivery services.",
+      "🔎 Explore More →": "🔎 Explore More →",
+      "🔥 LIVE AGRICULTURAL OPPORTUNITIES":
+        "🔥 LIVE AGRICULTURAL OPPORTUNITIES",
+      "Latest Opportunities": "Latest Opportunities",
+      "Discover the latest products, animals, services, jobs, and opportunities posted on Africa AgroVision.":
+        "Discover the latest products, animals, services, jobs, and opportunities posted on Africa AgroVision.",
+      "Loading opportunities...": "Loading opportunities...",
+      "Please wait while we load the latest agricultural listings.":
+        "Please wait while we load the latest agricultural listings.",
+      "Connect With the Agricultural Community":
+        "Connect With the Agricultural Community",
+      "Africa AgroVision is building a trusted agricultural network where farmers, buyers, sellers, workers, experts, and businesses can discover opportunities and connect with each other.":
+        "Africa AgroVision is building a trusted agricultural network where farmers, buyers, sellers, workers, experts, and businesses can discover opportunities and connect with each other.",
+      "🌱 Farmers": "🌱 Farmers",
+      "Share products and find opportunities.":
+        "Share products and find opportunities.",
+      "🏢 Businesses": "🏢 Businesses",
+      "Reach agricultural customers and partners.":
+        "Reach agricultural customers and partners.",
+      "🤝 Community": "🤝 Community",
+      "Build useful agricultural connections.":
+        "Build useful agricultural connections.",
+      "📢 Have Something to Offer or Need Something?":
+        "📢 Have Something to Offer or Need Something?",
+      "Post what you are selling, what you are looking for, a job opportunity, a service, or agricultural assistance.":
+        "Post what you are selling, what you are looking for, a job opportunity, a service, or agricultural assistance.",
+      "➕ Post an Offer": "➕ Post an Offer",
+      "🌾 Find Crops": "🌾 Find Crops",
+      "🐄 Find Animals": "🐄 Find Animals",
+      "Search crops, animals, jobs, equipment, services...":
+        "Search crops, animals, jobs, equipment, services...",
+      "No matching opportunities found": "No matching opportunities found",
+      "Try another search term or select a different category.":
+        "Try another search term or select a different category.",
+      "Unable to load opportunities": "Unable to load opportunities",
+      "The marketplace could not retrieve listings. Please check your connection and Supabase configuration.":
+        "The marketplace could not retrieve listings. Please check your connection and Supabase configuration.",
+      "Connection unavailable": "Connection unavailable",
+      "The marketplace service could not start. Check your internet connection and refresh the page.":
+        "The marketplace service could not start. Check your internet connection and refresh the page.",
+      "🔄 Try Again": "🔄 Try Again",
+      "Recently posted": "Recently posted",
+      "Posted just now": "Posted just now",
+      "Loading photo": "Loading photo",
+      "Seller photo": "Seller photo",
+      "Illustrative photo": "Illustrative photo",
+      "Photo unavailable": "Photo unavailable",
+      "No contact information was provided.":
+        "No contact information was provided.",
+      "Location not provided": "Location not provided",
+      "Contact for price": "Contact for price",
+      "Available": "Available",
+      "Untitled Offer": "Untitled Offer",
+      "Photo not available": "Photo not available"
+    },
+
+    rw: {
+      "Home": "Ahabanza",
+      "Agriculture": "Ubuhinzi",
+      "🌍 Marketplace": "🌍 Isoko",
+      "Login": "Injira",
+      "🌍 Africa Agro Marketplace": "🌍 Isoko rya Africa AgroVision",
+      "The home of agriculture — buy, sell, work, connect, and grow across Africa.":
+        "Ihuriro ry'ubuhinzi n'ubworozi — gura, gurisha, shakisha akazi, uhure n'abandi kandi utere imbere muri Afurika.",
+      "All Categories": "Ibyiciro byose",
+      "🌾 Crops": "🌾 Ibihingwa",
+      "🐄 Animals": "🐄 Amatungo",
+      "🐔 Poultry": "🐔 Inkoko n'izindi nyoni",
+      "🌱 Seeds & Breeds": "🌱 Imbuto n'amoko y'amatungo",
+      "🚜 Equipment & Tools": "🚜 Imashini n'ibikoresho",
+      "🤝 Farm Services": "🤝 Serivisi z'ubuhinzi",
+      "👨‍🌾 Farm Workers": "👨‍🌾 Abakozi bo mu buhinzi",
+      "💼 Agricultural Jobs": "💼 Akazi mu buhinzi",
+      "📦 Other": "📦 Ibindi",
+      "🔍 Search": "🔍 Shakisha",
+      "What are you looking for?": "Ni iki ushaka?",
+      "Find agricultural products, animals, people, equipment, jobs, and services in one place.":
+        "Shakisha umusaruro w'ubuhinzi, amatungo, abakozi, ibikoresho, akazi na serivisi ahantu hamwe.",
+      "Buy Crops": "Gura umusaruro w'ubuhinzi",
+      "Find crops and agricultural products available for sale.":
+        "Shakisha imyaka n'indi musaruro w'ubuhinzi bigurishwa.",
+      "Sell Crops": "Gurisha umusaruro w'ubuhinzi",
+      "List your harvest and connect with potential buyers.":
+        "Tangaza umusaruro wawe maze ubone abaguzi.",
+      "Buy Animals": "Gura amatungo",
+      "Find livestock, poultry, and other farm animals.":
+        "Shakisha amatungo, inkoko n'andi matungo yo korora.",
+      "Sell Animals": "Gurisha amatungo",
+      "Advertise animals you want to sell and connect with buyers.":
+        "Tangaza amatungo ushaka kugurisha maze ubone abaguzi.",
+      "My Marketplace": "Isoko ryanjye",
+      "View and manage your agricultural listings and buyer requests.":
+        "Reba kandi ucunge amatangazo yawe n'ubusabe bw'abaguzi.",
+      "Equipment & Tools": "Imashini n'ibikoresho",
+      "Find tractors, machines, tools, and farm equipment.":
+        "Shakisha tiragiteri, imashini n'ibindi bikoresho by'ubuhinzi.",
+      "Veterinary & Health": "Ubuvuzi bw'amatungo",
+      "Find animal health products and veterinary assistance.":
+        "Shakisha imiti y'amatungo na serivisi z'abaganga b'amatungo.",
+      "Farm Workers": "Abakozi bo mu buhinzi",
+      "Find skilled workers and people looking for farm work.":
+        "Shakisha abakozi b'inararibonye n'abashaka akazi mu buhinzi.",
+      "Agricultural Jobs": "Akazi mu buhinzi",
+      "Discover employment opportunities in agriculture.":
+        "Menya amahirwe y'akazi mu buhinzi n'ubworozi.",
+      "Farm Services": "Serivisi z'ubuhinzi",
+      "Connect with people and businesses providing farm services.":
+        "Hura n'abantu n'ibigo bitanga serivisi z'ubuhinzi n'ubworozi.",
+      "Seeds & Breeds": "Imbuto n'amoko y'amatungo",
+      "Discover seeds, livestock breeds, and breeding opportunities.":
+        "Shakisha imbuto, amoko y'amatungo n'amahirwe yo guteza imbere ubworozi.",
+      "Markets & Buyers": "Amasoko n'abaguzi",
+      "Connect agricultural producers with potential markets.":
+        "Huza abahinzi n'aborozi n'amasoko ashobora kugura umusaruro wabo.",
+      "Transport": "Ubwikorezi",
+      "Find agricultural transportation and delivery services.":
+        "Shakisha serivisi zo gutwara no kugeza umusaruro ku bawukeneye.",
+      "🔎 Explore More →": "🔎 Menya byinshi →",
+      "🔥 LIVE AGRICULTURAL OPPORTUNITIES":
+        "🔥 AMAHIRWE MASHYA MU BUHINZI N'UBWOROZI",
+      "Latest Opportunities": "Amatangazo mashya",
+      "Discover the latest products, animals, services, jobs, and opportunities posted on Africa AgroVision.":
+        "Reba ibicuruzwa, amatungo, serivisi, akazi n'andi mahirwe aherutse gutangazwa kuri Africa AgroVision.",
+      "Loading opportunities...": "Amatangazo arimo gutunganywa...",
+      "Please wait while we load the latest agricultural listings.":
+        "Tegereza gato mu gihe turimo kuzana amatangazo mashya.",
+      "Connect With the Agricultural Community":
+        "Ihuriro ry'abakora ubuhinzi n'ubworozi",
+      "Africa AgroVision is building a trusted agricultural network where farmers, buyers, sellers, workers, experts, and businesses can discover opportunities and connect with each other.":
+        "Africa AgroVision irimo kubaka ihuriro ryizewe rihuza abahinzi, aborozi, abaguzi, abagurisha, abakozi, inzobere n'ibigo kugira ngo babone amahirwe kandi bakorane.",
+      "🌱 Farmers": "🌱 Abahinzi n'aborozi",
+      "Share products and find opportunities.":
+        "Tangaza umusaruro wawe kandi ubone amahirwe.",
+      "🏢 Businesses": "🏢 Ibigo by'ubucuruzi",
+      "Reach agricultural customers and partners.":
+        "Gera ku bakiriya n'abafatanyabikorwa mu buhinzi.",
+      "🤝 Community": "🤝 Ihuriro",
+      "Build useful agricultural connections.":
+        "Girana imikoranire myiza n'abandi mu buhinzi n'ubworozi.",
+      "📢 Have Something to Offer or Need Something?":
+        "📢 Hari icyo ugurisha cyangwa icyo ukeneye?",
+      "Post what you are selling, what you are looking for, a job opportunity, a service, or agricultural assistance.":
+        "Tangaza ibyo ugurisha, ibyo ushaka kugura, amahirwe y'akazi, serivisi cyangwa ubufasha mu buhinzi n'ubworozi.",
+      "➕ Post an Offer": "➕ Tanga itangazo",
+      "🌾 Find Crops": "🌾 Shakisha umusaruro",
+      "🐄 Find Animals": "🐄 Shakisha amatungo",
+      "Search crops, animals, jobs, equipment, services...":
+        "Shakisha imyaka, amatungo, akazi, ibikoresho, serivisi...",
+      "No matching opportunities found": "Nta matangazo ahuye n'ibyo ushaka",
+      "Try another search term or select a different category.":
+        "Gerageza irindi jambo cyangwa uhitemo ikindi cyiciro.",
+      "Unable to load opportunities": "Ntibishobotse kubona amatangazo",
+      "The marketplace could not retrieve listings. Please check your connection and Supabase configuration.":
+        "Ntitwashoboye kubona amatangazo. Reba murandasi yawe n'imiterere ya Supabase.",
+      "Connection unavailable": "Nta murongo uhari",
+      "The marketplace service could not start. Check your internet connection and refresh the page.":
+        "Serivisi y'isoko ntiyashoboye gutangira. Reba murandasi yawe wongere ufungure uru rupapuro.",
+      "🔄 Try Again": "🔄 Ongera ugerageze",
+      "Recently posted": "Byatangajwe vuba",
+      "Posted just now": "Byatangajwe aka kanya",
+      "Loading photo": "Ifoto irimo gutunganywa",
+      "Seller photo": "Ifoto y'ugurisha",
+      "Illustrative photo": "Ifoto y'icyitegererezo",
+      "Photo unavailable": "Ifoto ntiboneka",
+      "No contact information was provided.":
+        "Nta makuru yo kuvugana yatanzwe.",
+      "Location not provided": "Ahantu ntihagaragajwe",
+      "Contact for price": "Baza igiciro",
+      "Available": "Birahari",
+      "Untitled Offer": "Itangazo ridafite umutwe",
+      "Photo not available": "Ifoto ntiboneka"
+    }
+  };
+
+  const textSelectors = [
+    ".market-links a",
+    ".market-hero h1",
+    ".market-hero p",
+    "#searchButton",
+    "#marketCategory option",
+    ".market-categories .section-heading h2",
+    ".market-categories .section-heading p",
+    ".category-card h3",
+    ".category-card p",
+    ".explore-btn",
+    ".market-opportunities .market-badge",
+    ".market-opportunities .section-heading h2",
+    ".market-opportunities .section-heading p",
+    ".market-message h3",
+    ".market-message p",
+    ".market-message button",
+    ".market-community h2",
+    ".market-community p",
+    ".community-card strong",
+    ".community-card span",
+    ".market-action h2",
+    ".market-action p",
+    ".action-btn",
+    ".image-note",
+    ".opportunity-posted"
+  ].join(",");
+
+  const reverseTranslations = {};
+
+  Object.entries(marketplaceTranslations.rw).forEach(([en, rw]) => {
+    reverseTranslations[rw] = en;
+  });
+
+  function currentLanguage() {
+    return localStorage.getItem(STORAGE_KEY) === "rw" ? "rw" : "en";
+  }
+
+  function translateText(value, lang) {
+    const normalized = value.trim().replace(/\s+/g, " ");
+
+    const original = reverseTranslations[normalized] || normalized;
+
+    return marketplaceTranslations[lang][original] || original;
+  }
+
+  function translateElement(element, lang) {
+    if (element.closest("#languageSelector")) return;
+
+    const current = element.textContent;
+    const translated = translateText(current, lang);
+
+    if (translated !== current.trim().replace(/\s+/g, " ")) {
+      element.textContent = translated;
+    }
+  }
+
+  function translateRelativeTime(element, lang) {
+    const value = element.textContent.trim();
+
+    const english = value.match(
+      /^Posted (\d+) (minute|hour|day)s? ago$/
+    );
+
+    const kinyarwanda = value.match(
+      /^Hashize (iminota|isaha|amasaha|umunsi|iminsi) (\d+)$/
+    );
+
+    if (lang === "rw" && english) {
+      const number = Number(english[1]);
+      const unit = english[2];
+
+      let word = "";
+
+      if (unit === "minute") word = "iminota";
+      if (unit === "hour") word = number === 1 ? "isaha" : "amasaha";
+      if (unit === "day") word = number === 1 ? "umunsi" : "iminsi";
+
+      element.textContent = `Hashize ${word} ${number}`;
+    }
+
+    if (lang === "en" && kinyarwanda) {
+      const unit = kinyarwanda[1];
+      const number = Number(kinyarwanda[2]);
+
+      let word = "";
+
+      if (unit === "iminota") word = "minute";
+      if (unit === "isaha" || unit === "amasaha") word = "hour";
+      if (unit === "umunsi" || unit === "iminsi") word = "day";
+
+      element.textContent =
+        `Posted ${number} ${word}${number === 1 ? "" : "s"} ago`;
+    }
+  }
+
+  function applyMarketplaceTranslation() {
+    const lang = currentLanguage();
+
+    document.querySelectorAll(textSelectors).forEach(element => {
+      if (element.classList.contains("opportunity-posted")) {
+        translateRelativeTime(element, lang);
+      }
+
+      translateElement(element, lang);
+    });
+
+    const search = document.getElementById("marketSearch");
+
+    if (search) {
+      search.placeholder = translateText(
+        search.placeholder,
+        lang
+      );
+    }
+
+    const selector = document.getElementById("languageSelector");
+
+    if (selector) selector.value = lang;
+
+    document.documentElement.lang = lang;
+  }
+
+  function setupMarketplaceLanguage() {
+    const nav = document.querySelector(".market-links");
+
+    if (nav && !document.getElementById("languageSelector")) {
+      const selector = document.createElement("select");
+
+      selector.id = "languageSelector";
+      selector.setAttribute("aria-label", "Choose language");
+
+      selector.style.cssText = [
+        "padding:10px",
+        "border-radius:9px",
+        "background:white",
+        "color:#14532d",
+        "border:0",
+        "font-weight:700",
+        "cursor:pointer",
+        "max-width:160px"
+      ].join(";");
+
+      selector.innerHTML = `
+        <option value="en">🌐 English</option>
+        <option value="rw">🌐 Kinyarwanda</option>
+      `;
+
+      selector.value = currentLanguage();
+
+      nav.appendChild(selector);
+    }
+
+    const selector = document.getElementById("languageSelector");
+
+    if (selector) {
+      selector.addEventListener("change", function () {
+        localStorage.setItem(STORAGE_KEY, this.value);
+        applyMarketplaceTranslation();
+      });
+    }
+
+    applyMarketplaceTranslation();
+
+    const grid = document.getElementById("opportunityGrid");
+
+    if (grid) {
+      const observer = new MutationObserver(() => {
+        applyMarketplaceTranslation();
+      });
+
+      observer.observe(grid, {
+        childList: true,
+        subtree: true,
+        characterData: true
+      });
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      setupMarketplaceLanguage
+    );
+  } else {
+    setupMarketplaceLanguage();
+  }
+})();
+</script>
+<!-- END MARKETPLACE TRANSLATION -->
+
 </body>
 </html>

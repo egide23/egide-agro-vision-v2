@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,163 +11,445 @@
 
     <link rel="stylesheet" href="style.css">
 
+    <style>
+        /* Beans page language selector */
+        .beans-language-bar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .beans-language-bar label {
+            color: #195b32;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .beans-language-bar select {
+            padding: 11px 16px;
+            border: 1px solid #cbded0;
+            border-radius: 10px;
+            background: #ffffff;
+            color: #16552f;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .beans-language-bar select:focus {
+            outline: 2px solid #25864a;
+            outline-offset: 2px;
+        }
+
+        @media (max-width: 600px) {
+            .beans-language-bar {
+                justify-content: center;
+            }
+        }
+    </style>
+
 </head>
 
 <body>
 
-<section class="crop-page">
+<section class="crop-page" id="beans-farming">
 
-<h1>🌱 Complete Bean Farming Guide</h1>
+<!-- LANGUAGE SELECTOR -->
 
-<h2>🌍 Introduction</h2>
+<div class="beans-language-bar">
 
-<p>
-Beans are one of Africa's most valuable food and cash crops. They are rich in protein,
-improve soil fertility through natural nitrogen fixation, and provide a reliable source
-of income for millions of farmers.
+    <label for="beansLanguage">
+        <span data-en="🌐 Language" data-rw="🌐 Ururimi">
+            🌐 Language
+        </span>
+    </label>
+
+    <select id="beansLanguage"
+            aria-label="Choose language / Hitamo ururimi">
+
+        <option value="en">English</option>
+        <option value="rw">Kinyarwanda</option>
+
+    </select>
+
+</div>
+
+
+<h1 data-en="🌱 Complete Bean Farming Guide"
+    data-rw="🌱 Amabwiriza Arambuye yo Guhinga Ibishyimbo">
+    🌱 Complete Bean Farming Guide
+</h1>
+
+
+<h2 data-en="🌍 Introduction"
+    data-rw="🌍 Intangiriro">
+    🌍 Introduction
+</h2>
+
+
+<p data-en="Beans are one of Africa's most valuable food and cash crops. They are rich in protein, improve soil fertility through natural nitrogen fixation, and provide a reliable source of income for millions of farmers."
+   data-rw="Ibishyimbo ni kimwe mu bihingwa by'ingenzi mu biribwa no mu bucuruzi muri Afurika. Bikungahaye kuri poroteyine, bifasha kongera uburumbuke bw'ubutaka binyuze mu gufata azote yo mu kirere, kandi bitanga amafaranga ku bahinzi babarirwa muri za miliyoni.">
+
+    Beans are one of Africa's most valuable food and cash crops.
+    They are rich in protein, improve soil fertility through natural
+    nitrogen fixation, and provide a reliable source of income for
+    millions of farmers.
+
 </p>
 
-<p>
-Successful bean production begins with selecting the right variety, planting at the
-correct time, using quality seed, and following recommended crop management practices
-throughout the growing season.
+
+<p data-en="Successful bean production begins with selecting the right variety, planting at the correct time, using quality seed, and following recommended crop management practices throughout the growing season."
+   data-rw="Ubuhinzi bwiza bw'ibishyimbo butangirira ku guhitamo ubwoko bubereye aho uhinga, gutera ku gihe, gukoresha imbuto nziza no gukurikiza uburyo bukwiye bwo kwita ku bihingwa mu gihembwe cyose.">
+
+    Successful bean production begins with selecting the right variety,
+    planting at the correct time, using quality seed, and following
+    recommended crop management practices throughout the growing season.
+
 </p>
 
 
-<h2>🌱 Quick Bean Production Guide</h2>
+<h2 data-en="🌱 Quick Bean Production Guide"
+    data-rw="🌱 Amabwiriza y'Ibanze yo Guhinga Ibishyimbo">
+    🌱 Quick Bean Production Guide
+</h2>
+
 
 <table class="farming-table">
 
 <tr>
-<th>Production Factor</th>
-<th>Recommended Practice</th>
+    <th data-en="Production Factor"
+        data-rw="Ikigenderwaho mu Buhinzi">
+        Production Factor
+    </th>
+
+    <th data-en="Recommended Practice"
+        data-rw="Uburyo Busabwa">
+        Recommended Practice
+    </th>
 </tr>
 
-<tr>
-<td>🌍 Suitable Climate</td>
-<td>Moderate temperatures (18–27°C) with reliable rainfall.</td>
-</tr>
 
 <tr>
-<td>🌱 Soil Type</td>
-<td>Well-drained loam or sandy loam soils rich in organic matter.</td>
+    <td data-en="🌍 Suitable Climate"
+        data-rw="🌍 Ikirere Kibereye">
+        🌍 Suitable Climate
+    </td>
+
+    <td data-en="Moderate temperatures (18–27°C) with reliable rainfall."
+        data-rw="Ubushyuhe buri hagati ya 18–27°C hamwe n'imvura ihagije kandi yizewe.">
+        Moderate temperatures (18–27°C) with reliable rainfall.
+    </td>
 </tr>
 
-<tr>
-<td>⚖️ Soil pH</td>
-<td>6.0–7.5</td>
-</tr>
 
 <tr>
-<td>📅 Planting Season</td>
-<td>Plant at the beginning of the rainy season.</td>
+    <td data-en="🌱 Soil Type"
+        data-rw="🌱 Ubwoko bw'Ubutaka">
+        🌱 Soil Type
+    </td>
+
+    <td data-en="Well-drained loam or sandy loam soils rich in organic matter."
+        data-rw="Ubutaka buvanze cyangwa buvanze n'umucanga, budaheramo amazi kandi bukungahaye ku ifumbire mborera.">
+        Well-drained loam or sandy loam soils rich in organic matter.
+    </td>
 </tr>
 
-<tr>
-<td>🌾 Seed Rate</td>
-<td>80–120 kg per hectare depending on the variety.</td>
-</tr>
 
 <tr>
-<td>📏 Plant Spacing</td>
-<td>50 cm between rows × 10 cm between plants.</td>
+    <td data-en="⚖️ Soil pH"
+        data-rw="⚖️ pH y'Ubutaka">
+        ⚖️ Soil pH
+    </td>
+
+    <td>6.0–7.5</td>
 </tr>
 
-<tr>
-<td>🌿 Germination</td>
-<td>7–10 days after planting.</td>
-</tr>
 
 <tr>
-<td>🌸 Flowering</td>
-<td>35–45 days after planting.</td>
+    <td data-en="📅 Planting Season"
+        data-rw="📅 Igihe cyo Gutera">
+        📅 Planting Season
+    </td>
+
+    <td data-en="Plant at the beginning of the rainy season."
+        data-rw="Tera mu ntangiriro z'igihe cy'imvura.">
+        Plant at the beginning of the rainy season.
+    </td>
 </tr>
 
-<tr>
-<td>🧺 Harvest Time</td>
-<td>75–100 days after planting depending on variety.</td>
-</tr>
 
 <tr>
-<td>💧 Water Requirement</td>
-<td>300–600 mm rainfall during growing season.</td>
+    <td data-en="🌾 Seed Rate"
+        data-rw="🌾 Ingano y'Imbuto">
+        🌾 Seed Rate
+    </td>
+
+    <td data-en="80–120 kg per hectare depending on the variety."
+        data-rw="Kilogramo 80–120 kuri hegitari bitewe n'ubwoko bw'ibishyimbo.">
+        80–120 kg per hectare depending on the variety.
+    </td>
 </tr>
 
-<tr>
-<td>🪴 Fertilizer</td>
-<td>Apply compost or well-rotted manure. Use phosphorus fertilizer if recommended by soil testing.</td>
-</tr>
 
 <tr>
-<td>🌾 Weed Control</td>
-<td>Keep fields weed-free during the first 4–6 weeks after planting.</td>
+    <td data-en="📏 Plant Spacing"
+        data-rw="📏 Intera Hagati y'Ibihingwa">
+        📏 Plant Spacing
+    </td>
+
+    <td data-en="50 cm between rows × 10 cm between plants."
+        data-rw="Santimetero 50 hagati y'imirongo na santimetero 10 hagati y'ibiti.">
+        50 cm between rows × 10 cm between plants.
+    </td>
 </tr>
 
-<tr>
-<td>🐛 Common Pests</td>
-<td>Bean fly, aphids, pod borers and bean stem maggot.</td>
-</tr>
 
 <tr>
-<td>🍂 Common Diseases</td>
-<td>Anthracnose, angular leaf spot, rust, root rot and common bacterial blight.</td>
+    <td data-en="🌿 Germination"
+        data-rw="🌿 Kumera">
+        🌿 Germination
+    </td>
+
+    <td data-en="7–10 days after planting."
+        data-rw="Iminsi 7–10 nyuma yo gutera.">
+        7–10 days after planting.
+    </td>
 </tr>
 
-<tr>
-<td>🚜 Harvesting</td>
-<td>Harvest when pods are dry and seeds are hard.</td>
-</tr>
 
 <tr>
-<td>📦 Storage</td>
-<td>Dry beans to 12–13% moisture before storing in clean, dry airtight containers.</td>
+    <td data-en="🌸 Flowering"
+        data-rw="🌸 Kuzana Indabyo">
+        🌸 Flowering
+    </td>
+
+    <td data-en="35–45 days after planting."
+        data-rw="Iminsi 35–45 nyuma yo gutera.">
+        35–45 days after planting.
+    </td>
 </tr>
 
+
 <tr>
-<td>📈 Expected Yield</td>
-<td>1.5–3.5 tonnes per hectare under good management.</td>
+    <td data-en="🧺 Harvest Time"
+        data-rw="🧺 Igihe cyo Gusarura">
+        🧺 Harvest Time
+    </td>
+
+    <td data-en="75–100 days after planting depending on variety."
+        data-rw="Iminsi 75–100 nyuma yo gutera bitewe n'ubwoko bw'ibishyimbo.">
+        75–100 days after planting depending on variety.
+    </td>
+</tr>
+
+
+<tr>
+    <td data-en="💧 Water Requirement"
+        data-rw="💧 Amazi Akenewe">
+        💧 Water Requirement
+    </td>
+
+    <td data-en="300–600 mm rainfall during growing season."
+        data-rw="Imvura ya milimetero 300–600 mu gihembwe cy'ihinga.">
+        300–600 mm rainfall during growing season.
+    </td>
+</tr>
+
+
+<tr>
+    <td data-en="🪴 Fertilizer"
+        data-rw="🪴 Ifumbire">
+        🪴 Fertilizer
+    </td>
+
+    <td data-en="Apply compost or well-rotted manure. Use phosphorus fertilizer if recommended by soil testing."
+        data-rw="Koresha ifumbire y'imborera iboze neza. Koresha ifumbire irimo fosifore igihe ipimwa ry'ubutaka ryerekanye ko ikenewe.">
+        Apply compost or well-rotted manure.
+        Use phosphorus fertilizer if recommended by soil testing.
+    </td>
+</tr>
+
+
+<tr>
+    <td data-en="🌾 Weed Control"
+        data-rw="🌾 Kurwanya Ibyatsi Bibi">
+        🌾 Weed Control
+    </td>
+
+    <td data-en="Keep fields weed-free during the first 4–6 weeks after planting."
+        data-rw="Rwanya ibyatsi bibi mu murima mu byumweru 4–6 bya mbere nyuma yo gutera.">
+        Keep fields weed-free during the first 4–6 weeks after planting.
+    </td>
+</tr>
+
+
+<tr>
+    <td data-en="🐛 Common Pests"
+        data-rw="🐛 Udukoko Dukunze Kwangiza Ibishyimbo">
+        🐛 Common Pests
+    </td>
+
+    <td data-en="Bean fly, aphids, pod borers and bean stem maggot."
+        data-rw="Isazi yangiza ibishyimbo, inda z'ibihingwa, udukoko ducukura mu misogwe n'utwangiza ibiti by'ibishyimbo.">
+        Bean fly, aphids, pod borers and bean stem maggot.
+    </td>
+</tr>
+
+
+<tr>
+    <td data-en="🍂 Common Diseases"
+        data-rw="🍂 Indwara Zikunze Kwibasira Ibishyimbo">
+        🍂 Common Diseases
+    </td>
+
+    <td data-en="Anthracnose, angular leaf spot, rust, root rot and common bacterial blight."
+        data-rw="Indwara ya anthracnose, utubara two ku mababi, ingese, kubora kw'imizi n'indwara ya bagiteri yangiza amababi.">
+        Anthracnose, angular leaf spot, rust, root rot and common bacterial blight.
+    </td>
+</tr>
+
+
+<tr>
+    <td data-en="🚜 Harvesting"
+        data-rw="🚜 Gusarura">
+        🚜 Harvesting
+    </td>
+
+    <td data-en="Harvest when pods are dry and seeds are hard."
+        data-rw="Sarura igihe imisogwe yumye kandi intete zikomeye.">
+        Harvest when pods are dry and seeds are hard.
+    </td>
+</tr>
+
+
+<tr>
+    <td data-en="📦 Storage"
+        data-rw="📦 Guhunika">
+        📦 Storage
+    </td>
+
+    <td data-en="Dry beans to 12–13% moisture before storing in clean, dry airtight containers."
+        data-rw="Umisha ibishyimbo kugeza ku buhehere bwa 12–13% mbere yo kubihunika mu bikoresho bisukuye, byumutse kandi bifunze neza.">
+        Dry beans to 12–13% moisture before storing in clean,
+        dry airtight containers.
+    </td>
+</tr>
+
+
+<tr>
+    <td data-en="📈 Expected Yield"
+        data-rw="📈 Umusaruro Uteganyijwe">
+        📈 Expected Yield
+    </td>
+
+    <td data-en="1.5–3.5 tonnes per hectare under good management."
+        data-rw="Toni 1.5–3.5 kuri hegitari iyo umurima witaweho neza.">
+        1.5–3.5 tonnes per hectare under good management.
+    </td>
 </tr>
 
 </table>
 
 
-<h2>🌿 Bean Farming Management Stages</h2>
+<h2 data-en="🌿 Bean Farming Management Stages"
+    data-rw="🌿 Intambwe zo Kwita ku Buhinzi bw'Ibishyimbo">
+    🌿 Bean Farming Management Stages
+</h2>
+
 
 <table class="farming-table">
 
 <tr>
-<th>Stage</th>
-<th>Farmer Activity</th>
+    <th data-en="Stage"
+        data-rw="Icyiciro">
+        Stage
+    </th>
+
+    <th data-en="Farmer Activity"
+        data-rw="Igikorwa cy'Umuhinzi">
+        Farmer Activity
+    </th>
 </tr>
 
-<tr>
-<td>1. Land Preparation</td>
-<td>Clear weeds, prepare soil and improve drainage.</td>
-</tr>
 
 <tr>
-<td>2. Seed Selection</td>
-<td>Choose certified high-quality bean varieties.</td>
+    <td data-en="1. Land Preparation"
+        data-rw="1. Gutegura Umurima">
+        1. Land Preparation
+    </td>
+
+    <td data-en="Clear weeds, prepare soil and improve drainage."
+        data-rw="Kuraho ibyatsi bibi, tegura ubutaka kandi utezimbere uburyo bwo gutembereza amazi.">
+        Clear weeds, prepare soil and improve drainage.
+    </td>
 </tr>
 
-<tr>
-<td>3. Planting</td>
-<td>Plant seeds at recommended spacing during rainy season.</td>
-</tr>
 
 <tr>
-<td>4. Crop Care</td>
-<td>Control weeds, monitor pests and apply nutrients.</td>
+    <td data-en="2. Seed Selection"
+        data-rw="2. Guhitamo Imbuto">
+        2. Seed Selection
+    </td>
+
+    <td data-en="Choose certified high-quality bean varieties."
+        data-rw="Hitamo imbuto z'ibishyimbo nziza kandi zemewe.">
+        Choose certified high-quality bean varieties.
+    </td>
 </tr>
 
-<tr>
-<td>5. Harvesting</td>
-<td>Harvest mature dry pods carefully to avoid losses.</td>
-</tr>
 
 <tr>
-<td>6. Storage</td>
-<td>Store dried beans in clean protected containers.</td>
+    <td data-en="3. Planting"
+        data-rw="3. Gutera">
+        3. Planting
+    </td>
+
+    <td data-en="Plant seeds at recommended spacing during rainy season."
+        data-rw="Tera imbuto ku ntera isabwa mu gihe cy'imvura.">
+        Plant seeds at recommended spacing during rainy season.
+    </td>
+</tr>
+
+
+<tr>
+    <td data-en="4. Crop Care"
+        data-rw="4. Kwita ku Bihingwa">
+        4. Crop Care
+    </td>
+
+    <td data-en="Control weeds, monitor pests and apply nutrients."
+        data-rw="Rwanya ibyatsi bibi, genzura udukoko kandi wongerere ubutaka intungagihingwa.">
+        Control weeds, monitor pests and apply nutrients.
+    </td>
+</tr>
+
+
+<tr>
+    <td data-en="5. Harvesting"
+        data-rw="5. Gusarura">
+        5. Harvesting
+    </td>
+
+    <td data-en="Harvest mature dry pods carefully to avoid losses."
+        data-rw="Sarura imisogwe yeze kandi yumye witonze kugira ngo wirinde igihombo.">
+        Harvest mature dry pods carefully to avoid losses.
+    </td>
+</tr>
+
+
+<tr>
+    <td data-en="6. Storage"
+        data-rw="6. Guhunika">
+        6. Storage
+    </td>
+
+    <td data-en="Store dried beans in clean protected containers."
+        data-rw="Hunika ibishyimbo byumye mu bikoresho bisukuye kandi birinzwe.">
+        Store dried beans in clean protected containers.
+    </td>
 </tr>
 
 </table>
@@ -174,47 +457,161 @@ throughout the growing season.
 
 <section class="importance-section">
 
-<h2>🌍 Importance of Beans in Africa</h2>
+<h2 data-en="🌍 Importance of Beans in Africa"
+    data-rw="🌍 Akamaro k'Ibishyimbo muri Afurika">
+    🌍 Importance of Beans in Africa
+</h2>
+
 
 <div class="importance-grid">
 
+
 <div class="importance-card">
-<h3>🥗 Nutrition Security</h3>
-<p>
-Beans provide affordable plant-based protein and essential nutrients
-for millions of African families.
-</p>
+
+    <h3 data-en="🥗 Nutrition Security"
+        data-rw="🥗 Imirire Myiza">
+        🥗 Nutrition Security
+    </h3>
+
+    <p data-en="Beans provide affordable plant-based protein and essential nutrients for millions of African families."
+       data-rw="Ibishyimbo bitanga poroteyine ikomoka ku bimera ihendutse n'izindi ntungamubiri z'ingenzi ku miryango myinshi yo muri Afurika.">
+
+        Beans provide affordable plant-based protein and essential nutrients
+        for millions of African families.
+
+    </p>
+
 </div>
 
 
 <div class="importance-card">
-<h3>🌱 Soil Improvement</h3>
-<p>
-Beans naturally fix nitrogen in the soil, improving fertility and
-reducing the need for chemical fertilizers.
-</p>
+
+    <h3 data-en="🌱 Soil Improvement"
+        data-rw="🌱 Kongera Uburumbuke bw'Ubutaka">
+        🌱 Soil Improvement
+    </h3>
+
+    <p data-en="Beans naturally fix nitrogen in the soil, improving fertility and reducing the need for chemical fertilizers."
+       data-rw="Ibishyimbo bifasha gufata azote yo mu kirere no kuyigeza mu butaka binyuze mu mikoranire n'udukoko-ngirakamaro two ku mizi, bigafasha kongera uburumbuke no kugabanya ifumbire mvaruganda ikenerwa.">
+
+        Beans naturally fix nitrogen in the soil, improving fertility
+        and reducing the need for chemical fertilizers.
+
+    </p>
+
 </div>
 
 
 <div class="importance-card">
-<h3>💰 Farmer Income</h3>
-<p>
-Beans create reliable income opportunities through local markets,
-processing, and agricultural trade.
-</p>
+
+    <h3 data-en="💰 Farmer Income"
+        data-rw="💰 Amafaranga y'Abahinzi">
+        💰 Farmer Income
+    </h3>
+
+    <p data-en="Beans create reliable income opportunities through local markets, processing, and agricultural trade."
+       data-rw="Ibishyimbo bitanga amahirwe yo kubona amafaranga binyuze mu masoko yo mu gihugu, gutunganya umusaruro no mu bucuruzi bw'ubuhinzi.">
+
+        Beans create reliable income opportunities through local markets,
+        processing, and agricultural trade.
+
+    </p>
+
 </div>
 
 
 <div class="importance-card">
-<h3>🌍 Food Security</h3>
-<p>
-Bean production supports sustainable agriculture and helps communities
-maintain stable food supplies.
-</p>
+
+    <h3 data-en="🌍 Food Security"
+        data-rw="🌍 Kwihaza mu Biribwa">
+        🌍 Food Security
+    </h3>
+
+    <p data-en="Bean production supports sustainable agriculture and helps communities maintain stable food supplies."
+       data-rw="Ubuhinzi bw'ibishyimbo bufasha guteza imbere ubuhinzi burambye kandi bugafasha abaturage kugira ibiribwa bihagije kandi bihoraho.">
+
+        Bean production supports sustainable agriculture and helps communities
+        maintain stable food supplies.
+
+    </p>
+
 </div>
+
 
 </div>
 
 </section>
 
 </section>
+
+
+<script>
+/* =========================================
+   AFRICA AGROVISION - BEANS TRANSLATION
+   ========================================= */
+
+(function () {
+    "use strict";
+
+    const LANGUAGE_KEY = "agrovision-language";
+
+    const beansPage = document.getElementById("beans-farming");
+    const languageSelect = document.getElementById("beansLanguage");
+
+    if (!beansPage || !languageSelect) {
+        return;
+    }
+
+    function getSavedLanguage() {
+        try {
+            return localStorage.getItem(LANGUAGE_KEY) === "rw"
+                ? "rw"
+                : "en";
+        } catch (error) {
+            return "en";
+        }
+    }
+
+    function saveLanguage(language) {
+        try {
+            localStorage.setItem(LANGUAGE_KEY, language);
+        } catch (error) {
+            // Translation still works without storage.
+        }
+    }
+
+    function translateBeansPage(language) {
+        const lang = language === "rw" ? "rw" : "en";
+
+        beansPage.querySelectorAll("[data-en][data-rw]")
+            .forEach(function (element) {
+                element.textContent = element.getAttribute("data-" + lang);
+            });
+
+        languageSelect.value = lang;
+
+        document.documentElement.lang = lang;
+
+        document.title = lang === "rw"
+            ? "Ubuhinzi bw'Ibishyimbo | Africa AgroVision"
+            : "Bean Farming | Africa AgroVision";
+    }
+
+    languageSelect.addEventListener("change", function () {
+        saveLanguage(this.value);
+        translateBeansPage(this.value);
+    });
+
+    window.addEventListener("storage", function (event) {
+        if (event.key === LANGUAGE_KEY) {
+            translateBeansPage(getSavedLanguage());
+        }
+    });
+
+    translateBeansPage(getSavedLanguage());
+
+})();
+</script>
+
+</body>
+</html>

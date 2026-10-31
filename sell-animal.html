@@ -1080,5 +1080,461 @@ startPage();
 window.addEventListener("beforeunload",releasePreviewUrl);
 </script>
 
+<!-- AFRICA AGROVISION - SELL ANIMALS TRANSLATION -->
+<script>
+(function () {
+  "use strict";
+
+  const STORAGE_KEY = "agrovision-language";
+
+  const translations = {
+    "Home": "Ahabanza",
+    "Marketplace": "Isoko",
+    "Dashboard": "Imbonerahamwe",
+
+    "Sell Animals": "Gurisha amatungo",
+    "Have livestock, poultry or other animals to sell? Create a clear listing with animal type, breed, age, health information, price, location and contact details.":
+      "Ufite amatungo, inkoko cyangwa izindi nyamaswa ushaka kugurisha? Tangaza ubwoko bwazo, imyaka, ubuzima, igiciro, aho ziherereye n'uburyo bwo kukuvugisha.",
+
+    "Create Your Animal Listing": "Tangaza amatungo ugurisha",
+    "Give potential buyers the information they need to understand your animals and contact you with confidence.":
+      "Ha abashaka kugura amakuru ahagije ku matungo yawe kugira ngo bakuvugishe bizeye ibyo bagiye kugura.",
+
+    "Login Required": "Ugomba kwinjira",
+    "You need an Africa AgroVision account to publish an animal listing.":
+      "Ukeneye konti ya Africa AgroVision kugira ngo utangaze amatungo ugurisha.",
+    "Log In": "Injira",
+    "Create Account": "Fungura konti",
+
+    "Animal Information": "Amakuru y'amatungo",
+    "Tell buyers what you have available.":
+      "Menyesha abaguzi amatungo ufite.",
+
+    "Animal Type": "Ubwoko bw'itungo",
+    "Specify Animal": "Garagaza itungo",
+    "Breed": "Ubwoko bw'itungo",
+    "Number Available": "Umubare w'amatungo ahari",
+    "Age": "Imyaka",
+    "Sex": "Igitsina",
+    "Suitable Purpose": "Icyo amatungo yakoreshwa",
+
+    "Animal Picture": "Ifoto y'itungo",
+    "The picture changes automatically based on animal type and breed. You can also select a photograph of the actual animal you are selling. The real photo is preferred when available.":
+      "Ifoto ihinduka bitewe n'itungo n'ubwoko bwaryo wahisemo. Ushobora no guhitamo ifoto nyakuri y'itungo ugurisha. Ifoto nyakuri ni yo yifuzwa kurusha iy'icyitegererezo.",
+
+    "Select an animal to preview its picture.":
+      "Hitamo itungo kugira ngo urebe ifoto yaryo.",
+
+    "Upload Actual Animal Photo (Optional)":
+      "Shyiraho ifoto nyakuri y'itungo (si itegeko)",
+
+    "JPG, PNG or WebP. Maximum 5 MB. Uploaded photographs require a configured Supabase Storage bucket.":
+      "Ifoto ya JPG, PNG cyangwa WebP, itarengeje 5 MB. Kubika amafoto bisaba ko ububiko bwa Supabase Storage bwateguwe.",
+
+    "Health & Animal Condition": "Ubuzima n'imiterere y'amatungo",
+    "Provide accurate information about your animals.":
+      "Tanga amakuru y'ukuri ku buzima bw'amatungo yawe.",
+
+    "Animal Health Information": "Amakuru ku buzima bw'amatungo",
+    "Healthy": "Afite ubuzima bwiza",
+    "Vaccinated": "Yakingiwe",
+    "Veterinary checked": "Yasuzumwe na veterineri",
+    "Records available": "Inyandiko z'ubuvuzi zirahari",
+    "Health Details": "Ibisobanuro ku buzima",
+    "Identification / Records": "Ibiranga amatungo / Inyandiko",
+
+    "Price & Availability": "Igiciro n'igihe amatungo abonekera",
+    "Tell buyers your selling conditions.":
+      "Menyesha abaguzi ibisabwa kugira ngo bagure.",
+
+    "Asking Price": "Igiciro ugurishaho",
+    "Price Flexibility": "Uburyo igiciro cyumvikanwaho",
+    "Availability": "Igihe amatungo abonekera",
+    "Minimum Purchase": "Umubare muto ushobora kugurwa",
+
+    "Location & Delivery": "Ahantu n'uburyo bwo kugeza amatungo",
+    "Let buyers know where they can find the animals.":
+      "Menyesha abaguzi aho amatungo yawe aherereye.",
+
+    "Location": "Ahantu",
+    "Delivery Option": "Uburyo bwo kugeza amatungo",
+
+    "Seller Contact Information": "Amakuru yo kuvugisha umugurisha",
+    "Give interested buyers a reliable way to reach you.":
+      "Tanga uburyo bwizewe abaguzi bashobora kugukoresha bakuvugisha.",
+
+    "Full Name": "Amazina yose",
+    "Phone / WhatsApp": "Telefone / WhatsApp",
+    "Email Address": "Aderesi ya imeyili",
+    "Preferred Contact": "Uburyo wifuza kuvugishwamo",
+
+    "Describe Your Animals": "Sobanura amatungo yawe",
+    "Give buyers the details that make your listing useful.":
+      "Ha abaguzi ibisobanuro by'ingenzi ku matungo ugurisha.",
+    "Animal Description": "Ibisobanuro by'amatungo",
+
+    "Checking Login...": "Turimo kugenzura konti...",
+    "Publishing Listing...": "Turimo gutangaza itangazo...",
+    "Submit Animal Listing": "Tangaza amatungo ugurisha",
+
+    "Animal listing published successfully!":
+      "Itangazo ry'amatungo yawe ryatangajwe neza!",
+    "Your listing has been saved to Africa AgroVision Marketplace.":
+      "Itangazo ryawe ryabitswe ku Isoko rya Africa AgroVision.",
+    "View Marketplace": "Reba isoko",
+    "My Marketplace": "Isoko ryanjye",
+
+    "Build trust with accurate information.":
+      "Tanga amakuru y'ukuri kugira ngo abaguzi bakugirire icyizere.",
+    "Clear information about breed, age, health, quantity, price and location helps buyers make informed decisions.":
+      "Amakuru asobanutse ku bwoko bw'amatungo, imyaka, ubuzima, umubare, igiciro n'aho aherereye afasha abaguzi gufata ibyemezo byiza.",
+
+    "© 2026 Africa AgroVision — Connecting farmers, buyers and opportunity.":
+      "© 2026 Africa AgroVision — Duhuza abahinzi, aborozi, abaguzi n'amahirwe.",
+
+    "Select animal": "Hitamo itungo",
+    "Cattle": "Inka",
+    "Goats": "Ihene",
+    "Sheep": "Intama",
+    "Pigs": "Ingurube",
+    "Chickens": "Inkoko",
+    "Turkeys": "Dendo",
+    "Ducks": "Imbata",
+    "Rabbits": "Inkwavu",
+    "Dogs": "Imbwa",
+    "Cats": "Injangwe",
+    "Fish": "Amafi",
+    "Other": "Ibindi",
+
+    "Mixed": "Byombi",
+    "Male": "Igitsina gabo",
+    "Female": "Igitsina gore",
+
+    "Breeding": "Korora no kororoka",
+    "Meat production": "Gutanga inyama",
+    "Milk production": "Gutanga amata",
+    "Egg production": "Gutanga amagi",
+    "General farming": "Ubworozi busanzwe",
+    "Companionship / Pet": "Itungo ryo mu rugo",
+
+    "Available": "Birahari",
+    "Not available": "Ntibihari",
+    "Not applicable": "Ntibireba",
+
+    "Price negotiable": "Igiciro cyumvikanwaho",
+    "Fixed price": "Igiciro kidahinduka",
+    "Depends on quantity": "Biterwa n'umubare ugurwa",
+
+    "Available immediately": "Biraboneka ako kanya",
+    "Available within 7 days": "Bizaboneka mu minsi 7",
+    "Available within 30 days": "Bizaboneka mu minsi 30",
+
+    "Buyer collects": "Umuguzi aza kwifatira amatungo",
+    "Seller can deliver": "Umugurisha ashobora kuyageza ku muguzi",
+    "Delivery can be arranged": "Uburyo bwo kuyageza ku muguzi bwumvikanwaho",
+    "Either option": "Uburyo ubwo ari bwo bwose",
+
+    "Phone call": "Guhamagara kuri telefone",
+
+    "Enter animal type": "Andika ubwoko bw'itungo",
+    "Example: Large White, Belgian Malinois":
+      "Urugero: Large White, Belgian Malinois",
+    "Example: 15": "Urugero: 15",
+    "Example: 8 months": "Urugero: amezi 8",
+    "Example: Vaccinated and healthy":
+      "Urugero: Yakingiwe kandi afite ubuzima bwiza",
+    "Example: 450,000 RWF per animal":
+      "Urugero: 450,000 RWF kuri buri tungo",
+    "Example: Minimum 2 animals":
+      "Urugero: Nibura amatungo 2",
+    "Example: Kigali, Gasabo": "Urugero: Kigali, Gasabo",
+    "Your full name": "Amazina yawe yose",
+
+    "Example: I have 8 healthy Large White pigs, approximately 7–8 months old. Buyers can visit before purchase.":
+      "Urugero: Mfite ingurube 8 zo mu bwoko bwa Large White, zifite ubuzima bwiza n'amezi 7–8. Abaguzi bashobora kuza kuzireba mbere yo kugura.",
+
+    "No verified breed-specific picture available.":
+      "Nta foto yemejwe y'ubu bwoko bw'itungo iboneka.",
+    "No matching photograph available.":
+      "Nta foto ihuye n'iri tungo iboneka.",
+    "Matching photograph is unavailable.":
+      "Ifoto ijyanye n'iri tungo ntiboneka.",
+    "Your actual animal photograph":
+      "Ifoto nyakuri y'itungo ryawe",
+
+    "Please specify the animal type.":
+      "Garagaza ubwoko bw'itungo.",
+    "Please enter a valid number of animals.":
+      "Andika umubare w'amatungo wemewe.",
+    "Please enter a valid phone number.":
+      "Andika nimero ya telefone yemewe.",
+    "Please enter your email address.":
+      "Andika aderesi ya imeyili.",
+    "Marketplace service is unavailable.":
+      "Serivisi y'isoko ntiboneka.",
+    "Your session has expired. Please log in again.":
+      "Igihe cya konti yawe cyarangiye. Ongera winjire.",
+    "We could not confirm publication.":
+      "Ntitwashoboye kwemeza ko itangazo ryatangajwe."
+  };
+
+  /*
+    Keep the original option values in English.
+    This preserves animal-image matching and
+    the existing Supabase listing format.
+  */
+
+  const reverse = {};
+
+  Object.entries(translations).forEach(([en, rw]) => {
+    if (!(rw in reverse)) reverse[rw] = en;
+  });
+
+  const originalOptions = new WeakMap();
+  const originalPlaceholders = new WeakMap();
+
+  function language() {
+    return localStorage.getItem(STORAGE_KEY) === "rw"
+      ? "rw"
+      : "en";
+  }
+
+  function translate(value, lang) {
+    const clean = String(value).trim().replace(/\s+/g, " ");
+    const english = reverse[clean] || clean;
+
+    return lang === "rw"
+      ? translations[english] || english
+      : english;
+  }
+
+  function translateTextNode(node, lang) {
+    const old = node.nodeValue;
+    const clean = old.trim();
+
+    if (!clean) return;
+
+    const translated = translate(clean, lang);
+
+    if (translated !== clean) {
+      node.nodeValue =
+        old.match(/^\s*/)[0] +
+        translated +
+        old.match(/\s*$/)[0];
+    }
+  }
+
+  function translateElement(element, lang) {
+    const walker = document.createTreeWalker(
+      element,
+      NodeFilter.SHOW_TEXT
+    );
+
+    const nodes = [];
+
+    while (walker.nextNode()) {
+      nodes.push(walker.currentNode);
+    }
+
+    nodes.forEach(node => translateTextNode(node, lang));
+  }
+
+  function translateOptions(lang) {
+    document.querySelectorAll("select:not(#sellAnimalLanguage) option")
+      .forEach(option => {
+        if (!originalOptions.has(option)) {
+          originalOptions.set(option, option.textContent.trim());
+
+          // Explicit values protect original data semantics.
+          if (!option.hasAttribute("value")) {
+            option.value = option.textContent.trim();
+          }
+        }
+
+        const english = originalOptions.get(option);
+        option.textContent = lang === "rw"
+          ? translations[english] || english
+          : english;
+      });
+  }
+
+  function translateCaption(lang) {
+    const caption = document.getElementById("imageCaption");
+    if (!caption) return;
+
+    const current = caption.textContent.trim();
+
+    if (current.startsWith("Illustrative photograph of ")) {
+      const animal = current.slice(
+        "Illustrative photograph of ".length
+      );
+
+      caption.textContent = lang === "rw"
+        ? "Ifoto y'icyitegererezo ya " + translate(animal, "rw")
+        : current;
+      return;
+    }
+
+    if (current.startsWith("Ifoto y'icyitegererezo ya ")) {
+      const animal = current.slice(
+        "Ifoto y'icyitegererezo ya ".length
+      );
+
+      caption.textContent = lang === "en"
+        ? "Illustrative photograph of " + translate(animal, "en")
+        : current;
+      return;
+    }
+
+    if (current.includes(" — ")) {
+      const parts = current.split(" — ");
+      const animal = translate(parts.shift(), lang);
+
+      caption.textContent = animal + " — " + parts.join(" — ");
+      return;
+    }
+
+    caption.textContent = translate(current, lang);
+  }
+
+  function applyTranslation() {
+    const lang = language();
+
+    const selectors = [
+      ".nav-links a",
+      ".page-intro h1",
+      ".page-intro p",
+      ".card-heading h2",
+      ".card-heading p",
+      "#loginBox h3",
+      "#loginBox p",
+      "#loginBox a",
+      ".form-section h3",
+      ".form-section p",
+      ".form-group label",
+      ".form-group .hint",
+      ".condition-title",
+      ".condition-option",
+      ".image-box h3",
+      ".image-box p",
+      ".photo-upload label",
+      ".photo-upload .hint",
+      "#submitButton",
+      "#successMessage strong",
+      "#successMessage p",
+      "#successMessage a",
+      ".trust-box strong",
+      ".trust-box p",
+      "footer"
+    ];
+
+    document.querySelectorAll(selectors.join(","))
+      .forEach(element => translateElement(element, lang));
+
+    translateOptions(lang);
+
+    document.querySelectorAll(
+      "input[placeholder], textarea[placeholder]"
+    ).forEach(element => {
+      if (!originalPlaceholders.has(element)) {
+        originalPlaceholders.set(element, element.placeholder);
+      }
+
+      const english = originalPlaceholders.get(element);
+      element.placeholder = lang === "rw"
+        ? translations[english] || english
+        : english;
+    });
+
+    translateCaption(lang);
+
+    const selector = document.getElementById("sellAnimalLanguage");
+    if (selector) selector.value = lang;
+
+    document.documentElement.lang = lang;
+  }
+
+  function setupSelector() {
+    const nav = document.querySelector(".nav-links");
+
+    if (!nav || document.getElementById("sellAnimalLanguage")) {
+      return;
+    }
+
+    const selector = document.createElement("select");
+
+    selector.id = "sellAnimalLanguage";
+    selector.setAttribute("aria-label", "Choose language");
+
+    selector.style.cssText = [
+      "width:auto",
+      "min-width:135px",
+      "padding:9px 12px",
+      "border-radius:9px",
+      "background:white",
+      "color:#14532d",
+      "border:0",
+      "font-weight:700",
+      "cursor:pointer"
+    ].join(";");
+
+    selector.innerHTML = `
+      <option value="en">🌐 English</option>
+      <option value="rw">🌐 Kinyarwanda</option>
+    `;
+
+    selector.value = language();
+    nav.appendChild(selector);
+
+    selector.addEventListener("change", function () {
+      localStorage.setItem(STORAGE_KEY, this.value);
+      applyTranslation();
+    });
+  }
+
+  function initializeTranslation() {
+    setupSelector();
+    applyTranslation();
+
+    const dynamicElements = [
+      document.getElementById("submitButton"),
+      document.getElementById("imageCaption"),
+      document.getElementById("errorMessage")
+    ].filter(Boolean);
+
+    const observer = new MutationObserver(() => {
+      observer.disconnect();
+      applyTranslation();
+
+      dynamicElements.forEach(element => {
+        observer.observe(element, {
+          childList: true,
+          subtree: true,
+          characterData: true
+        });
+      });
+    });
+
+    dynamicElements.forEach(element => {
+      observer.observe(element, {
+        childList: true,
+        subtree: true,
+        characterData: true
+      });
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      initializeTranslation
+    );
+  } else {
+    initializeTranslation();
+  }
+})();
+</script>
+<!-- END SELL ANIMALS TRANSLATION -->
+
 </body>
 </html>

@@ -607,13 +607,23 @@
             <li><a href="profile.html">Profile</a></li>
             <li><a href="agriculture.html">Agriculture</a></li>
             <li><a href="index.html">Home</a></li>
+            <li>
+    <select id="languageSelector"
+            aria-label="Choose language"
+            style="padding: 9px; border-radius: 8px;
+                   background: white; color: #145b24;
+                   border: none; font-weight: 600;">
+        <option value="en">🌐 English</option>
+        <option value="rw">🌐 Kinyarwanda</option>
+    </select>
+</li>
         </ul>
     </nav>
 
     <!-- HERO -->
 
     <section class="market-hero">
-        <h1>My Marketplace 🛒</h1>
+        <h1 data-i18n="myMarket.title">My Marketplace 🛒</h1>
 
         <p>
             Manage and view the agricultural listings and
@@ -1359,6 +1369,6 @@
         initializeMarketplace();
 
     </script>
-
+<script src="language.js"></script>
 </body>
 </html>
