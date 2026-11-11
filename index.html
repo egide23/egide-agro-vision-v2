@@ -18,6 +18,43 @@
         content="Africa AgroVision, African agriculture, Rwanda agriculture, farming in Rwanda, crop production, livestock farming, poultry farming, smart farming, sustainable agriculture, agricultural innovation, agriculture marketplace, farming technology">
 
     <meta name="author" content="Africa AgroVision">
+
+<!-- AFRICA AGROVISION SOCIAL MEDIA PREVIEW -->
+
+<meta property="og:type" content="website">
+
+<meta property="og:site_name" content="Africa AgroVision">
+
+<meta property="og:title"
+      content="Africa AgroVision | Shaping the Future of African Agriculture">
+
+<meta property="og:description"
+      content="Discover Rwanda's agricultural marketplace. Connect with farmers, buyers, cooperatives and agribusinesses. Explore crops, livestock, farming knowledge and market opportunities.">
+
+<meta property="og:url"
+      content="https://egide23.github.io/egide-agro-vision-v2/">
+
+<meta property="og:image"
+      content="https://egide23.github.io/egide-agro-vision-v2/images/home-hero.jpg">
+
+<meta property="og:image:alt"
+      content="Africa AgroVision - Shaping the Future of African Agriculture">
+
+<meta property="og:locale" content="en_US">
+
+<!-- TWITTER / X PREVIEW -->
+
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="twitter:title"
+      content="Africa AgroVision | African Agriculture & Marketplace">
+
+<meta name="twitter:description"
+      content="Connecting farmers, buyers and agricultural businesses across Rwanda.">
+
+<meta name="twitter:image"
+      content="https://egide23.github.io/egide-agro-vision-v2/images/home-hero.jpg">
+
     <meta name="robots" content="index, follow">
 
     <link rel="canonical"
@@ -38,11 +75,72 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <script src="language.js" defer></script>
+
+    <!-- Resource card photographs and overlays -->
+    <style>
+        body:has(.homepage-marketplace)
+        .agro-focus-links.cinematic-resources .cinematic-card {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            background-image: none !important;
+            background-color: #164b2b;
+        }
+
+        body:has(.homepage-marketplace)
+        .agro-focus-links.cinematic-resources .cinematic-card
+        .cinematic-card-photo {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: -2;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        body:has(.homepage-marketplace)
+        .agro-focus-links.cinematic-resources .cinematic-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: linear-gradient(
+                180deg,
+                rgba(2, 24, 13, 0.04) 0%,
+                rgba(2, 24, 13, 0.30) 45%,
+                rgba(2, 24, 13, 0.92) 100%
+            );
+            pointer-events: none;
+        }
+
+        body:has(.homepage-marketplace)
+        .agro-focus-links.cinematic-resources .cinematic-card:hover
+        .cinematic-card-photo {
+            transform: scale(1.06);
+        }
+
+        body:has(.homepage-marketplace)
+        .agro-focus-links.cinematic-resources .cinematic-card
+        .cinematic-card-title {
+            position: relative;
+            z-index: 1;
+            color: #fff;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            body:has(.homepage-marketplace)
+            .cinematic-card .cinematic-card-photo {
+                transition: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    
 <nav class="agro-nav" aria-label="Main navigation">
 
     <h2 class="logo">🌱 Africa AgroVision</h2>
@@ -84,147 +182,313 @@
 
 </nav>
 
+<main>
 
-    <main>
+    <section class="hero" id="home">
 
-        <section class="hero" id="home">
+        <h1 data-i18n="hero.title">
+            Shaping the Future of African Agriculture
+        </h1>
 
-            <h1 data-i18n="hero.title">
-                Shaping the Future of African Agriculture
-            </h1>
-
-            <p data-i18n="hero.description">
-                Africa AgroVision is a Rwanda-based African agriculture platform
-                providing practical farming knowledge, crop production,
-                livestock and poultry information, agricultural innovation,
-                smart farming solutions, and technology for a more sustainable
-                agricultural future across Africa.
-            </p>
-
-            <a href="register.html"
-               class="btn"
-               data-i18n="hero.button">
-                Explore More
-            </a>
-
-            <div class="homepage-marketplace">
-
-                <div class="homepage-market-content">
-
-                    <span class="market-badge"
-                          data-i18n="market.badge">
-                        🌍 NEW • AFRICA AGROVISION MARKETPLACE
-                    </span>
-
-                    <h2 data-i18n="market.title">
-                        Everything Agriculture, In One Place
-                    </h2>
-
-                    <p data-i18n="market.description">
-                        Buy and sell crops and animals, find farm equipment,
-                        agricultural jobs, workers, veterinary assistance,
-                        seeds, breeds, agricultural services, buyers,
-                        and much more.
-                    </p>
-
-                    <a href="agro-market.html"
-                       class="marketplace-home-btn"
-                       data-i18n="market.button">
-                        Explore Agro Marketplace →
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <section class="agro-focus">
-
-            <h2 data-i18n="resources.title">
-                Africa AgroVision Agriculture Resources
-            </h2>
-
-            <p data-i18n="resources.description">
-                Explore agricultural knowledge covering crop production,
-                livestock farming, poultry farming, sustainable agriculture,
-                animal health, animal housing, and agricultural innovation.
-            </p>
-
-            <div class="agro-focus-links">
-
-                <a href="agriculture.html"
-                   data-i18n="resources.crops">
-                    🌱 Crop & Agriculture Knowledge
-                </a>
-
-                <a href="livestock-farming.html"
-                   data-i18n="resources.livestock">
-                    🐄 Livestock Farming
-                </a>
-
-                <a href="poultry-farming.html"
-                   data-i18n="resources.poultry">
-                    🐔 Poultry Farming
-                </a>
-
-                <a href="animal-housing.html"
-                   data-i18n="resources.housing">
-                    🏠 Animal Housing
-                </a>
-
-                <a href="animal-health.html"
-                   data-i18n="resources.health">
-                    🩺 Animal Health
-                </a>
-
-                <a href="agro-market.html"
-                   data-i18n="resources.market">
-                    🛒 Agriculture Marketplace
-                </a>
-
-            </div>
-
-        </section>
-
-    </main>
-
-    <footer class="agro-footer">
-
-        <h2>🌱 Africa AgroVision</h2>
-
-        <p data-i18n="footer.description">
-            Africa AgroVision is building Africa's agricultural future through
-            innovation, sustainable farming, modern technology, and collaboration.
-            Our mission is to empower farmers with knowledge, connect communities,
-            and create smarter solutions for food security across Africa.
+        <p data-i18n="hero.description">
+            Africa AgroVision is a Rwanda-based African agriculture platform
+            providing practical farming knowledge, crop production,
+            livestock and poultry information, agricultural innovation,
+            smart farming solutions, and technology for a more sustainable
+            agricultural future across Africa.
         </p>
 
-        <div class="footer-links">
+        <a href="register.html"
+           class="btn"
+           data-i18n="hero.button">
+            Explore More
+        </a>
 
-            <a href="about.html" data-i18n="footer.about">
-                About Us
+        <div class="homepage-marketplace">
+
+            <div class="homepage-market-content">
+
+                <span class="market-badge"
+                      data-i18n="market.badge">
+                    🌍 NEW • AFRICA AGROVISION MARKETPLACE
+                </span>
+
+                <h2 data-i18n="market.title">
+                    Everything Agriculture, In One Place
+                </h2>
+
+                <p data-i18n="market.description">
+                    Buy and sell crops and animals, find farm equipment,
+                    agricultural jobs, workers, veterinary assistance,
+                    seeds, breeds, agricultural services, buyers,
+                    and much more.
+                </p>
+
+                <a href="agro-market.html"
+                   class="marketplace-home-btn"
+                   data-i18n="market.button">
+                    Explore Agro Marketplace →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="agro-focus">
+
+        <h2 data-i18n="resources.title">
+            Africa AgroVision Agriculture Resources
+        </h2>
+
+        <p data-i18n="resources.description">
+            Explore agricultural knowledge covering crop production,
+            livestock farming, poultry farming, sustainable agriculture,
+            animal health, animal housing, and agricultural innovation.
+        </p>
+
+        <div class="agro-focus-links cinematic-resources">
+
+            <!-- CROP FARMING: MAIZE HARVEST -->
+            <a href="agriculture.html"
+               class="cinematic-card crops-card">
+
+                <img
+                    class="cinematic-card-photo"
+                    src="https://unsplash.com/photos/wxl-rzPyLdI/download?force=true&amp;w=1000"
+                    alt="Harvested maize cobs with golden kernels and natural husks"
+                    loading="lazy">
+
+                <span class="cinematic-card-title"
+                      data-i18n="resources.crops">
+                    🌱 Crop & Agriculture Knowledge
+                </span>
+
             </a>
 
-            <a href="agriculture.html" data-i18n="footer.agriculture">
-                Agriculture
+            <!-- LIVESTOCK FARMING: CATTLE ON PASTURE -->
+            <a href="livestock-farming.html"
+               class="cinematic-card livestock-card-home">
+
+                <img
+                    class="cinematic-card-photo"
+                    src="https://unsplash.com/photos/1fbUIZ1uMiM/download?force=true&amp;w=1000"
+                    alt="A herd of cattle grazing on farmland"
+                    loading="lazy">
+
+                <span class="cinematic-card-title"
+                      data-i18n="resources.livestock">
+                    🐄 Livestock Farming
+                </span>
+
             </a>
 
-            <a href="projects.html" data-i18n="footer.projects">
-                Projects
+            <!-- POULTRY FARMING: UNCHANGED -->
+            <a href="poultry-farming.html"
+               class="cinematic-card poultry-card-home">
+
+                <img
+                    class="cinematic-card-photo"
+                    src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&amp;fit=crop&amp;w=1000&amp;q=85"
+                    alt="Chickens on a poultry farm"
+                    loading="lazy">
+
+                <span class="cinematic-card-title"
+                      data-i18n="resources.poultry">
+                    🐔 Poultry Farming
+                </span>
+
             </a>
 
-            <a href="contact.html" data-i18n="footer.contact">
-                Contact
+            <!-- ANIMAL HOUSING: DAIRY BARN -->
+            <a href="animal-housing.html"
+               class="cinematic-card housing-card">
+
+                <img
+                    class="cinematic-card-photo"
+                    src="https://unsplash.com/photos/NNIo1tcFJF0/download?force=true&amp;w=1000"
+                    alt="Rows of dairy cattle housed inside a farm barn"
+                    loading="lazy">
+
+                <span class="cinematic-card-title"
+                      data-i18n="resources.housing">
+                    🏠 Animal Housing
+                </span>
+
+            </a>
+
+            <!-- ANIMAL HEALTH: MEDICINES AND VETERINARY TOOLS -->
+            <a href="animal-health.html"
+               class="cinematic-card health-card">
+
+                <img
+                    class="cinematic-card-photo"
+                    src="https://unsplash.com/photos/ZyxNWi3JCto/download?force=true&amp;w=1000"
+                    alt="Stethoscope, medicines and first-aid equipment used in healthcare"
+                    loading="lazy">
+
+                <span class="cinematic-card-title"
+                      data-i18n="resources.health">
+                    🩺 Animal Health
+                </span>
+
+            </a>
+
+            <!-- AGRICULTURE MARKETPLACE: UNCHANGED -->
+            <a href="agro-market.html"
+               class="cinematic-card market-card">
+
+                <img
+                    class="cinematic-card-photo"
+                    src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&amp;fit=crop&amp;w=1000&amp;q=85"
+                    alt="Fresh agricultural produce"
+                    loading="lazy">
+
+                <span class="cinematic-card-title"
+                      data-i18n="resources.market">
+                    🛒 Agriculture Marketplace
+                </span>
+
             </a>
 
         </div>
 
-        <p class="copyright" data-i18n="footer.copyright">
-            © 2026 Africa AgroVision 🌱 | Building a sustainable agricultural future.
-        </p>
+    </section>
 
-    </footer>
+<!-- AFRICA AGROVISION WHATSAPP CHANNEL -->
+<section class="agro-whatsapp-channel"
+    style="
+        max-width: 1100px;
+        margin: 50px auto 70px;
+        padding: 45px 25px;
+        text-align: center;
+        background: linear-gradient(135deg, #0b4827, #126b3a);
+        border-radius: 22px;
+        color: white;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    ">
+
+    <div style="font-size: 42px; margin-bottom: 12px;">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+    </div>
+
+    <h2 style="color: white; margin-bottom: 15px;">
+        Join Our Agricultural Community
+    </h2>
+
+    <p style="
+        color: #e6f5ea;
+        max-width: 650px;
+        margin: 0 auto 25px;
+        line-height: 1.8;
+    ">
+        Follow Africa AgroVision on WhatsApp for agricultural
+        market opportunities, farming knowledge, new listings,
+        and updates connecting farmers and buyers across Rwanda.
+    </p>
+
+    <a href="https://whatsapp.com/channel/0029VbDmJ2n002T0sny8RE1B"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Follow Africa AgroVision on WhatsApp"
+       style="
+           display: inline-flex;
+           align-items: center;
+           justify-content: center;
+           gap: 10px;
+           background: #ffffff;
+           color: #075e32;
+           padding: 15px 28px;
+           border-radius: 50px;
+           font-weight: 700;
+           font-size: 16px;
+           text-decoration: none;
+           box-shadow: 0 8px 22px rgba(0,0,0,0.15);
+       ">
+
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+        Follow Our WhatsApp Channel
+
+    </a>
+
+<!-- SHARE AFRICA AGROVISION ON WHATSAPP -->
+<div style="margin-top: 22px; text-align: center;">
+
+    <p style="
+        color: #e6f5ea;
+        font-size: 14px;
+        margin-bottom: 12px;
+    ">
+        Help more farmers and buyers discover Africa AgroVision.
+    </p>
+
+    <a
+        href="https://api.whatsapp.com/send?text=Discover%20Africa%20AgroVision%20%F0%9F%8C%B1%20%E2%80%94%20Rwanda%27s%20agricultural%20knowledge%20and%20marketplace%20platform.%20Explore%20farming%20resources%2C%20crops%2C%20livestock%2C%20and%20market%20opportunities%3A%20https%3A%2F%2Fegide23.github.io%2Fegide-agro-vision-v2%2F"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Share Africa AgroVision on WhatsApp"
+        style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 13px 25px;
+            border: 1px solid rgba(255,255,255,0.7);
+            border-radius: 50px;
+            color: white;
+            background: transparent;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+        "
+    >
+        <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
+        Share Africa AgroVision
+    </a>
+
+</div>
+
+</section>
+
+</main>
+
+<footer class="agro-footer">
+
+    <h2>🌱 Africa AgroVision</h2>
+
+    <p data-i18n="footer.description">
+        Africa AgroVision is building Africa's agricultural future through
+        innovation, sustainable farming, modern technology, and collaboration.
+        Our mission is to empower farmers with knowledge, connect communities,
+        and create smarter solutions for food security across Africa.
+    </p>
+
+    <div class="footer-links">
+
+        <a href="about.html" data-i18n="footer.about">
+            About Us
+        </a>
+
+        <a href="agriculture.html" data-i18n="footer.agriculture">
+            Agriculture
+        </a>
+
+        <a href="projects.html" data-i18n="footer.projects">
+            Projects
+        </a>
+
+        <a href="contact.html" data-i18n="footer.contact">
+            Contact
+        </a>
+
+    </div>
+
+    <p class="copyright" data-i18n="footer.copyright">
+        © 2026 Africa AgroVision 🌱 | Building a sustainable agricultural future.
+    </p>
+
+</footer>
 
 </body>
 </html>

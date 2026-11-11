@@ -483,3 +483,245 @@ body:has(.homepage-marketplace) .footer-links a:hover {
     }
 
 }
+
+/* ==========================================
+   AFRICA AGROVISION
+   HOMEPAGE CINEMATIC REFINEMENT
+   ========================================== */
+
+/* Premium hero atmosphere */
+body:has(.homepage-marketplace) .hero {
+    background-image:
+        linear-gradient(
+            105deg,
+            rgba(3, 28, 17, 0.94) 0%,
+            rgba(5, 38, 23, 0.78) 38%,
+            rgba(5, 38, 23, 0.28) 75%,
+            rgba(5, 38, 23, 0.12) 100%
+        ),
+        url("images/home-hero.jpg");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Stronger headline */
+body:has(.homepage-marketplace) .hero h1 {
+    max-width: 900px;
+    font-size: clamp(42px, 5.5vw, 82px);
+    line-height: 1.08;
+    letter-spacing: -0.045em;
+    text-wrap: balance;
+}
+
+/* Clearer introductory text */
+body:has(.homepage-marketplace) .hero > p {
+    max-width: 680px;
+    line-height: 1.75;
+    color: #edf5ee;
+}
+
+/* Refined main button */
+body:has(.homepage-marketplace) .hero > .btn {
+    background: #65c85a;
+    color: #092d19;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
+}
+
+body:has(.homepage-marketplace) .hero > .btn:hover {
+    background: #8be078;
+    transform: translateY(-3px);
+}
+
+/* Mobile refinements */
+@media (max-width: 600px) {
+    body:has(.homepage-marketplace) .hero {
+        background-image:
+            linear-gradient(
+                180deg,
+                rgba(3, 28, 17, 0.86),
+                rgba(3, 28, 17, 0.72)
+            ),
+            url("images/home-hero.jpg");
+
+        background-position: 60% center;
+        padding: 85px 6% 60px;
+    }
+
+    body:has(.homepage-marketplace) .hero h1 {
+        font-size: clamp(34px, 9vw, 46px);
+        line-height: 1.14;
+    }
+}
+
+/* ==========================================
+   AFRICA AGROVISION
+   CINEMATIC AGRICULTURAL RESOURCE CARDS
+   ========================================== */
+
+body:has(.homepage-marketplace)
+.agro-focus-links.cinematic-resources {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+/* Base cinematic card */
+body:has(.homepage-marketplace)
+.agro-focus-links.cinematic-resources .cinematic-card {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+
+    min-height: 340px;
+    padding: 30px;
+    overflow: hidden;
+
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 22px;
+
+    background-color: #164b2b;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: #ffffff;
+    text-align: left;
+    text-decoration: none;
+
+    box-shadow: 0 15px 35px rgba(5, 42, 22, 0.16);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+/* Cinematic gradient */
+body:has(.homepage-marketplace)
+.cinematic-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(0,0,0,0.04) 15%,
+        rgba(3,26,15,0.35) 55%,
+        rgba(3,26,15,0.92) 100%
+    );
+    transition: background 0.35s ease;
+}
+
+/* Card titles */
+body:has(.homepage-marketplace)
+.cinematic-card .cinematic-card-title {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+    font-size: clamp(18px, 1.8vw, 23px);
+    font-weight: 700;
+    line-height: 1.35;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.45);
+}
+
+/* Interactive effects */
+body:has(.homepage-marketplace)
+.agro-focus-links.cinematic-resources .cinematic-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 50px rgba(5,42,22,0.25);
+    border-color: rgba(255,255,255,0.4);
+}
+
+/* Keyboard accessibility */
+body:has(.homepage-marketplace)
+.cinematic-card:focus-visible {
+    outline: 3px solid #a5e88c;
+    outline-offset: 4px;
+}
+
+/* ==========================================
+   INDIVIDUAL AGRICULTURAL PHOTOGRAPHS
+   ========================================== */
+
+body:has(.homepage-marketplace) .crops-card {
+    background-image: url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=85");
+}
+
+body:has(.homepage-marketplace) .livestock-card-home {
+    background-image: url("https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=1000&q=85");
+}
+
+body:has(.homepage-marketplace) .poultry-card-home {
+    background-image: url("https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=1000&q=85");
+}
+
+body:has(.homepage-marketplace) .housing-card {
+    background-image: url("https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=1000&q=85");
+}
+
+body:has(.homepage-marketplace) .health-card {
+    background-image: url("https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1000&q=85");
+}
+
+body:has(.homepage-marketplace) .market-card {
+    background-image: url("https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=1000&q=85");
+}
+
+/* ==========================================
+   TABLET
+   ========================================== */
+
+@media (max-width: 900px) {
+    body:has(.homepage-marketplace)
+    .agro-focus-links.cinematic-resources {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    body:has(.homepage-marketplace)
+    .agro-focus-links.cinematic-resources .cinematic-card {
+        min-height: 300px;
+        padding: 25px;
+    }
+}
+
+/* ==========================================
+   MOBILE
+   ========================================== */
+
+@media (max-width: 600px) {
+    body:has(.homepage-marketplace)
+    .agro-focus-links.cinematic-resources {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    body:has(.homepage-marketplace)
+    .agro-focus-links.cinematic-resources .cinematic-card {
+        min-height: 280px;
+        padding: 25px;
+        border-radius: 18px;
+    }
+
+    body:has(.homepage-marketplace)
+    .cinematic-card .cinematic-card-title {
+        font-size: 21px;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    body:has(.homepage-marketplace)
+    .agro-focus-links.cinematic-resources .cinematic-card {
+        transition: none;
+    }
+
+    body:has(.homepage-marketplace)
+    .agro-focus-links.cinematic-resources .cinematic-card:hover {
+        transform: none;
+    }
+}
