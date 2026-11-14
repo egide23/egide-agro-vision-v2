@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://egide23.github.io/egide-agro-vision-v2/sitemap.xml
