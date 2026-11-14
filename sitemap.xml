@@ -1,48 +1,38 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-    <url>
-        <loc>https://egide23.github.io/egide-agro-vision-v2/</loc>
-    </url>
-
-    <url>
-        <loc>https://egide23.github.io/egide-agro-vision-v2/agriculture.html</loc>
-    </url>
-
-    <url>
-        <loc>https://egide23.github.io/egide-agro-vision-v2/beans-farming.html</loc>
-    </url>
-
-    <url>
-        <loc>https://egide23.github.io/egide-agro-vision-v2/coffee-farming.html</loc>
-    </url>
-
-    <url>
-        <loc>https://egide23.github.io/egide-agro-vision-v2/contact.html</loc>
-    </url>
-
-    <url>
-        <loc>https://egide23.github.io/egide-agro-vision-v2/crop-production.html</loc>
-    </url>
-
-    <url>
-        <loc>https://egide23.github.io/egide-agro-vision-v2/gallery.html</loc>
-    </url>
-
-    <url>
-        <loc>https://egide23.github.io/egide-agro-vision-v2/maize-farming.html</loc>
-    </url>
-
-    <url>
-        <loc>https://egide23.github.io/egide-agro-vision-v2/projects.html</loc>
-    </url>
-
-    <url>
-        <loc>https://egide23.github.io/egide-agro-vision-v2/rice-farming.html</loc>
-    </url>
-
-    <url>
-        <loc>https://egide23.github.io/egide-agro-vision-v2/tomato-farming.html</loc>
-    </url>
-
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/about.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/agriculture.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/agro-market.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/animal-health.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/animal-housing.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/beans-farming.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/buy-animal.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/buy-crop.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/cattle-farming.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/chicken-farming.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/coffee-farming.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/contact.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/crop-production.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/duck-farming.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/gallery.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/goat-farming.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/goose-farming.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/guinea-fowl-farming.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/ideas.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/livestock-farming.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/maize-farming.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/pig-farming.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/poultry-farming.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/poultry-feeding.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/poultry-management.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/projects.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/rice-farming.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/ruminant-farming.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/sell-animal.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/sell-crop.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/sheep-farming.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/tomato-farming.html</loc></url>
+  <url><loc>https://egide23.github.io/egide-agro-vision-v2/turkey-farming.html</loc></url>
 </urlset>
